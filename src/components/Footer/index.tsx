@@ -19,18 +19,18 @@ export async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || ''
 
   return (
-    <footer className="text-sm text-neutral-500 dark:text-neutral-400">
+    <footer className="text-sm text-neutral-500 dark:text-neutral-400" role="contentinfo">
       <div className="container">
         <div className="flex w-full flex-col gap-6 border-t border-neutral-200 py-12 text-sm md:flex-row md:gap-12 dark:border-neutral-700">
           <div>
-            <Link className="flex items-center gap-2 text-black md:pt-1 dark:text-white" href="/">
-              <LogoIcon className="w-6" />
+            <Link className="flex items-center gap-2 text-black md:pt-1 dark:text-white" href="/" aria-label="Home">
+              <LogoIcon className="w-6" aria-hidden="true" />
               <span className="sr-only">{SITE_NAME}</span>
             </Link>
           </div>
           <Suspense
             fallback={
-              <div className="flex h-[188px] w-[200px] flex-col gap-2">
+              <div className="flex h-[188px] w-[200px] flex-col gap-2" aria-busy="true" aria-label="Loading navigation">
                 <div className={skeleton} />
                 <div className={skeleton} />
                 <div className={skeleton} />
@@ -42,7 +42,7 @@ export async function Footer() {
           >
             <FooterMenu menu={menu} />
           </Suspense>
-          <div className="md:ml-auto flex flex-col gap-4 items-end">
+          <div className="md:ml-auto flex flex-col gap-4 items-end" role="region" aria-label="Theme selector">
             <ThemeSelector />
           </div>
         </div>
@@ -53,10 +53,10 @@ export async function Footer() {
             &copy; {copyrightDate} {copyrightName}
             {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
           </p>
-          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
+          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" aria-hidden="true" />
           <p>Designed in Michigan</p>
           <p className="md:ml-auto">
-            <a className="text-black dark:text-white" href="https://payloadcms.com">
+            <a className="text-black dark:text-white" href="https://payloadcms.com" rel="noopener noreferrer" target="_blank">
               Crafted by Payload
             </a>
           </p>

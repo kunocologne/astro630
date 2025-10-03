@@ -56,7 +56,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <LivePreviewListener />
 
           <Header />
-          <main>
+          <main id="main-content" role="main">
             <AnimatedPage>
               {children}
             </AnimatedPage>
