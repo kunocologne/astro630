@@ -1,8 +1,8 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import type { Product, Variant } from '@/payload-types'
 
+import { AnimatedButton } from '@/components/animations'
 import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
 import clsx from 'clsx'
 import { useSearchParams } from 'next/navigation'
@@ -95,17 +95,18 @@ export function AddToCart({ product }: Props) {
   }, [selectedVariant, cart?.items, product])
 
   return (
-    <Button
+    <AnimatedButton
       aria-label="Add to cart"
-      variant={'outline'}
+      variant="outline"
       className={clsx({
         'hover:opacity-90': true,
       })}
       disabled={disabled}
       onClick={addToCart}
       type="submit"
+      showRipple={true}
     >
       Add To Cart
-    </Button>
+    </AnimatedButton>
   )
 }
