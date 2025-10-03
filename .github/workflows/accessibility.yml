@@ -1,0 +1,55 @@
+name: Accessibility Check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  accessibility:
+    name: Check WCAG 2.1 AA Compliance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run ESLint accessibility rules
+        run: bun run lint
+        continue-on-error: false
+
+      - name: Build application
+        run: bun run build
+        env:
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          NEXT_PUBLIC_SERVER_URL: http://localhost:3000
+
+      - name: Install Playwright
+        run: bunx playwright install --with-deps chromium
+
+      - name: Run accessibility tests
+        run: bun run test:e2e
+        env:
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-test-results
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 30
+
