@@ -48,7 +48,7 @@ export default buildConfig({
   collections: [Users, Pages, Categories, Media, Services, BlogPosts, Testimonials, PricingPlans, Tenants, Subscriptions],
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      connectionString: process.env.DATABASE_URI || process.env.DATABASE_URL || '',
     },
   }),
   editor: lexicalEditor({
