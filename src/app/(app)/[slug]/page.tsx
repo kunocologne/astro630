@@ -56,6 +56,13 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
     slug,
   })
 
+  if (!page) {
+    return {
+      title: 'Page Not Found',
+      description: 'The requested page could not be found.',
+    }
+  }
+
   return generateMeta({ doc: page })
 }
 
