@@ -5,6 +5,7 @@ import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
 import clsx from 'clsx'
 import { MinusIcon, PlusIcon } from 'lucide-react'
 import React, { useMemo } from 'react'
+import { toast } from 'sonner'
 
 export function EditItemQuantityButton({ type, item }: { item: CartItem; type: 'minus' | 'plus' }) {
   const { decrementItem, incrementItem } = useCart()
@@ -40,9 +41,9 @@ export function EditItemQuantityButton({ type, item }: { item: CartItem; type: '
         disabled={disabled}
         aria-label={type === 'plus' ? 'Increase item quantity' : 'Reduce item quantity'}
         className={clsx(
-          'ease hover:cursor-pointer flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80',
+          'ease hover:cursor-pointer flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 border border-border hover:border-primary/50 hover:bg-primary/5 focus:ring-2 focus:ring-primary/50 focus:ring-offset-2',
           {
-            'cursor-not-allowed': disabled,
+            'cursor-not-allowed opacity-50': disabled,
             'ml-auto': type === 'minus',
           },
         )}
@@ -51,9 +52,11 @@ export function EditItemQuantityButton({ type, item }: { item: CartItem; type: '
 
           if (item.id) {
             if (type === 'plus') {
-              incrementItem(item.id)
+              incrementItem(Number(item.id))
+              toast.success('Quantity increased')
             } else {
-              decrementItem(item.id)
+              decrementItem(Number(item.id))
+              toast.success('Quantity decreased')
             }
           }
         }}

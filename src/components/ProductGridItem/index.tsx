@@ -42,28 +42,44 @@ export const ProductGridItem: React.FC<Props> = ({ product, index = 0, isStagger
         isStaggered={isStaggered}
         className="h-full w-full"
       >
-        <Link className="relative inline-block h-full w-full group" href={`/products/${product.slug}`}>
-          {image ? (
-            <Media
-              className={clsx(
-                'relative aspect-square object-cover border rounded-2xl p-8 bg-primary-foreground',
-              )}
-              height={80}
-              imgClassName={clsx('h-full w-full object-cover rounded-2xl', {
-                'transition duration-300 ease-in-out group-hover:scale-102': true,
-              })}
-              resource={image}
-              width={80}
-            />
-          ) : null}
-
-          <div className="font-mono text-primary/50 group-hover:text-primary/100 flex justify-between items-center mt-4">
-            <div>{title}</div>
-
-            {typeof price === 'number' && (
-              <div className="">
-                <Price amount={price} />
+        <Link 
+          className="relative inline-block h-full w-full group overflow-hidden" 
+          href={`/products/${product.slug}`}
+        >
+          {/* Image Container - Refined */}
+          <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
+            {image ? (
+              <div className="relative aspect-square overflow-hidden">
+                <Media
+                  className="relative w-full h-full p-8"
+                  height={80}
+                  imgClassName={clsx(
+                    'h-full w-full object-contain transition-all duration-300 ease-out',
+                    'group-hover:scale-105'
+                  )}
+                  resource={image}
+                  width={80}
+                />
+                
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
+            ) : (
+              <div className="aspect-square bg-muted/30" />
+            )}
+          </div>
+
+          {/* Product Info - Refined Typography */}
+          <div className="mt-4 space-y-2">
+            <h3 className="font-semibold text-base tracking-tight group-hover:text-foreground/70 transition-colors line-clamp-2">
+              {title}
+            </h3>
+            
+            {/* Price */}
+            {typeof price === 'number' && (
+              <p className="text-sm text-muted-foreground">
+                <Price amount={price} as="span" />
+              </p>
             )}
           </div>
         </Link>

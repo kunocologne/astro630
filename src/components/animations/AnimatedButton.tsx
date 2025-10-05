@@ -74,6 +74,11 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   className = '',
   onClick,
   disabled,
+  onAnimationStart: _onAnimationStart,
+  onAnimationEnd: _onAnimationEnd,
+  onDrag: _onDrag,
+  onDragStart: _onDragStart,
+  onDragEnd: _onDragEnd,
   ...props
 }) => {
   const baseClasses = 'relative overflow-hidden rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2'
@@ -105,7 +110,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       whileTap={!disabled && !isLoading ? 'tap' : 'idle'}
       animate={isLoading ? 'loading' : 'idle'}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
-      onClick={handleClick}
+      onClick={handleClick as any}
       disabled={disabled || isLoading}
       // Performance optimizations
       style={{

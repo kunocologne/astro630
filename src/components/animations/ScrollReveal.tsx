@@ -127,7 +127,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
 }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { 
-    threshold, 
+    amount: threshold, 
     once,
     margin: '-50px 0px -50px 0px' // Start animation 50px before element comes into view
   })
@@ -179,7 +179,7 @@ export const ScrollRevealContainer: React.FC<{
   once?: boolean
 }> = ({ children, className = '', threshold = 0.1, once = true }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { threshold, once })
+  const isInView = useInView(ref, { amount: threshold, once })
 
   return (
     <motion.div

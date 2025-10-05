@@ -3,8 +3,9 @@
 import type { CartItem } from '@/components/Cart'
 import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
 import clsx from 'clsx'
-import { XIcon } from 'lucide-react'
+import { Trash2 } from 'lucide-react'
 import React from 'react'
+import { toast } from 'sonner'
 
 export function DeleteItemButton({ item }: { item: CartItem }) {
   const { removeItem } = useCart()
@@ -16,19 +17,22 @@ export function DeleteItemButton({ item }: { item: CartItem }) {
         aria-disabled={!itemId}
         aria-label="Remove cart item"
         className={clsx(
-          'ease hover:cursor-pointer flex h-[17px] w-[17px] items-center justify-center rounded-full bg-neutral-500 transition-all duration-200',
+          'ease hover:cursor-pointer flex h-[17px] w-[17px] items-center justify-center rounded-full bg-red-500 hover:bg-red-600 transition-all duration-200 focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:outline-none',
           {
-            'cursor-not-allowed px-0': !itemId,
+            'cursor-not-allowed px-0 opacity-50': !itemId,
           },
         )}
         disabled={!itemId}
         onClick={(e: React.FormEvent<HTMLButtonElement>) => {
           e.preventDefault()
-          if (itemId) removeItem(itemId)
+          if (itemId) {
+            removeItem(Number(itemId))
+            toast.success('Item removed from cart')
+          }
         }}
         type="button"
       >
-        <XIcon className="hover:text-accent-3 mx-[1px] h-4 w-4 text-white dark:text-black" />
+        <Trash2 className="h-3 w-3 text-white" />
       </button>
     </form>
   )

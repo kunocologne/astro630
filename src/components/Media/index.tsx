@@ -19,6 +19,7 @@ export const Media: React.FC<Props> = (props) => {
           }
         : {})}
     >
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       {isVideo ? <Video {...props} /> : <Image {...props} />}
     </Tag>
   )

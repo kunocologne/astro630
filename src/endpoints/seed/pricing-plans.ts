@@ -1,0 +1,76 @@
+export const pricingPlansData = [
+  {
+    name: 'Starter',
+    price: '$29',
+    description: 'Perfect for small projects',
+    features: [
+      { feature: 'Up to 100 products' },
+      { feature: 'Basic analytics' },
+      { feature: 'Email support' },
+      { feature: '1 team member' },
+    ],
+    popular: false,
+    ctaText: 'Get Started',
+    ctaUrl: '/contact',
+    order: 1,
+    billing: {
+      interval: 'monthly',
+      trialDays: 14,
+    },
+    limits: {
+      products: 100,
+      users: 1,
+      storage: '5GB',
+    },
+  },
+  {
+    name: 'Pro',
+    price: '$99',
+    description: 'For growing businesses',
+    features: [
+      { feature: 'Unlimited products' },
+      { feature: 'Advanced analytics' },
+      { feature: 'Priority support' },
+      { feature: '10 team members' },
+      { feature: 'Custom domain' },
+    ],
+    popular: true,
+    ctaText: 'Get Started',
+    ctaUrl: '/contact',
+    order: 2,
+    billing: {
+      interval: 'monthly',
+      trialDays: 14,
+    },
+    limits: {
+      products: null,
+      users: 10,
+      storage: '50GB',
+    },
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom',
+    description: 'For large organizations',
+    features: [
+      { feature: 'Everything in Pro' },
+      { feature: 'Dedicated support' },
+      { feature: 'Custom integrations' },
+      { feature: 'Unlimited team members' },
+      { feature: 'SLA guarantee' },
+    ],
+    popular: false,
+    ctaText: 'Contact Sales',
+    ctaUrl: '/contact',
+    order: 3,
+    billing: {
+      interval: 'custom',
+      trialDays: 30,
+    },
+    limits: {
+      products: null,
+      users: null,
+      storage: 'Unlimited',
+    },
+  },
+]

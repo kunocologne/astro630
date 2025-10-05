@@ -45,7 +45,12 @@ export function AddToCart({ product }: Props) {
         product: product.id,
         variant: selectedVariant?.id ?? undefined,
       }).then(() => {
-        toast.success('Item added to cart.')
+        const productName = product.title
+        const variantName = selectedVariant?.title ? ` (${selectedVariant.title})` : ''
+        toast.success(`${productName}${variantName} added to cart!`)
+      }).catch((error) => {
+        toast.error('Failed to add item to cart. Please try again.')
+        console.error('Add to cart error:', error)
       })
     },
     [addItem, product, selectedVariant],
@@ -97,7 +102,7 @@ export function AddToCart({ product }: Props) {
   return (
     <AnimatedButton
       aria-label="Add to cart"
-      variant="outline"
+      variant="secondary"
       className={clsx({
         'hover:opacity-90': true,
       })}

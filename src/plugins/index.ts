@@ -1,20 +1,21 @@
+import { ecommercePlugin } from '@payloadcms/plugin-ecommerce'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { seoPlugin } from '@payloadcms/plugin-seo'
-import { Plugin } from 'payload'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
-import { ecommercePlugin } from '@payloadcms/plugin-ecommerce'
+import { Plugin } from 'payload'
 
 import { stripeAdapter } from '@payloadcms/plugin-ecommerce/payments/stripe'
 
-import { Page, Product } from '@/payload-types'
-import { getServerSideURL } from '@/utilities/getURL'
-import { ProductsCollection } from '@/collections/Products'
-import { adminOrCustomerOwner } from '@/access/adminOrCustomerOwner'
-import { adminOrPublishedStatus } from '@/access/adminOrPublishedStatus'
 import { adminOnly } from '@/access/adminOnly'
 import { adminOnlyFieldAccess } from '@/access/adminOnlyFieldAccess'
+import { adminOrCustomerOwner } from '@/access/adminOrCustomerOwner'
+import { adminOrPublishedStatus } from '@/access/adminOrPublishedStatus'
 import { customerOnlyFieldAccess } from '@/access/customerOnlyFieldAccess'
+import { publicAccess } from '@/access/publicAccess'
+import { ProductsCollection } from '@/collections/Products'
+import { Page, Product } from '@/payload-types'
+import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Ecommerce Template` : 'Payload Ecommerce Template'
@@ -72,6 +73,33 @@ export const plugins: Plugin[] = [
       adminOrCustomerOwner,
       adminOrPublishedStatus,
       customerOnlyFieldAccess,
+      publicAccess, // Allow public access to cart operations
+    },
+    collections: {
+      carts: {
+        access: {
+          create: publicAccess,
+          read: publicAccess,
+          update: publicAccess,
+          delete: publicAccess,
+        },
+      },
+      orders: {
+        access: {
+          create: publicAccess,
+          read: adminOrCustomerOwner,
+          update: adminOnly,
+          delete: adminOnly,
+        },
+      },
+      payments: {
+        access: {
+          create: publicAccess,
+          read: adminOrCustomerOwner,
+          update: adminOnly,
+          delete: adminOnly,
+        },
+      },
     },
     customers: {
       slug: 'users',

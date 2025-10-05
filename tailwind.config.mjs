@@ -105,6 +105,16 @@ export default {
         mono: ['var(--font-geist-mono)'],
         sans: ['var(--font-geist-sans)'],
       },
+      scale: {
+        '102': '1.02',
+        '103': '1.03',
+      },
+      rotate: {
+        '3': '3deg',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { useInView } from 'react-intersection-observer'
 
@@ -74,7 +74,7 @@ export const InfiniteScroll = <T,>({
     >
       <div className="text-center">
         <div className="w-12 h-0.5 bg-gray-300 mx-auto mb-2" />
-        <p>You've reached the end</p>
+        <p>You&apos;ve reached the end</p>
       </div>
     </motion.div>
   )

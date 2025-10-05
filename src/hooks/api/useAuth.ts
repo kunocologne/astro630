@@ -116,7 +116,7 @@ const forgotPassword = async (email: string): Promise<void> => {
   }
 }
 
-const resetPassword = async (token: string, password: string): Promise<void> => {
+const resetPassword = async ({ token, password }: { token: string; password: string }): Promise<void> => {
   const response = await fetch('/api/users/reset-password', {
     method: 'POST',
     headers: {

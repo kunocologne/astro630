@@ -23,8 +23,8 @@ const pageVariants: Variants = {
 }
 
 const pageTransition = {
-  type: 'tween',
-  ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smooth motion
+  type: 'tween' as const,
+  ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], // Custom cubic-bezier for smooth motion
   duration: 0.4,
 }
 

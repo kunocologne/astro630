@@ -5,8 +5,8 @@ import type { Product } from '@/payload-types'
 
 import { createUrl } from '@/utilities/createUrl'
 import clsx from 'clsx'
+import { CheckCircle2 } from 'lucide-react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import React from 'react'
 
 export function VariantSelector({ product }: { product: Product }) {
   const router = useRouter()
@@ -32,10 +32,17 @@ export function VariantSelector({ product }: { product: Product }) {
     }
 
     return (
-      <dl className="" key={type.id}>
-        <dt className="mb-4 text-sm">{type.label}</dt>
-        <dd className="flex flex-wrap gap-3">
-          <React.Fragment>
+      <div key={type.id} className="space-y-4">
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground" htmlFor={`variant-${type.name}`}>
+            {type.label}
+          </label>
+          <div 
+            id={`variant-${type.name}`}
+            role="radiogroup" 
+            aria-label={`Select ${type.label}`}
+            className="flex flex-wrap gap-2"
+          >
             {options?.map((option) => {
               if (!option || typeof option !== 'object') {
                 return <></>
@@ -96,27 +103,52 @@ export function VariantSelector({ product }: { product: Product }) {
 
               return (
                 <Button
-                  variant={'ghost'}
-                  aria-disabled={!isAvailableForSale}
-                  className={clsx('px-2', {
-                    'bg-primary/5 text-primary': isActive,
-                  })}
-                  disabled={!isAvailableForSale}
                   key={option.id}
+                  variant="outline"
+                  role="radio"
+                  aria-checked={isActive}
+                  aria-disabled={!isAvailableForSale}
+                  aria-label={`${option.label} ${!isAvailableForSale ? '(Out of Stock)' : ''}`}
+                  className={clsx(
+                    'relative h-12 px-4 py-2 rounded-lg border-2 transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-primary/50',
+                    {
+                      // Active state - selected option
+                      'border-primary bg-primary/5 text-primary shadow-sm': isActive && isAvailableForSale,
+                      // Available but not selected
+                      'border-border hover:border-primary/50 hover:bg-primary/2 text-foreground': !isActive && isAvailableForSale,
+                      // Out of stock
+                      'border-muted bg-muted/50 text-muted-foreground cursor-not-allowed opacity-60': !isAvailableForSale,
+                    }
+                  )}
+                  disabled={!isAvailableForSale}
                   onClick={() => {
-                    router.replace(`${optionUrl}`, {
-                      scroll: false,
-                    })
+                    if (isAvailableForSale) {
+                      router.replace(`${optionUrl}`, {
+                        scroll: false,
+                      })
+                    }
                   }}
-                  title={`${option.label} ${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      if (isAvailableForSale) {
+                        router.replace(`${optionUrl}`, {
+                          scroll: false,
+                        })
+                      }
+                    }
+                  }}
                 >
-                  {option.label}
+                  <span className="font-medium">{option.label}</span>
+                  {isActive && isAvailableForSale && (
+                    <CheckCircle2 className="absolute top-1 right-1 w-4 h-4 text-primary" />
+                  )}
                 </Button>
               )
             })}
-          </React.Fragment>
-        </dd>
-      </dl>
+          </div>
+        </div>
+      </div>
     )
   })
 }

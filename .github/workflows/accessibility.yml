@@ -30,8 +30,8 @@ jobs:
       - name: Build application
         run: bun run build
         env:
-          DATABASE_URI: ${{ secrets.DATABASE_URI || 'postgresql://localhost/test' }}
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET || 'test-secret-key' }}
+          DATABASE_URI: postgresql://localhost/test
+          PAYLOAD_SECRET: test-secret-key-for-ci-only
           NEXT_PUBLIC_SERVER_URL: http://localhost:3000
 
       - name: Install Playwright
@@ -40,8 +40,8 @@ jobs:
       - name: Run accessibility tests
         run: bun run test:e2e
         env:
-          DATABASE_URI: ${{ secrets.DATABASE_URI || 'postgresql://localhost/test' }}
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET || 'test-secret-key' }}
+          DATABASE_URI: postgresql://localhost/test
+          PAYLOAD_SECRET: test-secret-key-for-ci-only
 
       - name: Upload test results
         if: always()

@@ -1,21 +1,29 @@
-import type { CollectionSlug, GlobalSlug, Payload, PayloadRequest, File } from 'payload'
+import type { CollectionSlug, File, GlobalSlug, Payload, PayloadRequest } from 'payload'
 
+import { Address, Transaction, VariantOption } from '@/payload-types'
+import { blogPostsData } from './blog-posts'
 import { contactFormData } from './contact-form'
 import { contactPageData } from './contact-page'
-import { productHatData } from './product-hat'
-import { productTshirtData, productTshirtVariant } from './product-tshirt'
 import { homePageData } from './home'
 import { imageHatData } from './image-hat'
+import { imageHero1Data } from './image-hero-1'
 import { imageTshirtBlackData } from './image-tshirt-black'
 import { imageTshirtWhiteData } from './image-tshirt-white'
-import { imageHero1Data } from './image-hero-1'
-import { Address, Transaction, VariantOption } from '@/payload-types'
+import { pricingPlansData } from './pricing-plans'
+import { productHatData } from './product-hat'
+import { productTshirtData, productTshirtVariant } from './product-tshirt'
+import { servicesData } from './services'
+import { testimonialsData } from './testimonials'
 
 const collections: CollectionSlug[] = [
   'categories',
   'media',
   'pages',
   'products',
+  'services',
+  'blogPosts',
+  'testimonials',
+  'pricingPlans',
   'forms',
   'form-submissions',
   'variants',
@@ -515,6 +523,66 @@ export const seed = async ({
       transactions: [succeededTransaction.id],
     },
   })
+
+  payload.logger.info(`— Seeding services...`)
+
+  const { docs: existingServices } = await payload.find({
+    collection: 'services',
+  })
+
+  if (existingServices.length === 0) {
+    for (const service of servicesData) {
+      await payload.create({
+        collection: 'services',
+        data: service,
+      })
+    }
+  }
+
+  payload.logger.info(`— Seeding blog posts...`)
+
+  const { docs: existingBlogPosts } = await payload.find({
+    collection: 'blogPosts',
+  })
+
+  if (existingBlogPosts.length === 0) {
+    for (const blogPost of blogPostsData) {
+      await payload.create({
+        collection: 'blogPosts',
+        data: blogPost,
+      })
+    }
+  }
+
+  payload.logger.info(`— Seeding testimonials...`)
+
+  const { docs: existingTestimonials } = await payload.find({
+    collection: 'testimonials',
+  })
+
+  if (existingTestimonials.length === 0) {
+    for (const testimonial of testimonialsData) {
+      await payload.create({
+        collection: 'testimonials',
+        data: testimonial,
+      })
+    }
+  }
+
+  payload.logger.info(`— Seeding pricing plans...`)
+
+  const { docs: existingPricingPlans } = await payload.find({
+    collection: 'pricingPlans',
+  })
+
+  if (existingPricingPlans.length === 0) {
+    for (const pricingPlan of pricingPlansData) {
+      await payload.create({
+        collection: 'pricingPlans',
+        data: pricingPlan,
+      })
+    }
+  }
 
   payload.logger.info(`— Seeding globals...`)
 

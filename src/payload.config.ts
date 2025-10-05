@@ -16,9 +16,15 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
+import { BlogPosts } from '@/collections/BlogPosts'
 import { Categories } from '@/collections/Categories'
 import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
+import { PricingPlans } from '@/collections/PricingPlans'
+import { Services } from '@/collections/Services'
+import { Subscriptions } from '@/collections/Subscriptions'
+import { Tenants } from '@/collections/Tenants'
+import { Testimonials } from '@/collections/Testimonials'
 import { Users } from '@/collections/Users'
 import { Footer } from '@/globals/Footer'
 import { Header } from '@/globals/Header'
@@ -39,7 +45,7 @@ export default buildConfig({
     },
     user: Users.slug,
   },
-  collections: [Users, Pages, Categories, Media],
+  collections: [Users, Pages, Categories, Media, Services, BlogPosts, Testimonials, PricingPlans, Tenants, Subscriptions],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',

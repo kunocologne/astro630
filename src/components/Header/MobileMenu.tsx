@@ -2,7 +2,6 @@
 
 import type { Header } from '@/payload-types'
 
-import { CMSLink } from '@/components/Link'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -13,14 +12,23 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { useAuth } from '@/providers/Auth'
+import { cn } from '@/utilities/cn'
 import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
   menu: Header['navItems']
 }
+
+const navigationItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Shop', href: '/shop' },
+]
 
 export function MobileMenu({ menu }: Props) {
   const { user } = useAuth()
@@ -47,60 +55,97 @@ export function MobileMenu({ menu }: Props) {
 
   return (
     <Sheet onOpenChange={setIsOpen} open={isOpen}>
-      <SheetTrigger className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:bg-black dark:text-white">
-        <MenuIcon className="h-4" />
+      <SheetTrigger className="flex h-9 w-9 items-center justify-center text-foreground hover:bg-muted/50 rounded-lg transition-colors">
+        <MenuIcon className="h-5 w-5" />
+        <span className="sr-only">Open menu</span>
       </SheetTrigger>
 
-      <SheetContent side="left" className="px-4">
-        <SheetHeader className="px-0 pt-4 pb-0">
-          <SheetTitle>My Store</SheetTitle>
-
-          <SheetDescription />
+      <SheetContent side="left" className="px-6 bg-background/95 backdrop-blur-xl border-border/50">
+        <SheetHeader className="px-0 pt-6 pb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-orange-500 flex-shrink-0" />
+            <SheetTitle className="text-xl font-semibold text-foreground">Store</SheetTitle>
+          </div>
+          <SheetDescription className="text-muted-foreground">
+            Navigate through our store
+          </SheetDescription>
         </SheetHeader>
 
-        <div className="py-4">
-          {menu?.length ? (
-            <ul className="flex w-full flex-col">
-              {menu.map((item) => (
-                <li className="py-2" key={item.id}>
-                  <CMSLink {...item.link} appearance="link" />
+        <div className="py-6">
+          <ul className="flex w-full flex-col gap-2">
+            {navigationItems.map((item) => {
+              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
+              
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      'block py-3 px-4 rounded-xl text-base font-medium transition-all duration-200',
+                      isActive 
+                        ? 'bg-primary text-primary-foreground shadow-sm' 
+                        : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+                    )}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
-              ))}
-            </ul>
-          ) : null}
+              )
+            })}
+          </ul>
+          
+          {/* Contact Button */}
+          <div className="mt-8 pt-6 border-t border-border/50">
+            <Button asChild className="w-full" variant="outline">
+              <Link href="/contact">Contact Us</Link>
+            </Button>
+          </div>
         </div>
 
         {user ? (
-          <div className="mt-4">
-            <h2 className="text-xl mb-4">My account</h2>
-            <hr className="my-2" />
+          <div className="mt-8 pt-6 border-t border-border/50">
+            <h2 className="text-lg font-semibold mb-4 text-foreground">My Account</h2>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link href="/orders">Orders</Link>
+                <Link 
+                  href="/orders" 
+                  className="block py-2 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  Orders
+                </Link>
               </li>
               <li>
-                <Link href="/account/addresses">Addresses</Link>
+                <Link 
+                  href="/account/addresses" 
+                  className="block py-2 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  Addresses
+                </Link>
               </li>
               <li>
-                <Link href="/account">Manage account</Link>
+                <Link 
+                  href="/account" 
+                  className="block py-2 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                >
+                  Manage Account
+                </Link>
               </li>
-              <li className="mt-6">
-                <Button asChild variant="outline">
+              <li className="mt-4">
+                <Button asChild variant="outline" className="w-full">
                   <Link href="/logout">Log out</Link>
                 </Button>
               </li>
             </ul>
           </div>
         ) : (
-          <div>
-            <h2 className="text-xl mb-4">My account</h2>
-            <div className="flex items-center gap-2 mt-4">
-              <Button asChild className="w-full" variant="outline">
+          <div className="mt-8 pt-6 border-t border-border/50">
+            <h2 className="text-lg font-semibold mb-4 text-foreground">My Account</h2>
+            <div className="space-y-3">
+              <Button asChild variant="outline" className="w-full">
                 <Link href="/login">Log in</Link>
               </Button>
-              <span>or</span>
               <Button asChild className="w-full">
-                <Link href="/create-account">Create an account</Link>
+                <Link href="/create-account">Create Account</Link>
               </Button>
             </div>
           </div>

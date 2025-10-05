@@ -65,7 +65,7 @@ export const AnimatedCard: React.FC<AnimatedCardProps> = ({
   isStaggered = false,
 }) => {
   const cardTransition = {
-    type: 'spring',
+    type: 'spring' as const,
     stiffness: 260,
     damping: 20,
     delay: isStaggered ? index * 0.1 + delay : delay,

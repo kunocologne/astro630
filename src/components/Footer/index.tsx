@@ -1,11 +1,11 @@
 import type { Footer } from '@/payload-types'
 
 import { FooterMenu } from '@/components/Footer/menu'
+import { LogoIcon } from '@/components/icons/logo'
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import Link from 'next/link'
-import React, { Suspense } from 'react'
-import { LogoIcon } from '@/components/icons/logo'
+import { Suspense } from 'react'
 
 const { COMPANY_NAME, SITE_NAME } = process.env
 
@@ -19,15 +19,28 @@ export async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || ''
 
   return (
-    <footer className="text-sm text-neutral-500 dark:text-neutral-400" role="contentinfo">
+    <footer className="mt-24 glass border-t border-border/50" role="contentinfo">
       <div className="container">
-        <div className="flex w-full flex-col gap-6 border-t border-neutral-200 py-12 text-sm md:flex-row md:gap-12 dark:border-neutral-700">
-          <div>
-            <Link className="flex items-center gap-2 text-black md:pt-1 dark:text-white" href="/" aria-label="Home">
-              <LogoIcon className="w-6" aria-hidden="true" />
-              <span className="sr-only">{SITE_NAME}</span>
+        {/* Main Footer Content */}
+        <div className="flex w-full flex-col gap-12 py-16 md:flex-row md:gap-16">
+          {/* Logo & Brand */}
+          <div className="space-y-6">
+            <Link 
+              className="flex items-center gap-3 group" 
+              href="/" 
+              aria-label="Home"
+            >
+              <LogoIcon className="w-7 h-auto transition-transform group-hover:scale-105" aria-hidden="true" />
+              <span className="font-semibold text-xl tracking-tight">
+                Store
+              </span>
             </Link>
+            <p className="text-sm text-muted-foreground max-w-xs">
+              Premium products. Refined design. Quiet confidence.
+            </p>
           </div>
+
+          {/* Navigation */}
           <Suspense
             fallback={
               <div className="flex h-[188px] w-[200px] flex-col gap-2" aria-busy="true" aria-label="Loading navigation">
@@ -42,24 +55,35 @@ export async function Footer() {
           >
             <FooterMenu menu={menu} />
           </Suspense>
-          <div className="md:ml-auto flex flex-col gap-4 items-end" role="region" aria-label="Theme selector">
+
+          {/* Theme Selector */}
+          <div className="md:ml-auto flex flex-col gap-6 items-start md:items-end" role="region" aria-label="Theme selector">
             <ThemeSelector />
           </div>
         </div>
-      </div>
-      <div className="border-t border-neutral-200 py-6 text-sm dark:border-neutral-700">
-        <div className="container mx-auto flex w-full flex-col items-center gap-1 md:flex-row md:gap-0">
-          <p>
-            &copy; {copyrightDate} {copyrightName}
-            {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
-          </p>
-          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" aria-hidden="true" />
-          <p>Designed in Michigan</p>
-          <p className="md:ml-auto">
-            <a className="text-black dark:text-white" href="https://payloadcms.com" rel="noopener noreferrer" target="_blank">
-              Crafted by Payload
-            </a>
-          </p>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-border/50 py-8">
+          <div className="flex w-full flex-col items-center gap-4 text-sm text-muted-foreground md:flex-row md:gap-0">
+            <p className="font-medium">
+              &copy; {copyrightDate} {copyrightName}
+              {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
+            </p>
+            <div className="flex items-center gap-2 md:mx-4">
+              <span className="hidden md:block h-4 w-px bg-border" aria-hidden="true" />
+              <p>Designed in Michigan</p>
+            </div>
+            <p className="md:ml-auto">
+              <a 
+                className="font-bold hover:text-accent transition-colors" 
+                href="https://payloadcms.com" 
+                rel="noopener noreferrer" 
+                target="_blank"
+              >
+                Crafted by Payload
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

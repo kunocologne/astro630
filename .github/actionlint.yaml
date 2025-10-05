@@ -1,0 +1,10 @@
+self-hosted-runner:
+  # Suppress warnings about potentially undefined secrets
+  labels: []
+
+config-variables:
+  # Allow optional secrets
+  secrets:
+    - DATABASE_URI
+    - PAYLOAD_SECRET
+

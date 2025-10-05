@@ -1,12 +1,21 @@
 {
   "name": "juno",
   "version": "1.0.0",
-  "description": "Ecommerce template for Payload",
+  "description": "Premium Next.js 15 + Payload CMS E-Commerce Boilerplate",
   "license": "MIT",
+  "keywords": ["nextjs", "payload-cms", "ecommerce", "boilerplate", "typescript", "tailwind"],
+  "author": "JUNO Team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/juno.git"
+  },
+  "homepage": "https://juno.dev",
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "check": "bun run typecheck && bun run lint",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "dev:safe": "bun run check && bun run dev",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && bun run build && bun run start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
@@ -21,6 +30,7 @@
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" bun exec playwright test tests/e2e/",
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "test:a11y": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" bun exec playwright test tests/accessibility.test.tsx",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf .next node_modules bun.lock .DS_Store && find . -name '.DS_Store' -delete"
   },
   "dependencies": {

@@ -125,7 +125,7 @@ test.describe('Accessibility Tests', () => {
           rules: {
             'link-name': { enabled: true },
           },
-        }).then((results) => {
+        }).then((results: any) => {
           resolve(results.violations)
         })
       })
@@ -145,7 +145,7 @@ test.describe('Accessibility Tests', () => {
           rules: {
             label: { enabled: true },
           },
-        }).then((results) => {
+        }).then((results: any) => {
           resolve(results.violations)
         })
       })
@@ -165,7 +165,7 @@ test.describe('Accessibility Tests', () => {
           rules: {
             'color-contrast': { enabled: true },
           },
-        }).then((results) => {
+        }).then((results: any) => {
           resolve(results.violations)
         })
       })
@@ -229,7 +229,7 @@ test.describe('Accessibility Tests', () => {
             'aria-valid-attr': { enabled: true },
             'aria-valid-attr-value': { enabled: true },
           },
-        }).then((results) => {
+        }).then((results: any) => {
           resolve(results.violations)
         })
       })
@@ -249,7 +249,7 @@ test.describe('Accessibility Tests', () => {
           rules: {
             'heading-order': { enabled: true },
           },
-        }).then((results) => {
+        }).then((results: any) => {
           resolve(results.violations)
         })
       })
