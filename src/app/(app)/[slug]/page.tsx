@@ -12,37 +12,9 @@ import type { Page } from '@/payload-types'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  // Skip database connection during build to prevent build failures
-  if (process.env.NODE_ENV === 'production' && !process.env.DATABASE_URI) {
-    return []
-  }
-
-  try {
-    const payload = await getPayload({ config: configPromise })
-    const pages = await payload.find({
-      collection: 'pages',
-      draft: false,
-      limit: 1000,
-      overrideAccess: false,
-      pagination: false,
-      select: {
-        slug: true,
-      },
-    })
-
-    const params = pages.docs
-      ?.filter((doc) => {
-        return doc.slug !== 'home'
-      })
-      .map(({ slug }) => {
-        return { slug }
-      })
-
-    return params || []
-  } catch (error) {
-    console.warn('Failed to generate static params:', error)
-    return []
-  }
+  // Return empty array to prevent build failures
+  // Pages will be generated on-demand at runtime
+  return []
 }
 
 type Args = {
