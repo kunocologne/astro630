@@ -534,7 +534,9 @@ export const seed = async ({
     for (const service of servicesData) {
       await payload.create({
         collection: 'services',
-        data: service,
+        data: {
+          ...service,
+        } as any, // Type assertion to bypass strict typing for seed data
       })
     }
   }
@@ -549,7 +551,7 @@ export const seed = async ({
     for (const blogPost of blogPostsData) {
       await payload.create({
         collection: 'blogPosts',
-        data: blogPost,
+        data: blogPost as any, // Type assertion to bypass strict typing for seed data
       })
     }
   }
@@ -564,7 +566,7 @@ export const seed = async ({
     for (const testimonial of testimonialsData) {
       await payload.create({
         collection: 'testimonials',
-        data: testimonial,
+        data: testimonial as any, // Type assertion to bypass strict typing for seed data
       })
     }
   }
@@ -579,7 +581,7 @@ export const seed = async ({
     for (const pricingPlan of pricingPlansData) {
       await payload.create({
         collection: 'pricingPlans',
-        data: pricingPlan,
+        data: pricingPlan as any, // Type assertion to bypass strict typing for seed data
       })
     }
   }

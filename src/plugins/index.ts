@@ -75,32 +75,6 @@ export const plugins: Plugin[] = [
       customerOnlyFieldAccess,
       publicAccess, // Allow public access to cart operations
     },
-    collections: {
-      carts: {
-        access: {
-          create: publicAccess,
-          read: publicAccess,
-          update: publicAccess,
-          delete: publicAccess,
-        },
-      },
-      orders: {
-        access: {
-          create: publicAccess,
-          read: adminOrCustomerOwner,
-          update: adminOnly,
-          delete: adminOnly,
-        },
-      },
-      payments: {
-        access: {
-          create: publicAccess,
-          read: adminOrCustomerOwner,
-          update: adminOnly,
-          delete: adminOnly,
-        },
-      },
-    },
     customers: {
       slug: 'users',
     },

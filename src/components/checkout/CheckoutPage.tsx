@@ -357,7 +357,7 @@ export const CheckoutPage: React.FC = () => {
 
               {/* Stripe Elements */}
               <Suspense fallback={<div><LoadingSpinner /></div>}>
-                {paymentData && paymentData?.['clientSecret'] && typeof paymentData['clientSecret'] === 'string' && (
+                {paymentData && paymentData?.['clientSecret'] && typeof paymentData['clientSecret'] === 'string' ? (
                   <div className="mt-6">
                     {error && (
                       <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
@@ -397,7 +397,7 @@ export const CheckoutPage: React.FC = () => {
                       Cancel payment
                     </Button>
                   </div>
-                )}
+                ) : null}
               </Suspense>
 
               {/* Footer */}
