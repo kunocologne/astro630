@@ -40,9 +40,17 @@ export function FilterItemDropdown({ list }: { list: ListItem[] }) {
   return (
     <div className="relative" ref={ref}>
       <div
-        className="flex w-full items-center justify-between rounded border border-black/30 px-4 py-2 text-sm dark:border-white/30"
+        className="flex w-full items-center justify-between rounded border border-black/30 px-4 py-2 text-sm dark:border-white/30 cursor-pointer"
+        role="button"
+        tabIndex={0}
         onClick={() => {
           setOpenSelect(!openSelect)
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            setOpenSelect(!openSelect)
+          }
         }}
       >
         <div>{active}</div>

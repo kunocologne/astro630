@@ -340,7 +340,7 @@ export default function HomePage() {
                 avatar: "SJ"
               },
               {
-                quote: "Professional, responsive, and results-driven. They've become our go-to partner for all digital initiatives.",
+                quote: &quot;Professional, responsive, and results-driven. They&apos;ve become our go-to partner for all digital initiatives.&quot;,
                 author: "David Lee",
                 role: "VP of Operations",
                 avatar: "DL"
@@ -378,10 +378,10 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight leading-tight mb-6">
-              Let's build something great together
+              Let&apos;s build something great together
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Ready to take your digital presence to the next level? Get in touch and let's discuss your project.
+              Ready to take your digital presence to the next level? Get in touch and let&apos;s discuss your project.
             </p>
           </div>
 
@@ -435,24 +435,27 @@ export default function HomePage() {
             <div className="rounded-2xl border border-white/[0.1] bg-gradient-to-br from-white/[0.03] to-transparent p-8">
               <form className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
                   <input
+                    id="name"
                     type="text"
                     className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.1] focus:border-white/[0.3] focus:outline-none transition-colors"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
                   <input
+                    id="email"
                     type="email"
                     className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.1] focus:border-white/[0.3] focus:outline-none transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
                   <textarea
+                    id="message"
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.1] focus:border-white/[0.3] focus:outline-none transition-colors resize-none"
                     placeholder="Tell us about your project..."
