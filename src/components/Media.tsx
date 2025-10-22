@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
 import Image from 'next/image'
+import React from 'react'
 
 interface MediaProps {
   media?: {
@@ -11,7 +11,10 @@ interface MediaProps {
     height?: number
     filename?: string
   }
+  resource?: any
+  src?: any
   className?: string
+  imgClassName?: string
   priority?: boolean
   fill?: boolean
   sizes?: string
@@ -19,7 +22,10 @@ interface MediaProps {
 
 export const Media: React.FC<MediaProps> = ({ 
   media, 
+  resource,
+  src,
   className = '', 
+  imgClassName = '',
   priority = false,
   fill = false,
   sizes = '100vw'
@@ -45,7 +51,7 @@ export const Media: React.FC<MediaProps> = ({
       <Image
         src={media.url}
         alt={media.alt || media.filename || 'Media'}
-        className={className}
+        className={imgClassName || className}
         priority={priority}
         sizes={sizes}
         fill
@@ -58,7 +64,7 @@ export const Media: React.FC<MediaProps> = ({
     <Image
       src={media.url}
       alt={media.alt || media.filename || 'Media'}
-      className={className}
+      className={imgClassName || className}
       priority={priority}
       sizes={sizes}
       width={media.width || 800}

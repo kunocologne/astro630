@@ -4,10 +4,13 @@ import React from 'react'
 
 interface RichTextProps {
   content?: any
+  data?: any
   className?: string
+  enableGutter?: boolean
+  enableProse?: boolean
 }
 
-export const RichText: React.FC<RichTextProps> = ({ content, className = '' }) => {
+export const RichText: React.FC<RichTextProps> = ({ content, data, className = '', enableGutter, enableProse }) => {
   if (!content) {
     return null
   }

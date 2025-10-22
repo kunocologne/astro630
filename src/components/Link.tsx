@@ -1,14 +1,21 @@
 'use client'
 
-import React from 'react'
 import Link from 'next/link'
+import React from 'react'
 
 interface CMSLinkProps {
   href?: string
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
   target?: string
   rel?: string
+  size?: string
+  appearance?: string | null
+  type?: string | null
+  newTab?: boolean | null
+  reference?: any
+  url?: string | null
+  label?: string
 }
 
 export const CMSLink: React.FC<CMSLinkProps> = ({ 
