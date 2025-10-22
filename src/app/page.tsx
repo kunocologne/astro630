@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Sparkles, Zap, Star } from 'lucide-react'
 
 export default function HomePage() {
@@ -217,39 +217,40 @@ function TemplateCard({ title, description, href, gradient, icon, features }: {
 }
 
 function FloatingElements() {
+  const icons = [Zap, Star, Sparkles]
+  
   return (
     <>
       {/* Floating Icons */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-white/20"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 10 + Math.random() * 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          {[Zap, Star, Sparkles][i % 3] && (
+      {[...Array(6)].map((_, i) => {
+        const IconComponent = icons[i % 3]
+        return (
+          <motion.div
+            key={i}
+            className="absolute text-white/20"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 10 + Math.random() * 10,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
-              {[Zap, Star, Sparkles][i % 3] && (
-                <Zap className="w-6 h-6" />
-              )}
+              <IconComponent className="w-6 h-6" />
             </motion.div>
-          )}
-        </motion.div>
-      ))}
+          </motion.div>
+        )
+      })}
     </>
   )
 }
