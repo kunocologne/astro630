@@ -6,7 +6,7 @@ import { Message } from '@/components/Message'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useAuth } from '@/providers/Auth'
+import { useAuth } from '@/providers/Auth/index'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useCallback, useRef } from 'react'
@@ -34,7 +34,7 @@ export const LoginForm: React.FC = () => {
   const onSubmit = useCallback(
     async (data: FormData) => {
       try {
-        await login(data)
+        await login({ email: data.email, password: data.password })
         if (redirect?.current) router.push(redirect.current)
         else router.push('/account')
       } catch (_) {

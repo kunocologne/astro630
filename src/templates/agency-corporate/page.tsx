@@ -52,7 +52,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-[clamp(2.5rem,7vw,5rem)] font-bold tracking-tight leading-[1.1] mb-6">
-            {{TAGLINE}}
+            Transforming Ideas Into Digital Excellence
           </h1>
 
           <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -61,7 +61,7 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <MagneticButton strength={0.3}>
+            <MagneticButton intensity={0.3}>
               <Link
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-foreground text-background text-lg font-semibold hover:opacity-90 transition-all"
@@ -70,7 +70,7 @@ export default function HomePage() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </MagneticButton>
-            <MagneticButton strength={0.2}>
+            <MagneticButton intensity={0.2}>
               <Link
                 href="#work"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/[0.15] bg-white/[0.05] backdrop-blur-xl text-lg font-semibold hover:bg-white/[0.1] transition-all"

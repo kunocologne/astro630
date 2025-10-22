@@ -18,6 +18,8 @@ interface MediaProps {
   priority?: boolean
   fill?: boolean
   sizes?: string
+  width?: number
+  height?: number
 }
 
 export const Media: React.FC<MediaProps> = ({ 
@@ -28,7 +30,9 @@ export const Media: React.FC<MediaProps> = ({
   imgClassName = '',
   priority = false,
   fill = false,
-  sizes = '100vw'
+  sizes = '100vw',
+  width,
+  height
 }) => {
   if (!media?.url) {
     return (

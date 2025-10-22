@@ -6,7 +6,7 @@ import { Message } from '@/components/Message'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useAuth } from '@/providers/Auth'
+import { useAuth } from '@/providers/Auth/index'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useCallback, useRef, useState } from 'react'
@@ -59,7 +59,7 @@ export const CreateAccountForm: React.FC = () => {
       }, 1000)
 
       try {
-        await login(data)
+        await login({ email: data.email, password: data.password })
         clearTimeout(timer)
         if (redirect) router.push(redirect)
         else router.push(`/account?success=${encodeURIComponent('Account created successfully')}`)

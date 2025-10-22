@@ -1,4 +1,3 @@
-import { withPayload } from '@payloadcms/next/withPayload'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -57,4 +56,4 @@ const nextConfig = {
   outputFileTracingRoot: __dirname,
 }
 
-export default withPayload(nextConfig)
+export default nextConfig

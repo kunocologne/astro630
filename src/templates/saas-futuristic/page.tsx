@@ -14,10 +14,10 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-6xl font-bold text-gray-900 mb-6">
-            {{COMPANY_NAME}}
+            DataFlow Analytics
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            {{TAGLINE}}
+            Transform your data into actionable insights with our AI-powered analytics platform
           </p>
           <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
             Start Free Trial

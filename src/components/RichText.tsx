@@ -46,13 +46,14 @@ export const RichText: React.FC<RichTextProps> = ({ content, data, className = '
       }
 
       if (content.type === 'heading') {
-        const HeadingTag = `h${content.level || 2}` as keyof JSX.IntrinsicElements
-        return (
-          <HeadingTag className="text-foreground font-semibold">
-            {content.children?.map((child: any, index: number) => 
-              child.text || ''
-            ).join('')}
-          </HeadingTag>
+        const level = content.level || 2
+        const HeadingTag = `h${level}` as keyof React.JSX.IntrinsicElements
+        return React.createElement(
+          HeadingTag,
+          { className: "text-foreground font-semibold" },
+          content.children?.map((child: any, index: number) => 
+            child.text || ''
+          ).join('')
         )
       }
 
