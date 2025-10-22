@@ -74,6 +74,37 @@ async function main() {
       }
     })
 
+    // Step 6: CMS Configuration (NEW FEATURE)
+    const cmsEnabled = await confirm({
+      message: 'Enable CMS (Content Management System)?',
+      default: false,
+      description: 'Allows client to edit content without code changes'
+    })
+
+    let cmsType = null
+    if (cmsEnabled) {
+      cmsType = await select({
+        message: 'Choose CMS type:',
+        choices: [
+          {
+            name: '📝 Basic CMS (Pages, Blog, Contact)',
+            value: 'basic',
+            description: 'Essential content management'
+          },
+          {
+            name: '🛍️ E-commerce CMS (Products, Orders, Customers)',
+            value: 'ecommerce',
+            description: 'Full online store functionality'
+          },
+          {
+            name: '🏢 Enterprise CMS (Multi-site, Advanced)',
+            value: 'enterprise',
+            description: 'Advanced features and multi-site support'
+          }
+        ]
+      })
+    }
+
     // Step 6: Optional Features - Modular Wizard
     console.log(chalk.cyan('\n🔧 Optional Features (Choose what you need):\n'))
     

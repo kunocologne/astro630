@@ -1,66 +1,12 @@
-// Minimal Payload config for template system
-// This prevents build errors while maintaining compatibility
-export default {
-  admin: {
-    user: 'users',
-  },
-  collections: [
-    {
-      slug: 'users',
-      fields: [
-        {
-          name: 'email',
-          type: 'email',
-          required: true,
-        },
-        {
-          name: 'password',
-          type: 'text',
-          required: true,
-        },
-      ],
-    },
-    {
-      slug: 'products',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-      ],
-    },
-    {
-      slug: 'categories',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-      ],
-    },
-  ],
-  globals: [
-    {
-      slug: 'header',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-        },
-      ],
-    },
-    {
-      slug: 'footer',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-        },
-      ],
-    },
-  ],
-  secret: 'template-secret',
+// Toggle CMS System
+// CMS can be enabled/disabled via CMS_ENABLED environment variable
+import { getCMSConfig } from './lib/cms-toggle'
+
+const config = getCMSConfig()
+export default config || {
+  admin: { user: 'users' },
+  collections: [],
+  globals: [],
+  secret: 'disabled',
   db: null,
 } as any
