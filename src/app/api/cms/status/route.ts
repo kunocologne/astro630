@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server'
 import { isCMSEnabled } from '@/lib/cms-toggle'
+import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
