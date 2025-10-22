@@ -1,17 +1,54 @@
-.vercel
-.next
-pnpm-lock.yaml
-**/payload-types.ts
-.tmp
-**/.git
-**/.hg
-**/.pnp.*
-**/.svn
-**/.yarn/**
-**/build
-**/dist/**
-**/node_modules
-**/temp
-**/docs/**
-tsconfig.json
+# Dependencies
+node_modules
+.pnp
+.pnp.js
 
+# Build outputs
+.next
+out
+build
+dist
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lock files
+package-lock.json
+yarn.lock
+bun.lock
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Database
+*.sqlite
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Payload
+media
+.payload
+
+# Test coverage
+coverage
+
+# Public assets (don't format)
+public
+
+# Generated types
+src/payload-types.ts

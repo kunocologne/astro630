@@ -1,14 +1,5 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# Run accessibility lint checks before commit
-echo "🔍 Checking accessibility compliance..."
-bun run lint:a11y
-
-if [ $? -ne 0 ]; then
-  echo "❌ Accessibility check failed. Please fix the issues before committing."
-  exit 1
-fi
-
-echo "✅ Accessibility check passed!"
-
+#!/bin/sh
+echo "🔍 Checking for errors before commit..."
+bun run typecheck || exit 1
+bun run lint || exit 1
+echo "✅ All checks passed!"

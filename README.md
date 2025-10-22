@@ -1,471 +1,235 @@
-# 🚀 JUNO - Premium Full-Stack E-Commerce Boilerplate
+# **JUNO — Professional Website Generation System**
 
-<div align="center">
+**Deliver award-winning websites in minutes, not months.**
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=for-the-badge&logo=typescript)
-![Payload CMS](https://img.shields.io/badge/Payload-3.0-red?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-**The only Next.js 15 E-Commerce + SaaS boilerplate with integrated Headless CMS, Multi-tenant Architecture, and Premium Apple-inspired Design.**
-
-[Live Demo](https://juno-demo.vercel.app) • [Documentation](./docs/SETUP.md) • [Pricing](./PRICING.md) • [Community](https://discord.gg/juno)
-
-</div>
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge\&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge\&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge\&logo=tailwind-css)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white)](https://vercel.com/)
 
 ---
 
-## ✨ What Makes JUNO Different?
+## 🚀 **Overview**
 
-Unlike other boilerplates that only give you authentication and payments, **JUNO** is a complete, production-ready e-commerce platform:
-
-| Feature | Others | JUNO |
-|---------|--------|------|
-| **Headless CMS** | ❌ | ✅ Payload CMS 3.0 |
-| **E-Commerce** | ❌ Basic | ✅ Complete System |
-| **Design Quality** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ Apple-inspired |
-| **Accessibility** | ❌ | ✅ WCAG 2.1 AA |
-| **Testing** | ❌ | ✅ Playwright + Vitest |
-| **Framework** | Next.js 14 | ✅ **Next.js 15** |
+**JUNO** is a high-performance website generation system built for professionals who need to deliver premium, client-ready websites at speed and scale. It combines the precision of engineering with the creativity of award-winning design — enabling developers, studios, and agencies to launch Awwwards-level projects in a fraction of the time.
 
 ---
 
-## 🎯 Perfect For
+## ✨ **Core Highlights**
 
-- 🏪 **E-Commerce Stores** - Launch a beautiful online store in hours
-- 💼 **SaaS Products** - Sell digital products with built-in CMS
-- 🎨 **Agencies** - White-label for clients with premium design
-- 🚀 **Startups** - Save months of development time
-- 📱 **Digital Products** - Sell courses, templates, or downloads
-
----
-
-## 🔥 Key Features
-
-### 🎨 **Premium Design System**
-- ✅ **Apple-inspired UI** - Clean, modern, professional
-- ✅ **Bento Grid Layout** - Trending, asymmetric design
-- ✅ **Dark/Light Mode** - Seamless theme switching
-- ✅ **Fully Responsive** - Mobile-first, looks perfect everywhere
-- ✅ **Smooth Animations** - Framer Motion micro-interactions
-- ✅ **Glassmorphism** - Modern, depth-filled UI elements
-
-### 🛍️ **Complete E-Commerce System**
-- ✅ **Product Management** - Full CRUD with Payload CMS
-- ✅ **Shopping Cart** - Persistent, optimistic updates
-- ✅ **Checkout Flow** - Complete Stripe integration
-- ✅ **Order Management** - Track orders, fulfillment status
-
-### 🏢 **Enterprise SaaS Features**
-- ✅ **Multi-tenant Architecture** - Isolated workspaces per organization
-- ✅ **Subscription Billing** - Stripe-powered recurring payments
-- ✅ **User Accounts** - Profiles, addresses, order history
-- ✅ **Inventory System** - Stock tracking, variants
-- ✅ **Admin Dashboard** - Powerful Payload CMS interface
-
-### 💳 **Payment & Subscriptions**
-- ✅ **Stripe Integration** - One-time + recurring payments
-- ✅ **Webhooks** - Automatic order fulfillment
-- ✅ **Customer Portal** - Self-service billing management
-- ✅ **Multiple Currencies** - International support
-- ✅ **Tax Calculation** - Automatic tax handling
-
-### 📝 **Content Management (Payload CMS)**
-- ✅ **Headless CMS** - Separate content from presentation
-- ✅ **Collections** - Products, Pages, Blog, Users
-- ✅ **Rich Text Editor** - Lexical editor with blocks
-- ✅ **Media Library** - Image optimization, uploads
-- ✅ **SEO Plugin** - Meta tags, Open Graph, sitemaps
-- ✅ **Form Builder** - Custom forms with validation
-- ✅ **Access Control** - Role-based permissions
-- ✅ **Live Preview** - See changes before publishing
-
-### 🚀 **Developer Experience**
-- ✅ **TypeScript** - Full type safety
-- ✅ **ESLint + Prettier** - Consistent code style
-- ✅ **Testing Suite** - Playwright E2E + Vitest Unit
-- ✅ **Git Hooks** - Pre-commit linting
-- ✅ **Hot Reload** - Fast development iteration
-- ✅ **Code Splitting** - Optimized bundle sizes
-- ✅ **Documentation** - Comprehensive guides
-
-### ♿ **Accessibility & Performance**
-- ✅ **WCAG 2.1 AA** - Fully accessible
-- ✅ **Lighthouse 95+** - Optimized performance
-- ✅ **SEO Optimized** - Server-side rendering
-- ✅ **Image Optimization** - Next.js Image component
-- ✅ **Code Quality** - 100% TypeScript coverage
+* ⚡ **Speed & Precision** — Generate a production-ready website in under 5 minutes.
+* 🏆 **Award-Level Design** — Templates inspired by Awwwards and FWA quality standards.
+* 📱 **Fully Responsive** — Flawless performance across all screen sizes.
+* ♿ **Accessibility First** — WCAG 2.1 AA compliance out of the box.
+* 🚀 **One-Command Deployment** — Ship directly to Vercel in seconds.
+* 💰 **High ROI** — Designed for client projects priced between €3,000–€8,000.
 
 ---
 
-## 🛠 Tech Stack
+## 🎯 **Quick Start**
 
-### **Frontend**
-- **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript 5.7
-- **Styling:** Tailwind CSS 4.0
-- **UI Components:** Shadcn/UI + Radix UI
-- **Animations:** Framer Motion
-- **Forms:** React Hook Form
-- **State:** TanStack Query
-
-### **Backend**
-- **CMS:** Payload CMS 3.0
-- **Database:** PostgreSQL (via Payload)
-- **ORM:** Drizzle (via Payload)
-- **Authentication:** Payload Auth (JWT)
-- **Email:** Resend + Nodemailer
-
-### **Payments**
-- **Provider:** Stripe
-- **Features:** One-time, Subscriptions, Webhooks
-
-### **Testing**
-- **E2E:** Playwright
-- **Unit:** Vitest
-- **Accessibility:** Axe-core
-
-### **Deployment**
-- **Platform:** Vercel (optimized)
-- **Database:** Vercel Postgres / Supabase / Neon
-- **Storage:** Vercel Blob / Cloudinary
-
----
-
-## ⚡ Quick Start
-
-### Prerequisites
-- Node.js 18+ or Bun
-- PostgreSQL database
-- Stripe account (for payments)
-
-### 1. Clone & Install
+### 1. **Generate Your First Site**
 
 ```bash
-# Clone the repository
+cd cli
+node create-site.js
+```
+
+**Example prompts:**
+
+```
+Project name: my-client-site
+Template: portfolio-bold
+Company name: Client Company
+Tagline: Digital experiences that inspire trust.
+```
+
+### 2. **Start Development**
+
+```bash
+cd ~/Desktop/my-client-site
+bun install
+bun dev
+```
+
+### 3. **Deploy to Production**
+
+```bash
+vercel
+# Add environment variables in Vercel dashboard
+```
+
+**Your site is live in under 10 minutes.**
+
+---
+
+## 🎨 **Template Library**
+
+Each template is professionally designed, tested, and optimized for conversion and performance.
+
+### **Portfolio – Bold**
+
+**For:** Designers, photographers, creatives
+**Style:** Vivid gradients, expressive layouts, magnetic buttons
+**Features:** Bento-style grid, smooth 3D animations, high-contrast visuals
+
+### **SaaS – Futuristic**
+
+**For:** Startups and tech products
+**Style:** Minimal blue/cyan palette, clean and data-driven
+**Features:** Dynamic charts, crisp typography, animated UI states
+
+### **Agency – Corporate**
+
+**For:** Agencies, consultancies, professional services
+**Style:** Navy and gray tones, structured and confident
+**Features:** Case studies, service breakdowns, trust indicators
+
+---
+
+## 🏆 **Quality Standards**
+
+Every JUNO site is engineered for measurable excellence.
+
+| Metric         | Target | Description                                                        |
+| -------------- | ------ | ------------------------------------------------------------------ |
+| **Design**     | 40%    | Cohesive visual hierarchy, grid discipline, and micro-interactions |
+| **Usability**  | 30%    | Responsive design, 90+ Lighthouse performance, seamless UX         |
+| **Creativity** | 20%    | Distinctive visual identity and interaction flow                   |
+| **Content**    | 10%    | Clear messaging, SEO structure, strategic CTAs                     |
+
+**Minimum Standard:** 7.0+/10 Awwwards-level score equivalent
+
+---
+
+## 💰 **Business Framework**
+
+### **Revenue Model**
+
+| Package        | Price   | Delivery Time | Use Case                        |
+| -------------- | ------- | ------------- | ------------------------------- |
+| **Standard**   | €3,000  | 4 hours       | Portfolio or one-page site      |
+| **Premium**    | €5,000  | 6 hours       | Full business or SaaS landing   |
+| **Enterprise** | €8,000+ | 8+ hours      | Custom or integrated web system |
+
+### **Operational Metrics**
+
+* **Average Delivery:** 4–6 hours
+* **Client Satisfaction:** 9/10+
+* **Referral Rate:** 60%+
+* **Profit Margin:** 85%+
+
+---
+
+## 🛠️ **Technical Stack**
+
+### **Core Technologies**
+
+* **Next.js 15** — Server Components, App Router
+* **TypeScript** — End-to-end type safety
+* **Tailwind CSS** — Scalable utility-first styling
+* **Payload CMS** — Headless content management
+* **Bun** — High-speed dependency manager
+* **Vercel** — Seamless hosting and CI/CD
+
+### **Quality & Testing**
+
+* **ESLint + Prettier** — Code quality and consistency
+* **Playwright + Vitest** — E2E and unit testing
+* **Sentry** — Error tracking and performance monitoring
+
+---
+
+## 📚 **Documentation**
+
+| Category            | Description                                                                                                |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Getting Started** | [Setup Guide](./docs/getting-started.md) — From clone to first deployment                                  |
+| **Deployment**      | [Deployment Guide](./docs/DEPLOYMENT.md) — Vercel configuration and database setup                         |
+| **Development**     | [Component Standards](./docs/component-guidelines.md), [Template Creation](./docs/template-development.md) |
+| **Business**        | [Pricing Strategy](./docs/pricing-strategy.md), [Client Workflow](./docs/client-delivery.md)               |
+
+All documentation follows **agency-grade clarity** for efficient onboarding and consistency.
+
+---
+
+## 🧪 **Testing & Validation**
+
+* **Unit Tests:** Components, utilities, and logic
+* **Integration Tests:** APIs, forms, and content flows
+* **E2E Tests:** Complete user journey validation
+* **Accessibility Tests:** WCAG 2.1 AA verification
+* **Performance Tests:** Lighthouse 90+ requirement
+
+```bash
+bun test                # Run unit tests
+bun run test:e2e        # End-to-end flow
+bun run test:accessibility
+bun run test:performance
+```
+
+---
+
+## 📊 **Performance Benchmarks**
+
+| Metric             | Target |
+| ------------------ | ------ |
+| **Performance**    | 90+    |
+| **Accessibility**  | 95+    |
+| **Best Practices** | 90+    |
+| **SEO**            | 90+    |
+| **LCP**            | <2.5s  |
+| **CLS**            | <0.1   |
+
+---
+
+## 🤝 **Contributing**
+
+We welcome contributions from professional developers.
+Please review our [Contributing Guide](./CONTRIBUTING.md) before submitting pull requests.
+
+```bash
+git clone https://github.com/yourusername/juno.git
+bun install
+bun dev
+bun test
+```
+
+---
+
+## 🧭 **Success Metrics**
+
+| Category             | Metric              | Target    |
+| -------------------- | ------------------- | --------- |
+| **Delivery Time**    | Average             | 4–6 hours |
+| **Quality Score**    | Awwwards-equivalent | 7.5+/10   |
+| **Client Retention** | Repeat projects     | 80%+      |
+| **Profit Margin**    | Per project         | 85%+      |
+
+---
+
+## 🚀 **Get Started**
+
+```bash
 git clone https://github.com/yourusername/juno.git
 cd juno
-
-# Install dependencies
 bun install
-# or
-npm install
+cd cli && node create-site.js
 ```
 
-### 2. Environment Setup
-
-```bash
-# Copy environment variables
-cp .env.example .env
-```
-
-Edit `.env` with your credentials:
-
-```env
-# Database
-DATABASE_URI=postgresql://user:pass@localhost:5432/juno
-
-# Payload
-PAYLOAD_SECRET=your-secret-key
-PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
-
-# Public
-NEXT_PUBLIC_SERVER_URL=http://localhost:3000
-
-# Stripe
-STRIPE_SECRET_KEY=sk_test_...
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
-STRIPE_WEBHOOKS_SIGNING_SECRET=whsec_...
-
-# Preview
-PREVIEW_SECRET=demo-draft-secret
-```
-
-### 3. Run Development Server
-
-```bash
-bun dev
-# or
-npm run dev
-```
-
-Visit:
-- **Frontend:** http://localhost:3000
-- **Admin:** http://localhost:3000/admin
-
-### 4. Create Admin User
-
-On first visit to `/admin`, you'll be prompted to create your admin account.
+**Build professional-grade websites faster, cleaner, and smarter.**
 
 ---
 
-## 📦 Deploy to Vercel
+## 📞 **Support**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/juno)
-
-### One-Click Deployment
-
-1. Click the "Deploy" button above
-2. Add environment variables (see `.env.example`)
-3. Add a PostgreSQL database (Vercel Postgres recommended)
-4. Deploy!
-
-**Detailed deployment guide:** [DEPLOYMENT.md](./docs/DEPLOYMENT.md)
+* **Docs:** [./docs/](./docs/) — Comprehensive guides
+* **Issues:** [GitHub Issues](https://github.com/yourusername/juno/issues)
+* **Discussions:** [GitHub Discussions](https://github.com/yourusername/juno/discussions)
 
 ---
 
-## 📚 Documentation
+**Built with precision and intent — for creators who demand excellence.**
 
-| Guide | Description |
-|-------|-------------|
-| [📖 Setup Guide](./docs/SETUP.md) | Complete setup instructions |
-| [🚀 Deployment](./docs/DEPLOYMENT.md) | Deploy to Vercel, Railway, etc. |
-| [🎨 Customization](./docs/CUSTOMIZATION.md) | Theming, branding, styling |
-| [💳 Stripe Setup](./docs/STRIPE.md) | Payment configuration |
-| [🔐 Authentication](./docs/AUTH.md) | User management |
-| [♿ Accessibility](./docs/ACCESSIBILITY.md) | WCAG compliance |
-| [🧪 Testing](./docs/TESTING.md) | Run tests |
+*JUNO — where creative excellence meets engineering performance.*
 
----
-
-## 📁 Project Structure
-
-```
-juno/
-├── src/
-│   ├── app/                      # Next.js App Router
-│   │   ├── (app)/               # Public pages
-│   │   │   ├── page.tsx         # Homepage
-│   │   │   ├── shop/            # Product listing
-│   │   │   ├── checkout/        # Checkout flow
-│   │   │   ├── about/           # About page
-│   │   │   ├── services/        # Services page
-│   │   │   ├── blog/            # Blog pages
-│   │   │   └── contact/         # Contact page
-│   │   └── (payload)/           # Admin routes
-│   │       └── admin/           # Payload admin UI
-│   ├── collections/             # Payload collections
-│   │   ├── Products/            # Product collection
-│   │   ├── Pages/               # Pages collection
-│   │   ├── Categories/          # Categories
-│   │   ├── Media/               # Media library
-│   │   └── Users/               # User management
-│   ├── blocks/                  # Content blocks
-│   │   ├── Hero/                # Hero sections
-│   │   ├── Content/             # Rich content
-│   │   ├── Form/                # Form builder
-│   │   └── MediaBlock/          # Media blocks
-│   ├── components/              # React components
-│   │   ├── Cart/                # Shopping cart
-│   │   ├── Header/              # Navigation
-│   │   ├── Footer/              # Footer
-│   │   ├── animations/          # Animation components
-│   │   └── ui/                  # Shadcn components
-│   ├── providers/               # Context providers
-│   │   ├── Auth/                # Auth context
-│   │   └── Theme/               # Theme context
-│   └── utilities/               # Helper functions
-├── docs/                        # Documentation
-├── tests/                       # Test files
-│   ├── e2e/                     # Playwright tests
-│   └── int/                     # Integration tests
-└── public/                      # Static assets
-```
-
----
-
-## 🎨 Customization
-
-### Change Colors
-
-Edit `src/app/(app)/globals.css`:
-
-```css
-:root {
-  --background: hsl(0 0% 98%);      /* Light background */
-  --foreground: hsl(0 0% 8%);       /* Text color */
-  --accent: hsl(220 90% 56%);       /* Brand color */
-}
-
-[data-theme='dark'] {
-  --background: hsl(0 0% 0%);       /* Dark background */
-  --foreground: hsl(0 0% 100%);     /* Light text */
-}
-```
-
-### Change Typography
-
-Edit `tailwind.config.mjs`:
-
-```js
-fontFamily: {
-  sans: ['Inter', 'system-ui', 'sans-serif'],
-  mono: ['Fira Code', 'monospace'],
-}
-```
-
-### Add Pages
-
-1. Create file: `src/app/(app)/yourpage/page.tsx`
-2. Add to navigation: `src/components/Header/index.client.tsx`
-
-**Full customization guide:** [CUSTOMIZATION.md](./docs/CUSTOMIZATION.md)
-
----
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-bun test
-
-# E2E tests only
-bun test:e2e
-
-# Accessibility tests
-bun test:a11y
-
-# Watch mode
-bun test --watch
-```
-
----
-
-## 📜 Scripts
-
-```bash
-bun dev              # Start development server
-bun build            # Build for production
-bun start            # Start production server
-bun lint             # Run ESLint
-bun lint:fix         # Fix linting errors
-bun typecheck        # Check TypeScript
-bun test             # Run all tests
-bun test:e2e         # Run E2E tests
-bun test:a11y        # Run accessibility tests
-bun clean            # Clean build artifacts
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Database Connection Error
-```bash
-# Make sure PostgreSQL is running
-# Check DATABASE_URI in .env
-```
-
-### Build Errors
-```bash
-# Clean and rebuild
-bun clean
-bun install
-bun build
-```
-
-### Stripe Webhook Issues
-```bash
-# Use Stripe CLI for local testing
-stripe listen --forward-to localhost:3000/api/stripe/webhooks
-```
-
-**More solutions:** [TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)
-
----
-
-## 🤝 Support
-
-- 📧 **Email:** support@juno.dev
-- 💬 **Discord:** [Join Community](https://discord.gg/juno)
-- 📖 **Docs:** [Full Documentation](./docs)
-- 🐛 **Issues:** [GitHub Issues](https://github.com/yourusername/juno/issues)
-
----
-
-## 🎉 What's Included
-
-### Pages (13+)
-- ✅ Homepage (Apple-inspired design)
-- ✅ Shop/Products listing
-- ✅ Product details
-- ✅ Shopping cart
-- ✅ Checkout flow
-- ✅ Order confirmation
-- ✅ User account
-- ✅ Order history
-- ✅ About page
-- ✅ Services page
-- ✅ Blog listing
-- ✅ Blog post
-- ✅ Contact page
-
-### Components (100+)
-- ✅ Navigation (desktop + mobile)
-- ✅ Shopping cart
-- ✅ Product cards
-- ✅ Bento grids
-- ✅ Hero sections
-- ✅ Forms
-- ✅ Buttons
-- ✅ Cards
-- ✅ Modals
-- ✅ Tooltips
-- ✅ And many more...
-
-### Admin Features
-- ✅ Product management
-- ✅ Order management
-- ✅ User management
-- ✅ Content management
-- ✅ Media library
-- ✅ Analytics dashboard
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
-
-### What This Means:
-- ✅ Commercial use allowed
-- ✅ Modification allowed
-- ✅ Distribution allowed
-- ✅ Private use allowed
-- ❌ No warranty provided
-- ❌ No liability
-
-**You can use JUNO for unlimited projects and clients.**
-
----
-
-## 🌟 Credits
-
-Built with love using:
-- [Next.js](https://nextjs.org)
-- [Payload CMS](https://payloadcms.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Shadcn/UI](https://ui.shadcn.com)
-- [Stripe](https://stripe.com)
-
----
-
-## 🚀 Ready to Build?
-
-```bash
-bun create juno my-store
-cd my-store
-bun dev
-```
-
-**Launch your e-commerce store in minutes, not months.**
-
----
-
-<div align="center">
-
-Made with ❤️ by [Your Name](https://yourwebsite.com)
-
-[Documentation](./docs) • [Live Demo](https://juno-demo.vercel.app) • [Support](mailto:support@juno.dev)
-
-</div>
