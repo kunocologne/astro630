@@ -340,7 +340,7 @@ export default function HomePage() {
                 avatar: "SJ"
               },
               {
-                quote: &quot;Professional, responsive, and results-driven. They&apos;ve become our go-to partner for all digital initiatives.&quot;,
+                quote: "Professional, responsive, and results-driven. They've become our go-to partner for all digital initiatives.",
                 author: "David Lee",
                 role: "VP of Operations",
                 avatar: "DL"
@@ -356,7 +356,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-center justify-center font-semibold">

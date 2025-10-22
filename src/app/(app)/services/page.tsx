@@ -34,7 +34,7 @@ export default function ServicesPage() {
                   </span>
                 </h1>
                 <p className="text-[clamp(1rem,1.5vw,1.25rem)] text-muted-foreground leading-relaxed font-light max-w-2xl">
-                  From coaching to complete product development. Everything you need to succeed in today's digital landscape.
+                  From coaching to complete product development. Everything you need to succeed in today&apos;s digital landscape.
                 </p>
               </div>
               

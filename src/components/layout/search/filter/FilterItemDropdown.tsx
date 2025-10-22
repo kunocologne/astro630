@@ -59,8 +59,16 @@ export function FilterItemDropdown({ list }: { list: ListItem[] }) {
       {openSelect && (
         <div
           className="absolute z-40 w-full rounded-b-md bg-white p-4 shadow-md dark:bg-black"
+          role="button"
+          tabIndex={0}
           onClick={() => {
             setOpenSelect(false)
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              setOpenSelect(false)
+            }
           }}
         >
           {list.map((item: ListItem, i) => (

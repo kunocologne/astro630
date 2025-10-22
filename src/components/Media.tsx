@@ -43,7 +43,11 @@ export const Media: React.FC<MediaProps> = ({
   if (fill) {
     return (
       <Image
-        {...imageProps}
+        src={media.url}
+        alt={media.alt || media.filename || 'Media'}
+        className={className}
+        priority={priority}
+        sizes={sizes}
         fill
         style={{ objectFit: 'cover' }}
       />
@@ -52,7 +56,11 @@ export const Media: React.FC<MediaProps> = ({
 
   return (
     <Image
-      {...imageProps}
+      src={media.url}
+      alt={media.alt || media.filename || 'Media'}
+      className={className}
+      priority={priority}
+      sizes={sizes}
       width={media.width || 800}
       height={media.height || 600}
     />
