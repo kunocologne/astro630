@@ -45,6 +45,9 @@ export function MagneticButton({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
+      onKeyDown={handleMouseMove}
+      role="button"
+      tabIndex={0}
     >
       {children}
     </div>

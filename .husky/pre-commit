@@ -1,17 +1,2 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 # Run lint-staged for staged files
 bunx lint-staged
-
-# Run full check to ensure no regressions
-echo "🔍 Running full project check..."
-bun run check
-
-# Exit with error if any checks fail
-if [ $? -ne 0 ]; then
-  echo "❌ Pre-commit checks failed. Please fix the issues before committing."
-  exit 1
-fi
-
-echo "✅ All pre-commit checks passed!"

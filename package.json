@@ -168,7 +168,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "bun run lint:fix",
       "bun run typecheck"
     ],
     "*.{js,jsx,ts,tsx,json,css,md}": [

@@ -106,7 +106,7 @@ function HeroSection() {
         <ScrollReveal direction="up" delay={0.6}>
           <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
             Crafting digital experiences that combine beautiful design with seamless functionality. 
-            <span className="text-gray-900 font-semibold"> Let's build something amazing together.</span>
+            <span className="text-gray-900 font-semibold"> Let&apos;s build something amazing together.</span>
           </p>
         </ScrollReveal>
         
@@ -298,12 +298,12 @@ function AboutSection() {
                 About Me
               </h2>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              I'm a passionate designer and developer with over 3 years of experience creating 
+              I&apos;m a passionate designer and developer with over 3 years of experience creating 
               digital experiences that users love. I specialize in modern web technologies 
               and have a keen eye for detail.
             </p>
             <p className="text-lg text-gray-600 mb-8">
-              When I'm not coding, you can find me exploring new design trends, contributing 
+              When I&apos;m not coding, you can find me exploring new design trends, contributing 
               to open source projects, or sharing knowledge with the developer community.
             </p>
             
@@ -332,7 +332,7 @@ function AboutSection() {
               <GlowEffect color="#6366f1" intensity={0.6}>
                 <button className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 magnetic-button">
                   <Mail className="w-5 h-5" />
-                  Let's Work Together
+                  Let&apos;s Work Together
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </GlowEffect>
@@ -393,12 +393,12 @@ function ContactSection() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <ScrollReveal direction="up" delay={0.2}>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 gradient-text">
-            Let's Create Something Amazing
+            Let&apos;s Create Something Amazing
           </h2>
         </ScrollReveal>
         <ScrollReveal direction="up" delay={0.4}>
           <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-            Ready to bring your ideas to life? I'd love to hear about your project and discuss how we can work together.
+            Ready to bring your ideas to life? I&apos;d love to hear about your project and discuss how we can work together.
           </p>
         </ScrollReveal>
         

@@ -56,7 +56,13 @@ export function SmoothScrollTo({
   }
 
   return (
-    <div onClick={handleClick} className={className}>
+    <div 
+      onClick={handleClick} 
+      onKeyDown={handleClick}
+      role="button"
+      tabIndex={0}
+      className={className}
+    >
       {children}
     </div>
   )
