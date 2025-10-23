@@ -36,7 +36,7 @@ export const ProductGridItem: React.FC<Props> = ({ product, index = 0, isStagger
     gallery?.[0]?.image && typeof gallery[0]?.image !== 'string' ? gallery[0]?.image : false
 
   return (
-    <ScrollReveal animation="slideUp" delay={index * 0.1}>
+    <ScrollReveal direction="up" delay={index * 0.1}>
       <AnimatedCard 
         index={index} 
         isStaggered={isStaggered}

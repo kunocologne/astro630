@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { MagneticButton } from '@/components/ui/magnetic-button'
+import { HeroImage, OptimizedImage } from '@/components/ui/optimized-image'
 
 export const metadata: Metadata = {
   title: '{{COMPANY_NAME}} - {{TAGLINE}}',
@@ -39,7 +40,13 @@ export default function HomePage() {
       {/* HERO - Professional Clean */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+          {/* Professional Corporate Background */}
+          <HeroImage
+            src="/media/agency-hero-office.jpg"
+            alt="Professional Corporate Office"
+            className="w-full h-full"
+            fallbackGradient="bg-gradient-to-br from-gray-800 to-gray-900"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
         </div>
 
@@ -256,21 +263,21 @@ export default function HomePage() {
                 client: 'Fashion Retailer',
                 category: 'Web Development, UX Design',
                 result: '+127% increase in conversions',
-                image: '🛍️'
+                image: '/media/agency-project-ecommerce.jpg'
               },
               {
                 title: 'Brand Redesign & Launch',
                 client: 'Tech Startup',
                 category: 'Branding, Web Design',
                 result: 'Raised $5M Series A',
-                image: '🚀'
+                image: '/media/agency-project-branding.jpg'
               },
               {
                 title: 'Mobile App Development',
                 client: 'Healthcare Provider',
                 category: 'Product Design, Development',
                 result: '50K+ active users',
-                image: '📱'
+                image: '/media/agency-project-mobile.jpg'
               }
             ].map((project, i) => (
               <div
@@ -278,11 +285,16 @@ export default function HomePage() {
                 className="group rounded-3xl border border-white/[0.1] bg-gradient-to-br from-white/[0.03] to-transparent overflow-hidden hover:border-white/[0.2] transition-all"
               >
                 <div className="grid md:grid-cols-2 gap-0">
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-white/[0.05] to-transparent">
-                    {/* TODO: Replace with project images */}
-                    <div className="absolute inset-0 flex items-center justify-center text-6xl">
-                      {project.image}
-                    </div>
+                  <div className="relative aspect-[4/3]">
+                    {/* Project Image */}
+                    <OptimizedImage
+                      src={project.image}
+                      alt={project.title}
+                      width={800}
+                      height={600}
+                      className="w-full h-full"
+                      fallbackGradient="bg-gradient-to-br from-gray-800 to-gray-900"
+                    />
                   </div>
                   <div className="p-12 flex flex-col justify-center">
                     <p className="text-sm text-muted-foreground mb-2">{project.client}</p>

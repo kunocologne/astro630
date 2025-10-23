@@ -1,59 +1,65 @@
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Image optimization configuration
   images: {
-    remotePatterns: [
-      ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
-        const url = new URL(item)
-
-        return {
-          hostname: url.hostname,
-          protocol: url.protocol.replace(':', ''),
-        }
-      }),
+    // Define image domains for external sources
+    domains: [
+      'images.unsplash.com',
+      'cdn.pexels.com',
+      'images.pexels.com',
+      'source.unsplash.com'
     ],
-    qualities: [25, 50, 75, 90, 100],
+    
+    // Responsive image sizes
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    
+    // Image sizes for different use cases
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    
+    // Minimum cache time (in seconds)
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    
+    // Image loader configuration
+    loader: 'default',
   },
-  reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true, // Don't fail build on linting warnings
-  },
-  typescript: {
-    ignoreBuildErrors: false, // Still check TypeScript errors
-  },
+  
   // Performance optimizations
   experimental: {
-    optimizePackageImports: ['lucide-react', '@payloadcms/ui'],
+    // Enable modern JavaScript features
+    esmExternals: true,
   },
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+  
+  // Compression
+  compress: true,
+  
+  // Power by header
+  poweredByHeader: false,
+  
+  // React strict mode
+  reactStrictMode: true,
+  
+  // Output configuration
+  output: 'standalone',
+  
+  // Environment variables
+  env: {
+    CUSTOM_KEY: process.env.CUSTOM_KEY,
   },
-  webpack: (webpackConfig, { dev }) => {
-    webpackConfig.resolve.extensionAlias = {
-      '.cjs': ['.cts', '.cjs'],
-      '.js': ['.ts', '.tsx', '.js', '.jsx'],
-      '.mjs': ['.mts', '.mjs'],
-    }
-
-    // Speed up development builds
-    if (dev) {
-      webpackConfig.optimization = {
-        ...webpackConfig.optimization,
-        moduleIds: 'named',
-      }
-    }
-
-    return webpackConfig
+  
+  // Headers for image optimization
+  async headers() {
+    return [
+      {
+        source: '/media/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
   },
-  // Suppress lockfile warnings
-  outputFileTracingRoot: __dirname,
 }
 
 export default nextConfig

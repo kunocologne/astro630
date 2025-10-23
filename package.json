@@ -25,6 +25,7 @@
     "optimize-images": "bun run scripts/optimize-images.ts",
     "prepare": "husky",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "dev:mobile": "./scripts/start-dev.sh",
     "dev:safe": "bun run check && bun run dev",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && bun run build && bun run start",
     "format": "prettier --write .",
@@ -47,13 +48,21 @@
     "test:all": "bun run test:int && bun run test:e2e && bun run test:accessibility && bun run test:performance",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf .next node_modules bun.lock .DS_Store && find . -name '.DS_Store' -delete",
-    "prepare": "husky",
+    "clean:ports": "lsof -ti:3000,3001,3002,3003,3004,3005 | xargs kill -9 2>/dev/null || echo 'All ports are free'",
+    "stop:all": "pkill -f 'bun.*dev' && pkill -f 'next.*dev' && pkill -f 'ngrok' && echo 'All development processes stopped'",
+    "status": "ps aux | grep -E '(bun.*dev|next.*dev|ngrok)' | grep -v grep || echo 'No development processes running'",
     "security-check": "bun audit",
-    "generate-site": "cd cli && node create-site.js"
+    "generate-site": "cd cli && node create-site.js",
+    "fix-all": "bun run lint:fix && bun run format && bun run typecheck",
+    "check-and-fix": "bun run fix-all && bun run check",
+    "pre-commit": "bun run check-and-fix",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:safe": "bun run check && bun run deploy"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@gsap/react": "^2.1.2",
     "@mui/icons-material": "^7.3.4",
     "@mui/lab": "^7.0.1-beta.18",
     "@mui/material": "^7.3.4",
@@ -85,6 +94,7 @@
     "@sentry/nextjs": "^10.20.0",
     "@stripe/react-stripe-js": "^3",
     "@stripe/stripe-js": "^4.0.0",
+    "@studio-freight/lenis": "^1.0.42",
     "@tanstack/react-query": "^5.90.2",
     "@tanstack/react-query-devtools": "^5.90.2",
     "class-variance-authority": "^0.7.0",
@@ -97,7 +107,9 @@
     "framer-motion": "^12.23.24",
     "geist": "^1.3.0",
     "graphql": "^16.8.2",
+    "gsap": "^3.13.0",
     "jsonwebtoken": "9.0.1",
+    "lenis": "^1.3.11",
     "lucide-react": "^0.477.0",
     "next": "^15.5.4",
     "next-themes": "0.4.6",
@@ -140,7 +152,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "husky": "^9.1.7",
     "jsdom": "26.1.0",
-    "lint-staged": "^16.2.5",
+    "lint-staged": "^16.2.6",
     "playwright": "1.50.0",
     "playwright-core": "1.50.0",
     "postcss": "^8.4.38",
@@ -153,5 +165,14 @@
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "bun run lint:fix",
+      "bun run typecheck"
+    ],
+    "*.{js,jsx,ts,tsx,json,css,md}": [
+      "bun run format"
+    ]
   }
 }

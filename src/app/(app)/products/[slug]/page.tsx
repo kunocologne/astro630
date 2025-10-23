@@ -4,15 +4,15 @@ import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { GridTileImage } from '@/components/Grid/tile'
 import { Gallery } from '@/components/product/Gallery'
 import { ProductDescription } from '@/components/product/ProductDescription'
+import { Button } from '@/components/ui/button'
 import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import { ChevronLeftIcon } from 'lucide-react'
+import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { getPayload } from 'payload'
 import React, { Suspense } from 'react'
-import { Button } from '@/components/ui/button'
-import { ChevronLeftIcon } from 'lucide-react'
-import { Metadata } from 'next'
 
 type Args = {
   params: Promise<{
@@ -84,12 +84,15 @@ export default async function ProductPage({ params }: Args) {
   let price = product.priceInUSD
 
   if (product.enableVariants && product?.variants?.docs?.length) {
-    price = product?.variants?.docs?.reduce((acc, variant) => {
-      if (typeof variant === 'object' && variant?.priceInUSD && acc && variant?.priceInUSD > acc) {
+    const variantPrice = product?.variants?.docs?.reduce((acc: number, variant) => {
+      if (typeof variant === 'object' && variant?.priceInUSD && typeof variant.priceInUSD === 'number' && variant.priceInUSD > acc) {
         return variant.priceInUSD
       }
       return acc
     }, price)
+    if (typeof variantPrice === 'number') {
+      price = variantPrice
+    }
   }
 
   const productJsonLd = {

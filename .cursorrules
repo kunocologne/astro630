@@ -254,6 +254,32 @@ vercel --prod
 
 ---
 
+## 🛡️ **AUTOMATIC ERROR PREVENTION SYSTEM**
+
+Cursor MUST follow this sequence on EVERY code change:
+
+### **MANDATORY PRE-CHANGE CHECKS:**
+1. **Before making ANY code changes**: Run `bun run check` to ensure clean baseline
+2. **After EVERY code change**: Run `bun run typecheck` to catch TypeScript errors immediately
+3. **Before committing**: Run `bun run check` to ensure no regressions
+4. **On build failures**: ALWAYS run `bun run typecheck` first to identify root cause
+
+### **AUTOMATIC FIXES TO APPLY:**
+- Fix TypeScript errors immediately when detected
+- Remove unused imports and variables
+- Fix linting issues automatically
+- Ensure all exports are properly declared
+- Validate component prop types
+
+### **ERROR PREVENTION RULES:**
+- NEVER commit code with TypeScript errors
+- NEVER leave unused @ts-expect-error directives
+- ALWAYS validate component props and exports
+- ALWAYS run checks after dependency updates
+- ALWAYS fix linting issues before proceeding
+
+---
+
 ## 🧭 **DECISION FRAMEWORK**
 
 ### ALWAYS:
