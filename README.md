@@ -197,6 +197,46 @@ bun test
 
 ---
 
+## 📚 **Documentation**
+
+Complete guides for all aspects of JUNO development:
+
+### **Quick Links**
+
+- 📖 **[Full Documentation](./docs/README.md)** - Complete documentation index
+- 🚀 **[Getting Started](./docs/getting-started.md)** - Installation and setup
+- 🧪 **[Testing & CI/CD](./docs/testing-standards.md)** - Quality assurance and automation
+- 🌐 **[Deployment Guide](./docs/DEPLOYMENT.md)** - Deploy to production with optimized CI/CD
+- 🤝 **[Contributing](./CONTRIBUTING.md)** - Contribution guidelines and push workflow
+
+### **By Category**
+
+**Development:**
+
+- [Project Structure](./docs/STRUCTURE.md)
+- [Component Guidelines](./docs/component-guidelines.md)
+- [Template Development](./docs/template-development.md)
+
+**Quality & Testing:**
+
+- [Testing Standards](./docs/testing-standards.md) - CI/CD workflows, accessibility, performance
+- [Quality Standards](./docs/quality-standards.md)
+- [Troubleshooting](./docs/troubleshooting.md)
+
+**Business:**
+
+- [Pricing Strategy](./docs/pricing-strategy.md)
+- [Client Delivery](./docs/client-delivery.md)
+- [Brand Strategy](./docs/brand-strategy.md)
+
+**Content & Assets:**
+
+- [Image Strategy](./docs/image-strategy.md)
+- [Image Sourcing Guide](./docs/image-sourcing-guide.md)
+- [Image Manifest](./docs/image-manifest.md)
+
+---
+
 ## 🧭 **Success Metrics**
 
 | Category             | Metric              | Target    |

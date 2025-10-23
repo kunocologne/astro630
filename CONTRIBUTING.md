@@ -60,6 +60,88 @@ juno/
 
 ---
 
+## 🚀 **Quick Push Guide**
+
+### **Before Pushing to GitHub**
+
+Run this ONE command to validate your changes:
+
+```bash
+bun run ci:validate
+```
+
+This checks everything GitHub will check in ~5 minutes.
+
+### **What Gets Tested**
+
+| Test          | Time | Can Block Deployment? |
+| ------------- | ---- | --------------------- |
+| TypeScript    | 45s  | ❌ Yes - BLOCKS       |
+| Build         | 3min | ❌ Yes - BLOCKS       |
+| Documentation | 15s  | ✅ No - Info only     |
+| Security      | 10s  | ✅ No - Info only     |
+| Linting       | 30s  | ✅ No - Warnings OK   |
+
+### **If Tests Fail**
+
+#### **TypeScript Errors**
+
+```bash
+bun run typecheck
+# Fix the errors shown in output
+```
+
+#### **Build Errors**
+
+```bash
+bun run ci:build
+# Check the error output and fix
+```
+
+#### **Format & Fix All Issues**
+
+```bash
+bun run format     # Fix formatting
+bun run lint:fix   # Auto-fix linting issues
+```
+
+### **Push Workflow**
+
+```bash
+# 1. Validate changes locally
+bun run ci:validate
+
+# 2. Commit changes
+git add .
+git commit -m "feat: your feature description"
+
+# 3. Push to GitHub
+git push origin your-branch-name
+```
+
+### **Commit Message Format**
+
+Follow conventional commits:
+
+```bash
+# Features
+git commit -m "feat: add new pricing table component"
+
+# Bug fixes
+git commit -m "fix: resolve mobile navigation issue"
+
+# Documentation
+git commit -m "docs: update deployment guide"
+
+# Performance
+git commit -m "perf: optimize image loading"
+
+# Refactoring
+git commit -m "refactor: simplify auth logic"
+```
+
+---
+
 ## 🧪 **Testing Requirements**
 
 ### **Test Coverage**

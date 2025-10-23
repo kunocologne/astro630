@@ -16,7 +16,7 @@ jobs:
     name: Check WCAG 2.1 AA Compliance
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    continue-on-error: true  # This job will never block pushes
+    continue-on-error: true # This job will never block pushes
 
     steps:
       - name: Checkout code

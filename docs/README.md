@@ -1,121 +1,169 @@
-# JUNO Documentation
+# 📚 JUNO Documentation
 
-**Professional website generation system for high-end client delivery.**
-
----
-
-## 📚 Documentation Structure
-
-### 🚀 **Getting Started**
-
-- [Quick Start Guide](./getting-started.md) - Generate your first site in 5 minutes
-- [Deployment Guide](./deployment.md) - Deploy to production with zero issues
-
-### 🎨 **Design & Brand**
-
-- [Brand Strategy](./brand-strategy.md) - Design principles and brand guidelines
-- [Quality Standards](./quality-standards.md) - Awwwards-level scoring system
-- [Component System](./component-system.md) - Development standards and best practices
-
-### 🛠️ **Development**
-
-- [Template Development](./template-development.md) - Creating and maintaining templates
-- [Component Guidelines](./component-guidelines.md) - Building professional components
-- [Testing Standards](./testing-standards.md) - Quality assurance and testing
-
-### 📊 **Business & Operations**
-
-- [Client Delivery Process](./client-delivery.md) - From generation to deployment
-- [Pricing Strategy](./pricing-strategy.md) - Revenue optimization and client value
-- [Troubleshooting](./troubleshooting.md) - Common issues and solutions
+**Complete guide for building professional, revenue-generating websites.**
 
 ---
 
-## 🎯 **Quick Reference**
+## � **Quick Start**
 
-### **Most Important Files:**
+New to JUNO? Start here:
 
-1. **`.cursorrules`** - Master rules and highest priority guidelines
-2. **`getting-started.md`** - First-time setup and quick start
-3. **`deployment.md`** - Production deployment (critical for revenue)
-4. **`quality-standards.md`** - Awwwards-level quality requirements
-
-### **For Developers:**
-
-- Start with [Getting Started](./getting-started.md)
-- Read [Quality Standards](./quality-standards.md) for design requirements
-- Use [Component Guidelines](./component-guidelines.md) for development
-- Follow [Template Development](./template-development.md) for new templates
-
-### **For Business:**
-
-- Review [Client Delivery Process](./client-delivery.md)
-- Check [Pricing Strategy](./pricing-strategy.md)
-- Use [Troubleshooting](./troubleshooting.md) for client issues
+1. **[Getting Started](./getting-started.md)** - Installation and setup
+2. **[Project Structure](./STRUCTURE.md)** - Understanding the codebase
+3. **[Deployment](./DEPLOYMENT.md)** - Deploy to Vercel with CI/CD
 
 ---
 
-## 🏆 **Quality Standards**
+## 📖 **Core Documentation**
 
-**Every JUNO template must score 7.0+/10 on:**
+### **Development**
 
-- **Design (40%):** Professional typography, cohesive colors, perfect spacing
-- **Usability (30%):** Mobile-first, fast loading, accessible to all users
-- **Creativity (20%):** Unique elements, memorable design, stands out
-- **Content (10%):** Clear messaging, SEO optimized, compelling CTAs
+- **[Getting Started](./getting-started.md)** - Setup and first run
+- **[Project Structure](./STRUCTURE.md)** - File organization and architecture
+- **[Component Guidelines](./component-guidelines.md)** - Building components
+- **[Template Development](./template-development.md)** - Creating new templates
 
-**Performance Requirements:**
+### **Quality & Testing**
 
-- Lighthouse Performance: 90+
-- Lighthouse Accessibility: 95+
-- Mobile responsive (tested on real devices)
-- Zero build errors
-- Vercel deployment success
+- **[Testing Standards](./testing-standards.md)** - CI/CD, accessibility, performance
+- **[Quality Standards](./quality-standards.md)** - Code quality requirements
 
----
+### **Deployment & Operations**
 
-## 💰 **Business Context**
+- **[Deployment Guide](./DEPLOYMENT.md)** - Vercel deployment with CI/CD optimization
+- **[Troubleshooting](./troubleshooting.md)** - Common issues and solutions
 
-**Client Delivery Standards:**
+### **Content & Assets**
 
-- **Generate:** 5 minutes
-- **Customize:** 2-3 hours
-- **Deploy:** 10 minutes
-- **Charge:** €3,000-€5,000 per project
-- **Quality:** Professional, award-worthy
+- **[Image Strategy](./image-strategy.md)** - Image optimization and best practices
+- **[Image Sourcing](./image-sourcing-guide.md)** - Finding and selecting images
+- **[Image Manifest](./image-manifest.md)** - Image inventory and tracking
 
-**Success Metrics:**
+### **Business & Clients**
 
-- Zero support issues
-- Fast client delivery
-- High client satisfaction
-- Repeat business
-- Referral generation
+- **[Brand Strategy](./brand-strategy.md)** - Brand development framework
+- **[Pricing Strategy](./pricing-strategy.md)** - Pricing models and packages
+- **[Client Delivery](./client-delivery.md)** - Project delivery process
 
 ---
 
-## 🔧 **Technical Stack**
+## 🎯 **Documentation Index**
 
-- **Next.js 15** with App Router
-- **TypeScript** - Zero type errors
-- **Tailwind CSS** - Consistent design system
-- **Payload CMS** - Content management
-- **Bun** - Fast package management
-- **Vercel** - Production deployment
+### **By Topic**
+
+#### **Setup & Installation**
+
+- [Getting Started](./getting-started.md) - Initial setup
+- [Deployment](./DEPLOYMENT.md) - Production deployment
+
+#### **Development Workflow**
+
+- [Project Structure](./STRUCTURE.md) - Codebase organization
+- [Component Guidelines](./component-guidelines.md) - Component best practices
+- [Template Development](./template-development.md) - Template creation
+
+#### **Quality Assurance**
+
+- [Testing Standards](./testing-standards.md) - Full testing guide with CI/CD
+  - CI/CD workflows and optimization
+  - Accessibility testing (WCAG 2.1 AA)
+  - Performance testing (Lighthouse)
+  - Visual regression testing
+  - Security scanning
+- [Quality Standards](./quality-standards.md) - Code quality metrics
+
+#### **Assets & Content**
+
+- [Image Strategy](./image-strategy.md) - Image guidelines
+- [Image Sourcing](./image-sourcing-guide.md) - Finding images
+- [Image Manifest](./image-manifest.md) - Image tracking
+
+#### **Business Operations**
+
+- [Brand Strategy](./brand-strategy.md) - Brand development
+- [Pricing Strategy](./pricing-strategy.md) - Pricing models
+- [Client Delivery](./client-delivery.md) - Delivery process
+
+#### **Support**
+
+- [Troubleshooting](./troubleshooting.md) - Common issues
 
 ---
 
-## 📞 **Support**
+## 🔍 **Quick Reference**
 
-**Before asking for help:**
+### **Common Tasks**
 
-1. Check [Troubleshooting](./troubleshooting.md)
-2. Review [Quality Standards](./quality-standards.md)
-3. Read the `.cursorrules` file
-4. Test with [Getting Started](./getting-started.md)
+| Task                  | Documentation                                              |
+| --------------------- | ---------------------------------------------------------- |
+| Install and setup     | [Getting Started](./getting-started.md)                    |
+| Deploy to production  | [Deployment](./DEPLOYMENT.md)                              |
+| Create a new template | [Template Development](./template-development.md)          |
+| Build a component     | [Component Guidelines](./component-guidelines.md)          |
+| Run tests locally     | [Testing Standards](./testing-standards.md#quick-commands) |
+| Fix CI/CD issues      | [Deployment](./DEPLOYMENT.md#cicd-optimization)            |
+| Optimize images       | [Image Strategy](./image-strategy.md)                      |
+| Price a project       | [Pricing Strategy](./pricing-strategy.md)                  |
+| Deliver to client     | [Client Delivery](./client-delivery.md)                    |
+| Debug issues          | [Troubleshooting](./troubleshooting.md)                    |
 
-**Remember:** This system is designed for professional client delivery. Every detail matters for revenue and reputation.
+### **By User Type**
+
+#### **For Developers**
+
+- [Getting Started](./getting-started.md)
+- [Project Structure](./STRUCTURE.md)
+- [Component Guidelines](./component-guidelines.md)
+- [Testing Standards](./testing-standards.md)
+- [Deployment](./DEPLOYMENT.md)
+
+#### **For Designers**
+
+- [Template Development](./template-development.md)
+- [Image Strategy](./image-strategy.md)
+- [Brand Strategy](./brand-strategy.md)
+- [Quality Standards](./quality-standards.md)
+
+#### **For Business/PM**
+
+- [Pricing Strategy](./pricing-strategy.md)
+- [Client Delivery](./client-delivery.md)
+- [Brand Strategy](./brand-strategy.md)
 
 ---
 
-_Last updated: January 2025_
+## � **Documentation Standards**
+
+All JUNO documentation follows these principles:
+
+- ✅ **Actionable** - Practical, step-by-step guidance
+- ✅ **Complete** - No assumed knowledge
+- ✅ **Current** - Updated with each release
+- ✅ **Clear** - Plain language, no jargon
+- ✅ **Examples** - Real code samples included
+
+---
+
+## 🆘 **Need Help?**
+
+1. **Check [Troubleshooting](./troubleshooting.md)** - Common issues and fixes
+2. **Review [Testing Standards](./testing-standards.md)** - CI/CD and quality checks
+3. **Read [.cursorrules](../.cursorrules)** - AI development guidelines
+4. **Check [CONTRIBUTING.md](../CONTRIBUTING.md)** - Push and commit guide
+
+---
+
+## 🎯 **What's New**
+
+### **Latest Updates**
+
+- ✅ **CI/CD Optimization** - 70% faster builds (23min → 6min)
+- ✅ **Enterprise Testing** - Lighthouse, visual regression, security scanning
+- ✅ **Accessibility** - Non-blocking WCAG 2.1 AA compliance testing
+- ✅ **Performance** - Automated performance budgets and monitoring
+
+See [Testing Standards](./testing-standards.md) and [Deployment](./DEPLOYMENT.md) for details.
+
+---
+
+**Ready to build? Start with [Getting Started](./getting-started.md)!** 🚀
