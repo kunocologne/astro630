@@ -6,7 +6,10 @@ bun.lockb
 
 # Environment variables
 .env*
-!.env.example
+!env.example
+
+# Deprecated configs (replaced with unified versions)
+*.deprecated
 
 # Database
 database.sqlite
