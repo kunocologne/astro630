@@ -57,20 +57,25 @@ export const ProductItem: React.FC<Props> = ({
 
   return (
     <div className="flex items-center gap-4">
-      <div className="flex items-stretch justify-stretch h-20 w-20 p-2 rounded-lg border">
-        <div className="relative w-full h-full">
+      <div className="flex h-20 w-20 items-stretch justify-stretch rounded-lg border p-2">
+        <div className="relative h-full w-full">
           {image && typeof image !== 'string' && (
-            <Media className="relative" fill imgClassName="rounded-lg object-cover" resource={image} />
+            <Media
+              className="relative"
+              fill
+              imgClassName="rounded-lg object-cover"
+              resource={image}
+            />
           )}
         </div>
       </div>
-      <div className="flex grow justify-between items-center">
+      <div className="flex grow items-center justify-between">
         <div className="flex flex-col gap-1">
-          <p className="font-medium text-lg">
+          <p className="text-lg font-medium">
             <Link href={itemURL}>{title}</Link>
           </p>
           {variant && (
-            <p className="text-sm font-mono text-primary/50 tracking-[0.1em]">
+            <p className="text-primary/50 font-mono text-sm tracking-[0.1em]">
               {variant.options
                 ?.map((option) => {
                   if (typeof option === 'object') return option.label
@@ -87,9 +92,9 @@ export const ProductItem: React.FC<Props> = ({
 
         {itemPrice && quantity && (
           <div className="text-right">
-            <p className="font-medium text-lg">Subtotal</p>
+            <p className="text-lg font-medium">Subtotal</p>
             <Price
-              className="font-mono text-primary/50 text-sm"
+              className="text-primary/50 font-mono text-sm"
               amount={itemPrice * quantity}
               currencyCode={currencyCode}
             />

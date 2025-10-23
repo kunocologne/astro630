@@ -41,7 +41,7 @@ export function EditItemQuantityButton({ type, item }: { item: CartItem; type: '
         disabled={disabled}
         aria-label={type === 'plus' ? 'Increase item quantity' : 'Reduce item quantity'}
         className={clsx(
-          'ease hover:cursor-pointer flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 border border-border hover:border-primary/50 hover:bg-primary/5 focus:ring-2 focus:ring-primary/50 focus:ring-offset-2',
+          'ease border-border hover:border-primary/50 hover:bg-primary/5 focus:ring-primary/50 flex h-full max-w-[36px] min-w-[36px] flex-none items-center justify-center rounded-full border px-2 transition-all duration-200 hover:cursor-pointer focus:ring-2 focus:ring-offset-2',
           {
             'cursor-not-allowed opacity-50': disabled,
             'ml-auto': type === 'minus',
@@ -63,9 +63,9 @@ export function EditItemQuantityButton({ type, item }: { item: CartItem; type: '
         type="button"
       >
         {type === 'plus' ? (
-          <PlusIcon className="h-4 w-4 dark:text-neutral-500 hover:text-blue-300" />
+          <PlusIcon className="h-4 w-4 hover:text-blue-300 dark:text-neutral-500" />
         ) : (
-          <MinusIcon className="h-4 w-4 dark:text-neutral-500 hover:text-blue-300" />
+          <MinusIcon className="h-4 w-4 hover:text-blue-300 dark:text-neutral-500" />
         )}
       </button>
     </form>

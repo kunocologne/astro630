@@ -48,13 +48,13 @@ export default async function AccountPage() {
 
   return (
     <>
-      <div className="border p-8 rounded-lg bg-primary-foreground">
-        <h1 className="text-3xl font-medium mb-8">Account settings</h1>
+      <div className="bg-primary-foreground rounded-lg border p-8">
+        <h1 className="mb-8 text-3xl font-medium">Account settings</h1>
         <AccountForm />
       </div>
 
-      <div className=" border p-8 rounded-lg bg-primary-foreground">
-        <h2 className="text-3xl font-medium mb-8">Recent Orders</h2>
+      <div className="bg-primary-foreground rounded-lg border p-8">
+        <h2 className="mb-8 text-3xl font-medium">Recent Orders</h2>
 
         <div className="prose dark:prose-invert mb-8">
           <p>
@@ -68,7 +68,7 @@ export default async function AccountPage() {
         )}
 
         {orders && orders.length > 0 && (
-          <ul className="flex flex-col gap-6 mb-8">
+          <ul className="mb-8 flex flex-col gap-6">
             {orders?.map((order, index) => (
               <li key={order.id}>
                 <OrderItem order={order} />

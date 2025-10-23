@@ -19,9 +19,7 @@ export const AnimatedProductGrid: React.FC<AnimatedProductGridProps> = ({
 }) => {
   return (
     <ScrollReveal animation="fadeIn" threshold={0.1}>
-      <AnimatedCardContainer className={className}>
-        {children}
-      </AnimatedCardContainer>
+      <AnimatedCardContainer className={className}>{children}</AnimatedCardContainer>
     </ScrollReveal>
   )
 }

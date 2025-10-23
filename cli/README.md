@@ -45,6 +45,7 @@ bun dev
 ## 📦 What You Get
 
 ### ✅ Complete Working Site
+
 - Homepage with your template
 - Company name already inserted
 - Tagline customized
@@ -52,6 +53,7 @@ bun dev
 - Ready to run
 
 ### ✅ No Setup Needed
+
 - Uses SQLite (file-based database)
 - Works immediately
 - No PostgreSQL required
@@ -62,9 +64,11 @@ bun dev
 ## 🎨 The 3 Templates
 
 ### 1. Portfolio - Bold
+
 **Best for:** Designers, photographers, creatives  
 **Style:** Pink/purple gradients, creative, bold  
 **Sections:**
+
 - Full-screen hero
 - About with skills
 - Masonry project gallery
@@ -72,9 +76,11 @@ bun dev
 - Contact form
 
 ### 2. SaaS - Futuristic
+
 **Best for:** Tech startups, software companies, fintech  
 **Style:** Blue/cyan, professional, modern  
 **Sections:**
+
 - Split hero (text + dashboard)
 - Feature grid
 - Pricing tables
@@ -82,9 +88,11 @@ bun dev
 - Demo CTA
 
 ### 3. Agency - Corporate
+
 **Best for:** Digital agencies, consultancies, service businesses  
 **Style:** Navy/gray, professional, clean  
 **Sections:**
+
 - Professional hero with stats
 - Services grid
 - Process timeline
@@ -96,9 +104,11 @@ bun dev
 ## ⚡ Your Workflow
 
 ### Morning: Client Calls
+
 **Client:** "I need a portfolio website"
 
 ### Step 1: Generate (5 min)
+
 ```bash
 cd ~/Desktop/juno/cli
 node create-site.js
@@ -106,16 +116,19 @@ node create-site.js
 ```
 
 ### Step 2: Customize (2-3 hours)
+
 - Replace images in `/public/media/`
 - Update text in `src/app/(app)/page.tsx`
 - Adjust colors if needed
 
 ### Step 3: Deploy (10 min)
+
 ```bash
 vercel deploy
 ```
 
 ### Step 4: Invoice
+
 **Charge:** €3,000 - €5,000  
 **Time:** 3-4 hours  
 **Margin:** Excellent 💰
@@ -125,12 +138,15 @@ vercel deploy
 ## 🔧 Customization Guide
 
 ### Replace Company Name
+
 Already done! CLI inserts it automatically.
 
 ### Replace Tagline
+
 Already done! CLI inserts it automatically.
 
 ### Change Images
+
 ```
 public/media/
 ├── hero-image.jpg        (Replace this)
@@ -139,6 +155,7 @@ public/media/
 ```
 
 ### Update Content
+
 ```
 src/app/(app)/page.tsx
 - Find: "I'm a creative designer..."
@@ -146,6 +163,7 @@ src/app/(app)/page.tsx
 ```
 
 ### Change Colors
+
 ```
 src/app/(app)/globals.css
 - Search for: --color-primary
@@ -157,28 +175,32 @@ src/app/(app)/globals.css
 ## 💡 Pro Tips
 
 ### Quick Turnaround (Same Day)
+
 1. Run CLI → 5 min
 2. Replace hero image → 10 min
 3. Update main text → 30 min
 4. Deploy → 10 min
-**Total: 1 hour** → Charge €2,500
+   **Total: 1 hour** → Charge €2,500
 
 ### Full Custom (2-3 Days)
+
 1. Run CLI → 5 min
 2. Replace all images → 30 min
 3. Rewrite all content → 2 hours
 4. Custom adjustments → 1 hour
 5. Client revisions → 1 hour
-**Total: 4.5 hours** → Charge €4,000-€5,000
+   **Total: 4.5 hours** → Charge €4,000-€5,000
 
 ---
 
 ## 🐛 Troubleshooting
 
 ### "localhost didn't send any data"
+
 **Problem:** Missing .env.local file
 
 **Solution:**
+
 ```bash
 cd ~/Desktop/your-project
 cp env.example .env.local
@@ -186,17 +208,21 @@ bun dev
 ```
 
 ### "Module not found"
+
 **Problem:** Dependencies not installed
 
 **Solution:**
+
 ```bash
 bun install
 ```
 
 ### Template looks wrong
+
 **Problem:** CLI might have failed silently
 
 **Solution:** Delete project and regenerate:
+
 ```bash
 rm -rf ~/Desktop/project-name
 cd ~/Desktop/juno/cli
@@ -208,18 +234,21 @@ node create-site.js
 ## 📊 Expected Results
 
 ### After `bun dev`:
+
 ```
 ✓ Ready in 2.1s
 ○ Local: http://localhost:3000
 ```
 
 ### In Browser:
+
 - Beautiful template loads ✓
 - Company name shows correctly ✓
 - Tagline appears ✓
 - No errors ✓
 
 ### Payload Admin:
+
 - Visit: http://localhost:3000/admin
 - Create account on first visit
 - Manage content via CMS
@@ -229,6 +258,7 @@ node create-site.js
 ## 🚀 Next Steps
 
 ### Once Site is Working:
+
 1. Take screenshots for your portfolio
 2. Test all pages
 3. Check mobile responsive
@@ -243,18 +273,22 @@ node create-site.js
 ## 💰 Pricing Guide
 
 ### Simple Portfolio
+
 - **Time:** 2-3 hours
 - **Charge:** €2,500 - €3,500
 
 ### E-commerce Site
-- **Time:** 4-6 hours  
+
+- **Time:** 4-6 hours
 - **Charge:** €4,000 - €6,000
 
 ### SaaS Landing Page
+
 - **Time:** 3-5 hours
 - **Charge:** €3,500 - €5,000
 
 ### Full Custom
+
 - **Time:** 8-12 hours
 - **Charge:** €6,000 - €10,000
 
@@ -275,4 +309,4 @@ You're ready to bill clients when:
 
 **You have the tool. Now go make money.** 🚀
 
-*Your time is worth €1,000+/hour with this system.*
+_Your time is worth €1,000+/hour with this system._

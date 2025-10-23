@@ -19,9 +19,9 @@ export function Item({ href, title }: Props) {
     <li className="mt-2 flex text-sm text-black dark:text-white">
       <DynamicTag
         className={clsx(
-          'w-full font-mono uppercase text-primary/50 px-2 text-sm py-1 rounded-md hover:bg-white/5 hover:text-primary/100',
+          'text-primary/50 hover:text-primary/100 w-full rounded-md px-2 py-1 font-mono text-sm uppercase hover:bg-white/5',
           {
-            'bg-white/5 text-primary/100': active,
+            'text-primary/100 bg-white/5': active,
           },
         )}
         href={href}

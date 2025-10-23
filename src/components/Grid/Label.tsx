@@ -12,12 +12,12 @@ type Props = {
 export const Label: React.FC<Props> = ({ amount, position = 'bottom', title }) => {
   return (
     <div
-      className={clsx('absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label', {
+      className={clsx('@container/label absolute bottom-0 left-0 flex w-full px-4 pb-4', {
         '': position === 'center',
       })}
     >
-      <div className="flex items-end justify-between text-sm grow font-semibold ">
-        <h3 className="mr-4 font-mono line-clamp-2 border p-2 px-3 leading-none tracking-tight rounded-full bg-white/70 text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+      <div className="flex grow items-end justify-between text-sm font-semibold">
+        <h3 className="mr-4 line-clamp-2 rounded-full border bg-white/70 p-2 px-3 font-mono leading-none tracking-tight text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
           {title}
         </h3>
 

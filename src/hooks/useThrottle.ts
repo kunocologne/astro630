@@ -4,10 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
  * Enterprise-grade throttle hook
  * Limits the rate of function execution
  */
-export const useThrottle = <T extends (...args: any[]) => any>(
-  callback: T,
-  delay: number
-): T => {
+export const useThrottle = <T extends (...args: any[]) => any>(callback: T, delay: number): T => {
   const lastRun = useRef(Date.now())
 
   return useCallback(
@@ -17,7 +14,7 @@ export const useThrottle = <T extends (...args: any[]) => any>(
         lastRun.current = Date.now()
       }
     }) as T,
-    [callback, delay]
+    [callback, delay],
   )
 }
 
@@ -35,10 +32,13 @@ export const useThrottledValue = <T>(value: T, delay: number): T => {
       setThrottledValue(value)
       lastUpdate.current = now
     } else {
-      const timer = setTimeout(() => {
-        setThrottledValue(value)
-        lastUpdate.current = Date.now()
-      }, delay - (now - lastUpdate.current))
+      const timer = setTimeout(
+        () => {
+          setThrottledValue(value)
+          lastUpdate.current = Date.now()
+        },
+        delay - (now - lastUpdate.current),
+      )
 
       return () => clearTimeout(timer)
     }

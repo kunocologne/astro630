@@ -85,11 +85,16 @@ export default async function ProductPage({ params }: Args) {
 
   if (product.enableVariants && product?.variants?.docs?.length) {
     const variantPrice = product?.variants?.docs?.reduce((acc: number, variant) => {
-      if (typeof variant === 'object' && variant?.priceInUSD && typeof variant.priceInUSD === 'number' && variant.priceInUSD > acc) {
+      if (
+        typeof variant === 'object' &&
+        variant?.priceInUSD &&
+        typeof variant.priceInUSD === 'number' &&
+        variant.priceInUSD > acc
+      ) {
         return variant.priceInUSD
       }
       return acc
-    }, price)
+    }, price ?? 0)
     if (typeof variantPrice === 'number') {
       price = variantPrice
     }
@@ -127,7 +132,7 @@ export default async function ProductPage({ params }: Args) {
             All products
           </Link>
         </Button>
-        <div className="flex flex-col gap-12 rounded-lg border p-8 md:py-12 lg:flex-row lg:gap-8 bg-primary-foreground">
+        <div className="bg-primary-foreground flex flex-col gap-12 rounded-lg border p-8 md:py-12 lg:flex-row lg:gap-8">
           <div className="h-full w-full basis-full lg:basis-1/2">
             <Suspense
               fallback={

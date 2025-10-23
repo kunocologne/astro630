@@ -22,21 +22,21 @@ interface MediaProps {
   height?: number
 }
 
-export const Media: React.FC<MediaProps> = ({ 
-  media, 
+export const Media: React.FC<MediaProps> = ({
+  media,
   resource,
   src,
-  className = '', 
+  className = '',
   imgClassName = '',
   priority = false,
   fill = false,
   sizes = '100vw',
   width,
-  height
+  height,
 }) => {
   if (!media?.url) {
     return (
-      <div className={`bg-muted rounded-lg flex items-center justify-center ${className}`}>
+      <div className={`bg-muted flex items-center justify-center rounded-lg ${className}`}>
         <span className="text-muted-foreground">No image</span>
       </div>
     )
@@ -47,7 +47,7 @@ export const Media: React.FC<MediaProps> = ({
     alt: media.alt || media.filename || 'Media',
     className,
     priority,
-    sizes
+    sizes,
   }
 
   if (fill) {

@@ -7,4 +7,3 @@ config-variables:
   secrets:
     - DATABASE_URI
     - PAYLOAD_SECRET
-

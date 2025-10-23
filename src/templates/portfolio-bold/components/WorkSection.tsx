@@ -8,35 +8,32 @@ import { FadeInUp, StaggerContainer, StaggerItem } from './AnimatedComponents'
 
 export function WorkSection() {
   return (
-    <section id="work" className="py-24 px-4 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section id="work" className="bg-muted/30 px-4 py-24">
+      <div className="mx-auto max-w-7xl">
         <FadeInUp delay={0.2}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Featured Work</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <div className="mb-16 text-center">
+            <h2 className="text-foreground mb-4 text-4xl font-bold">Featured Work</h2>
+            <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
               A showcase of my best projects and creative solutions
             </p>
           </div>
         </FadeInUp>
-        
+
         <StaggerContainer delay={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* Large Featured Project */}
             <StaggerItem delay={0.1}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   rotateY: 2,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Card className="lg:col-span-2 lg:row-span-2 group cursor-pointer hover:shadow-lg transition-all duration-300">
+                <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg lg:col-span-2 lg:row-span-2">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.4 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.4 }}>
                       <Image
                         src="/media/project-1.jpg"
                         alt="Featured Project"
@@ -45,7 +42,7 @@ export function WorkSection() {
                       />
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <motion.div 
+                    <motion.div
                       className="absolute bottom-4 left-4 text-white"
                       initial={{ opacity: 0, y: 20 }}
                       whileHover={{ opacity: 1, y: 0 }}
@@ -58,7 +55,8 @@ export function WorkSection() {
                   </div>
                   <CardContent className="p-6">
                     <p className="text-muted-foreground">
-                      A comprehensive e-commerce solution with modern design and seamless user experience.
+                      A comprehensive e-commerce solution with modern design and seamless user
+                      experience.
                     </p>
                   </CardContent>
                 </Card>
@@ -68,19 +66,16 @@ export function WorkSection() {
             {/* Medium Project */}
             <StaggerItem delay={0.2}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   rotateY: 1,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300">
+                <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg">
                   <div className="relative aspect-square overflow-hidden rounded-t-lg">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.4 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.4 }}>
                       <Image
                         src="/media/project-2.jpg"
                         alt="Project 2"
@@ -89,7 +84,7 @@ export function WorkSection() {
                       />
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <motion.div 
+                    <motion.div
                       className="absolute bottom-4 left-4 text-white"
                       initial={{ opacity: 0, y: 20 }}
                       whileHover={{ opacity: 1, y: 0 }}
@@ -106,19 +101,16 @@ export function WorkSection() {
             {/* Small Project */}
             <StaggerItem delay={0.3}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   rotateY: -1,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300">
+                <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg">
                   <div className="relative aspect-square overflow-hidden rounded-t-lg">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.4 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.4 }}>
                       <Image
                         src="/media/project-3.jpg"
                         alt="Project 3"
@@ -127,7 +119,7 @@ export function WorkSection() {
                       />
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <motion.div 
+                    <motion.div
                       className="absolute bottom-4 left-4 text-white"
                       initial={{ opacity: 0, y: 20 }}
                       whileHover={{ opacity: 1, y: 0 }}
@@ -144,19 +136,16 @@ export function WorkSection() {
             {/* Medium Project */}
             <StaggerItem delay={0.4}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   rotateY: 1,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300">
+                <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg">
                   <div className="relative aspect-square overflow-hidden rounded-t-lg">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.4 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.4 }}>
                       <Image
                         src="/media/project-4.jpg"
                         alt="Project 4"
@@ -165,7 +154,7 @@ export function WorkSection() {
                       />
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <motion.div 
+                    <motion.div
                       className="absolute bottom-4 left-4 text-white"
                       initial={{ opacity: 0, y: 20 }}
                       whileHover={{ opacity: 1, y: 0 }}
@@ -182,19 +171,16 @@ export function WorkSection() {
             {/* Small Project */}
             <StaggerItem delay={0.5}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   rotateY: -1,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300">
+                <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg">
                   <div className="relative aspect-square overflow-hidden rounded-t-lg">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.4 }}
-                    >
+                    <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.4 }}>
                       <Image
                         src="/media/project-5.jpg"
                         alt="Project 5"
@@ -203,7 +189,7 @@ export function WorkSection() {
                       />
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <motion.div 
+                    <motion.div
                       className="absolute bottom-4 left-4 text-white"
                       initial={{ opacity: 0, y: 20 }}
                       whileHover={{ opacity: 1, y: 0 }}

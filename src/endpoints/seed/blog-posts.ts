@@ -1,19 +1,15 @@
 export const blogPostsData = [
   {
     title: 'The Future of E-Commerce: Trends Shaping 2025',
-    excerpt: 'Discover the emerging trends that will define online shopping in 2025, from AI-powered personalization to immersive AR experiences.',
+    excerpt:
+      'Discover the emerging trends that will define online shopping in 2025, from AI-powered personalization to immersive AR experiences.',
     category: 'ecommerce',
     author: 'Sarah Johnson',
     authorRole: 'E-Commerce Strategist',
     publishedDate: new Date('2024-12-15'),
     readTime: 8,
     featured: true,
-    tags: [
-      { tag: 'E-Commerce' },
-      { tag: 'AI' },
-      { tag: 'Trends' },
-      { tag: '2025' },
-    ],
+    tags: [{ tag: 'E-Commerce' }, { tag: 'AI' }, { tag: 'Trends' }, { tag: '2025' }],
     content: {
       root: {
         type: 'root',
@@ -83,18 +79,15 @@ export const blogPostsData = [
   },
   {
     title: 'Building Accessible Web Applications: A Complete Guide',
-    excerpt: 'Learn how to create inclusive digital experiences that work for everyone, with practical tips and real-world examples.',
+    excerpt:
+      'Learn how to create inclusive digital experiences that work for everyone, with practical tips and real-world examples.',
     category: 'development',
     author: 'Alex Chen',
     authorRole: 'Frontend Developer',
     publishedDate: new Date('2024-12-10'),
     readTime: 12,
     featured: false,
-    tags: [
-      { tag: 'Accessibility' },
-      { tag: 'Web Development' },
-      { tag: 'Inclusive Design' },
-    ],
+    tags: [{ tag: 'Accessibility' }, { tag: 'Web Development' }, { tag: 'Inclusive Design' }],
     content: {
       root: {
         type: 'root',
@@ -108,7 +101,7 @@ export const blogPostsData = [
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Web accessibility is not just a nice-to-have feature - it\'s a fundamental right and legal requirement in many jurisdictions. Building accessible web applications ensures that everyone, regardless of their abilities, can use and enjoy your digital products.',
+                text: "Web accessibility is not just a nice-to-have feature - it's a fundamental right and legal requirement in many jurisdictions. Building accessible web applications ensures that everyone, regardless of their abilities, can use and enjoy your digital products.",
                 version: 1,
               },
             ],
@@ -127,18 +120,15 @@ export const blogPostsData = [
   },
   {
     title: 'UX Psychology: Understanding How Users Think',
-    excerpt: 'Dive deep into the psychology behind user behavior and learn how to design interfaces that resonate with your audience.',
+    excerpt:
+      'Dive deep into the psychology behind user behavior and learn how to design interfaces that resonate with your audience.',
     category: 'ux-design',
     author: 'Maria Rodriguez',
     authorRole: 'UX Designer',
     publishedDate: new Date('2024-12-05'),
     readTime: 10,
     featured: false,
-    tags: [
-      { tag: 'UX Design' },
-      { tag: 'Psychology' },
-      { tag: 'User Behavior' },
-    ],
+    tags: [{ tag: 'UX Design' }, { tag: 'Psychology' }, { tag: 'User Behavior' }],
     content: {
       root: {
         type: 'root',
@@ -171,18 +161,15 @@ export const blogPostsData = [
   },
   {
     title: 'From Zero to Launch: Building a SaaS Product in 90 Days',
-    excerpt: 'A detailed case study of how we helped a startup go from concept to paying customers in just three months.',
+    excerpt:
+      'A detailed case study of how we helped a startup go from concept to paying customers in just three months.',
     category: 'case-study',
     author: 'David Kim',
     authorRole: 'Product Manager',
     publishedDate: new Date('2024-11-28'),
     readTime: 15,
     featured: true,
-    tags: [
-      { tag: 'SaaS' },
-      { tag: 'Startup' },
-      { tag: 'Case Study' },
-    ],
+    tags: [{ tag: 'SaaS' }, { tag: 'Startup' }, { tag: 'Case Study' }],
     content: {
       root: {
         type: 'root',
@@ -196,7 +183,7 @@ export const blogPostsData = [
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Building a successful SaaS product requires more than just technical skills. It demands a deep understanding of your market, a clear vision, and the ability to execute quickly. In this case study, we\'ll walk through how we helped a startup launch their product in just 90 days.',
+                text: "Building a successful SaaS product requires more than just technical skills. It demands a deep understanding of your market, a clear vision, and the ability to execute quickly. In this case study, we'll walk through how we helped a startup launch their product in just 90 days.",
                 version: 1,
               },
             ],
@@ -215,18 +202,15 @@ export const blogPostsData = [
   },
   {
     title: 'The Art of Minimalist Design: Less is More',
-    excerpt: 'Explore the principles of minimalist design and how to create beautiful, focused interfaces that users love.',
+    excerpt:
+      'Explore the principles of minimalist design and how to create beautiful, focused interfaces that users love.',
     category: 'design',
     author: 'Emma Wilson',
     authorRole: 'Designer',
     publishedDate: new Date('2024-11-20'),
     readTime: 7,
     featured: false,
-    tags: [
-      { tag: 'Design' },
-      { tag: 'Minimalism' },
-      { tag: 'UI Design' },
-    ],
+    tags: [{ tag: 'Design' }, { tag: 'Minimalism' }, { tag: 'UI Design' }],
     content: {
       root: {
         type: 'root',
@@ -240,7 +224,7 @@ export const blogPostsData = [
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Minimalist design isn\'t about removing everything - it\'s about removing everything unnecessary. When done right, minimalist interfaces can be both beautiful and highly functional, guiding users\' attention to what matters most.',
+                text: "Minimalist design isn't about removing everything - it's about removing everything unnecessary. When done right, minimalist interfaces can be both beautiful and highly functional, guiding users' attention to what matters most.",
                 version: 1,
               },
             ],
@@ -259,18 +243,15 @@ export const blogPostsData = [
   },
   {
     title: 'SEO in 2025: What Actually Works',
-    excerpt: 'Cut through the noise and discover the SEO strategies that will drive real results in 2025.',
+    excerpt:
+      'Cut through the noise and discover the SEO strategies that will drive real results in 2025.',
     category: 'seo',
     author: 'James Thompson',
     authorRole: 'SEO Specialist',
     publishedDate: new Date('2024-11-15'),
     readTime: 9,
     featured: false,
-    tags: [
-      { tag: 'SEO' },
-      { tag: 'Marketing' },
-      { tag: '2025' },
-    ],
+    tags: [{ tag: 'SEO' }, { tag: 'Marketing' }, { tag: '2025' }],
     content: {
       root: {
         type: 'root',
@@ -284,7 +265,7 @@ export const blogPostsData = [
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'SEO is constantly evolving, and what worked last year might not work today. In this comprehensive guide, we\'ll explore the SEO strategies that are actually driving results in 2025, based on real data and case studies.',
+                text: "SEO is constantly evolving, and what worked last year might not work today. In this comprehensive guide, we'll explore the SEO strategies that are actually driving results in 2025, based on real data and case studies.",
                 version: 1,
               },
             ],

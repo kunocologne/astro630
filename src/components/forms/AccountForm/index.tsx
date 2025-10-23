@@ -108,7 +108,7 @@ export const AccountForm: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8 mb-8">
+          <div className="mb-8 flex flex-col gap-8">
             <FormItem>
               <Label htmlFor="email" className="mb-2">
                 Email Address
@@ -151,7 +151,7 @@ export const AccountForm: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8 mb-8">
+          <div className="mb-8 flex flex-col gap-8">
             <FormItem>
               <Label htmlFor="password" className="mb-2">
                 New password

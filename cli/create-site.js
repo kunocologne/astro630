@@ -23,7 +23,7 @@ async function main() {
         if (!value) return 'Project name is required'
         if (!/^[a-z0-9-]+$/.test(value)) return 'Use lowercase letters, numbers, and hyphens only'
         return true
-      }
+      },
     })
 
     // Step 2: Choose template with beautiful interface
@@ -33,25 +33,28 @@ async function main() {
         {
           name: '🎨 Portfolio - Bold',
           value: 'portfolio-bold',
-          description: 'For designers, photographers, creatives. Pink/purple gradient, creative layouts'
+          description:
+            'For designers, photographers, creatives. Pink/purple gradient, creative layouts',
         },
         {
           name: '🚀 SaaS - Futuristic',
           value: 'saas-futuristic',
-          description: 'For tech startups, fintech, B2B software. Blue/cyan gradient, feature grids'
+          description:
+            'For tech startups, fintech, B2B software. Blue/cyan gradient, feature grids',
         },
         {
           name: '💼 Agency - Corporate',
           value: 'agency-corporate',
-          description: 'For agencies, consultancies, professional services. Navy/gray, service grids'
-        }
-      ]
+          description:
+            'For agencies, consultancies, professional services. Navy/gray, service grids',
+        },
+      ],
     })
 
     // Step 3: Choose variation
     const variation = await select({
       message: 'Choose variation:',
-      choices: getVariationChoices(template)
+      choices: getVariationChoices(template),
     })
 
     // Step 4: Company/Client name
@@ -61,7 +64,7 @@ async function main() {
       validate: (value) => {
         if (!value) return 'Company name is required'
         return true
-      }
+      },
     })
 
     // Step 5: Tagline
@@ -71,14 +74,14 @@ async function main() {
       validate: (value) => {
         if (!value) return 'Tagline is required'
         return true
-      }
+      },
     })
 
     // Step 6: CMS Configuration (NEW FEATURE)
     const cmsEnabled = await confirm({
       message: 'Enable CMS (Content Management System)?',
       default: false,
-      description: 'Allows client to edit content without code changes'
+      description: 'Allows client to edit content without code changes',
     })
 
     let cmsType = null
@@ -89,25 +92,25 @@ async function main() {
           {
             name: '📝 Basic CMS (Pages, Blog, Contact)',
             value: 'basic',
-            description: 'Essential content management'
+            description: 'Essential content management',
           },
           {
             name: '🛍️ E-commerce CMS (Products, Orders, Customers)',
             value: 'ecommerce',
-            description: 'Full online store functionality'
+            description: 'Full online store functionality',
           },
           {
             name: '🏢 Enterprise CMS (Multi-site, Advanced)',
             value: 'enterprise',
-            description: 'Advanced features and multi-site support'
-          }
-        ]
+            description: 'Advanced features and multi-site support',
+          },
+        ],
       })
     }
 
     // Step 6: Optional Features - Modular Wizard
     console.log(chalk.cyan('\n🔧 Optional Features (Choose what you need):\n'))
-    
+
     const features = await selectFeatures()
 
     // Step 7: Database choice (if needed)
@@ -119,24 +122,25 @@ async function main() {
           {
             name: '🗄️ SQLite (Default)',
             value: 'sqlite',
-            description: 'File-based, no setup required. Perfect for development and small projects.'
+            description:
+              'File-based, no setup required. Perfect for development and small projects.',
           },
           {
             name: '🐘 PostgreSQL (Supabase)',
             value: 'supabase',
-            description: 'Cloud PostgreSQL with real-time features. Great for production apps.'
+            description: 'Cloud PostgreSQL with real-time features. Great for production apps.',
           },
           {
             name: '☁️ Vercel Postgres',
             value: 'vercel-postgres',
-            description: 'Serverless PostgreSQL. Perfect for Vercel deployments.'
+            description: 'Serverless PostgreSQL. Perfect for Vercel deployments.',
           },
           {
             name: '🌊 Neon',
             value: 'neon',
-            description: 'Serverless PostgreSQL with branching. Great for development.'
-          }
-        ]
+            description: 'Serverless PostgreSQL with branching. Great for development.',
+          },
+        ],
       })
     }
 
@@ -149,19 +153,19 @@ async function main() {
           {
             name: '💳 Stripe',
             value: 'stripe',
-            description: 'Most popular, supports cards, digital wallets, and more'
+            description: 'Most popular, supports cards, digital wallets, and more',
           },
           {
             name: '💰 PayPal',
             value: 'paypal',
-            description: 'Global payment solution with buyer protection'
+            description: 'Global payment solution with buyer protection',
           },
           {
             name: '🪙 Crypto (Coinbase Commerce)',
             value: 'coinbase',
-            description: 'Accept Bitcoin, Ethereum, and other cryptocurrencies'
-          }
-        ]
+            description: 'Accept Bitcoin, Ethereum, and other cryptocurrencies',
+          },
+        ],
       })
     }
 
@@ -174,24 +178,24 @@ async function main() {
           {
             name: '🔐 NextAuth.js (Built-in)',
             value: 'nextauth',
-            description: 'Flexible authentication with multiple providers'
+            description: 'Flexible authentication with multiple providers',
           },
           {
             name: '🔑 Supabase Auth',
             value: 'supabase-auth',
-            description: 'Built-in auth with Supabase (requires Supabase database)'
+            description: 'Built-in auth with Supabase (requires Supabase database)',
           },
           {
             name: '🛡️ Clerk',
             value: 'clerk',
-            description: 'Complete authentication solution with user management'
+            description: 'Complete authentication solution with user management',
           },
           {
             name: '🔒 Auth0',
             value: 'auth0',
-            description: 'Enterprise-grade authentication and authorization'
-          }
-        ]
+            description: 'Enterprise-grade authentication and authorization',
+          },
+        ],
       })
     }
 
@@ -204,19 +208,19 @@ async function main() {
           {
             name: '📝 Payload CMS',
             value: 'payload',
-            description: 'Modern, TypeScript-first headless CMS with admin panel'
+            description: 'Modern, TypeScript-first headless CMS with admin panel',
           },
           {
             name: '🌐 Strapi',
             value: 'strapi',
-            description: 'Open-source headless CMS with rich content management'
+            description: 'Open-source headless CMS with rich content management',
           },
           {
             name: '📄 Sanity',
             value: 'sanity',
-            description: 'Real-time collaborative editing with powerful querying'
-          }
-        ]
+            description: 'Real-time collaborative editing with powerful querying',
+          },
+        ],
       })
     }
 
@@ -229,26 +233,26 @@ async function main() {
           {
             name: '📧 Resend',
             value: 'resend',
-            description: 'Modern email API for developers. Great deliverability.'
+            description: 'Modern email API for developers. Great deliverability.',
           },
           {
             name: '📮 SendGrid',
             value: 'sendgrid',
-            description: 'Reliable email delivery with advanced analytics'
+            description: 'Reliable email delivery with advanced analytics',
           },
           {
             name: '📬 Mailgun',
             value: 'mailgun',
-            description: 'Powerful email API with excellent documentation'
-          }
-        ]
+            description: 'Powerful email API with excellent documentation',
+          },
+        ],
       })
     }
 
     // Step 12: Analytics (optional)
     const analytics = await confirm({
       message: 'Add analytics tracking?',
-      default: false
+      default: false,
     })
 
     let analyticsProvider = null
@@ -259,19 +263,19 @@ async function main() {
           {
             name: '📊 Google Analytics 4',
             value: 'ga4',
-            description: 'Comprehensive web analytics with enhanced ecommerce'
+            description: 'Comprehensive web analytics with enhanced ecommerce',
           },
           {
             name: '📈 Plausible',
             value: 'plausible',
-            description: 'Privacy-focused analytics with simple setup'
+            description: 'Privacy-focused analytics with simple setup',
           },
           {
             name: '🔍 Fathom',
             value: 'fathom',
-            description: 'Privacy-first analytics with beautiful dashboards'
-          }
-        ]
+            description: 'Privacy-first analytics with beautiful dashboards',
+          },
+        ],
       })
     }
 
@@ -292,7 +296,7 @@ async function main() {
 
     const confirmed = await confirm({
       message: 'Create this project with selected features?',
-      default: true
+      default: true,
     })
 
     if (!confirmed) {
@@ -302,7 +306,7 @@ async function main() {
 
     // Generate project with selected features
     console.log(chalk.cyan('\n✨ Generating your site with selected features...\n'))
-    
+
     await generateProject({
       projectName,
       template,
@@ -315,7 +319,7 @@ async function main() {
       authProvider,
       cmsProvider,
       emailProvider,
-      analyticsProvider
+      analyticsProvider,
     })
 
     // Success
@@ -334,7 +338,6 @@ async function main() {
     console.log(chalk.gray('  ✓ Mobile, tablet, desktop responsive'))
     console.log(chalk.gray('  ✓ Automated tests'))
     console.log(chalk.gray('\nEstimated customization time: 2-3 hours\n'))
-
   } catch (error) {
     if (error.name === 'ExitPromptError') {
       console.log(chalk.yellow('\n❌ Cancelled\n'))
@@ -351,51 +354,51 @@ function getVariationChoices(template) {
       {
         name: '✨ Minimal',
         value: 'minimal',
-        description: 'Clean, minimal design with subtle animations'
+        description: 'Clean, minimal design with subtle animations',
       },
       {
         name: '🎨 Bold',
         value: 'bold',
-        description: 'Bold, creative design with dynamic animations'
+        description: 'Bold, creative design with dynamic animations',
       },
       {
         name: '💼 Professional',
         value: 'professional',
-        description: 'Professional design with smooth animations'
-      }
+        description: 'Professional design with smooth animations',
+      },
     ]
   }
-  
+
   if (template === 'saas-futuristic') {
     return [
       {
         name: '🚀 Startup',
         value: 'startup',
-        description: 'Fast-growing startup with energetic animations'
+        description: 'Fast-growing startup with energetic animations',
       },
       {
         name: '🏢 Enterprise',
         value: 'enterprise',
-        description: 'Enterprise software with professional animations'
-      }
+        description: 'Enterprise software with professional animations',
+      },
     ]
   }
-  
+
   if (template === 'agency-corporate') {
     return [
       {
         name: '💼 Corporate',
         value: 'corporate',
-        description: 'Corporate design with subtle animations'
+        description: 'Corporate design with subtle animations',
       },
       {
         name: '🎨 Creative',
         value: 'creative',
-        description: 'Creative agency with dynamic animations'
-      }
+        description: 'Creative agency with dynamic animations',
+      },
     ]
   }
-  
+
   return []
 }
 
@@ -406,78 +409,78 @@ async function selectFeatures() {
       {
         name: '🛒 E-commerce Shop',
         value: 'shop',
-        description: 'Add product catalog, cart, checkout, and payment processing'
+        description: 'Add product catalog, cart, checkout, and payment processing',
       },
       {
         name: '🔐 User Authentication',
         value: 'auth',
-        description: 'User registration, login, profile management, and protected routes'
+        description: 'User registration, login, profile management, and protected routes',
       },
       {
         name: '📝 Content Management (CMS)',
         value: 'cms',
-        description: 'Admin panel for managing content, pages, and media'
+        description: 'Admin panel for managing content, pages, and media',
       },
       {
         name: '📧 Contact Forms',
         value: 'contact',
-        description: 'Contact forms with email notifications and spam protection'
+        description: 'Contact forms with email notifications and spam protection',
       },
       {
         name: '📊 Analytics Dashboard',
         value: 'analytics',
-        description: 'Built-in analytics dashboard for tracking performance'
+        description: 'Built-in analytics dashboard for tracking performance',
       },
       {
         name: '🌐 Multi-language (i18n)',
         value: 'i18n',
-        description: 'Support for multiple languages and internationalization'
+        description: 'Support for multiple languages and internationalization',
       },
       {
         name: '📱 PWA (Progressive Web App)',
         value: 'pwa',
-        description: 'Make your site installable and work offline'
+        description: 'Make your site installable and work offline',
       },
       {
         name: '🔍 SEO Optimization',
         value: 'seo',
-        description: 'Advanced SEO features, sitemaps, and meta tags'
+        description: 'Advanced SEO features, sitemaps, and meta tags',
       },
       {
         name: '🎨 Theme Customization',
         value: 'themes',
-        description: 'Multiple color themes and customization options'
+        description: 'Multiple color themes and customization options',
       },
       {
         name: '📈 A/B Testing',
         value: 'ab-testing',
-        description: 'Built-in A/B testing for optimizing conversions'
-      }
+        description: 'Built-in A/B testing for optimizing conversions',
+      },
     ],
     validate: (answer) => {
       if (answer.length === 0) {
         return 'You must select at least one feature or choose "None" to continue with basic template'
       }
       return true
-    }
+    },
   })
 
   return features
 }
 
-async function generateProject({ 
-  projectName, 
-  template, 
-  variation, 
-  companyName, 
-  tagline, 
-  features = [], 
-  database = null, 
-  paymentProvider = null, 
-  authProvider = null, 
-  cmsProvider = null, 
-  emailProvider = null, 
-  analyticsProvider = null 
+async function generateProject({
+  projectName,
+  template,
+  variation,
+  companyName,
+  tagline,
+  features = [],
+  database = null,
+  paymentProvider = null,
+  authProvider = null,
+  cmsProvider = null,
+  emailProvider = null,
+  analyticsProvider = null,
 }) {
   const templateDir = path.join(process.cwd(), '..')
   const targetDir = path.join(process.env.HOME, 'Desktop', projectName)
@@ -487,11 +490,13 @@ async function generateProject({
   await fs.copy(templateDir, targetDir, {
     filter: (src) => {
       const relativePath = path.relative(templateDir, src)
-      return !relativePath.startsWith('cli') && 
-             !relativePath.startsWith('node_modules') &&
-             !relativePath.startsWith('.next') &&
-             !relativePath.startsWith('src/templates')
-    }
+      return (
+        !relativePath.startsWith('cli') &&
+        !relativePath.startsWith('node_modules') &&
+        !relativePath.startsWith('.next') &&
+        !relativePath.startsWith('src/templates')
+      )
+    },
   })
 
   // Generate page with new design system
@@ -527,7 +532,7 @@ async function generateProject({
       authProvider,
       cmsProvider,
       emailProvider,
-      analyticsProvider
+      analyticsProvider,
     })
   }
 
@@ -539,7 +544,7 @@ async function generateProject({
     authProvider,
     cmsProvider,
     emailProvider,
-    analyticsProvider
+    analyticsProvider,
   })
 
   // Create .env.local with selected services
@@ -550,7 +555,7 @@ async function generateProject({
     authProvider,
     cmsProvider,
     emailProvider,
-    analyticsProvider
+    analyticsProvider,
   })
 
   // Generate tests
@@ -570,7 +575,7 @@ async function generateProject({
     authProvider,
     cmsProvider,
     emailProvider,
-    analyticsProvider
+    analyticsProvider,
   })
 
   // Generate documentation
@@ -583,20 +588,20 @@ function generatePageContent(template, variation, companyName, tagline) {
     'portfolio-bold': {
       minimal: getPortfolioMinimalTemplate(),
       bold: getPortfolioBoldTemplate(),
-      professional: getPortfolioProfessionalTemplate()
+      professional: getPortfolioProfessionalTemplate(),
     },
     'saas-futuristic': {
       startup: getSaaSStartupTemplate(),
-      enterprise: getSaaSEnterpriseTemplate()
+      enterprise: getSaaSEnterpriseTemplate(),
     },
     'agency-corporate': {
       corporate: getAgencyCorporateTemplate(),
-      creative: getAgencyCreativeTemplate()
-    }
+      creative: getAgencyCreativeTemplate(),
+    },
   }
 
   const templateContent = templates[template]?.[variation] || templates['portfolio-bold'].minimal
-  
+
   return templateContent
     .replace(/\{\{COMPANY_NAME\}\}/g, companyName)
     .replace(/\{\{TAGLINE\}\}/g, tagline)
@@ -1300,13 +1305,15 @@ export default function RootLayout({
 async function generateDesignSystem(targetDir, template, _variation) {
   // Copy design tokens
   const designTokensPath = path.join(targetDir, 'src', 'design-tokens.json')
-  const designTokens = JSON.parse(fs.readFileSync(path.join(process.cwd(), '..', 'src', 'design-tokens.json'), 'utf8'))
+  const designTokens = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), '..', 'src', 'design-tokens.json'), 'utf8'),
+  )
   fs.writeFileSync(designTokensPath, JSON.stringify(designTokens, null, 2))
 
   // Generate CSS with design tokens
   const cssPath = path.join(targetDir, 'src', 'app', '(app)', 'globals.css')
   const colors = getTemplateColors(template)
-  
+
   const css = `@tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -1330,7 +1337,7 @@ body {
   color: var(--color-text);
   background: var(--color-background);
 }`
-  
+
   fs.writeFileSync(cssPath, css)
 }
 
@@ -1340,25 +1347,24 @@ function getTemplateColors(template) {
       primary: '#6366f1',
       secondary: '#8b5cf6',
       background: '#fafafa',
-      text: '#0f172a'
+      text: '#0f172a',
     },
     'saas-futuristic': {
       primary: '#2563eb',
       secondary: '#06b6d4',
       background: '#eff6ff',
-      text: '#111827'
+      text: '#111827',
     },
     'agency-corporate': {
       primary: '#1f2937',
       secondary: '#6b7280',
       background: '#ffffff',
-      text: '#111827'
-    }
+      text: '#111827',
+    },
   }
-  
+
   return colorSchemes[template] || colorSchemes['portfolio-bold']
 }
-
 
 async function copyAnimatedComponents(targetDir) {
   // Create components/ui directory
@@ -1485,7 +1491,13 @@ async function copyRefactoredComponents(targetDir, template) {
   if (template !== 'portfolio-bold') return
 
   // Create template components directory
-  const templateComponentsDir = path.join(targetDir, 'src', 'templates', 'portfolio-bold', 'components')
+  const templateComponentsDir = path.join(
+    targetDir,
+    'src',
+    'templates',
+    'portfolio-bold',
+    'components',
+  )
   await fs.ensureDir(templateComponentsDir)
 
   // Copy AnimatedComponents
@@ -1608,7 +1620,10 @@ export const ParallaxElement = ({ children, offset = 50 }) => {
   )
 }`
 
-  await fs.writeFile(path.join(templateComponentsDir, 'AnimatedComponents.tsx'), animatedComponentsContent)
+  await fs.writeFile(
+    path.join(templateComponentsDir, 'AnimatedComponents.tsx'),
+    animatedComponentsContent,
+  )
 
   // Copy Navigation component
   const navigationContent = `'use client'
@@ -1892,120 +1907,120 @@ async function addFeatures(targetDir, features, providers) {
 
 async function addShopFeature(targetDir, paymentProvider) {
   console.log(chalk.gray(`    🛒 Adding e-commerce with ${paymentProvider}...`))
-  
+
   // Create shop components
   const shopDir = path.join(targetDir, 'src', 'components', 'shop')
   await fs.ensureDir(shopDir)
-  
+
   // Add shop components based on payment provider
   const _shopComponents = {
     stripe: 'Stripe integration components',
     paypal: 'PayPal integration components',
-    coinbase: 'Coinbase Commerce integration components'
+    coinbase: 'Coinbase Commerce integration components',
   }
-  
+
   console.log(chalk.green(`    ✓ E-commerce with ${paymentProvider} added`))
 }
 
 async function addAuthFeature(targetDir, authProvider) {
   console.log(chalk.gray(`    🔐 Adding authentication with ${authProvider}...`))
-  
+
   // Create auth components
   const authDir = path.join(targetDir, 'src', 'components', 'auth')
   await fs.ensureDir(authDir)
-  
+
   console.log(chalk.green(`    ✓ Authentication with ${authProvider} added`))
 }
 
 async function addCMSFeature(targetDir, cmsProvider) {
   console.log(chalk.gray(`    📝 Adding CMS with ${cmsProvider}...`))
-  
+
   // Create CMS components
   const cmsDir = path.join(targetDir, 'src', 'components', 'cms')
   await fs.ensureDir(cmsDir)
-  
+
   console.log(chalk.green(`    ✓ CMS with ${cmsProvider} added`))
 }
 
 async function addContactFeature(targetDir, emailProvider) {
   console.log(chalk.gray(`    📧 Adding contact forms with ${emailProvider}...`))
-  
+
   // Create contact components
   const contactDir = path.join(targetDir, 'src', 'components', 'contact')
   await fs.ensureDir(contactDir)
-  
+
   console.log(chalk.green(`    ✓ Contact forms with ${emailProvider} added`))
 }
 
 async function addAnalyticsFeature(targetDir, analyticsProvider) {
   console.log(chalk.gray(`    📊 Adding analytics with ${analyticsProvider}...`))
-  
+
   // Create analytics components
   const analyticsDir = path.join(targetDir, 'src', 'components', 'analytics')
   await fs.ensureDir(analyticsDir)
-  
+
   console.log(chalk.green(`    ✓ Analytics with ${analyticsProvider} added`))
 }
 
 async function addI18nFeature(targetDir) {
   console.log(chalk.gray('    🌐 Adding internationalization...'))
-  
+
   // Create i18n components
   const i18nDir = path.join(targetDir, 'src', 'lib', 'i18n')
   await fs.ensureDir(i18nDir)
-  
+
   console.log(chalk.green('    ✓ Internationalization added'))
 }
 
 async function addPWAFeature(targetDir) {
   console.log(chalk.gray('    📱 Adding PWA features...'))
-  
+
   // Create PWA components
   const pwaDir = path.join(targetDir, 'public')
   await fs.ensureDir(pwaDir)
-  
+
   console.log(chalk.green('    ✓ PWA features added'))
 }
 
 async function addSEOFeature(targetDir) {
   console.log(chalk.gray('    🔍 Adding SEO optimization...'))
-  
+
   // Create SEO components
   const seoDir = path.join(targetDir, 'src', 'lib', 'seo')
   await fs.ensureDir(seoDir)
-  
+
   console.log(chalk.green('    ✓ SEO optimization added'))
 }
 
 async function addThemesFeature(targetDir) {
   console.log(chalk.gray('    🎨 Adding theme customization...'))
-  
+
   // Create theme components
   const themesDir = path.join(targetDir, 'src', 'lib', 'themes')
   await fs.ensureDir(themesDir)
-  
+
   console.log(chalk.green('    ✓ Theme customization added'))
 }
 
 async function addABTestingFeature(targetDir) {
   console.log(chalk.gray('    📈 Adding A/B testing...'))
-  
+
   // Create A/B testing components
   const abDir = path.join(targetDir, 'src', 'lib', 'ab-testing')
   await fs.ensureDir(abDir)
-  
+
   console.log(chalk.green('    ✓ A/B testing added'))
 }
 
 async function updatePackageJson(targetDir, projectName, features = [], providers = {}) {
   const packageJsonPath = path.join(targetDir, 'package.json')
   const packageJson = await fs.readJSON(packageJsonPath)
-  
+
   packageJson.name = projectName
-  
+
   // Add feature-specific dependencies
   const additionalDeps = {}
-  
+
   if (features.includes('shop')) {
     if (providers.paymentProvider === 'stripe') {
       additionalDeps['@stripe/stripe-js'] = '^2.0.0'
@@ -2014,7 +2029,7 @@ async function updatePackageJson(targetDir, projectName, features = [], provider
       additionalDeps['@paypal/react-paypal-js'] = '^8.0.0'
     }
   }
-  
+
   if (features.includes('auth')) {
     if (providers.authProvider === 'nextauth') {
       additionalDeps['next-auth'] = '^4.24.0'
@@ -2022,7 +2037,7 @@ async function updatePackageJson(targetDir, projectName, features = [], provider
       additionalDeps['@clerk/nextjs'] = '^4.29.0'
     }
   }
-  
+
   if (features.includes('cms')) {
     if (providers.cmsProvider === 'payload') {
       additionalDeps['payload'] = '^3.0.0'
@@ -2030,7 +2045,7 @@ async function updatePackageJson(targetDir, projectName, features = [], provider
       additionalDeps['@strapi/strapi'] = '^4.15.0'
     }
   }
-  
+
   if (features.includes('contact') || features.includes('shop')) {
     if (providers.emailProvider === 'resend') {
       additionalDeps['resend'] = '^2.0.0'
@@ -2038,7 +2053,7 @@ async function updatePackageJson(targetDir, projectName, features = [], provider
       additionalDeps['@sendgrid/mail'] = '^8.0.0'
     }
   }
-  
+
   if (features.includes('analytics')) {
     if (providers.analyticsProvider === 'ga4') {
       additionalDeps['@next/third-parties'] = '^14.0.0'
@@ -2046,40 +2061,40 @@ async function updatePackageJson(targetDir, projectName, features = [], provider
       additionalDeps['plausible-tracker'] = '^0.0.0'
     }
   }
-  
+
   if (features.includes('i18n')) {
     additionalDeps['next-intl'] = '^3.0.0'
   }
-  
+
   if (features.includes('pwa')) {
     additionalDeps['next-pwa'] = '^5.6.0'
   }
-  
+
   if (features.includes('seo')) {
     additionalDeps['next-seo'] = '^6.4.0'
   }
-  
+
   if (features.includes('ab-testing')) {
     additionalDeps['@vercel/flags'] = '^1.0.0'
   }
-  
+
   // Merge dependencies
   packageJson.dependencies = {
     ...packageJson.dependencies,
-    ...additionalDeps
+    ...additionalDeps,
   }
-  
+
   packageJson.scripts = {
     ...packageJson.scripts,
-    test: 'playwright test'
+    test: 'playwright test',
   }
-  
+
   await fs.writeJSON(packageJsonPath, packageJson, { spaces: 2 })
 }
 
 async function generateEnvironmentFile(targetDir, providers) {
   const envContent = []
-  
+
   // Database configuration
   if (providers.database === 'sqlite') {
     envContent.push('DATABASE_URI=file:./database.sqlite')
@@ -2092,7 +2107,7 @@ async function generateEnvironmentFile(targetDir, providers) {
   } else if (providers.database === 'neon') {
     envContent.push('DATABASE_URL=your_neon_url')
   }
-  
+
   // Payment configuration
   if (providers.paymentProvider === 'stripe') {
     envContent.push('STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key')
@@ -2105,7 +2120,7 @@ async function generateEnvironmentFile(targetDir, providers) {
     envContent.push('COINBASE_API_KEY=your_coinbase_api_key')
     envContent.push('COINBASE_WEBHOOK_SECRET=your_coinbase_webhook_secret')
   }
-  
+
   // Authentication configuration
   if (providers.authProvider === 'nextauth') {
     envContent.push('NEXTAUTH_URL=http://localhost:3000')
@@ -2114,7 +2129,7 @@ async function generateEnvironmentFile(targetDir, providers) {
     envContent.push('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key')
     envContent.push('CLERK_SECRET_KEY=your_clerk_secret_key')
   }
-  
+
   // Email configuration
   if (providers.emailProvider === 'resend') {
     envContent.push('RESEND_API_KEY=your_resend_api_key')
@@ -2124,7 +2139,7 @@ async function generateEnvironmentFile(targetDir, providers) {
     envContent.push('MAILGUN_API_KEY=your_mailgun_api_key')
     envContent.push('MAILGUN_DOMAIN=your_mailgun_domain')
   }
-  
+
   // Analytics configuration
   if (providers.analyticsProvider === 'ga4') {
     envContent.push('NEXT_PUBLIC_GA_ID=your_ga4_measurement_id')
@@ -2133,18 +2148,18 @@ async function generateEnvironmentFile(targetDir, providers) {
   } else if (providers.analyticsProvider === 'fathom') {
     envContent.push('NEXT_PUBLIC_FATHOM_ID=your_fathom_id')
   }
-  
+
   // Write .env.local file
   const envPath = path.join(targetDir, '.env.local')
   await fs.writeFile(envPath, envContent.join('\n'))
-  
+
   console.log(chalk.green('  ✓ Environment file created with selected services'))
 }
 
 async function generateTests(targetDir, features = []) {
   const testsPath = path.join(targetDir, 'tests')
   await fs.ensureDir(testsPath)
-  
+
   let testContent = `import { test, expect } from '@playwright/test'
 
 test('Accessibility compliance', async ({ page }) => {
@@ -2177,7 +2192,7 @@ test('E-commerce functionality', async ({ page }) => {
   await expect(page.locator('h1')).toContainText('Shop')
 })`
   }
-  
+
   if (features.includes('auth')) {
     testContent += `
 
@@ -2186,7 +2201,7 @@ test('Authentication flow', async ({ page }) => {
   await expect(page.locator('h1')).toContainText('Login')
 })`
   }
-  
+
   if (features.includes('contact')) {
     testContent += `
 
@@ -2195,7 +2210,7 @@ test('Contact form', async ({ page }) => {
   await expect(page.locator('form')).toBeVisible()
 })`
   }
-  
+
   await fs.writeFile(path.join(testsPath, 'accessibility.spec.ts'), testContent)
 }
 
@@ -2260,7 +2275,7 @@ export function getActiveTemplateConfig(): TemplateConfig {
   return ACTIVE_TEMPLATE_CONFIG
 }
 `
-  
+
   const configDir = path.join(targetDir, 'src', 'config')
   await fs.ensureDir(configDir)
   await fs.writeFile(path.join(configDir, 'active-template.ts'), configContent)
@@ -2273,7 +2288,7 @@ ${tagline}
 
 ## Features
 
-${features.length > 0 ? features.map(f => `- ✅ ${f}`).join('\n') : '- ✅ Basic template'}
+${features.length > 0 ? features.map((f) => `- ✅ ${f}`).join('\n') : '- ✅ Basic template'}
 
 ## Quality Standards
 
@@ -2305,7 +2320,7 @@ bun test
 - ✅ Professional quality (Awwwards 7.0+ standards)
 ${features.length > 0 ? `- ✅ ${features.join('\n- ✅ ')}` : ''}
 `
-  
+
   await fs.writeFile(path.join(targetDir, 'README.md'), readme)
 }
 

@@ -79,10 +79,8 @@ export default async function ShopPage({ searchParams }: Props) {
       {/* Page Header - Refined */}
       <div className="mb-16">
         <div className="relative inline-block">
-          <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] font-bold tracking-tight">
-            Shop
-          </h1>
-          <p className="mt-4 text-base text-muted-foreground font-light">
+          <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] font-bold tracking-tight">Shop</h1>
+          <p className="text-muted-foreground mt-4 text-base font-light">
             Discover our curated collection
           </p>
         </div>
@@ -90,19 +88,19 @@ export default async function ShopPage({ searchParams }: Props) {
 
       {/* Search Results Info */}
       {searchValue ? (
-        <div className="mb-12 p-6 rounded-2xl border border-border/50 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
-          <p className="text-base font-medium text-muted-foreground">
+        <div className="border-border/50 mb-12 rounded-2xl border bg-white/50 p-6 backdrop-blur-sm dark:bg-black/20">
+          <p className="text-muted-foreground text-base font-medium">
             {products.docs?.length === 0
               ? 'No products match '
               : `${products.docs.length} ${resultsText} for `}
-            <span className="font-semibold text-foreground">&quot;{searchValue}&quot;</span>
+            <span className="text-foreground font-semibold">&quot;{searchValue}&quot;</span>
           </p>
         </div>
       ) : null}
 
       {!searchValue && products.docs?.length === 0 && (
-        <div className="p-12 rounded-2xl border border-border/50 bg-white/50 dark:bg-black/20 backdrop-blur-sm text-center">
-          <p className="text-base font-medium text-muted-foreground">
+        <div className="border-border/50 rounded-2xl border bg-white/50 p-12 text-center backdrop-blur-sm dark:bg-black/20">
+          <p className="text-muted-foreground text-base font-medium">
             No products found. Try adjusting your filters.
           </p>
         </div>
@@ -110,7 +108,7 @@ export default async function ShopPage({ searchParams }: Props) {
 
       {/* Product Grid - Spacious Layout */}
       {products?.docs.length > 0 ? (
-        <Grid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <Grid className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
           {products.docs.map((product, index) => {
             return <ProductGridItem key={product.id} product={product} index={index} />
           })}

@@ -29,38 +29,39 @@ export function HeaderClient({ header }: Props) {
   return (
     <>
       {/* Desktop Header - Sticky with floating design */}
-      <header className="hidden md:block sticky top-0 z-50 pt-6" role="banner">
-        <div className="max-w-7xl mx-auto px-6">
-          <nav 
-            className="flex items-center justify-between px-6 py-2 rounded-full bg-background/80 backdrop-blur-xl border border-border/50 shadow-lg hover:border-border/70 transition-all duration-300" 
-            role="navigation" 
+      <header className="sticky top-0 z-50 hidden pt-6 md:block" role="banner">
+        <div className="mx-auto max-w-7xl px-6">
+          <nav
+            className="bg-background/80 border-border/50 hover:border-border/70 flex items-center justify-between rounded-full border px-6 py-2 shadow-lg backdrop-blur-xl transition-all duration-300"
+            role="navigation"
             aria-label="Main navigation"
           >
             {/* Logo Section */}
             <div className="flex items-center gap-3">
               {/* Orange circle icon */}
-              <div className="w-7 h-7 rounded-full bg-orange-500 flex-shrink-0" />
-              
+              <div className="h-7 w-7 flex-shrink-0 rounded-full bg-orange-500" />
+
               {/* Brand name */}
-              <Link href="/" className="flex items-center gap-1 group">
-                <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+              <Link href="/" className="group flex items-center gap-1">
+                <span className="text-foreground group-hover:text-primary text-lg font-semibold transition-colors">
                   Store
                 </span>
               </Link>
             </div>
 
             {/* Navigation Links */}
-            <ul className="flex items-center gap-6 lg:gap-8 text-sm font-medium">
+            <ul className="flex items-center gap-6 text-sm font-medium lg:gap-8">
               {navigationItems.map((item) => {
-                const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
-                
+                const isActive =
+                  pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
+
                 return (
                   <li key={item.href}>
                     <Link
                       href={item.href}
                       className={cn(
-                        'text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-muted/50',
-                        isActive && 'text-foreground font-semibold bg-muted/30'
+                        'text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg px-3 py-2 whitespace-nowrap transition-colors',
+                        isActive && 'text-foreground bg-muted/30 font-semibold',
                       )}
                       aria-current={isActive ? 'page' : undefined}
                     >
@@ -82,11 +83,11 @@ export function HeaderClient({ header }: Props) {
       </header>
 
       {/* Mobile Header - Simple, non-sticky */}
-      <header className="md:hidden border-b border-border/50 bg-background" role="banner">
+      <header className="border-border/50 bg-background border-b md:hidden" role="banner">
         <div className="px-4 py-3">
-          <nav 
-            className="flex items-center justify-between" 
-            role="navigation" 
+          <nav
+            className="flex items-center justify-between"
+            role="navigation"
             aria-label="Mobile navigation"
           >
             {/* Mobile Menu Button */}
@@ -95,17 +96,15 @@ export function HeaderClient({ header }: Props) {
                 <MobileMenu menu={menu} />
               </Suspense>
             </div>
-            
+
             {/* Logo - Centered */}
             <div className="flex items-center gap-2">
               {/* Orange circle icon */}
-              <div className="w-6 h-6 rounded-full bg-orange-500 flex-shrink-0" />
-              
+              <div className="h-6 w-6 flex-shrink-0 rounded-full bg-orange-500" />
+
               {/* Brand name */}
               <Link href="/" className="flex items-center gap-1">
-                <span className="text-base font-semibold text-foreground">
-                  Store
-                </span>
+                <span className="text-foreground text-base font-semibold">Store</span>
               </Link>
             </div>
 

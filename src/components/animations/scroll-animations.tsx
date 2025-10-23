@@ -14,12 +14,12 @@ interface ScrollRevealProps {
  * ScrollReveal Component
  * Reveals elements with smooth animations when they come into view
  */
-export function ScrollReveal({ 
-  children, 
-  direction = 'up', 
+export function ScrollReveal({
+  children,
+  direction = 'up',
   delay = 0,
   duration = 0.6,
-  className = '' 
+  className = '',
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false)
   const elementRef = useRef<HTMLDivElement>(null)
@@ -31,7 +31,7 @@ export function ScrollReveal({
           setTimeout(() => setIsVisible(true), delay * 1000)
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     if (elementRef.current) {
@@ -44,11 +44,16 @@ export function ScrollReveal({
   const getTransform = () => {
     if (!isVisible) {
       switch (direction) {
-        case 'up': return 'translateY(50px)'
-        case 'down': return 'translateY(-50px)'
-        case 'left': return 'translateX(50px)'
-        case 'right': return 'translateX(-50px)'
-        default: return 'translateY(50px)'
+        case 'up':
+          return 'translateY(50px)'
+        case 'down':
+          return 'translateY(-50px)'
+        case 'left':
+          return 'translateX(50px)'
+        case 'right':
+          return 'translateX(-50px)'
+        default:
+          return 'translateY(50px)'
       }
     }
     return 'translateY(0) translateX(0)'
@@ -61,7 +66,7 @@ export function ScrollReveal({
       style={{
         transform: getTransform(),
         opacity: isVisible ? 1 : 0,
-        transitionDuration: `${duration}s`
+        transitionDuration: `${duration}s`,
       }}
     >
       {children}
@@ -79,11 +84,7 @@ interface ParallaxElementProps {
  * ParallaxElement Component
  * Creates parallax scrolling effects
  */
-export function ParallaxElement({ 
-  children, 
-  speed = 0.5, 
-  className = '' 
-}: ParallaxElementProps) {
+export function ParallaxElement({ children, speed = 0.5, className = '' }: ParallaxElementProps) {
   const [offset, setOffset] = useState(0)
   const elementRef = useRef<HTMLDivElement>(null)
 
@@ -106,7 +107,7 @@ export function ParallaxElement({
       ref={elementRef}
       className={`transform ${className}`}
       style={{
-        transform: `translateY(${offset}px)`
+        transform: `translateY(${offset}px)`,
       }}
     >
       {children}
@@ -124,19 +125,15 @@ interface StaggeredRevealProps {
  * StaggeredReveal Component
  * Reveals children with staggered timing
  */
-export function StaggeredReveal({ 
-  children, 
+export function StaggeredReveal({
+  children,
   staggerDelay = 0.1,
-  className = '' 
+  className = '',
 }: StaggeredRevealProps) {
   return (
     <div className={className}>
       {React.Children.toArray(children).map((child, index) => (
-        <ScrollReveal
-          key={index}
-          delay={index * staggerDelay}
-          className="w-full"
-        >
+        <ScrollReveal key={index} delay={index * staggerDelay} className="w-full">
           {child}
         </ScrollReveal>
       ))}
@@ -154,11 +151,7 @@ interface CounterAnimationProps {
  * CounterAnimation Component
  * Animates numbers counting up
  */
-export function CounterAnimation({ 
-  end, 
-  duration = 2, 
-  className = '' 
-}: CounterAnimationProps) {
+export function CounterAnimation({ end, duration = 2, className = '' }: CounterAnimationProps) {
   const [count, setCount] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const elementRef = useRef<HTMLDivElement>(null)
@@ -170,7 +163,7 @@ export function CounterAnimation({
           setIsVisible(true)
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     )
 
     if (elementRef.current) {
@@ -187,9 +180,9 @@ export function CounterAnimation({
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime
       const progress = Math.min((currentTime - startTime) / (duration * 1000), 1)
-      
+
       setCount(Math.floor(progress * end))
-      
+
       if (progress < 1) {
         requestAnimationFrame(animate)
       }
@@ -215,11 +208,7 @@ interface ProgressBarProps {
  * ProgressBar Component
  * Animated progress bar
  */
-export function ProgressBar({ 
-  progress, 
-  color = '#6366f1',
-  className = '' 
-}: ProgressBarProps) {
+export function ProgressBar({ progress, color = '#6366f1', className = '' }: ProgressBarProps) {
   const [animatedProgress, setAnimatedProgress] = useState(0)
   const elementRef = useRef<HTMLDivElement>(null)
 
@@ -232,7 +221,7 @@ export function ProgressBar({
           }, 200)
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     )
 
     if (elementRef.current) {
@@ -243,15 +232,15 @@ export function ProgressBar({
   }, [progress])
 
   return (
-    <div 
+    <div
       ref={elementRef}
-      className={`w-full bg-gray-200 rounded-full overflow-hidden ${className}`}
+      className={`w-full overflow-hidden rounded-full bg-gray-200 ${className}`}
     >
       <div
         className="h-full transition-all duration-1000 ease-out"
         style={{
           width: `${animatedProgress}%`,
-          backgroundColor: color
+          backgroundColor: color,
         }}
       />
     </div>

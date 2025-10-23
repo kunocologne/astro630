@@ -49,11 +49,11 @@ const fetchCurrentUser = async (): Promise<User> => {
   const response = await fetch('/api/users/me', {
     credentials: 'include',
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to fetch user: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -66,11 +66,11 @@ const login = async (data: LoginData): Promise<AuthResponse> => {
     credentials: 'include',
     body: JSON.stringify(data),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to login: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -83,11 +83,11 @@ const register = async (data: RegisterData): Promise<AuthResponse> => {
     credentials: 'include',
     body: JSON.stringify(data),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to register: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -96,7 +96,7 @@ const logout = async (): Promise<void> => {
     method: 'POST',
     credentials: 'include',
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to logout: ${response.statusText}`)
   }
@@ -110,13 +110,19 @@ const forgotPassword = async (email: string): Promise<void> => {
     },
     body: JSON.stringify({ email }),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to send reset email: ${response.statusText}`)
   }
 }
 
-const resetPassword = async ({ token, password }: { token: string; password: string }): Promise<void> => {
+const resetPassword = async ({
+  token,
+  password,
+}: {
+  token: string
+  password: string
+}): Promise<void> => {
   const response = await fetch('/api/users/reset-password', {
     method: 'POST',
     headers: {
@@ -124,7 +130,7 @@ const resetPassword = async ({ token, password }: { token: string; password: str
     },
     body: JSON.stringify({ token, password }),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to reset password: ${response.statusText}`)
   }
@@ -139,11 +145,11 @@ const updateProfile = async (data: Partial<User>): Promise<User> => {
     credentials: 'include',
     body: JSON.stringify(data),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to update profile: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -173,16 +179,16 @@ export const useCurrentUser = () => {
 
 export const useLogin = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: login,
     onSuccess: (data) => {
       // Update user cache
       queryClient.setQueryData(authKeys.user(), data.user)
-      
+
       // Invalidate and refetch user data
       queryClient.invalidateQueries({ queryKey: authKeys.user() })
-      
+
       toast.success('Welcome back!')
     },
     onError: (error) => {
@@ -193,16 +199,16 @@ export const useLogin = () => {
 
 export const useRegister = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: register,
     onSuccess: (data) => {
       // Update user cache
       queryClient.setQueryData(authKeys.user(), data.user)
-      
+
       // Invalidate and refetch user data
       queryClient.invalidateQueries({ queryKey: authKeys.user() })
-      
+
       toast.success('Account created successfully!')
     },
     onError: (error) => {
@@ -213,17 +219,17 @@ export const useRegister = () => {
 
 export const useLogout = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: logout,
     onSuccess: () => {
       // Clear user cache
       queryClient.removeQueries({ queryKey: authKeys.user() })
-      
+
       // Clear all other caches that depend on user
       queryClient.removeQueries({ queryKey: ['cart'] })
       queryClient.removeQueries({ queryKey: ['orders'] })
-      
+
       toast.success('Logged out successfully!')
     },
     onError: (error) => {
@@ -258,22 +264,22 @@ export const useResetPassword = () => {
 
 export const useUpdateProfile = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: updateProfile,
     onMutate: async (newData) => {
       // Cancel any outgoing refetches
       await queryClient.cancelQueries({ queryKey: authKeys.user() })
-      
+
       // Snapshot the previous value
       const previousUser = queryClient.getQueryData<User>(authKeys.user())
-      
+
       // Optimistically update the user
       if (previousUser) {
         const optimisticUser = { ...previousUser, ...newData }
         queryClient.setQueryData(authKeys.user(), optimisticUser)
       }
-      
+
       return { previousUser }
     },
     onSuccess: (updatedUser) => {

@@ -47,9 +47,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
           <Header />
           <main id="main-content" role="main">
-            <AnimatedPage>
-              {children}
-            </AnimatedPage>
+            <AnimatedPage>{children}</AnimatedPage>
           </main>
           <Footer />
         </Providers>

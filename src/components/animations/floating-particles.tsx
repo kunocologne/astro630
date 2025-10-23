@@ -20,14 +20,14 @@ interface FloatingParticlesProps {
 
 /**
  * FloatingParticles Component
- * 
+ *
  * Creates beautiful floating particles with smooth animations
  * Perfect for hero sections and background effects
  */
-export function FloatingParticles({ 
-  count = 50, 
+export function FloatingParticles({
+  count = 50,
   colors = ['#6366f1', '#8b5cf6', '#06b6d4', '#f59e0b'],
-  className = ''
+  className = '',
 }: FloatingParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particlesRef = useRef<Particle[]>([])
@@ -60,7 +60,7 @@ export function FloatingParticles({
           vy: (Math.random() - 0.5) * 0.5,
           size: Math.random() * 3 + 1,
           opacity: Math.random() * 0.5 + 0.2,
-          color: colors[Math.floor(Math.random() * colors.length)]
+          color: colors[Math.floor(Math.random() * colors.length)],
         })
       }
     }
@@ -100,7 +100,7 @@ export function FloatingParticles({
 
             if (distance < 100) {
               ctx.save()
-              ctx.globalAlpha = (100 - distance) / 100 * 0.1
+              ctx.globalAlpha = ((100 - distance) / 100) * 0.1
               ctx.strokeStyle = particle.color
               ctx.lineWidth = 0.5
               ctx.beginPath()
@@ -130,7 +130,7 @@ export function FloatingParticles({
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 pointer-events-none ${className}`}
+      className={`pointer-events-none absolute inset-0 ${className}`}
       style={{ zIndex: 1 }}
     />
   )
@@ -140,23 +140,23 @@ export function FloatingParticles({
  * GradientOrb Component
  * Creates beautiful gradient orbs that float and pulse
  */
-export function GradientOrb({ 
-  size = 200, 
+export function GradientOrb({
+  size = 200,
   color = '#6366f1',
-  className = '' 
-}: { 
+  className = '',
+}: {
   size?: number
   color?: string
-  className?: string 
+  className?: string
 }) {
   return (
     <div
-      className={`absolute rounded-full blur-3xl opacity-20 animate-pulse ${className}`}
+      className={`absolute animate-pulse rounded-full opacity-20 blur-3xl ${className}`}
       style={{
         width: size,
         height: size,
         background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-        animation: 'float 6s ease-in-out infinite'
+        animation: 'float 6s ease-in-out infinite',
       }}
     />
   )
@@ -166,9 +166,9 @@ export function GradientOrb({
  * AnimatedGradientBackground Component
  * Creates stunning animated gradient backgrounds
  */
-export function AnimatedGradientBackground({ 
+export function AnimatedGradientBackground({
   colors = ['#6366f1', '#8b5cf6', '#06b6d4'],
-  className = ''
+  className = '',
 }: {
   colors?: string[]
   className?: string
@@ -180,7 +180,7 @@ export function AnimatedGradientBackground({
         style={{
           background: `linear-gradient(45deg, ${colors.join(', ')})`,
           backgroundSize: '400% 400%',
-          animation: 'gradientShift 8s ease infinite'
+          animation: 'gradientShift 8s ease infinite',
         }}
       />
       <div className="absolute inset-0 bg-black/20" />

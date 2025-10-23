@@ -42,11 +42,11 @@ export const FindOrderForm: React.FC<Props> = ({ initialEmail }) => {
 
   return (
     <Fragment>
-      <h1 className="text-xl mb-4">Find my order</h1>
+      <h1 className="mb-4 text-xl">Find my order</h1>
       <div className="prose dark:prose-invert mb-8">
         <p>{`Please enter your email and order ID below.`}</p>
       </div>
-      <form className="max-w-lg flex flex-col gap-8" onSubmit={handleSubmit(onSubmit)}>
+      <form className="flex max-w-lg flex-col gap-8" onSubmit={handleSubmit(onSubmit)}>
         <FormItem>
           <Label htmlFor="email" className="mb-2">
             Email address

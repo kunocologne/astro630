@@ -7,6 +7,7 @@
 ## 🎨 **Portfolio Bold Template Images**
 
 ### **Hero Section**
+
 - **File**: `/media/portfolio-hero-creative.jpg`
 - **Dimensions**: 1920x1080px
 - **Colors**: Blue-purple gradients (#6366f1 to #8b5cf6)
@@ -14,6 +15,7 @@
 - **Style**: Abstract, vibrant, inspiring
 
 ### **Project Showcase**
+
 - **File**: `/media/portfolio-ecommerce-hero.jpg`
 - **Dimensions**: 800x600px
 - **Colors**: Blue-purple theme
@@ -39,6 +41,7 @@
 - **Style**: Creative, professional, artistic
 
 ### **About Section**
+
 - **File**: `/media/about-portrait.jpg`
 - **Dimensions**: 600x600px
 - **Colors**: Blue-purple background
@@ -50,6 +53,7 @@
 ## 💻 **SaaS Futuristic Template Images**
 
 ### **Hero Section**
+
 - **File**: `/media/saas-hero-analytics.jpg`
 - **Dimensions**: 1920x1080px
 - **Colors**: Blue-cyan gradients (#2563eb to #06b6d4)
@@ -57,6 +61,7 @@
 - **Style**: Clean, futuristic, tech-focused
 
 ### **Features Section**
+
 - **File**: `/media/saas-feature-performance.jpg`
 - **Dimensions**: 400x300px
 - **Colors**: Blue-cyan theme
@@ -76,6 +81,7 @@
 - **Style**: Modern, data-driven, professional
 
 ### **CTA Section**
+
 - **File**: `/media/saas-cta-team.jpg`
 - **Dimensions**: 1920x600px
 - **Colors**: Blue-cyan theme
@@ -87,6 +93,7 @@
 ## 🏢 **Agency Corporate Template Images**
 
 ### **Hero Section**
+
 - **File**: `/media/agency-hero-office.jpg`
 - **Dimensions**: 1920x1080px
 - **Colors**: Navy-gray theme (#1f2937 to #6b7280)
@@ -94,6 +101,7 @@
 - **Style**: Clean, professional, trustworthy
 
 ### **Case Studies**
+
 - **File**: `/media/agency-project-ecommerce.jpg`
 - **Dimensions**: 800x600px
 - **Colors**: Navy-gray theme
@@ -117,6 +125,7 @@
 ## 📱 **Responsive Image Specifications**
 
 ### **Hero Images (All Templates)**
+
 - **Desktop**: 1920x1080px (16:9 ratio)
 - **Tablet**: 1024x768px (4:3 ratio)
 - **Mobile**: 640x480px (4:3 ratio)
@@ -124,6 +133,7 @@
 - **Quality**: 90%
 
 ### **Project Images (All Templates)**
+
 - **Desktop**: 800x600px (4:3 ratio)
 - **Tablet**: 600x450px (4:3 ratio)
 - **Mobile**: 400x300px (4:3 ratio)
@@ -131,6 +141,7 @@
 - **Quality**: 85%
 
 ### **Thumbnail Images (All Templates)**
+
 - **Desktop**: 400x300px (4:3 ratio)
 - **Tablet**: 300x225px (4:3 ratio)
 - **Mobile**: 200x150px (4:3 ratio)
@@ -142,18 +153,21 @@
 ## 🎯 **Color Palette Requirements**
 
 ### **Portfolio Bold**
+
 - **Primary**: #6366f1 (Blue)
 - **Secondary**: #8b5cf6 (Purple)
 - **Accent**: #f59e0b (Amber)
 - **Background**: #fafafa (Light Gray)
 
 ### **SaaS Futuristic**
+
 - **Primary**: #2563eb (Blue)
 - **Secondary**: #06b6d4 (Cyan)
 - **Accent**: #10b981 (Emerald)
 - **Background**: #ffffff (White)
 
 ### **Agency Corporate**
+
 - **Primary**: #1f2937 (Navy)
 - **Secondary**: #6b7280 (Gray)
 - **Accent**: #dc2626 (Red)
@@ -164,6 +178,7 @@
 ## 🚀 **Image Optimization Checklist**
 
 ### **Technical Requirements**
+
 - [ ] All images converted to WebP format
 - [ ] JPEG fallbacks created
 - [ ] Responsive versions generated
@@ -173,6 +188,7 @@
 - [ ] Loading states with brand gradients
 
 ### **Visual Requirements**
+
 - [ ] Colors match template palettes exactly
 - [ ] Professional quality throughout
 - [ ] Consistent visual style
@@ -181,6 +197,7 @@
 - [ ] Brand-consistent aesthetics
 
 ### **Performance Requirements**
+
 - [ ] Core Web Vitals optimized
 - [ ] Lighthouse score 90+
 - [ ] Proper caching headers
@@ -193,16 +210,19 @@
 ## 📋 **Image Sourcing Recommendations**
 
 ### **Portfolio Bold Sources**
+
 - **Unsplash**: Creative workspace, design tools, artistic backgrounds
 - **Pexels**: Modern design work, creative projects, professional portraits
 - **Adobe Stock**: High-quality creative imagery, design process photos
 
 ### **SaaS Futuristic Sources**
+
 - **Unsplash**: Tech dashboards, data visualization, modern offices
 - **Pexels**: Software interfaces, tech teams, modern workspaces
 - **Adobe Stock**: Professional tech imagery, analytics dashboards
 
 ### **Agency Corporate Sources**
+
 - **Unsplash**: Business meetings, corporate offices, professional teams
 - **Pexels**: Professional services, business processes, corporate environments
 - **Adobe Stock**: High-quality corporate imagery, professional services

@@ -126,15 +126,15 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   once = true,
 }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { 
-    amount: threshold, 
+  const isInView = useInView(ref, {
+    amount: threshold,
     once,
-    margin: '-50px 0px -50px 0px' // Start animation 50px before element comes into view
+    margin: '-50px 0px -50px 0px', // Start animation 50px before element comes into view
   })
 
   const getVariants = (): Variants => {
     if (customVariants) return customVariants
-    
+
     switch (animation) {
       case 'fadeIn':
         return fadeInVariants

@@ -1,0 +1,322 @@
+name: Performance & Quality
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Lighthouse Performance Audit
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true  # Informational only
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Setup environment
+        run: cp .env.ci .env.local
+
+      - name: Build for production
+        run: bun run build
+
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.13.x
+          lhci autorun || echo "⚠️ Performance issues detected"
+        continue-on-error: true
+
+      - name: Upload Lighthouse results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results
+          path: .lighthouseci
+          retention-days: 30
+
+  # Bundle Size Analysis
+  bundle-analysis:
+    name: Bundle Size Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Setup environment
+        run: cp .env.ci .env.local
+
+      - name: Build and analyze
+        run: |
+          bun run build
+          echo "📦 Analyzing bundle sizes..."
+          du -sh .next/static/chunks/* | sort -h || true
+          
+      - name: Check bundle size
+        run: |
+          total_size=$(du -sm .next | cut -f1)
+          echo "Total build size: ${total_size}MB"
+          if [ "$total_size" -gt 100 ]; then
+            echo "⚠️ Warning: Build size exceeds 100MB"
+          else
+            echo "✅ Build size is optimal"
+          fi
+        continue-on-error: true
+
+  # Code Quality Analysis
+  code-quality:
+    name: Code Quality (SonarQube-style)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better analysis
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run ESLint with report
+        run: |
+          bun run lint --format json --output-file eslint-report.json || true
+          echo "📊 Code quality analysis complete"
+        continue-on-error: true
+
+      - name: Code complexity check
+        run: |
+          echo "🔍 Analyzing code complexity..."
+          npx complexity-report src/ --format json > complexity-report.json || true
+        continue-on-error: true
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-quality-reports
+          path: |
+            eslint-report.json
+            complexity-report.json
+          retention-days: 30
+
+  # Security Scanning
+  security-scan:
+    name: Security Vulnerability Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Security audit
+        run: |
+          echo "🔒 Running security audit..."
+          bun audit --json > audit-report.json || true
+          bun audit || echo "⚠️ Security vulnerabilities found"
+        continue-on-error: true
+
+      - name: Check for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+        continue-on-error: true
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-audit-report
+          path: audit-report.json
+          retention-days: 30
+
+  # Image Optimization Check
+  image-optimization:
+    name: Image Optimization Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check image sizes
+        run: |
+          echo "🖼️ Checking image optimization..."
+          find public -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec ls -lh {} \; | awk '{if ($5 ~ /M/ && $5+0 > 1) print "⚠️ Large image:", $9, "Size:", $5}'
+          echo "✅ Image check complete"
+        continue-on-error: true
+
+  # SEO & Meta Tags Check
+  seo-check:
+    name: SEO & Meta Tags Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Setup environment
+        run: cp .env.ci .env.local
+
+      - name: Build application
+        run: bun run build
+
+      - name: Check meta tags
+        run: |
+          echo "🔍 Checking for essential meta tags..."
+          grep -r "og:title" src/ && echo "✅ OG title found" || echo "⚠️ Missing OG title"
+          grep -r "og:description" src/ && echo "✅ OG description found" || echo "⚠️ Missing OG description"
+          grep -r "og:image" src/ && echo "✅ OG image found" || echo "⚠️ Missing OG image"
+          grep -r "twitter:card" src/ && echo "✅ Twitter card found" || echo "⚠️ Missing Twitter card"
+        continue-on-error: true
+
+  # Dependency Health Check
+  dependency-health:
+    name: Dependency Health & Updates
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Check for outdated packages
+        run: |
+          echo "📦 Checking for outdated dependencies..."
+          bun outdated || true
+        continue-on-error: true
+
+      - name: Check package health
+        run: |
+          echo "🏥 Checking package ecosystem health..."
+          npx npm-check --skip-unused || true
+        continue-on-error: true
+
+  # Performance Budget
+  performance-budget:
+    name: Performance Budget Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Setup environment
+        run: cp .env.ci .env.local
+
+      - name: Build and check sizes
+        run: |
+          bun run build
+          echo "📊 Performance Budget Analysis"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          
+          # Check JavaScript bundle size
+          js_size=$(find .next/static -name "*.js" -type f -exec du -ch {} + | grep total$ | cut -f1)
+          echo "JS Bundle: $js_size"
+          
+          # Check CSS bundle size
+          css_size=$(find .next/static -name "*.css" -type f -exec du -ch {} + | grep total$ | cut -f1 || echo "0")
+          echo "CSS Bundle: $css_size"
+          
+          # Check total static assets
+          total_size=$(du -sh .next/static | cut -f1)
+          echo "Total Static: $total_size"
+          
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Performance budget check complete"
+        continue-on-error: true
+
+  # Report Summary
+  quality-summary:
+    name: Quality Gate Summary
+    runs-on: ubuntu-latest
+    needs: [lighthouse, bundle-analysis, code-quality, security-scan]
+    if: always()
+
+    steps:
+      - name: Generate Summary
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📊 Quality & Performance Summary"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ All checks are informational only"
+          echo "✅ Will not block deployment"
+          echo "⚠️  Review artifacts for detailed reports"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

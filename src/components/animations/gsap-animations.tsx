@@ -21,12 +21,12 @@ interface GSAPScrollRevealProps {
  * GSAP ScrollReveal Component
  * High-performance scroll-triggered animations using GSAP
  */
-export function GSAPScrollReveal({ 
-  children, 
-  direction = 'up', 
+export function GSAPScrollReveal({
+  children,
+  direction = 'up',
   delay = 0,
   duration = 1,
-  className = '' 
+  className = '',
 }: GSAPScrollRevealProps) {
   const elementRef = useRef<HTMLDivElement>(null)
 
@@ -38,7 +38,7 @@ export function GSAPScrollReveal({
       up: { y: 100, x: 0 },
       down: { y: -100, x: 0 },
       left: { y: 0, x: 100 },
-      right: { y: 0, x: -100 }
+      right: { y: 0, x: -100 },
     }
 
     const { x, y } = directionMap[direction]
@@ -47,7 +47,7 @@ export function GSAPScrollReveal({
     gsap.set(element, {
       opacity: 0,
       x,
-      y
+      y,
     })
 
     // Create animation
@@ -62,8 +62,8 @@ export function GSAPScrollReveal({
         trigger: element,
         start: 'top 80%',
         end: 'bottom 20%',
-        toggleActions: 'play none none reverse'
-      }
+        toggleActions: 'play none none reverse',
+      },
     })
 
     return () => {
@@ -88,11 +88,7 @@ interface GSAPStaggerProps {
  * GSAP Stagger Animation
  * Staggered animations for multiple elements
  */
-export function GSAPStagger({ 
-  children, 
-  staggerDelay = 0.1,
-  className = '' 
-}: GSAPStaggerProps) {
+export function GSAPStagger({ children, staggerDelay = 0.1, className = '' }: GSAPStaggerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -104,7 +100,7 @@ export function GSAPStagger({
     // Set initial state for all children
     gsap.set(elements, {
       opacity: 0,
-      y: 50
+      y: 50,
     })
 
     // Create stagger animation
@@ -117,8 +113,8 @@ export function GSAPStagger({
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      }
+        toggleActions: 'play none none reverse',
+      },
     })
 
     return () => {
@@ -143,11 +139,7 @@ interface GSAPParallaxProps {
  * GSAP Parallax Component
  * Smooth parallax scrolling with GSAP
  */
-export function GSAPParallax({ 
-  children, 
-  speed = 0.5, 
-  className = '' 
-}: GSAPParallaxProps) {
+export function GSAPParallax({ children, speed = 0.5, className = '' }: GSAPParallaxProps) {
   const elementRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -162,8 +154,8 @@ export function GSAPParallax({
         trigger: element,
         start: 'top bottom',
         end: 'bottom top',
-        scrub: true
-      }
+        scrub: true,
+      },
     })
 
     return () => {
@@ -188,11 +180,7 @@ interface GSAPMagneticProps {
  * GSAP Magnetic Effect
  * Smooth magnetic interactions with GSAP
  */
-export function GSAPMagnetic({ 
-  children, 
-  intensity = 0.3, 
-  className = '' 
-}: GSAPMagneticProps) {
+export function GSAPMagnetic({ children, intensity = 0.3, className = '' }: GSAPMagneticProps) {
   const elementRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -209,7 +197,7 @@ export function GSAPMagnetic({
         x: x * intensity,
         y: y * intensity,
         duration: 0.3,
-        ease: 'power2.out'
+        ease: 'power2.out',
       })
     }
 
@@ -218,7 +206,7 @@ export function GSAPMagnetic({
         x: 0,
         y: 0,
         duration: 0.5,
-        ease: 'elastic.out(1, 0.3)'
+        ease: 'elastic.out(1, 0.3)',
       })
     }
 
@@ -248,11 +236,7 @@ interface GSAPTextRevealProps {
  * GSAP Text Reveal
  * Animated text reveal with GSAP
  */
-export function GSAPTextReveal({ 
-  children, 
-  delay = 0,
-  className = '' 
-}: GSAPTextRevealProps) {
+export function GSAPTextReveal({ children, delay = 0, className = '' }: GSAPTextRevealProps) {
   const elementRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -262,15 +246,15 @@ export function GSAPTextReveal({
 
     // Split text into words
     const words = element.textContent?.split(' ') || []
-    element.innerHTML = words.map(word => `<span class="inline-block">${word}</span>`).join(' ')
-    
+    element.innerHTML = words.map((word) => `<span class="inline-block">${word}</span>`).join(' ')
+
     const wordElements = element.querySelectorAll('span')
 
     // Set initial state
     gsap.set(wordElements, {
       opacity: 0,
       y: 50,
-      rotationX: 90
+      rotationX: 90,
     })
 
     // Create animation
@@ -285,8 +269,8 @@ export function GSAPTextReveal({
       scrollTrigger: {
         trigger: element,
         start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      }
+        toggleActions: 'play none none reverse',
+      },
     })
 
     return () => {
@@ -311,11 +295,7 @@ interface GSAPCounterProps {
  * GSAP Counter Animation
  * Smooth number counting with GSAP
  */
-export function GSAPCounter({ 
-  end, 
-  duration = 2, 
-  className = '' 
-}: GSAPCounterProps) {
+export function GSAPCounter({ end, duration = 2, className = '' }: GSAPCounterProps) {
   const elementRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -323,7 +303,8 @@ export function GSAPCounter({
 
     const element = elementRef.current
 
-    const animation = gsap.fromTo(element, 
+    const animation = gsap.fromTo(
+      element,
       { textContent: 0 },
       {
         textContent: end,
@@ -333,9 +314,9 @@ export function GSAPCounter({
         scrollTrigger: {
           trigger: element,
           start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      }
+          toggleActions: 'play none none reverse',
+        },
+      },
     )
 
     return () => {
@@ -354,12 +335,12 @@ export function GSAPCounter({
  * GSAP Timeline Component
  * Complex animation sequences
  */
-export function GSAPTimeline({ 
-  children, 
-  className = '' 
-}: { 
+export function GSAPTimeline({
+  children,
+  className = '',
+}: {
   children: ReactNode
-  className?: string 
+  className?: string
 }) {
   const timelineRef = useRef<HTMLDivElement>(null)
 
@@ -371,14 +352,15 @@ export function GSAPTimeline({
         trigger: timelineRef.current,
         start: 'top 80%',
         end: 'bottom 20%',
-        toggleActions: 'play none none reverse'
-      }
+        toggleActions: 'play none none reverse',
+      },
     })
 
     const elements = timelineRef.current.children
-    timeline.fromTo(elements, 
+    timeline.fromTo(
+      elements,
       { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out' }
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power3.out' },
     )
 
     return () => {

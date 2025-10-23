@@ -18,24 +18,25 @@ interface CMSLinkProps {
   label?: string
 }
 
-export const CMSLink: React.FC<CMSLinkProps> = ({ 
-  href, 
-  children, 
-  className = '', 
+export const CMSLink: React.FC<CMSLinkProps> = ({
+  href,
+  children,
+  className = '',
   target,
-  rel 
+  rel,
 }) => {
   if (!href) {
     return <span className={className}>{children}</span>
   }
 
   // Check if it's an external link
-  const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')
-  
+  const isExternal =
+    href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')
+
   if (isExternal) {
     return (
-      <a 
-        href={href} 
+      <a
+        href={href}
         className={className}
         target={target || '_blank'}
         rel={rel || 'noopener noreferrer'}

@@ -9,15 +9,19 @@
 Every Juno template and generated site should score **7.0+** on this scale:
 
 ### **1. DESIGN (40% weight)**
+
 Visual aesthetics, layout, typography, color harmony
 
 ### **2. USABILITY (30% weight)**
+
 User experience, navigation, accessibility, mobile responsiveness
 
 ### **3. CREATIVITY (20% weight)**
+
 Innovation, unique approach, memorable elements
 
 ### **4. CONTENT (10% weight)**
+
 Copy quality, information architecture, value delivery
 
 **Target:** 7.0+ = Professional quality (Awwwards SOTD level)
@@ -29,34 +33,39 @@ Copy quality, information architecture, value delivery
 ### **Portfolio - Bold Template**
 
 #### Design (40%)
+
 - [ ] Typography: Clear hierarchy, readable sizes (/10)
 - [ ] Color: Harmonious palette, good contrast (/10)
 - [ ] Layout: Balanced, modern grid system (/10)
 - [ ] Visual Polish: Animations smooth, spacing consistent (/10)
-**Average Design Score:** ___ / 10
+      **Average Design Score:** \_\_\_ / 10
 
 #### Usability (30%)
+
 - [ ] Navigation: Clear, intuitive, easy to find (/10)
 - [ ] Mobile: Fully responsive, touch-friendly (/10)
 - [ ] Performance: Fast load (<2s), smooth interactions (/10)
 - [ ] Accessibility: Semantic HTML, ARIA labels, keyboard nav (/10)
-**Average Usability Score:** ___ / 10
+      **Average Usability Score:** \_\_\_ / 10
 
 #### Creativity (20%)
+
 - [ ] Uniqueness: Stands out from competitors (/10)
 - [ ] Innovation: Fresh approach to common elements (/10)
 - [ ] Memorable: User remembers the design (/10)
 - [ ] Risk-taking: Not generic, pushes boundaries (/10)
-**Average Creativity Score:** ___ / 10
+      **Average Creativity Score:** \_\_\_ / 10
 
 #### Content (10%)
+
 - [ ] Copy: Clear, engaging, no errors (/10)
 - [ ] Information: Well-organized, easy to understand (/10)
 - [ ] Value: User gets what they need quickly (/10)
 - [ ] SEO: Proper meta tags, keywords, descriptions (/10)
-**Average Content Score:** ___ / 10
+      **Average Content Score:** \_\_\_ / 10
 
 #### **Total Portfolio Score:**
+
 ```
 (Design × 0.4) + (Usability × 0.3) + (Creativity × 0.2) + (Content × 0.1) = ___
 ```
@@ -70,12 +79,14 @@ Copy quality, information architecture, value delivery
 ### **Minimum Standards (Non-Negotiable):**
 
 **Design:**
+
 - ✅ No visual bugs (broken layouts, overlapping text)
 - ✅ Consistent spacing and alignment
 - ✅ Professional color palette
 - ✅ Readable typography (minimum 16px body)
 
 **Usability:**
+
 - ✅ Mobile responsive (works on iPhone, iPad)
 - ✅ Fast load time (<3 seconds on 3G)
 - ✅ No broken links
@@ -83,12 +94,14 @@ Copy quality, information architecture, value delivery
 - ✅ Accessibility score >90 (Lighthouse)
 
 **Creativity:**
+
 - ✅ Not a copy of another template
 - ✅ Has at least 3 unique design elements
 - ✅ Memorable hero section
 - ✅ Smooth animations (not jarring)
 
 **Content:**
+
 - ✅ No lorem ipsum in production
 - ✅ All text is relevant
 - ✅ Clear call-to-actions
@@ -101,6 +114,7 @@ Copy quality, information architecture, value delivery
 ### **To Score 7.0+ (SOTD Quality):**
 
 **Design (Target: 7.5/10)**
+
 - [ ] Typography scale is perfect (heading sizes make sense)
 - [ ] Color palette is professional (not random colors)
 - [ ] White space used effectively (not cramped)
@@ -108,6 +122,7 @@ Copy quality, information architecture, value delivery
 - [ ] Consistent design system (buttons, cards, sections match)
 
 **Usability (Target: 7.5/10)**
+
 - [ ] Navigation obvious and works everywhere
 - [ ] Mobile experience equals desktop (not just "responsive")
 - [ ] Load time <1.5s on fast connection
@@ -115,6 +130,7 @@ Copy quality, information architecture, value delivery
 - [ ] Error states handled gracefully
 
 **Creativity (Target: 6.5/10)**
+
 - [ ] Hero section is unique (not generic)
 - [ ] At least one "wow" moment (smooth animation, clever interaction)
 - [ ] Color gradients used tastefully (not overdone)
@@ -122,6 +138,7 @@ Copy quality, information architecture, value delivery
 - [ ] Subtle details that show craftsmanship
 
 **Content (Target: 7.0/10)**
+
 - [ ] Headlines are compelling (not generic)
 - [ ] Copy is clear and action-oriented
 - [ ] Information architecture makes sense
@@ -135,11 +152,13 @@ Copy quality, information architecture, value delivery
 ### **When Creating/Updating Template:**
 
 **Step 1: Self-Audit (15 min)**
+
 - Score your template using the 4 criteria above
 - Be honest: What's actually a 7/10 vs 5/10?
 - Document weak areas
 
 **Step 2: Test (30 min)**
+
 - Generate site from template
 - Open on desktop, tablet, mobile
 - Click everything
@@ -148,17 +167,20 @@ Copy quality, information architecture, value delivery
 - Check accessibility
 
 **Step 3: Compare (15 min)**
+
 - Look at 3-5 Awwwards SOTD winners in same category
 - What do they have that you don't?
 - What can you adapt/improve?
 
 **Step 4: Improve (1-2 hours)**
+
 - Fix weak areas
 - Enhance design details
 - Smooth animations
 - Polish typography
 
 **Step 5: Validate (15 min)**
+
 - Re-score template
 - Did score improve?
 - Is it 7.0+?
@@ -171,16 +193,19 @@ Copy quality, information architecture, value delivery
 ### **1. Visual Hierarchy (Design)**
 
 **Bad (5/10):**
+
 - All text same size
 - No clear entry point
 - Confusing layout
 
 **Good (7/10):**
+
 - Clear heading sizes (h1 > h2 > h3)
 - Eye drawn to important elements first
 - Grid system visible and intentional
 
 **Awwwards (9/10):**
+
 - Typography scale is perfect
 - Visual flow guides user naturally
 - Every pixel intentional
@@ -188,16 +213,19 @@ Copy quality, information architecture, value delivery
 ### **2. User Experience (Usability)**
 
 **Bad (5/10):**
+
 - Navigation hidden or confusing
 - Broken on mobile
 - Slow load time
 
 **Good (7/10):**
+
 - Clear navigation
 - Responsive design
 - Fast performance
 
 **Awwwards (9/10):**
+
 - Intuitive without thinking
 - Delightful micro-interactions
 - Anticipates user needs
@@ -205,16 +233,19 @@ Copy quality, information architecture, value delivery
 ### **3. Innovation (Creativity)**
 
 **Bad (5/10):**
+
 - Looks like every other template
 - Generic stock photos
 - No personality
 
 **Good (7/10):**
+
 - Unique color palette
 - Custom animations
 - Memorable sections
 
 **Awwwards (9/10):**
+
 - Never seen this approach before
 - Makes you think "how did they do that?"
 - Sets trends, doesn't follow them
@@ -222,16 +253,19 @@ Copy quality, information architecture, value delivery
 ### **4. Content Strategy (Content)**
 
 **Bad (5/10):**
+
 - Lorem ipsum
 - Vague descriptions
 - No clear value prop
 
 **Good (7/10):**
+
 - Clear messaging
 - Benefit-focused copy
 - Strong CTAs
 
 **Awwwards (9/10):**
+
 - Compelling storytelling
 - Every word matters
 - Content IS the design
@@ -241,18 +275,21 @@ Copy quality, information architecture, value delivery
 ## 🎨 Juno Template Standards
 
 ### **Minimum Quality (6.5/10):**
+
 - Professional appearance
 - Works correctly
 - No obvious issues
 - Ready to customize
 
 ### **Target Quality (7.5/10):**
+
 - Award-worthy design
 - Smooth, polished UX
 - Unique creative elements
 - Excellent content structure
 
 ### **Aspirational (9.0/10):**
+
 - Awwwards SOTD quality
 - Industry-leading
 - Sets new standards
@@ -267,6 +304,7 @@ Copy quality, information architecture, value delivery
 ### **Before Adding New Template:**
 
 **Design Audit:**
+
 - [ ] Shown to 3 people: "Does this look professional?" All say yes
 - [ ] Compared to 5 Awwwards SOTD sites: Holds up visually
 - [ ] Typography tested on different screens: Readable everywhere
@@ -274,6 +312,7 @@ Copy quality, information architecture, value delivery
 - [ ] Animations smooth on slow devices: No jank
 
 **Usability Audit:**
+
 - [ ] Tested on iPhone, iPad, Desktop: Works perfectly
 - [ ] Lighthouse score: Performance >90, Accessibility >95
 - [ ] User can complete main task in <30 seconds
@@ -281,6 +320,7 @@ Copy quality, information architecture, value delivery
 - [ ] Forms work, errors handled gracefully
 
 **Creativity Audit:**
+
 - [ ] Not a copy of existing template: Original approach
 - [ ] Has signature element: Something memorable
 - [ ] Animations purposeful: Not decoration, aids UX
@@ -288,6 +328,7 @@ Copy quality, information architecture, value delivery
 - [ ] Details matter: Hover states, transitions polished
 
 **Content Audit:**
+
 - [ ] Placeholder text is realistic: Looks like real site
 - [ ] Headlines compelling: Action-oriented
 - [ ] CTAs clear: User knows what to do
@@ -303,6 +344,7 @@ Copy quality, information architecture, value delivery
 ### **Study the Winners:**
 
 **Weekly Exercise:**
+
 1. Visit [Awwwards Sites of the Day](https://www.awwwards.com/websites/sites-of-the-day/)
 2. Pick 3 sites in your category (Portfolio, SaaS, Agency)
 3. Screenshot what they do well
@@ -310,6 +352,7 @@ Copy quality, information architecture, value delivery
 5. Implement in next Juno update
 
 **What to Look For:**
+
 - Typography choices (font pairings, sizes, weights)
 - Color combinations (gradients, transparency, shadows)
 - Animation patterns (scroll effects, hover states, page transitions)
@@ -317,6 +360,7 @@ Copy quality, information architecture, value delivery
 - Content presentation (how they explain complex ideas simply)
 
 **Don't Copy, Adapt:**
+
 - ✅ Learn principles
 - ✅ Understand why it works
 - ✅ Apply to your context
@@ -329,11 +373,11 @@ Copy quality, information architecture, value delivery
 
 ### **Use This to Track Quality:**
 
-| Template | Design | Usability | Creativity | Content | **Total** | Status |
-|----------|--------|-----------|------------|---------|-----------|---------|
-| Portfolio Bold | 7.5 | 7.0 | 7.0 | 7.0 | **7.2** | ✅ Ship |
-| SaaS Futuristic | 7.0 | 7.5 | 6.5 | 7.0 | **7.1** | ✅ Ship |
-| Agency Corporate | 7.0 | 7.5 | 6.0 | 7.0 | **6.9** | ⚠️ Improve |
+| Template         | Design | Usability | Creativity | Content | **Total** | Status     |
+| ---------------- | ------ | --------- | ---------- | ------- | --------- | ---------- |
+| Portfolio Bold   | 7.5    | 7.0       | 7.0        | 7.0     | **7.2**   | ✅ Ship    |
+| SaaS Futuristic  | 7.0    | 7.5       | 6.5        | 7.0     | **7.1**   | ✅ Ship    |
+| Agency Corporate | 7.0    | 7.5       | 6.0        | 7.0     | **6.9**   | ⚠️ Improve |
 
 **Goal:** All templates 7.0+ before shipping
 
@@ -344,6 +388,7 @@ Copy quality, information architecture, value delivery
 ### **Monthly Quality Review:**
 
 **On the 1st of each month:**
+
 1. Score all templates using criteria above
 2. Identify lowest-scoring area
 3. Pick 1-2 improvements to make
@@ -351,6 +396,7 @@ Copy quality, information architecture, value delivery
 5. Document what improved
 
 **Track Progress:**
+
 ```
 Jan 2025: Portfolio 7.2 → Added smooth scroll, improved typography
 Feb 2025: Portfolio 7.2 → 7.5 (refined animations, better spacing)
@@ -360,12 +406,14 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 ### **Competitive Analysis:**
 
 **Quarterly:**
+
 - Review top Awwwards sites in your categories
 - Note new trends
 - Identify what's becoming dated in your templates
 - Plan updates
 
 **Stay Ahead:**
+
 - Design trends change fast
 - What wins awards today looks dated in 6 months
 - Keep templates fresh and modern
@@ -378,6 +426,7 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 ### **Design (40% - Highest Priority)**
 
 **Focus Areas:**
+
 1. **Typography Excellence**
    - Professional font pairings
    - Clear size hierarchy
@@ -405,6 +454,7 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 ### **Usability (30% - Second Priority)**
 
 **Focus Areas:**
+
 1. **Performance**
    - Fast initial load
    - Smooth interactions
@@ -432,6 +482,7 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 ### **Creativity (20% - Differentiation)**
 
 **Focus Areas:**
+
 1. **Unique Elements**
    - Custom animations
    - Signature visual style
@@ -447,6 +498,7 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 ### **Content (10% - Foundation)**
 
 **Focus Areas:**
+
 1. **Clarity**
    - Headlines communicate value
    - Copy is scannable
@@ -466,6 +518,7 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 ### **Every Template Must:**
 
 **Design (7.0+ minimum):**
+
 - [ ] Professional typography (no Comic Sans vibes)
 - [ ] Cohesive color system (not random)
 - [ ] Consistent spacing throughout
@@ -473,6 +526,7 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 - [ ] Works in light and dark mode
 
 **Usability (7.5+ minimum):**
+
 - [ ] Lighthouse Performance: 90+
 - [ ] Lighthouse Accessibility: 95+
 - [ ] Mobile tested on real device
@@ -480,6 +534,7 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 - [ ] Fast on slow connection
 
 **Creativity (6.5+ minimum):**
+
 - [ ] Has unique visual signature
 - [ ] Not generic/template-y
 - [ ] At least one innovative element
@@ -487,13 +542,14 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 - [ ] Shows craftsmanship
 
 **Content (7.0+ minimum):**
+
 - [ ] Placeholder text is realistic
 - [ ] Headlines are compelling
 - [ ] CTAs are clear
 - [ ] SEO optimized
 - [ ] No typos or errors
 
-**Overall Score:** ___ / 10
+**Overall Score:** \_\_\_ / 10
 
 **Ship if:** 7.0+ overall  
 **Improve if:** 6.0-7.0  
@@ -509,12 +565,14 @@ Mar 2025: SaaS 7.1 → 7.4 (enhanced pricing table, better CTA)
 ## Quality Standards (Awwwards-Based)
 
 All templates must score 7.0+ on:
+
 - Design: 40% (typography, color, layout, polish)
 - Usability: 30% (UX, mobile, performance, accessibility)
 - Creativity: 20% (innovation, uniqueness, memorability)
 - Content: 10% (copy, SEO, information architecture)
 
 When evaluating or improving templates:
+
 1. Score each pillar out of 10
 2. Calculate weighted average
 3. Must be 7.0+ to ship
@@ -524,6 +582,7 @@ When evaluating or improving templates:
 ### **Use in Development:**
 
 **When building new template:**
+
 ```
 1. Design first (40% of score)
    - Perfect the typography
@@ -555,6 +614,7 @@ When evaluating or improving templates:
 ### **To Reach Awwwards SOTD Level (7.5+):**
 
 **Design Excellence:**
+
 - [ ] Typography is exquisite (not just good)
 - [ ] Color palette is sophisticated (not just nice)
 - [ ] Spacing is perfect (mathematical precision)
@@ -562,6 +622,7 @@ When evaluating or improving templates:
 - [ ] Every detail considered (shadows, borders, hover states)
 
 **Usability Perfection:**
+
 - [ ] Zero friction: Everything just works
 - [ ] Faster than user expects
 - [ ] Mobile feels native, not web
@@ -569,6 +630,7 @@ When evaluating or improving templates:
 - [ ] User testing: 100% completion rate
 
 **Creative Innovation:**
+
 - [ ] Makes judges say "wow"
 - [ ] Introduces new pattern or technique
 - [ ] Takes calculated design risks
@@ -576,6 +638,7 @@ When evaluating or improving templates:
 - [ ] Inspires other designers
 
 **Content Excellence:**
+
 - [ ] Copy is exceptional (hire writer if needed)
 - [ ] Every word earns its place
 - [ ] Storytelling, not just information
@@ -621,12 +684,14 @@ node create-site.js
 ## 📊 Awwwards vs Juno Context
 
 ### **Awwwards Sites:**
+
 - Custom, unique, one-off designs
 - Unlimited budget and time
 - Cutting-edge experimental
 - Award is the goal
 
 ### **Juno Templates:**
+
 - Professional, reusable, customizable
 - Fast generation, quick deployment
 - Production-ready, battle-tested
@@ -635,6 +700,7 @@ node create-site.js
 **Different contexts, same quality standards.**
 
 Your templates should be:
+
 - Professional enough to win Honorable Mention (6.5+)
 - Good enough for SOTD consideration (7.0+)
 - But also practical and usable
@@ -648,18 +714,21 @@ Your templates should be:
 ### **From Studying SOTD Winners:**
 
 **Typography:**
+
 - Use 2-3 fonts maximum
 - Large headings (4rem-8rem for hero)
 - Proper line height (1.4-1.6 for body)
 - Letter spacing on headings (-0.02em to -0.05em)
 
 **Color:**
+
 - Start with 1-2 primary colors
 - Use transparency effectively (/[0.05], /[0.1])
 - Gradients are subtle, not garish
 - Dark backgrounds with light text (modern)
 
 **Animation:**
+
 - Smooth and purposeful
 - 300-500ms transitions
 - Easing curves (not linear)
@@ -667,12 +736,14 @@ Your templates should be:
 - Never blocks content
 
 **Layout:**
+
 - Generous spacing (py-32, px-8)
 - Asymmetrical layouts (not rigid grids)
 - Bento/card-based sections
 - Full-screen hero sections
 
 **Performance:**
+
 - Lighthouse 90+ always
 - First Contentful Paint <1.5s
 - Largest Contentful Paint <2.5s
@@ -685,6 +756,7 @@ Your templates should be:
 ### **Quarterly Review:**
 
 **Every 3 months:**
+
 1. Re-score all templates
 2. Check if still 7.0+
 3. Update based on new trends
@@ -692,6 +764,7 @@ Your templates should be:
 5. Add modern patterns
 
 **Signs template needs update:**
+
 - Design feels dated
 - Similar sites doing it better
 - New CSS features available
@@ -703,6 +776,7 @@ Your templates should be:
 ## 🚀 The Standard
 
 **Every Juno template should:**
+
 - Be worthy of Awwwards Honorable Mention (6.5+)
 - Aim for Site of the Day quality (7.0+)
 - Stay current with design trends
@@ -716,11 +790,13 @@ Your templates should be:
 ## 📖 Resources
 
 **Study These:**
+
 - [Awwwards Sites of the Day](https://www.awwwards.com/websites/sites-of-the-day/)
 - [Awwwards Collections](https://www.awwwards.com/collections/)
 - [Awwwards Blog](https://www.awwwards.com/blog/)
 
 **Weekly habit:**
+
 - Spend 30 min browsing winning sites
 - Screenshot 2-3 inspiring elements
 - Note what makes them award-worthy
@@ -729,4 +805,3 @@ Your templates should be:
 ---
 
 **Juno quality = Awwwards standards = Professional excellence** 🏆
-

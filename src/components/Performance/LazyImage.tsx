@@ -49,7 +49,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       {
         threshold: 0.1,
         rootMargin: '50px',
-      }
+      },
     )
 
     if (imgRef.current) {
@@ -79,14 +79,9 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           initial={{ opacity: 1 }}
           animate={{ opacity: isLoaded ? 0 : 1 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-gray-100 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center bg-gray-100"
         >
-          <img
-            src={placeholder}
-            alt=""
-            className="w-full h-full object-cover"
-            aria-hidden="true"
-          />
+          <img src={placeholder} alt="" className="h-full w-full object-cover" aria-hidden="true" />
         </motion.div>
       )}
 
@@ -102,14 +97,14 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           onLoad={handleLoad}
           onError={handleError}
           initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ 
+          animate={{
             opacity: isLoaded ? 1 : 0,
-            scale: isLoaded ? 1 : 1.1
+            scale: isLoaded ? 1 : 1.1,
           }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
           className={cn(
-            'w-full h-full object-cover transition-opacity duration-300',
-            isLoaded ? 'opacity-100' : 'opacity-0'
+            'h-full w-full object-cover transition-opacity duration-300',
+            isLoaded ? 'opacity-100' : 'opacity-0',
           )}
         />
       )}
@@ -119,11 +114,11 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-400"
+          className="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-400"
         >
           <div className="text-center">
             <svg
-              className="w-12 h-12 mx-auto mb-2"
+              className="mx-auto mb-2 h-12 w-12"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -151,7 +146,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            className="w-6 h-6 border-2 border-gray-300 border-t-gray-600 rounded-full"
+            className="h-6 w-6 rounded-full border-2 border-gray-300 border-t-gray-600"
           />
         </motion.div>
       )}

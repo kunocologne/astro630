@@ -48,11 +48,11 @@ interface UpdateCartItemData {
 // API Functions
 const fetchCart = async (): Promise<Cart> => {
   const response = await fetch('/api/cart')
-  
+
   if (!response.ok) {
     throw new Error(`Failed to fetch cart: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -64,11 +64,11 @@ const addToCart = async (data: AddToCartData): Promise<Cart> => {
     },
     body: JSON.stringify(data),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to add to cart: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -80,11 +80,11 @@ const updateCartItem = async (data: UpdateCartItemData): Promise<Cart> => {
     },
     body: JSON.stringify({ quantity: data.quantity }),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to update cart item: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -92,11 +92,11 @@ const removeFromCart = async (itemId: string): Promise<Cart> => {
   const response = await fetch(`/api/cart/items/${itemId}`, {
     method: 'DELETE',
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to remove from cart: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -104,11 +104,11 @@ const clearCart = async (): Promise<Cart> => {
   const response = await fetch('/api/cart', {
     method: 'DELETE',
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to clear cart: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -132,28 +132,28 @@ export const useCart = () => {
 
 export const useAddToCart = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: addToCart,
     onMutate: async (newItem) => {
       // Cancel any outgoing refetches
       await queryClient.cancelQueries({ queryKey: cartKeys.current() })
-      
+
       // Snapshot the previous value
       const previousCart = queryClient.getQueryData<Cart>(cartKeys.current())
-      
+
       // Optimistically update the cart
       if (previousCart) {
         const optimisticCart: Cart = {
           ...previousCart,
           totalItems: previousCart.totalItems + newItem.quantity,
-          totalAmount: previousCart.totalAmount + (newItem.quantity * 100), // Assuming price calculation
+          totalAmount: previousCart.totalAmount + newItem.quantity * 100, // Assuming price calculation
           updatedAt: new Date().toISOString(),
         }
-        
+
         queryClient.setQueryData(cartKeys.current(), optimisticCart)
       }
-      
+
       return { previousCart }
     },
     onSuccess: (newCart) => {
@@ -176,28 +176,28 @@ export const useAddToCart = () => {
 
 export const useUpdateCartItem = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: updateCartItem,
     onMutate: async (data) => {
       await queryClient.cancelQueries({ queryKey: cartKeys.current() })
-      
+
       const previousCart = queryClient.getQueryData<Cart>(cartKeys.current())
-      
+
       if (previousCart) {
         const optimisticCart: Cart = {
           ...previousCart,
-          items: previousCart.items.map(item =>
+          items: previousCart.items.map((item) =>
             item.id === data.itemId
               ? { ...item, quantity: data.quantity, total: item.product.price * data.quantity }
-              : item
+              : item,
           ),
           updatedAt: new Date().toISOString(),
         }
-        
+
         queryClient.setQueryData(cartKeys.current(), optimisticCart)
       }
-      
+
       return { previousCart }
     },
     onSuccess: (updatedCart) => {
@@ -218,27 +218,27 @@ export const useUpdateCartItem = () => {
 
 export const useRemoveFromCart = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: removeFromCart,
     onMutate: async (itemId) => {
       await queryClient.cancelQueries({ queryKey: cartKeys.current() })
-      
+
       const previousCart = queryClient.getQueryData<Cart>(cartKeys.current())
-      
+
       if (previousCart) {
-        const itemToRemove = previousCart.items.find(item => item.id === itemId)
+        const itemToRemove = previousCart.items.find((item) => item.id === itemId)
         const optimisticCart: Cart = {
           ...previousCart,
-          items: previousCart.items.filter(item => item.id !== itemId),
+          items: previousCart.items.filter((item) => item.id !== itemId),
           totalItems: Math.max(0, previousCart.totalItems - (itemToRemove?.quantity || 0)),
           totalAmount: Math.max(0, previousCart.totalAmount - (itemToRemove?.total || 0)),
           updatedAt: new Date().toISOString(),
         }
-        
+
         queryClient.setQueryData(cartKeys.current(), optimisticCart)
       }
-      
+
       return { previousCart }
     },
     onSuccess: (updatedCart) => {
@@ -259,7 +259,7 @@ export const useRemoveFromCart = () => {
 
 export const useClearCart = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: clearCart,
     onSuccess: (emptyCart) => {
@@ -288,11 +288,10 @@ export const useCartTotal = () => {
 
 export const useIsInCart = (productId: string, variantId?: string) => {
   const { data: cart } = useCart()
-  
+
   if (!cart) return false
-  
-  return cart.items.some(item => 
-    item.product.id === productId && 
-    (!variantId || item.variant?.id === variantId)
+
+  return cart.items.some(
+    (item) => item.product.id === productId && (!variantId || item.variant?.id === variantId),
   )
 }

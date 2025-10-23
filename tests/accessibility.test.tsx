@@ -1,6 +1,6 @@
 /**
  * Accessibility Tests - WCAG 2.1 AA Compliance
- * 
+ *
  * These tests run automatically to ensure accessibility is maintained
  * Uses @axe-core/react for automated WCAG testing
  */
@@ -121,13 +121,15 @@ test.describe('Accessibility Tests', () => {
     const violations = await page.evaluate(() => {
       return new Promise((resolve) => {
         // @ts-ignore
-        axe.run({
-          rules: {
-            'link-name': { enabled: true },
-          },
-        }).then((results: any) => {
-          resolve(results.violations)
-        })
+        axe
+          .run({
+            rules: {
+              'link-name': { enabled: true },
+            },
+          })
+          .then((results: any) => {
+            resolve(results.violations)
+          })
       })
     })
 
@@ -141,13 +143,15 @@ test.describe('Accessibility Tests', () => {
     const violations = await page.evaluate(() => {
       return new Promise((resolve) => {
         // @ts-ignore
-        axe.run({
-          rules: {
-            label: { enabled: true },
-          },
-        }).then((results: any) => {
-          resolve(results.violations)
-        })
+        axe
+          .run({
+            rules: {
+              label: { enabled: true },
+            },
+          })
+          .then((results: any) => {
+            resolve(results.violations)
+          })
       })
     })
 
@@ -161,13 +165,15 @@ test.describe('Accessibility Tests', () => {
     const violations = await page.evaluate(() => {
       return new Promise((resolve) => {
         // @ts-ignore
-        axe.run({
-          rules: {
-            'color-contrast': { enabled: true },
-          },
-        }).then((results: any) => {
-          resolve(results.violations)
-        })
+        axe
+          .run({
+            rules: {
+              'color-contrast': { enabled: true },
+            },
+          })
+          .then((results: any) => {
+            resolve(results.violations)
+          })
       })
     })
 
@@ -179,15 +185,15 @@ test.describe('Accessibility Tests', () => {
 
     // Tab through interactive elements
     await page.keyboard.press('Tab')
-    
+
     // Check if focus is visible
     const focusedElement = await page.evaluate(() => {
       const el = document.activeElement
       if (!el) return false
-      
+
       const styles = window.getComputedStyle(el)
       return (
-        styles.outline !== 'none' || 
+        styles.outline !== 'none' ||
         styles.outlineWidth !== '0px' ||
         el.getAttribute('data-focus-visible') === 'true'
       )
@@ -201,12 +207,12 @@ test.describe('Accessibility Tests', () => {
 
     // Tab to skip link
     await page.keyboard.press('Tab')
-    
+
     const skipLink = await page.locator('a[href="#main-content"]').first()
-    
-    if (await skipLink.isVisible() || await skipLink.isHidden()) {
+
+    if ((await skipLink.isVisible()) || (await skipLink.isHidden())) {
       await skipLink.click()
-      
+
       // Check if main content is focused
       const mainContentFocused = await page.evaluate(() => {
         const mainContent = document.getElementById('main-content')
@@ -224,14 +230,16 @@ test.describe('Accessibility Tests', () => {
     const violations = await page.evaluate(() => {
       return new Promise((resolve) => {
         // @ts-ignore
-        axe.run({
-          rules: {
-            'aria-valid-attr': { enabled: true },
-            'aria-valid-attr-value': { enabled: true },
-          },
-        }).then((results: any) => {
-          resolve(results.violations)
-        })
+        axe
+          .run({
+            rules: {
+              'aria-valid-attr': { enabled: true },
+              'aria-valid-attr-value': { enabled: true },
+            },
+          })
+          .then((results: any) => {
+            resolve(results.violations)
+          })
       })
     })
 
@@ -245,17 +253,18 @@ test.describe('Accessibility Tests', () => {
     const violations = await page.evaluate(() => {
       return new Promise((resolve) => {
         // @ts-ignore
-        axe.run({
-          rules: {
-            'heading-order': { enabled: true },
-          },
-        }).then((results: any) => {
-          resolve(results.violations)
-        })
+        axe
+          .run({
+            rules: {
+              'heading-order': { enabled: true },
+            },
+          })
+          .then((results: any) => {
+            resolve(results.violations)
+          })
       })
     })
 
     expect(violations).toEqual([])
   })
 })
-

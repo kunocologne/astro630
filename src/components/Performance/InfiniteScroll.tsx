@@ -55,12 +55,12 @@ export const InfiniteScroll = <T,>({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex justify-center items-center py-8"
+      className="flex items-center justify-center py-8"
     >
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-        className="w-8 h-8 border-2 border-gray-300 border-t-blue-600 rounded-full"
+        className="h-8 w-8 rounded-full border-2 border-gray-300 border-t-blue-600"
       />
       <span className="ml-3 text-gray-600">Loading more...</span>
     </motion.div>
@@ -70,10 +70,10 @@ export const InfiniteScroll = <T,>({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex justify-center items-center py-8 text-gray-500"
+      className="flex items-center justify-center py-8 text-gray-500"
     >
       <div className="text-center">
-        <div className="w-12 h-0.5 bg-gray-300 mx-auto mb-2" />
+        <div className="mx-auto mb-2 h-0.5 w-12 bg-gray-300" />
         <p>You&apos;ve reached the end</p>
       </div>
     </motion.div>
@@ -89,9 +89,9 @@ export const InfiniteScroll = <T,>({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ 
-              duration: 0.3, 
-              delay: isInitialLoad ? index * 0.05 : 0 
+            transition={{
+              duration: 0.3,
+              delay: isInitialLoad ? index * 0.05 : 0,
             }}
           >
             {renderItem(item, index)}
@@ -100,9 +100,7 @@ export const InfiniteScroll = <T,>({
       </AnimatePresence>
 
       {/* Loading Trigger */}
-      {hasNextPage && (
-        <div ref={ref} className="h-4" />
-      )}
+      {hasNextPage && <div ref={ref} className="h-4" />}
 
       {/* Loading State */}
       {isFetching && (renderLoading || defaultLoadingComponent)()}
@@ -118,7 +116,7 @@ export const InfiniteScroll = <T,>({
  */
 export const useInfiniteScroll = <T,>(
   fetchFn: (page: number) => Promise<{ items: T[]; hasNextPage: boolean }>,
-  initialPage = 1
+  initialPage = 1,
 ) => {
   const [items, setItems] = useState<T[]>([])
   const [currentPage, setCurrentPage] = useState(initialPage)
@@ -132,16 +130,16 @@ export const useInfiniteScroll = <T,>(
     setIsFetching(true)
     try {
       const result = await fetchFn(currentPage)
-      
+
       if (isInitialLoad) {
         setItems(result.items)
         setIsInitialLoad(false)
       } else {
-        setItems(prev => [...prev, ...result.items])
+        setItems((prev) => [...prev, ...result.items])
       }
-      
+
       setHasNextPage(result.hasNextPage)
-      setCurrentPage(prev => prev + 1)
+      setCurrentPage((prev) => prev + 1)
     } catch (error) {
       console.error('Failed to fetch next page:', error)
     } finally {

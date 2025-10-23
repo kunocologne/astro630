@@ -44,14 +44,16 @@ export function AddToCart({ product }: Props) {
       addItem({
         product: product.id,
         variant: selectedVariant?.id ?? undefined,
-      }).then(() => {
-        const productName = product.title
-        const variantName = selectedVariant?.title ? ` (${selectedVariant.title})` : ''
-        toast.success(`${productName}${variantName} added to cart!`)
-      }).catch((error) => {
-        toast.error('Failed to add item to cart. Please try again.')
-        console.error('Add to cart error:', error)
       })
+        .then(() => {
+          const productName = product.title
+          const variantName = selectedVariant?.title ? ` (${selectedVariant.title})` : ''
+          toast.success(`${productName}${variantName} added to cart!`)
+        })
+        .catch((error) => {
+          toast.error('Failed to add item to cart. Please try again.')
+          console.error('Add to cart error:', error)
+        })
     },
     [addItem, product, selectedVariant],
   )

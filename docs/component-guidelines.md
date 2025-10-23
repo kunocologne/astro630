@@ -7,6 +7,7 @@
 ## 🧩 **Component Architecture**
 
 ### **File Structure**
+
 ```
 src/components/
 ├── ui/                    # shadcn/ui base components
@@ -17,6 +18,7 @@ src/components/
 ```
 
 ### **Naming Conventions**
+
 - **Components**: PascalCase (`UserProfile.tsx`)
 - **Files**: PascalCase (`UserProfile.tsx`)
 - **Props interfaces**: PascalCase + Props (`UserProfileProps`)
@@ -27,14 +29,16 @@ src/components/
 ## 🎨 **Design System Integration**
 
 ### **shadcn/ui Components**
+
 ```tsx
 // Use existing shadcn/ui components
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
 ```
 
 ### **Custom Component Structure**
+
 ```tsx
 // Component template
 interface ComponentProps {
@@ -44,14 +48,9 @@ interface ComponentProps {
   children?: React.ReactNode
 }
 
-export function Component({ 
-  title, 
-  description, 
-  className,
-  children 
-}: ComponentProps) {
+export function Component({ title, description, className, children }: ComponentProps) {
   return (
-    <div className={cn("base-styles", className)}>
+    <div className={cn('base-styles', className)}>
       <h2 className="text-2xl font-bold">{title}</h2>
       {description && <p className="text-muted-foreground">{description}</p>}
       {children}
@@ -65,14 +64,15 @@ export function Component({
 ## 🎭 **Animation Components**
 
 ### **Framer Motion Integration**
+
 ```tsx
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
 
 // Animation variants
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 }
 
 // Component with animation
@@ -91,18 +91,19 @@ export function AnimatedCard({ children }: { children: React.ReactNode }) {
 ```
 
 ### **Animation Performance**
+
 ```tsx
 // Optimize animations for performance
 const optimizedVariants = {
   initial: { opacity: 0, y: 20 },
-  animate: { 
-    opacity: 1, 
+  animate: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.3,
-      ease: "easeOut"
-    }
-  }
+      ease: 'easeOut',
+    },
+  },
 }
 ```
 
@@ -111,6 +112,7 @@ const optimizedVariants = {
 ## 📱 **Responsive Design**
 
 ### **Breakpoint Utilities**
+
 ```tsx
 // Responsive classes
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -124,13 +126,10 @@ const optimizedVariants = {
 ```
 
 ### **Mobile-First Approach**
+
 ```tsx
 // Start with mobile, enhance for larger screens
-<div className="
-  text-sm md:text-base lg:text-lg
-  p-4 md:p-6 lg:p-8
-  grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-">
+<div className="grid-cols-1 p-4 text-sm md:grid-cols-2 md:p-6 md:text-base lg:grid-cols-3 lg:p-8 lg:text-lg">
   {/* Content */}
 </div>
 ```
@@ -140,6 +139,7 @@ const optimizedVariants = {
 ## ♿ **Accessibility Standards**
 
 ### **Semantic HTML**
+
 ```tsx
 // Use proper semantic elements
 <article>
@@ -157,21 +157,19 @@ const optimizedVariants = {
 ```
 
 ### **ARIA Labels**
+
 ```tsx
 // Add proper ARIA labels
-<button 
-  aria-label="Close dialog"
-  aria-expanded={isOpen}
-  onClick={handleClose}
->
+<button aria-label="Close dialog" aria-expanded={isOpen} onClick={handleClose}>
   <X className="h-4 w-4" />
 </button>
 ```
 
 ### **Keyboard Navigation**
+
 ```tsx
 // Ensure keyboard accessibility
-<div 
+<div
   role="button"
   tabIndex={0}
   onKeyDown={(e) => e.key === 'Enter' && handleClick()}
@@ -186,19 +184,16 @@ const optimizedVariants = {
 ## 🎨 **Styling Guidelines**
 
 ### **Tailwind CSS Best Practices**
+
 ```tsx
 // Use design tokens
-<div className="
-  bg-background text-foreground
-  border border-border
-  rounded-lg shadow-sm
-  p-6 space-y-4
-">
+<div className="space-y-4 rounded-lg border border-border bg-background p-6 text-foreground shadow-sm">
   {/* Content */}
 </div>
 ```
 
 ### **CSS Custom Properties**
+
 ```css
 /* Use CSS variables for consistency */
 .component {
@@ -213,6 +208,7 @@ const optimizedVariants = {
 ## 🧪 **Testing Standards**
 
 ### **Component Testing**
+
 ```tsx
 // Test component rendering
 import { render, screen } from '@testing-library/react'
@@ -225,6 +221,7 @@ test('renders component with props', () => {
 ```
 
 ### **Accessibility Testing**
+
 ```tsx
 // Test accessibility
 import { axe, toHaveNoViolations } from 'jest-axe'
@@ -241,6 +238,7 @@ test('should not have accessibility violations', async () => {
 ## 📊 **Performance Optimization**
 
 ### **Code Splitting**
+
 ```tsx
 // Lazy load heavy components
 const HeavyComponent = lazy(() => import('./HeavyComponent'))
@@ -255,14 +253,12 @@ function App() {
 ```
 
 ### **Memoization**
+
 ```tsx
 // Memoize expensive components
 const ExpensiveComponent = memo(({ data }: { data: any[] }) => {
-  const processedData = useMemo(() => 
-    data.map(item => expensiveCalculation(item)), 
-    [data]
-  )
-  
+  const processedData = useMemo(() => data.map((item) => expensiveCalculation(item)), [data])
+
   return <div>{/* Render processed data */}</div>
 })
 ```
@@ -272,6 +268,7 @@ const ExpensiveComponent = memo(({ data }: { data: any[] }) => {
 ## 🔧 **Development Workflow**
 
 ### **Component Creation Process**
+
 1. **Plan the component** - What does it need to do?
 2. **Design the interface** - What props does it need?
 3. **Write the component** - Implement with TypeScript
@@ -280,6 +277,7 @@ const ExpensiveComponent = memo(({ data }: { data: any[] }) => {
 6. **Test in context** - Use in actual templates
 
 ### **Code Review Checklist**
+
 - [ ] TypeScript types are correct
 - [ ] Accessibility standards met
 - [ ] Responsive design works
@@ -292,10 +290,11 @@ const ExpensiveComponent = memo(({ data }: { data: any[] }) => {
 ## 📚 **Documentation Standards**
 
 ### **JSDoc Comments**
+
 ```tsx
 /**
  * A reusable card component with optional header and footer
- * 
+ *
  * @param title - The main title of the card
  * @param description - Optional description text
  * @param children - Content to render inside the card
@@ -312,13 +311,10 @@ interface CardProps {
 ```
 
 ### **Usage Examples**
+
 ```tsx
 // Example usage in documentation
-<Card 
-  title="Welcome"
-  description="This is a sample card"
-  variant="outlined"
->
+<Card title="Welcome" description="This is a sample card" variant="outlined">
   <p>Card content goes here</p>
 </Card>
 ```
@@ -328,6 +324,7 @@ interface CardProps {
 ## 🎯 **Quality Checklist**
 
 ### **Before Shipping Component**
+
 - [ ] **TypeScript** - No type errors
 - [ ] **Accessibility** - WCAG 2.1 AA compliant
 - [ ] **Responsive** - Works on all screen sizes
@@ -338,6 +335,7 @@ interface CardProps {
 - [ ] **Browser** - Works in all target browsers
 
 ### **Performance Metrics**
+
 - **Bundle size** - Keep components lightweight
 - **Render time** - Optimize for 60fps
 - **Memory usage** - No memory leaks
@@ -348,6 +346,7 @@ interface CardProps {
 ## 🚀 **Best Practices**
 
 ### **Do's**
+
 - ✅ Use semantic HTML elements
 - ✅ Implement proper TypeScript types
 - ✅ Write comprehensive tests
@@ -358,6 +357,7 @@ interface CardProps {
 - ✅ Test on real devices
 
 ### **Don'ts**
+
 - ❌ Don't use inline styles
 - ❌ Don't ignore accessibility
 - ❌ Don't skip TypeScript types

@@ -9,10 +9,10 @@ interface AnimatedBackgroundProps {
   speed?: number
 }
 
-export function AnimatedBackground({ 
-  className = '', 
-  intensity = 0.5, 
-  speed = 20 
+export function AnimatedBackground({
+  className = '',
+  intensity = 0.5,
+  speed = 20,
 }: AnimatedBackgroundProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -29,7 +29,7 @@ export function AnimatedBackground({
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
       {/* Animated gradient orbs */}
       <motion.div
-        className="absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl"
+        className="bg-primary/20 absolute -top-40 -right-40 h-80 w-80 rounded-full blur-3xl"
         animate={{
           x: mousePosition.x * intensity,
           y: mousePosition.y * intensity,
@@ -37,19 +37,19 @@ export function AnimatedBackground({
         transition={{ duration: 0.3 }}
       />
       <motion.div
-        className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"
+        className="bg-secondary/20 absolute -bottom-40 -left-40 h-80 w-80 rounded-full blur-3xl"
         animate={{
           x: -mousePosition.x * intensity,
           y: -mousePosition.y * intensity,
         }}
         transition={{ duration: 0.3 }}
       />
-      
+
       {/* Floating particles */}
       {Array.from({ length: 6 }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-primary/30 rounded-full"
+          className="bg-primary/30 absolute h-2 w-2 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -73,7 +73,7 @@ export function AnimatedBackground({
 export function GridPattern({ className = '' }: { className?: string }) {
   return (
     <div className={`absolute inset-0 ${className}`}>
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      <div className="bg-grid-pattern absolute inset-0 opacity-5" />
     </div>
   )
 }
@@ -82,7 +82,7 @@ export function GridPattern({ className = '' }: { className?: string }) {
 export function DotPattern({ className = '' }: { className?: string }) {
   return (
     <div className={`absolute inset-0 ${className}`}>
-      <div className="absolute inset-0 bg-dot-pattern opacity-10" />
+      <div className="bg-dot-pattern absolute inset-0 opacity-10" />
     </div>
   )
 }

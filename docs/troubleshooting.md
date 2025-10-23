@@ -7,9 +7,11 @@
 ## 🚨 **Critical Issues (Site Won't Load)**
 
 ### **ERR_EMPTY_RESPONSE / Site Won't Load**
+
 **Root Cause**: Missing or incorrect `.env.local` file
 
 **Solution**:
+
 ```bash
 # 1. Navigate to project directory
 cd ~/Desktop/your-project-name
@@ -30,9 +32,11 @@ bun dev
 ---
 
 ### **Database Connection Failed**
+
 **Root Cause**: Incorrect DATABASE_URI format
 
 **Local Development**:
+
 ```bash
 # Check .env.local file
 DATABASE_URI=file:./database.sqlite
@@ -42,6 +46,7 @@ DATABASE_URI=file:/absolute/path/to/database.sqlite
 ```
 
 **Production (Vercel)**:
+
 ```bash
 # Check Vercel environment variables
 DATABASE_URI=postgresql://user:password@host:port/database
@@ -55,9 +60,11 @@ DATABASE_URI=postgresql://user:password@host:port/database
 ---
 
 ### **Module Not Found / Dependencies Error**
+
 **Root Cause**: Dependencies not installed
 
 **Solution**:
+
 ```bash
 # 1. Navigate to project directory
 cd ~/Desktop/your-project-name
@@ -80,9 +87,11 @@ bun dev
 ## 🔧 **CLI Issues**
 
 ### **CLI Fails / ENOENT Error**
+
 **Root Cause**: Running from wrong directory or missing templates
 
 **Solution**:
+
 ```bash
 # 1. Navigate to CLI directory
 cd ~/Desktop/juno/cli
@@ -102,9 +111,11 @@ ls -la ../src/templates/
 ---
 
 ### **Template Not Found**
+
 **Root Cause**: Missing template files
 
 **Solution**:
+
 ```bash
 # 1. Check templates exist
 ls -la ~/Desktop/juno/src/templates/
@@ -124,9 +135,11 @@ git checkout HEAD -- src/templates/
 ## 🚀 **Deployment Issues**
 
 ### **Vercel Build Failed**
+
 **Root Cause**: Build errors or missing environment variables
 
 **Solution**:
+
 ```bash
 # 1. Test build locally
 bun run build
@@ -142,6 +155,7 @@ vercel --prod
 ```
 
 **Common Build Errors**:
+
 - **TypeScript errors**: Fix type issues in code
 - **Missing dependencies**: Add to package.json
 - **Environment variables**: Set in Vercel dashboard
@@ -150,9 +164,11 @@ vercel --prod
 ---
 
 ### **Database Won't Work on Vercel**
+
 **Root Cause**: SQLite doesn't work on serverless platforms
 
 **Solution**:
+
 ```bash
 # 1. Set up Postgres database
 # Option A: Vercel Postgres
@@ -167,6 +183,7 @@ vercel --prod
 ```
 
 **Database Setup**:
+
 - **Vercel Postgres**: Dashboard → Storage → Create Database
 - **Supabase**: Create project → Settings → Database → Connection String
 - **Neon**: Create project → Copy connection string
@@ -174,9 +191,11 @@ vercel --prod
 ---
 
 ### **Environment Variables Not Working**
+
 **Root Cause**: Incorrect variable names or values
 
 **Required Variables**:
+
 ```bash
 DATABASE_URI=postgresql://...
 PAYLOAD_SECRET=your-32-char-secret
@@ -185,6 +204,7 @@ NEXT_PUBLIC_SERVER_URL=https://your-site.vercel.app
 ```
 
 **Solution**:
+
 ```bash
 # 1. Generate PAYLOAD_SECRET
 openssl rand -base64 32
@@ -201,9 +221,11 @@ vercel --prod
 ## 📱 **Performance Issues**
 
 ### **Slow Loading / Poor Lighthouse Scores**
+
 **Root Cause**: Unoptimized images or large bundle size
 
 **Solution**:
+
 ```bash
 # 1. Optimize images
 npm install -g @squoosh/cli
@@ -222,6 +244,7 @@ module.exports = {
 ```
 
 **Image Optimization**:
+
 - **Format**: Use WebP with JPG fallback
 - **Size**: Compress to 80-85% quality
 - **Dimensions**: Resize to actual display size
@@ -230,9 +253,11 @@ module.exports = {
 ---
 
 ### **Mobile Issues**
+
 **Root Cause**: Responsive design problems
 
 **Solution**:
+
 ```bash
 # 1. Test on real devices
 # Use Chrome DevTools device simulation
@@ -245,6 +270,7 @@ module.exports = {
 ```
 
 **Mobile Testing**:
+
 - **iPhone**: Safari, Chrome
 - **Android**: Chrome, Firefox
 - **Tablet**: iPad, Android tablet
@@ -255,9 +281,11 @@ module.exports = {
 ## ♿ **Accessibility Issues**
 
 ### **Screen Reader Problems**
+
 **Root Cause**: Missing semantic HTML or ARIA labels
 
 **Solution**:
+
 ```tsx
 // Use semantic HTML
 <article>
@@ -276,6 +304,7 @@ module.exports = {
 ```
 
 **Accessibility Checklist**:
+
 - [ ] Semantic HTML structure
 - [ ] ARIA labels for interactive elements
 - [ ] Keyboard navigation support
@@ -285,12 +314,14 @@ module.exports = {
 ---
 
 ### **Keyboard Navigation Issues**
+
 **Root Cause**: Missing focus management
 
 **Solution**:
+
 ```tsx
 // Ensure keyboard accessibility
-<div 
+<div
   role="button"
   tabIndex={0}
   onKeyDown={(e) => e.key === 'Enter' && handleClick()}
@@ -305,9 +336,11 @@ module.exports = {
 ## 🔍 **SEO Issues**
 
 ### **Meta Tags Not Working**
+
 **Root Cause**: Missing or incorrect meta tag implementation
 
 **Solution**:
+
 ```tsx
 // Add to layout.tsx or page.tsx
 export const metadata = {
@@ -322,6 +355,7 @@ export const metadata = {
 ```
 
 **SEO Checklist**:
+
 - [ ] Title tags on all pages
 - [ ] Meta descriptions
 - [ ] Open Graph tags
@@ -334,9 +368,11 @@ export const metadata = {
 ## 🎨 **Design Issues**
 
 ### **Layout Broken on Mobile**
+
 **Root Cause**: Responsive design problems
 
 **Solution**:
+
 ```css
 /* Use mobile-first approach */
 .container {
@@ -359,13 +395,19 @@ export const metadata = {
 ---
 
 ### **Typography Issues**
+
 **Root Cause**: Font loading or sizing problems
 
 **Solution**:
+
 ```css
 /* Use system fonts as fallback */
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 /* Responsive typography */
@@ -379,9 +421,11 @@ h1 {
 ## 🧪 **Testing Issues**
 
 ### **Tests Failing**
+
 **Root Cause**: Test configuration or dependency issues
 
 **Solution**:
+
 ```bash
 # 1. Install test dependencies
 bun install
@@ -398,9 +442,11 @@ bun test
 ---
 
 ### **E2E Tests Failing**
+
 **Root Cause**: Playwright configuration or browser issues
 
 **Solution**:
+
 ```bash
 # 1. Install Playwright browsers
 npx playwright install
@@ -417,6 +463,7 @@ bun run test:e2e
 ## 📞 **Getting Help**
 
 ### **Before Asking for Help**
+
 1. **Check this guide** - Most issues are covered here
 2. **Read error messages** - They usually tell you what's wrong
 3. **Test locally** - Ensure it works on your machine
@@ -424,7 +471,9 @@ bun run test:e2e
 5. **Search documentation** - Check other docs in `/docs`
 
 ### **When Reporting Issues**
+
 Include:
+
 - **Error message** - Exact error text
 - **Steps to reproduce** - What you did before the error
 - **Environment** - OS, Node version, browser
@@ -432,6 +481,7 @@ Include:
 - **Console logs** - Browser console errors
 
 ### **Common Solutions**
+
 - **90% of issues**: Missing `.env.local` file
 - **80% of build issues**: Missing environment variables
 - **70% of performance issues**: Unoptimized images
@@ -442,12 +492,14 @@ Include:
 ## 🎯 **Prevention Checklist**
 
 ### **Before Starting Work**
+
 - [ ] `.env.local` file exists
 - [ ] Dependencies installed (`bun install`)
 - [ ] Running from correct directory
 - [ ] Templates exist in `src/templates/`
 
 ### **Before Deployment**
+
 - [ ] Site works locally (`bun dev`)
 - [ ] Build succeeds (`bun run build`)
 - [ ] Environment variables set
@@ -456,6 +508,7 @@ Include:
 - [ ] Performance optimized
 
 ### **After Deployment**
+
 - [ ] Site loads at production URL
 - [ ] Admin panel accessible
 - [ ] All forms work

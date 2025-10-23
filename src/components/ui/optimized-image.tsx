@@ -16,7 +16,7 @@ interface OptimizedImageProps {
 
 /**
  * OptimizedImage Component
- * 
+ *
  * Features:
  * - Automatic WebP conversion
  * - Responsive image loading
@@ -33,7 +33,7 @@ export function OptimizedImage({
   className = '',
   priority = false,
   fallbackGradient = 'bg-gradient-to-br from-blue-500 to-purple-600',
-  quality = 85
+  quality = 85,
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
@@ -50,8 +50,8 @@ export function OptimizedImage({
   if (hasError) {
     return (
       <div className={`${fallbackGradient} ${className} flex items-center justify-center`}>
-        <div className="text-white/80 text-center">
-          <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+        <div className="text-center text-white/80">
+          <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
             <span className="text-2xl">📷</span>
           </div>
           <p className="text-sm">Image unavailable</p>
@@ -67,11 +67,11 @@ export function OptimizedImage({
         <div className={`absolute inset-0 ${fallbackGradient} animate-pulse`}>
           <div className="absolute inset-0 bg-black/10" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-white/30 border-t-white" />
           </div>
         </div>
       )}
-      
+
       {/* Optimized Image */}
       <Image
         src={src}
@@ -82,12 +82,10 @@ export function OptimizedImage({
         priority={priority}
         onLoad={handleLoad}
         onError={handleError}
-        className={`transition-opacity duration-300 ${
-          isLoading ? 'opacity-0' : 'opacity-100'
-        }`}
+        className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
         style={{
           objectFit: 'cover',
-          objectPosition: 'center'
+          objectPosition: 'center',
         }}
       />
     </div>
@@ -102,7 +100,7 @@ export function HeroImage({
   src,
   alt,
   className = '',
-  fallbackGradient = 'bg-gradient-to-br from-blue-500 to-purple-600'
+  fallbackGradient = 'bg-gradient-to-br from-blue-500 to-purple-600',
 }: Omit<OptimizedImageProps, 'width' | 'height' | 'priority'>) {
   return (
     <OptimizedImage
@@ -126,7 +124,7 @@ export function ProjectImage({
   src,
   alt,
   className = '',
-  fallbackGradient = 'bg-gradient-to-br from-blue-500 to-purple-600'
+  fallbackGradient = 'bg-gradient-to-br from-blue-500 to-purple-600',
 }: Omit<OptimizedImageProps, 'width' | 'height'>) {
   return (
     <OptimizedImage
@@ -149,7 +147,7 @@ export function ThumbnailImage({
   src,
   alt,
   className = '',
-  fallbackGradient = 'bg-gradient-to-br from-blue-500 to-purple-600'
+  fallbackGradient = 'bg-gradient-to-br from-blue-500 to-purple-600',
 }: Omit<OptimizedImageProps, 'width' | 'height'>) {
   return (
     <OptimizedImage

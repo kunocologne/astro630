@@ -41,7 +41,7 @@ export const Search: React.FC<Props> = ({ className }) => {
         placeholder="Search for products..."
         type="text"
       />
-      <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
+      <div className="absolute top-0 right-0 mr-3 flex h-full items-center">
         <SearchIcon className="h-4" />
       </div>
     </form>

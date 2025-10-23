@@ -5,43 +5,43 @@
  * Builds only the templates without the full app to avoid Payload CMS issues
  */
 
-import { execSync } from 'child_process';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { execSync } from 'child_process'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
-console.log('🚀 Building JUNO Templates (Template-Only Mode)...');
+console.log('🚀 Building JUNO Templates (Template-Only Mode)...')
 
 try {
   // Create output directory
-  const outputDir = path.join(__dirname, '../dist/templates');
+  const outputDir = path.join(__dirname, '../dist/templates')
   if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+    fs.mkdirSync(outputDir, { recursive: true })
   }
-  
+
   // Copy templates
-  const templatesDir = path.join(__dirname, '../src/templates');
-  execSync(`cp -r ${templatesDir}/* ${outputDir}/`, { stdio: 'inherit' });
-  
+  const templatesDir = path.join(__dirname, '../src/templates')
+  execSync(`cp -r ${templatesDir}/* ${outputDir}/`, { stdio: 'inherit' })
+
   // Copy CMS toggle system
-  const libDir = path.join(__dirname, '../src/lib');
-  const distLibDir = path.join(outputDir, 'lib');
+  const libDir = path.join(__dirname, '../src/lib')
+  const distLibDir = path.join(outputDir, 'lib')
   if (!fs.existsSync(distLibDir)) {
-    fs.mkdirSync(distLibDir, { recursive: true });
+    fs.mkdirSync(distLibDir, { recursive: true })
   }
-  execSync(`cp -r ${libDir}/* ${distLibDir}/`, { stdio: 'inherit' });
-  
+  execSync(`cp -r ${libDir}/* ${distLibDir}/`, { stdio: 'inherit' })
+
   // Copy components
-  const componentsDir = path.join(__dirname, '../src/components');
-  const distComponentsDir = path.join(outputDir, 'components');
+  const componentsDir = path.join(__dirname, '../src/components')
+  const distComponentsDir = path.join(outputDir, 'components')
   if (!fs.existsSync(distComponentsDir)) {
-    fs.mkdirSync(distComponentsDir, { recursive: true });
+    fs.mkdirSync(distComponentsDir, { recursive: true })
   }
-  execSync(`cp -r ${componentsDir}/* ${distComponentsDir}/`, { stdio: 'inherit' });
-  
+  execSync(`cp -r ${componentsDir}/* ${distComponentsDir}/`, { stdio: 'inherit' })
+
   // Create template README
   const readme = `# JUNO Templates
 
@@ -73,16 +73,15 @@ Each template includes a CMS toggle system that allows:
 - ✅ Performance optimized
 - ✅ CMS toggle system
 - ✅ Professional quality
-`;
+`
 
-  fs.writeFileSync(path.join(outputDir, 'README.md'), readme);
-  
-  console.log('✅ Templates built successfully!');
-  console.log('📁 Output directory:', outputDir);
-  console.log('🎯 CMS Toggle System included');
-  console.log('📚 Documentation generated');
-  
+  fs.writeFileSync(path.join(outputDir, 'README.md'), readme)
+
+  console.log('✅ Templates built successfully!')
+  console.log('📁 Output directory:', outputDir)
+  console.log('🎯 CMS Toggle System included')
+  console.log('📚 Documentation generated')
 } catch (error) {
-  console.error('❌ Build failed:', error.message);
-  process.exit(1);
+  console.error('❌ Build failed:', error.message)
+  process.exit(1)
 }

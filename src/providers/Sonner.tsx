@@ -10,10 +10,10 @@ export const SonnerProvider = ({ children }: { children?: React.ReactNode }) => 
     <>
       {children}
 
-      <Toaster 
-        richColors 
-        position="top-right" 
-        theme={theme || 'light'} 
+      <Toaster
+        richColors
+        position="top-right"
+        theme={theme || 'light'}
         duration={2000}
         closeButton={true}
         toastOptions={{

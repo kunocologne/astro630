@@ -22,6 +22,9 @@
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "check": "bun run typecheck && bun run lint && bun run format:check",
     "check:performance": "bun run scripts/check-performance.ts",
+    "test": "bun run test:int && bun run test:e2e && bun run test:accessibility",
+    "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" playwright test tests/e2e/",
+    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "optimize-images": "bun run scripts/optimize-images.ts",
     "prepare": "husky",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
@@ -39,11 +42,7 @@
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm bun.lock && bun install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "stripe-webhooks": "stripe listen --forward-to localhost:3000/api/stripe/webhooks",
-    "test": "bun run test:int && bun run test:e2e && bun run test:a11y",
-    "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" bun exec playwright test tests/e2e/",
-    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "test:a11y": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" bun exec playwright test tests/accessibility.test.tsx",
-    "test:accessibility": "bun run test:a11y",
     "test:performance": "lighthouse-ci",
     "test:all": "bun run test:int && bun run test:e2e && bun run test:accessibility && bun run test:performance",
     "typecheck": "tsc --noEmit",
@@ -57,7 +56,10 @@
     "check-and-fix": "bun run fix-all && bun run check",
     "pre-commit": "bun run check-and-fix",
     "deploy": "./scripts/deploy.sh",
-    "deploy:safe": "bun run check && bun run deploy"
+    "deploy:safe": "bun run check && bun run deploy",
+    "ci:validate": "./scripts/validate-ci.sh",
+    "ci:build": "cross-env CI=true NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "prepush": "bun run typecheck"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -99,7 +101,7 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.1.0",
     "date-fns": "^4.1.0",
     "dotenv": "^8.2.0",
     "embla-carousel-auto-scroll": "^8.1.5",
@@ -145,6 +147,7 @@
     "@types/react-dom": "19.0.1",
     "@vercel/git-hooks": "^1.0.0",
     "@vitejs/plugin-react": "4.5.2",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9.16.0",
     "eslint-config-next": "15.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -167,9 +170,6 @@
     "node": "^18.20.2 || >=20.9.0"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "bun run typecheck"
-    ],
     "*.{js,jsx,ts,tsx,json,css,md}": [
       "bun run format"
     ]

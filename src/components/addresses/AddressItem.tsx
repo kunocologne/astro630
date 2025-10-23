@@ -55,7 +55,7 @@ export const AddressItem: React.FC<Props> = ({
       </div>
 
       {!hideActions && address.id && (
-        <div className="shrink flex flex-col gap-2">
+        <div className="flex shrink flex-col gap-2">
           {actions ? (
             actions
           ) : (

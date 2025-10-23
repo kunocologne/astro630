@@ -37,47 +37,43 @@ export const ProductGridItem: React.FC<Props> = ({ product, index = 0, isStagger
 
   return (
     <ScrollReveal direction="up" delay={index * 0.1}>
-      <AnimatedCard 
-        index={index} 
-        isStaggered={isStaggered}
-        className="h-full w-full"
-      >
-        <Link 
-          className="relative inline-block h-full w-full group overflow-hidden" 
+      <AnimatedCard index={index} isStaggered={isStaggered} className="h-full w-full">
+        <Link
+          className="group relative inline-block h-full w-full overflow-hidden"
           href={`/products/${product.slug}`}
         >
           {/* Image Container - Refined */}
-          <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
+          <div className="border-border/50 relative overflow-hidden rounded-2xl border bg-white/50 backdrop-blur-sm dark:bg-black/20">
             {image ? (
               <div className="relative aspect-square overflow-hidden">
                 <Media
-                  className="relative w-full h-full p-8"
+                  className="relative h-full w-full p-8"
                   height={80}
                   imgClassName={clsx(
                     'h-full w-full object-contain transition-all duration-300 ease-out',
-                    'group-hover:scale-105'
+                    'group-hover:scale-105',
                   )}
                   resource={image}
                   width={80}
                 />
-                
+
                 {/* Subtle overlay on hover */}
-                <div className="absolute inset-0 bg-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="bg-foreground/5 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
             ) : (
-              <div className="aspect-square bg-muted/30" />
+              <div className="bg-muted/30 aspect-square" />
             )}
           </div>
 
           {/* Product Info - Refined Typography */}
           <div className="mt-4 space-y-2">
-            <h3 className="font-semibold text-base tracking-tight group-hover:text-foreground/70 transition-colors line-clamp-2">
+            <h3 className="group-hover:text-foreground/70 line-clamp-2 text-base font-semibold tracking-tight transition-colors">
               {title}
             </h3>
-            
+
             {/* Price */}
             {typeof price === 'number' && (
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 <Price amount={price} as="span" />
               </p>
             )}

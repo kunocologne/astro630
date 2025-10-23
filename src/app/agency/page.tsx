@@ -2,11 +2,11 @@ import Link from 'next/link'
 
 export default function AgencyPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-600">
       <div className="text-center text-white">
-        <h1 className="text-6xl font-bold mb-4">Agency Corporate</h1>
-        <p className="text-xl mb-8">Professional, business-oriented design</p>
-        <Link href="/" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold">
+        <h1 className="mb-4 text-6xl font-bold">Agency Corporate</h1>
+        <p className="mb-8 text-xl">Professional, business-oriented design</p>
+        <Link href="/" className="rounded-lg bg-white px-6 py-3 font-semibold text-blue-600">
           Back to Home
         </Link>
       </div>

@@ -1,6 +1,6 @@
 /**
  * Active Template Configuration
- * 
+ *
  * This file defines the current active template state for the JUNO system.
  * It serves as the explicit handoff point between the CLI and the Next.js app,
  * ensuring transparent state management and preventing implicit dependencies.
@@ -9,19 +9,19 @@
 export interface TemplateConfig {
   /** Template identifier (e.g., 'portfolio-bold', 'saas-futuristic') */
   template: string
-  
+
   /** Template variation (e.g., 'minimal', 'bold', 'startup', 'enterprise') */
   variation: string
-  
+
   /** Company/client name for personalization */
   companyName: string
-  
+
   /** Tagline or description */
   tagline: string
-  
+
   /** Features enabled for this template */
   features: string[]
-  
+
   /** Provider configurations */
   providers: {
     database?: string
@@ -31,7 +31,7 @@ export interface TemplateConfig {
     emailProvider?: string
     analyticsProvider?: string
   }
-  
+
   /** Template-specific metadata */
   metadata: {
     title: string
@@ -39,10 +39,10 @@ export interface TemplateConfig {
     keywords: string[]
     author: string
   }
-  
+
   /** Creation timestamp */
   createdAt: string
-  
+
   /** Last updated timestamp */
   updatedAt: string
 }
@@ -61,10 +61,10 @@ export const DEFAULT_TEMPLATE_CONFIG: TemplateConfig = {
     title: 'JUNO - Master Template System',
     description: 'Generate professional websites with beautiful animations and modern design',
     keywords: ['template', 'website', 'design', 'professional'],
-    author: 'JUNO'
+    author: 'JUNO',
   },
   createdAt: new Date().toISOString(),
-  updatedAt: new Date().toISOString()
+  updatedAt: new Date().toISOString(),
 }
 
 /**
@@ -105,22 +105,22 @@ export const TEMPLATE_REGISTRY = {
     description: 'Professional portfolio with beautiful animations and bento box layouts',
     variations: ['minimal', 'bold', 'professional'] as const,
     features: ['animations', 'portfolio', 'contact'],
-    requiredDependencies: ['framer-motion', 'lucide-react']
+    requiredDependencies: ['framer-motion', 'lucide-react'],
   },
   'saas-futuristic': {
     name: 'SaaS Futuristic',
     description: 'Modern SaaS landing page with cutting-edge design',
     variations: ['startup', 'enterprise'] as const,
     features: ['pricing', 'features', 'testimonials'],
-    requiredDependencies: ['framer-motion', 'lucide-react']
+    requiredDependencies: ['framer-motion', 'lucide-react'],
   },
   'agency-corporate': {
     name: 'Agency Corporate',
     description: 'Professional agency website with corporate branding',
     variations: ['corporate', 'creative'] as const,
     features: ['services', 'team', 'case-studies'],
-    requiredDependencies: ['framer-motion', 'lucide-react']
-  }
+    requiredDependencies: ['framer-motion', 'lucide-react'],
+  },
 } as const
 
 /**
@@ -142,25 +142,30 @@ export function getTemplateInfo(template: string) {
  */
 export function validateTemplateConfig(config: Partial<TemplateConfig>): string[] {
   const errors: string[] = []
-  
+
   if (config.template && !isTemplateAvailable(config.template)) {
     errors.push(`Template '${config.template}' is not available`)
   }
-  
+
   if (config.template && config.variation) {
     const templateInfo = getTemplateInfo(config.template)
-    if (templateInfo && !(templateInfo.variations as readonly string[]).includes(config.variation)) {
-      errors.push(`Variation '${config.variation}' is not available for template '${config.template}'`)
+    if (
+      templateInfo &&
+      !(templateInfo.variations as readonly string[]).includes(config.variation)
+    ) {
+      errors.push(
+        `Variation '${config.variation}' is not available for template '${config.template}'`,
+      )
     }
   }
-  
+
   if (!config.companyName || config.companyName.trim().length === 0) {
     errors.push('Company name is required')
   }
-  
+
   if (!config.tagline || config.tagline.trim().length === 0) {
     errors.push('Tagline is required')
   }
-  
+
   return errors
 }

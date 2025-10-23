@@ -81,15 +81,17 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   onDragEnd: _onDragEnd,
   ...props
 }) => {
-  const baseClasses = 'relative overflow-hidden rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2'
-  
+  const baseClasses =
+    'relative overflow-hidden rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2'
+
   const variantClasses = {
     primary: 'bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary',
     secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-secondary',
     ghost: 'hover:bg-accent hover:text-accent-foreground focus:ring-accent',
-    destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus:ring-destructive',
+    destructive:
+      'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus:ring-destructive',
   }
-  
+
   const sizeClasses = {
     sm: 'px-3 py-1.5 text-sm',
     md: 'px-4 py-2 text-base',
@@ -124,13 +126,13 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
           variants={rippleVariants}
           initial="initial"
           animate="animate"
-          className="absolute inset-0 rounded-full bg-white/20 pointer-events-none"
+          className="pointer-events-none absolute inset-0 rounded-full bg-white/20"
           style={{
             willChange: 'transform, opacity',
           }}
         />
       )}
-      
+
       {/* Loading spinner */}
       {isLoading && (
         <motion.div
@@ -142,11 +144,11 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
+            className="h-4 w-4 rounded-full border-2 border-current border-t-transparent"
           />
         </motion.div>
       )}
-      
+
       {/* Button content */}
       <motion.span
         animate={{ opacity: isLoading ? 0 : 1 }}

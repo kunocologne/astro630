@@ -32,7 +32,7 @@ export const VirtualizedList = <T,>({
     const startIndex = Math.floor(scrollTop / itemHeight)
     const endIndex = Math.min(
       startIndex + Math.ceil(containerHeight / itemHeight),
-      items.length - 1
+      items.length - 1,
     )
 
     return {
@@ -106,14 +106,11 @@ export const useVirtualization = (
   itemHeight: number,
   containerHeight: number,
   scrollTop: number,
-  overscan = 5
+  overscan = 5,
 ) => {
   return useMemo(() => {
     const startIndex = Math.floor(scrollTop / itemHeight)
-    const endIndex = Math.min(
-      startIndex + Math.ceil(containerHeight / itemHeight),
-      itemCount - 1
-    )
+    const endIndex = Math.min(startIndex + Math.ceil(containerHeight / itemHeight), itemCount - 1)
 
     return {
       start: Math.max(0, startIndex - overscan),

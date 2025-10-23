@@ -49,7 +49,7 @@ export const Gallery: React.FC<Props> = ({ gallery }) => {
 
   return (
     <div>
-      <div className="relative w-full overflow-hidden mb-8">
+      <div className="relative mb-8 w-full overflow-hidden">
         <Media
           resource={gallery[current].image}
           className="w-full"

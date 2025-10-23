@@ -2,120 +2,131 @@ name: Basic CI Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
+
+# Cancel in-progress runs when a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   basic-checks:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 10
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Bun
-      uses: oven-sh/setup-bun@v1
-      with:
-        bun-version: latest
-        
-    - name: Install dependencies
-      run: bun install
-      
-    - name: Check package.json syntax
-      run: bun run --version
-      
-    - name: Run linting (non-blocking)
-      run: bun run lint || echo "Linting issues found - will fix in future commits"
-      continue-on-error: true
-      
-    - name: Run type checking (blocking)
-      run: bun run typecheck
-      
-    - name: Check if build would work
-      run: |
-        echo "Checking basic project structure..."
-        ls -la
-        echo "Checking if essential files exist..."
-        test -f package.json && echo "✅ package.json exists"
-        test -f README.md && echo "✅ README.md exists"
-        test -d docs && echo "✅ docs directory exists"
-        test -d src && echo "✅ src directory exists"
-        echo "✅ Basic project structure is valid"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      # Cache dependencies for faster installs
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run type checking (blocking)
+        run: bun run typecheck
+
+      - name: Run linting (non-blocking)
+        run: bun run lint || echo "⚠️ Linting issues found"
+        continue-on-error: true
 
   documentation-check:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 5
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Check documentation structure
-      run: |
-        echo "Checking documentation completeness..."
-        test -f README.md && echo "✅ README.md exists"
-        test -f CONTRIBUTING.md && echo "✅ CONTRIBUTING.md exists"
-        test -f LICENSE && echo "✅ LICENSE exists"
-        test -d docs && echo "✅ docs directory exists"
-        test -f docs/README.md && echo "✅ docs/README.md exists"
-        test -f docs/getting-started.md && echo "✅ getting-started.md exists"
-        test -f docs/DEPLOYMENT.md && echo "✅ DEPLOYMENT.md exists"
-        test -f docs/quality-standards.md && echo "✅ quality-standards.md exists"
-        echo "✅ Documentation structure is complete"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check documentation structure
+        run: |
+          echo "📚 Checking documentation..."
+          FILES="README.md CONTRIBUTING.md LICENSE docs/README.md docs/getting-started.md docs/DEPLOYMENT.md docs/quality-standards.md"
+          for file in $FILES; do
+            if [ -f "$file" ]; then
+              echo "✅ $file"
+            else
+              echo "❌ Missing: $file"
+              exit 1
+            fi
+          done
+          echo "✅ All documentation files present"
 
   security-check:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 5
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Bun
-      uses: oven-sh/setup-bun@v1
-      with:
-        bun-version: latest
-        
-    - name: Install dependencies
-      run: bun install
-      
-    - name: Run security audit
-      run: bun audit || echo "Security audit completed with warnings"
-      continue-on-error: true
-      
-    - name: Check for sensitive files
-      run: |
-        echo "Checking for sensitive information..."
-        if [ -f .env ]; then echo "⚠️ .env file found - should be in .gitignore"; fi
-        if [ -f .env.local ]; then echo "⚠️ .env.local file found - should be in .gitignore"; fi
-        if [ -f database.sqlite ]; then echo "⚠️ database.sqlite found - should be in .gitignore"; fi
-        echo "✅ Security check completed"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for sensitive files
+        run: |
+          echo "🔒 Security check..."
+          if grep -q "\.env" .gitignore && grep -q "database.sqlite" .gitignore; then
+            echo "✅ Sensitive files properly ignored"
+          else
+            echo "❌ .gitignore missing sensitive file patterns"
+            exit 1
+          fi
 
   build-check:
     runs-on: ubuntu-latest
-    needs: [basic-checks, documentation-check, security-check]
-    
+    needs: [basic-checks]
+    timeout-minutes: 15
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Bun
-      uses: oven-sh/setup-bun@v1
-      with:
-        bun-version: latest
-        
-    - name: Install dependencies
-      run: bun install
-      
-    - name: Build project (blocking)
-      run: |
-        echo "Building project..."
-        bun run build
-      
-    - name: Check project structure
-      run: |
-        echo "✅ Project structure validation:"
-        echo "✅ All essential files are present"
-        echo "✅ Documentation is complete"
-        echo "✅ Security checks passed"
-        echo "⚠️ TypeScript issues need to be resolved for full build"
-        echo "✅ Repository is ready for development"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Setup environment
+        run: cp .env.ci .env.local
+
+      - name: Cache Next.js build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lock') }}-
+
+      - name: Build project
+        run: bun run ci:build
+
+      - name: Verify build output
+        run: |
+          echo "✅ Build completed successfully"
+          test -d .next && echo "✅ .next directory exists"
+          test -f .next/BUILD_ID && echo "✅ Build ID generated"
+          echo "✅ All checks passed"

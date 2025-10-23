@@ -4,7 +4,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Insights, tips, and stories from our team about design, development, and business growth.',
+  description:
+    'Insights, tips, and stories from our team about design, development, and business growth.',
 }
 
 const blogPosts = [
@@ -76,27 +77,36 @@ const blogPosts = [
   },
 ]
 
-const categories = ['All', 'E-Commerce', 'Development', 'UX Design', 'Case Study', 'Design', 'Marketing']
+const categories = [
+  'All',
+  'E-Commerce',
+  'Development',
+  'UX Design',
+  'Case Study',
+  'Design',
+  'Marketing',
+]
 
 export default function BlogPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 via-transparent to-foreground/5" />
+      <section className="relative overflow-hidden py-24">
+        <div className="from-foreground/5 to-foreground/5 absolute inset-0 bg-gradient-to-br via-transparent" />
 
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] font-bold tracking-tight leading-tight">
+        <div className="relative z-10 container">
+          <div className="mx-auto max-w-4xl space-y-8 text-center">
+            <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] leading-tight font-bold tracking-tight">
               Insights &
               <br />
-              <span className="bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent">
+              <span className="from-foreground via-foreground/80 to-foreground/60 bg-gradient-to-r bg-clip-text text-transparent">
                 Inspiration
               </span>
             </h1>
 
-            <p className="text-[clamp(0.9rem,1.3vw,1.1rem)] text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Expert insights on design, development, and digital strategy to help you build better products and grow your business.
+            <p className="text-muted-foreground mx-auto max-w-2xl text-[clamp(0.9rem,1.3vw,1.1rem)] leading-relaxed">
+              Expert insights on design, development, and digital strategy to help you build better
+              products and grow your business.
             </p>
           </div>
         </div>
@@ -109,7 +119,7 @@ export default function BlogPage() {
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-6 py-2.5 rounded-full border border-border/70 shadow-sm hover:border-foreground/20 bg-background hover:bg-foreground/5 text-sm font-medium transition-all"
+                className="border-border/70 hover:border-foreground/20 bg-background hover:bg-foreground/5 rounded-full border px-6 py-2.5 text-sm font-medium shadow-sm transition-all"
               >
                 {category}
               </button>
@@ -121,44 +131,46 @@ export default function BlogPage() {
       {/* Featured Post */}
       <section className="pb-24">
         <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 border border-foreground/10 mb-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="bg-foreground/5 border-foreground/10 mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2">
               <span className="text-sm font-semibold">Featured Article</span>
             </div>
 
-            <div className="relative group bg-background rounded-3xl p-12 border border-border/70 shadow-sm hover:border-foreground/20 transition-all duration-500 hover:shadow-2xl overflow-hidden">
-              <div className={`absolute inset-0 bg-gradient-to-br ${blogPosts[0].gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+            <div className="group bg-background border-border/70 hover:border-foreground/20 relative overflow-hidden rounded-3xl border p-12 shadow-sm transition-all duration-500 hover:shadow-2xl">
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${blogPosts[0].gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+              />
 
-              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="relative z-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <span className="px-3 py-1 rounded-full bg-foreground/10 font-medium">
+                  <div className="text-muted-foreground flex items-center gap-4 text-sm">
+                    <span className="bg-foreground/10 rounded-full px-3 py-1 font-medium">
                       {blogPosts[0].category}
                     </span>
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
+                      <Calendar className="h-4 w-4" />
                       {blogPosts[0].date}
                     </div>
                     <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="h-4 w-4" />
                       {blogPosts[0].readTime}
                     </div>
                   </div>
 
-                  <h2 className="text-2xl md:text-3xl font-bold leading-tight">
+                  <h2 className="text-2xl leading-tight font-bold md:text-3xl">
                     {blogPosts[0].title}
                   </h2>
 
-                  <p className="text-base text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground text-base leading-relaxed">
                     {blogPosts[0].excerpt}
                   </p>
 
                   <Link
                     href={`/blog/${blogPosts[0].id}`}
-                    className="inline-flex items-center gap-3 text-base font-semibold hover:gap-4 transition-all"
+                    className="inline-flex items-center gap-3 text-base font-semibold transition-all hover:gap-4"
                   >
                     Read Full Article
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="h-5 w-5" />
                   </Link>
                 </div>
 
@@ -172,53 +184,55 @@ export default function BlogPage() {
       </section>
 
       {/* Latest Articles */}
-      <section className="py-24 bg-muted/30">
+      <section className="bg-muted/30 py-24">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Latest Articles</h2>
-            <p className="text-base text-muted-foreground">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <h2 className="mb-6 text-2xl font-bold md:text-3xl">Latest Articles</h2>
+            <p className="text-muted-foreground text-base">
               Fresh insights and practical guides to help you succeed
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.slice(1).map((post) => (
               <Link
                 key={post.id}
                 href={`/blog/${post.id}`}
-                className="group bg-background rounded-3xl border border-border/70 shadow-sm hover:border-foreground/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
+                className="group bg-background border-border/70 hover:border-foreground/20 overflow-hidden rounded-3xl border shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
               >
-                <div className={`relative h-48 bg-gradient-to-br ${post.gradient} flex items-center justify-center`}>
+                <div
+                  className={`relative h-48 bg-gradient-to-br ${post.gradient} flex items-center justify-center`}
+                >
                   <div className="text-7xl">{post.image}</div>
                 </div>
 
-                <div className="p-8 space-y-4">
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <span className="px-2.5 py-1 rounded-full bg-foreground/10 font-medium text-xs">
+                <div className="space-y-4 p-8">
+                  <div className="text-muted-foreground flex items-center gap-3 text-sm">
+                    <span className="bg-foreground/10 rounded-full px-2.5 py-1 text-xs font-medium">
                       {post.category}
                     </span>
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" />
+                      <Clock className="h-3.5 w-3.5" />
                       {post.readTime}
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold leading-tight group-hover:text-foreground/80 transition-colors">
+                  <h3 className="group-hover:text-foreground/80 text-xl leading-tight font-bold transition-colors">
                     {post.title}
                   </h3>
 
-                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                  <p className="text-muted-foreground line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
+                  <div className="border-border/50 flex items-center justify-between border-t pt-4">
+                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                      <Calendar className="h-4 w-4" />
                       {post.date}
                     </div>
-                    <div className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all">
+                    <div className="inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3">
                       Read More
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>
                 </div>
@@ -231,27 +245,28 @@ export default function BlogPage() {
       {/* Newsletter Section */}
       <section className="py-24">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-8 p-12 rounded-3xl border-2 border-foreground/20 bg-gradient-to-br from-foreground/5 via-transparent to-foreground/5">
+          <div className="border-foreground/20 from-foreground/5 to-foreground/5 mx-auto max-w-4xl space-y-8 rounded-3xl border-2 bg-gradient-to-br via-transparent p-12 text-center">
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-bold">Never Miss an Update</h2>
-              <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-                Get our latest articles, insights, and tips delivered straight to your inbox every week.
+              <h2 className="text-2xl font-bold md:text-3xl">Never Miss an Update</h2>
+              <p className="text-muted-foreground mx-auto max-w-2xl text-base">
+                Get our latest articles, insights, and tips delivered straight to your inbox every
+                week.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <div className="mx-auto flex max-w-md flex-col justify-center gap-4 sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-xl border-2 border-border/50 focus:border-foreground/40 bg-background focus:outline-none transition-colors"
+                className="border-border/50 focus:border-foreground/40 bg-background flex-1 rounded-xl border-2 px-6 py-4 transition-colors focus:outline-none"
               />
-              <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-foreground text-background px-8 py-4 font-semibold hover:scale-105 transition-all whitespace-nowrap">
+              <button className="bg-foreground text-background inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-semibold whitespace-nowrap transition-all hover:scale-105">
                 Subscribe
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="h-5 w-5" />
               </button>
             </div>
 
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Join 10,000+ readers. Unsubscribe anytime.
             </p>
           </div>
@@ -259,16 +274,16 @@ export default function BlogPage() {
       </section>
 
       {/* Popular Topics */}
-      <section className="py-24 bg-muted/30">
+      <section className="bg-muted/30 py-24">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Popular Topics</h2>
-            <p className="text-base text-muted-foreground">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <h2 className="mb-6 text-2xl font-bold md:text-3xl">Popular Topics</h2>
+            <p className="text-muted-foreground text-base">
               Explore articles by topic to find exactly what you need
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
             {[
               { name: 'E-Commerce', count: 24, icon: '🛍️' },
               { name: 'Design', count: 18, icon: '🎨' },
@@ -280,12 +295,12 @@ export default function BlogPage() {
               <Link
                 key={topic.name}
                 href={`/blog/category/${topic.name.toLowerCase()}`}
-                className="group bg-background rounded-2xl p-6 border border-border/70 shadow-sm hover:border-foreground/20 transition-all duration-300 hover:shadow-xl text-center space-y-3"
+                className="group bg-background border-border/70 hover:border-foreground/20 space-y-3 rounded-2xl border p-6 text-center shadow-sm transition-all duration-300 hover:shadow-xl"
               >
                 <div className="text-4xl">{topic.icon}</div>
                 <div>
-                  <h3 className="font-semibold mb-1">{topic.name}</h3>
-                  <p className="text-sm text-muted-foreground">{topic.count} articles</p>
+                  <h3 className="mb-1 font-semibold">{topic.name}</h3>
+                  <p className="text-muted-foreground text-sm">{topic.count} articles</p>
                 </div>
               </Link>
             ))}
@@ -295,4 +310,3 @@ export default function BlogPage() {
     </div>
   )
 }
-

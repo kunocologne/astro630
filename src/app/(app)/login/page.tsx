@@ -21,7 +21,7 @@ export default async function Login() {
 
   return (
     <div className="container">
-      <div className="max-w-xl mx-auto my-12">
+      <div className="mx-auto my-12 max-w-xl">
         <RenderParams />
 
         <h1 className="mb-4 text-[1.8rem]">Log in</h1>

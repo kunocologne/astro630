@@ -33,7 +33,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: "The technology goes beyond simple product suggestions. Modern AI systems analyze browsing patterns, purchase history, and even social media behavior to understand customers at a deeper level. This means showing the right product, at the right time, with the right message - resulting in conversion rates that traditional approaches can&apos;t match.",
+        text: 'The technology goes beyond simple product suggestions. Modern AI systems analyze browsing patterns, purchase history, and even social media behavior to understand customers at a deeper level. This means showing the right product, at the right time, with the right message - resulting in conversion rates that traditional approaches can&apos;t match.',
       },
       {
         type: 'heading',
@@ -41,7 +41,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: "AR technology has moved from gimmick to necessity. Customers now expect to visualize products in their own space before purchasing. Whether it&apos;s furniture in their living room or sunglasses on their face, AR bridges the gap between online and in-store shopping experiences.",
+        text: 'AR technology has moved from gimmick to necessity. Customers now expect to visualize products in their own space before purchasing. Whether it&apos;s furniture in their living room or sunglasses on their face, AR bridges the gap between online and in-store shopping experiences.',
       },
       {
         type: 'quote',
@@ -53,7 +53,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: "Social media platforms are becoming full-fledged shopping destinations. Instagram, TikTok, and Pinterest now offer seamless checkout experiences, allowing users to purchase products without leaving their favorite apps. This integration of social and commerce is creating new opportunities for brands to reach customers where they already spend their time.",
+        text: 'Social media platforms are becoming full-fledged shopping destinations. Instagram, TikTok, and Pinterest now offer seamless checkout experiences, allowing users to purchase products without leaving their favorite apps. This integration of social and commerce is creating new opportunities for brands to reach customers where they already spend their time.',
       },
       {
         type: 'paragraph',
@@ -65,11 +65,11 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: "Consumers increasingly demand to know where products come from and how they&apos;re made. Successful e-commerce businesses in 2025 will need to provide complete transparency about their supply chains, manufacturing processes, and environmental impact. This isn&apos;t just about marketing - it&apos;s about building trust with conscious consumers.",
+        text: 'Consumers increasingly demand to know where products come from and how they&apos;re made. Successful e-commerce businesses in 2025 will need to provide complete transparency about their supply chains, manufacturing processes, and environmental impact. This isn&apos;t just about marketing - it&apos;s about building trust with conscious consumers.',
       },
       {
         type: 'conclusion',
-        text: "The future of e-commerce is exciting and full of opportunity. Businesses that embrace these trends - AI personalization, AR experiences, social commerce, and sustainability - will be well-positioned to thrive in the evolving digital marketplace. The key is to start experimenting now, learning what works for your audience, and iterating quickly.",
+        text: 'The future of e-commerce is exciting and full of opportunity. Businesses that embrace these trends - AI personalization, AR experiences, social commerce, and sustainability - will be well-positioned to thrive in the evolving digital marketplace. The key is to start experimenting now, learning what works for your audience, and iterating quickly.',
       },
     ],
   },
@@ -87,7 +87,7 @@ const blogPosts = {
     content: [
       {
         type: 'intro',
-        text: 'Web accessibility is not just a nice-to-have feature - it\'s a fundamental right and legal requirement in many jurisdictions. Building accessible web applications ensures that everyone, regardless of their abilities, can use and enjoy your digital products.',
+        text: "Web accessibility is not just a nice-to-have feature - it's a fundamental right and legal requirement in many jurisdictions. Building accessible web applications ensures that everyone, regardless of their abilities, can use and enjoy your digital products.",
       },
       {
         type: 'heading',
@@ -95,7 +95,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Over 1 billion people worldwide live with some form of disability. When we build inaccessible websites, we\'re excluding a significant portion of potential users and customers. Beyond the moral imperative, accessibility makes good business sense - accessible websites rank better in search engines, load faster, and provide better experiences for all users.',
+        text: "Over 1 billion people worldwide live with some form of disability. When we build inaccessible websites, we're excluding a significant portion of potential users and customers. Beyond the moral imperative, accessibility makes good business sense - accessible websites rank better in search engines, load faster, and provide better experiences for all users.",
       },
       {
         type: 'heading',
@@ -107,7 +107,7 @@ const blogPosts = {
       },
       {
         type: 'quote',
-        text: 'Good HTML is 80% of accessibility. Get the basics right, and you\'re already ahead of most websites.',
+        text: "Good HTML is 80% of accessibility. Get the basics right, and you're already ahead of most websites.",
       },
       {
         type: 'heading',
@@ -115,7 +115,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Not everyone uses a mouse. Many users rely on keyboards, switch devices, or other input methods. Every interactive element must be reachable and usable via keyboard. Test your entire application using only the Tab key - if you can\'t access something, neither can many of your users.',
+        text: "Not everyone uses a mouse. Many users rely on keyboards, switch devices, or other input methods. Every interactive element must be reachable and usable via keyboard. Test your entire application using only the Tab key - if you can't access something, neither can many of your users.",
       },
       {
         type: 'heading',
@@ -131,7 +131,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Color blindness affects approximately 8% of men and 0.5% of women. Never rely solely on color to convey information. Ensure sufficient contrast ratios: at least 4.5:1 for normal text and 3:1 for large text. Tools like WebAIM\'s contrast checker make this easy to verify.',
+        text: "Color blindness affects approximately 8% of men and 0.5% of women. Never rely solely on color to convey information. Ensure sufficient contrast ratios: at least 4.5:1 for normal text and 3:1 for large text. Tools like WebAIM's contrast checker make this easy to verify.",
       },
       {
         type: 'conclusion',
@@ -153,7 +153,7 @@ const blogPosts = {
     content: [
       {
         type: 'intro',
-        text: 'Great UX design isn\'t magic - it\'s psychology. Understanding how people think, make decisions, and form habits is the key to creating interfaces that feel intuitive and delightful. Let\'s explore the cognitive principles that should guide every design decision.',
+        text: "Great UX design isn't magic - it's psychology. Understanding how people think, make decisions, and form habits is the key to creating interfaces that feel intuitive and delightful. Let's explore the cognitive principles that should guide every design decision.",
       },
       {
         type: 'heading',
@@ -165,7 +165,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Design with cognitive load in mind: remove unnecessary elements, use clear language, provide helpful defaults, and break complex tasks into simple steps. Your users shouldn\'t need to think about how to use your interface - it should be obvious.',
+        text: "Design with cognitive load in mind: remove unnecessary elements, use clear language, provide helpful defaults, and break complex tasks into simple steps. Your users shouldn't need to think about how to use your interface - it should be obvious.",
       },
       {
         type: 'heading',
@@ -173,7 +173,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Hick\'s Law states that decision time increases with the number of choices. Too many options overwhelm users and lead to decision paralysis. The famous jam study showed that while 60% of people stopped to sample from a display of 24 jams, only 24% stopped for a display of 6 jams - but the conversion rate was nearly 10 times higher with fewer options.',
+        text: "Hick's Law states that decision time increases with the number of choices. Too many options overwhelm users and lead to decision paralysis. The famous jam study showed that while 60% of people stopped to sample from a display of 24 jams, only 24% stopped for a display of 6 jams - but the conversion rate was nearly 10 times higher with fewer options.",
       },
       {
         type: 'quote',
@@ -193,7 +193,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Jakob\'s Law states that users spend most of their time on other websites, which means they prefer your site to work the same way as all the other sites they already know. Don\'t reinvent common patterns - use familiar conventions for navigation, form layouts, and interactions.',
+        text: "Jakob's Law states that users spend most of their time on other websites, which means they prefer your site to work the same way as all the other sites they already know. Don't reinvent common patterns - use familiar conventions for navigation, form layouts, and interactions.",
       },
       {
         type: 'heading',
@@ -201,11 +201,11 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'We look to others\' behavior to guide our own. Reviews, testimonials, user counts, and social media mentions all provide social proof that influences decisions. Display these prominently, but authentically - fake reviews and inflated numbers destroy trust.',
+        text: "We look to others' behavior to guide our own. Reviews, testimonials, user counts, and social media mentions all provide social proof that influences decisions. Display these prominently, but authentically - fake reviews and inflated numbers destroy trust.",
       },
       {
         type: 'conclusion',
-        text: 'Understanding user psychology isn\'t about manipulation - it\'s about removing friction and creating experiences that align with how people naturally think and behave. Apply these principles thoughtfully, test with real users, and iterate based on feedback. The result will be interfaces that feel effortless and natural.',
+        text: "Understanding user psychology isn't about manipulation - it's about removing friction and creating experiences that align with how people naturally think and behave. Apply these principles thoughtfully, test with real users, and iterate based on feedback. The result will be interfaces that feel effortless and natural.",
       },
     ],
   },
@@ -223,7 +223,7 @@ const blogPosts = {
     content: [
       {
         type: 'intro',
-        text: 'When TaskFlow approached us, they had an idea and three months to validate it. Their goal: build an MVP, acquire their first 100 paying customers, and secure seed funding. Here\'s how we made it happen.',
+        text: "When TaskFlow approached us, they had an idea and three months to validate it. Their goal: build an MVP, acquire their first 100 paying customers, and secure seed funding. Here's how we made it happen.",
       },
       {
         type: 'heading',
@@ -235,7 +235,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Key insight: Users didn\'t need another feature-rich project management tool. They needed something dead simple that integrated with their existing workflow. This realization helped us ruthlessly prioritize features.',
+        text: "Key insight: Users didn't need another feature-rich project management tool. They needed something dead simple that integrated with their existing workflow. This realization helped us ruthlessly prioritize features.",
       },
       {
         type: 'heading',
@@ -255,7 +255,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'We recruited 25 beta testers from our research interviews. Their daily usage revealed bugs, confusion points, and missing features we hadn\'t considered. More importantly, they validated that people would actually use and pay for the product.',
+        text: "We recruited 25 beta testers from our research interviews. Their daily usage revealed bugs, confusion points, and missing features we hadn't considered. More importantly, they validated that people would actually use and pay for the product.",
       },
       {
         type: 'heading',
@@ -301,7 +301,7 @@ const blogPosts = {
     content: [
       {
         type: 'intro',
-        text: 'Minimalism in design isn\'t about removing everything - it\'s about removing anything that doesn\'t serve a purpose. It\'s the art of making every element count, creating clarity through simplicity, and letting content breathe.',
+        text: "Minimalism in design isn't about removing everything - it's about removing anything that doesn't serve a purpose. It's the art of making every element count, creating clarity through simplicity, and letting content breathe.",
       },
       {
         type: 'heading',
@@ -309,7 +309,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Minimalist design emerged from the principle that form should follow function. Every element should serve a purpose - whether functional or aesthetic. If it doesn\'t add value, it creates noise. The goal is to communicate as much as possible with as little as possible.',
+        text: "Minimalist design emerged from the principle that form should follow function. Every element should serve a purpose - whether functional or aesthetic. If it doesn't add value, it creates noise. The goal is to communicate as much as possible with as little as possible.",
       },
       {
         type: 'quote',
@@ -321,7 +321,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'White space (negative space) isn\'t empty space - it\'s a powerful design tool. It creates breathing room, establishes hierarchy, and guides the eye. Cramped interfaces feel overwhelming; generous spacing feels premium and confident.',
+        text: "White space (negative space) isn't empty space - it's a powerful design tool. It creates breathing room, establishes hierarchy, and guides the eye. Cramped interfaces feel overwhelming; generous spacing feels premium and confident.",
       },
       {
         type: 'heading',
@@ -337,7 +337,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Minimalist palettes typically use 2-3 colors maximum. A neutral base (black, white, gray) with one or two accent colors creates sophistication and focus. When every element isn\'t competing for attention through color, the important elements stand out naturally.',
+        text: "Minimalist palettes typically use 2-3 colors maximum. A neutral base (black, white, gray) with one or two accent colors creates sophistication and focus. When every element isn't competing for attention through color, the important elements stand out naturally.",
       },
       {
         type: 'heading',
@@ -367,7 +367,7 @@ const blogPosts = {
     content: [
       {
         type: 'intro',
-        text: 'SEO has changed dramatically. The old playbook of keyword stuffing, link farms, and thin content doesn\'t work anymore. In 2025, search engines are sophisticated enough to understand intent, context, and quality. Here\'s what actually moves the needle.',
+        text: "SEO has changed dramatically. The old playbook of keyword stuffing, link farms, and thin content doesn't work anymore. In 2025, search engines are sophisticated enough to understand intent, context, and quality. Here's what actually moves the needle.",
       },
       {
         type: 'heading',
@@ -383,11 +383,11 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Publishing mediocre content frequently doesn\'t work anymore. One comprehensive, well-researched article that truly answers user questions will outperform ten shallow posts. Focus on depth, originality, and usefulness. Ask yourself: would someone bookmark this? Share it? Come back to it?',
+        text: "Publishing mediocre content frequently doesn't work anymore. One comprehensive, well-researched article that truly answers user questions will outperform ten shallow posts. Focus on depth, originality, and usefulness. Ask yourself: would someone bookmark this? Share it? Come back to it?",
       },
       {
         type: 'quote',
-        text: 'The best SEO strategy is to create content so good that people link to it naturally because it\'s valuable.',
+        text: "The best SEO strategy is to create content so good that people link to it naturally because it's valuable.",
       },
       {
         type: 'heading',
@@ -395,7 +395,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Page speed, mobile usability, and Core Web Vitals are ranking factors. But they\'re also table stakes - you need to get these right just to compete. Use tools like Lighthouse and PageSpeed Insights to identify issues. Prioritize: fast loading, mobile-first design, clean URLs, proper heading hierarchy, and schema markup.',
+        text: "Page speed, mobile usability, and Core Web Vitals are ranking factors. But they're also table stakes - you need to get these right just to compete. Use tools like Lighthouse and PageSpeed Insights to identify issues. Prioritize: fast loading, mobile-first design, clean URLs, proper heading hierarchy, and schema markup.",
       },
       {
         type: 'heading',
@@ -411,7 +411,7 @@ const blogPosts = {
       },
       {
         type: 'paragraph',
-        text: 'Quality backlinks still matter, but link building has evolved. Guest posting on spammy sites doesn\'t help. Instead: create link-worthy content (original research, comprehensive guides, tools), build genuine relationships with industry sites, and focus on earning links rather than building them.',
+        text: "Quality backlinks still matter, but link building has evolved. Guest posting on spammy sites doesn't help. Instead: create link-worthy content (original research, comprehensive guides, tools), build genuine relationships with industry sites, and focus on earning links rather than building them.",
       },
       {
         type: 'heading',
@@ -452,13 +452,13 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) {
     return (
       <div className="container py-24">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
+        <div className="mx-auto max-w-4xl space-y-6 text-center">
           <h1 className="text-4xl font-bold">Post Not Found</h1>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-lg font-semibold hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-lg font-semibold transition-all hover:gap-3"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="h-5 w-5" />
             Back to Blog
           </Link>
         </div>
@@ -469,58 +469,58 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <article className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
+      <section className="relative overflow-hidden py-16 md:py-24">
         <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient}`} />
 
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto">
+        <div className="relative z-10 container">
+          <div className="mx-auto max-w-4xl">
             {/* Back Button */}
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all mb-8"
+              className="mb-8 inline-flex items-center gap-2 text-sm font-medium transition-all hover:gap-3"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="h-4 w-4" />
               Back to Blog
             </Link>
 
             {/* Category & Meta */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="px-4 py-1.5 rounded-full bg-foreground/10 font-semibold text-foreground">
+            <div className="text-muted-foreground mb-6 flex flex-wrap items-center gap-4 text-sm">
+              <span className="bg-foreground/10 text-foreground rounded-full px-4 py-1.5 font-semibold">
                 {post.category}
               </span>
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
+                <Calendar className="h-4 w-4" />
                 {post.date}
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
+                <Clock className="h-4 w-4" />
                 {post.readTime}
               </div>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
+            <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
               {post.title}
             </h1>
 
             {/* Excerpt */}
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground mb-8 text-xl leading-relaxed md:text-2xl">
               {post.excerpt}
             </p>
 
             {/* Author & Share */}
-            <div className="flex items-center justify-between pt-8 border-t border-border/50">
+            <div className="border-border/50 flex items-center justify-between border-t pt-8">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center">
-                  <User className="w-6 h-6" />
+                <div className="bg-foreground/10 flex h-12 w-12 items-center justify-center rounded-full">
+                  <User className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="font-semibold">{post.author}</p>
-                  <p className="text-sm text-muted-foreground">{post.authorRole}</p>
+                  <p className="text-muted-foreground text-sm">{post.authorRole}</p>
                 </div>
               </div>
-              <button className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border/50 hover:border-foreground/20 hover:bg-foreground/5 transition-all">
-                <Share2 className="w-4 h-4" />
+              <button className="border-border/50 hover:border-foreground/20 hover:bg-foreground/5 inline-flex items-center gap-2 rounded-lg border px-4 py-2 transition-all">
+                <Share2 className="h-4 w-4" />
                 <span className="hidden sm:inline">Share</span>
               </button>
             </div>
@@ -531,8 +531,10 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Featured Image Placeholder */}
       <section className="py-12">
         <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className={`aspect-[21/9] rounded-3xl bg-gradient-to-br ${post.gradient} flex items-center justify-center border border-border/50`}>
+          <div className="mx-auto max-w-5xl">
+            <div
+              className={`aspect-[21/9] rounded-3xl bg-gradient-to-br ${post.gradient} border-border/50 flex items-center justify-center border`}
+            >
               <div className="text-9xl">{post.image}</div>
             </div>
           </div>
@@ -542,27 +544,27 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Article Content */}
       <section className="py-12 md:py-16">
         <div className="container">
-          <div className="max-w-3xl mx-auto space-y-8">
+          <div className="mx-auto max-w-3xl space-y-8">
             {post.content.map((block, index) => {
               switch (block.type) {
                 case 'intro':
                   return (
                     <p
                       key={index}
-                      className="text-xl leading-relaxed font-light text-muted-foreground first-letter:text-5xl first-letter:font-bold first-letter:mr-1 first-letter:float-left"
+                      className="text-muted-foreground text-xl leading-relaxed font-light first-letter:float-left first-letter:mr-1 first-letter:text-5xl first-letter:font-bold"
                     >
                       {block.text}
                     </p>
                   )
                 case 'heading':
                   return (
-                    <h2 key={index} className="text-3xl md:text-4xl font-bold tracking-tight pt-8">
+                    <h2 key={index} className="pt-8 text-3xl font-bold tracking-tight md:text-4xl">
                       {block.text}
                     </h2>
                   )
                 case 'paragraph':
                   return (
-                    <p key={index} className="text-lg leading-relaxed text-muted-foreground">
+                    <p key={index} className="text-muted-foreground text-lg leading-relaxed">
                       {block.text}
                     </p>
                   )
@@ -570,16 +572,19 @@ export default async function BlogPostPage({ params }: Props) {
                   return (
                     <blockquote
                       key={index}
-                      className="relative pl-6 py-4 border-l-4 border-foreground/20 italic text-xl my-8"
+                      className="border-foreground/20 relative my-8 border-l-4 py-4 pl-6 text-xl italic"
                     >
                       <p className="text-foreground/80">{block.text}</p>
                     </blockquote>
                   )
                 case 'conclusion':
                   return (
-                    <div key={index} className="p-8 rounded-2xl bg-muted/50 border border-border/50 mt-12">
-                      <h3 className="text-xl font-bold mb-4">Key Takeaways</h3>
-                      <p className="text-lg leading-relaxed text-muted-foreground">{block.text}</p>
+                    <div
+                      key={index}
+                      className="bg-muted/50 border-border/50 mt-12 rounded-2xl border p-8"
+                    >
+                      <h3 className="mb-4 text-xl font-bold">Key Takeaways</h3>
+                      <p className="text-muted-foreground text-lg leading-relaxed">{block.text}</p>
                     </div>
                   )
                 default:
@@ -591,20 +596,20 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="bg-muted/30 py-16">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-6 p-8 md:p-12 rounded-3xl border-2 border-foreground/20 bg-gradient-to-br from-foreground/5 via-transparent to-foreground/5">
-            <h2 className="text-3xl md:text-4xl font-bold">Enjoyed this article?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="border-foreground/20 from-foreground/5 to-foreground/5 mx-auto max-w-4xl space-y-6 rounded-3xl border-2 bg-gradient-to-br via-transparent p-8 text-center md:p-12">
+            <h2 className="text-3xl font-bold md:text-4xl">Enjoyed this article?</h2>
+            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
               Subscribe to our newsletter for more insights delivered straight to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto pt-4">
+            <div className="mx-auto flex max-w-md flex-col justify-center gap-3 pt-4 sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-5 py-3 rounded-xl border-2 border-border/50 focus:border-foreground/40 bg-background focus:outline-none transition-colors"
+                className="border-border/50 focus:border-foreground/40 bg-background flex-1 rounded-xl border-2 px-5 py-3 transition-colors focus:outline-none"
               />
-              <button className="px-8 py-3 rounded-xl bg-foreground text-background font-semibold hover:scale-105 transition-all whitespace-nowrap">
+              <button className="bg-foreground text-background rounded-xl px-8 py-3 font-semibold whitespace-nowrap transition-all hover:scale-105">
                 Subscribe
               </button>
             </div>
@@ -615,9 +620,9 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Related Posts */}
       <section className="py-16">
         <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Continue Reading</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-8 text-3xl font-bold md:text-4xl">Continue Reading</h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {Object.entries(blogPosts)
                 .filter(([key]) => key !== id)
                 .slice(0, 3)
@@ -625,16 +630,16 @@ export default async function BlogPostPage({ params }: Props) {
                   <Link
                     key={key}
                     href={`/blog/${key}`}
-                    className="group bg-background rounded-2xl p-6 border border-border/50 hover:border-foreground/20 transition-all hover:shadow-xl"
+                    className="group bg-background border-border/50 hover:border-foreground/20 rounded-2xl border p-6 transition-all hover:shadow-xl"
                   >
-                    <div className="text-4xl mb-4">{relatedPost.image}</div>
-                    <span className="text-xs font-semibold px-2 py-1 rounded-full bg-foreground/10">
+                    <div className="mb-4 text-4xl">{relatedPost.image}</div>
+                    <span className="bg-foreground/10 rounded-full px-2 py-1 text-xs font-semibold">
                       {relatedPost.category}
                     </span>
-                    <h3 className="text-lg font-bold mt-3 mb-2 line-clamp-2 group-hover:text-foreground/70 transition-colors">
+                    <h3 className="group-hover:text-foreground/70 mt-3 mb-2 line-clamp-2 text-lg font-bold transition-colors">
                       {relatedPost.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
+                    <p className="text-muted-foreground line-clamp-2 text-sm">
                       {relatedPost.excerpt}
                     </p>
                   </Link>
@@ -646,4 +651,3 @@ export default async function BlogPostPage({ params }: Props) {
     </article>
   )
 }
-

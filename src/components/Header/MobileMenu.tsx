@@ -55,16 +55,16 @@ export function MobileMenu({ menu }: Props) {
 
   return (
     <Sheet onOpenChange={setIsOpen} open={isOpen}>
-      <SheetTrigger className="flex h-9 w-9 items-center justify-center text-foreground hover:bg-muted/50 rounded-lg transition-colors">
+      <SheetTrigger className="text-foreground hover:bg-muted/50 flex h-9 w-9 items-center justify-center rounded-lg transition-colors">
         <MenuIcon className="h-5 w-5" />
         <span className="sr-only">Open menu</span>
       </SheetTrigger>
 
-      <SheetContent side="left" className="px-6 bg-background/95 backdrop-blur-xl border-border/50">
+      <SheetContent side="left" className="bg-background/95 border-border/50 px-6 backdrop-blur-xl">
         <SheetHeader className="px-0 pt-6 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-orange-500 flex-shrink-0" />
-            <SheetTitle className="text-xl font-semibold text-foreground">Store</SheetTitle>
+            <div className="h-8 w-8 flex-shrink-0 rounded-full bg-orange-500" />
+            <SheetTitle className="text-foreground text-xl font-semibold">Store</SheetTitle>
           </div>
           <SheetDescription className="text-muted-foreground">
             Navigate through our store
@@ -74,17 +74,18 @@ export function MobileMenu({ menu }: Props) {
         <div className="py-6">
           <ul className="flex w-full flex-col gap-2">
             {navigationItems.map((item) => {
-              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
-              
+              const isActive =
+                pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
+
               return (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className={cn(
-                      'block py-3 px-4 rounded-xl text-base font-medium transition-all duration-200',
-                      isActive 
-                        ? 'bg-primary text-primary-foreground shadow-sm' 
-                        : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+                      'block rounded-xl px-4 py-3 text-base font-medium transition-all duration-200',
+                      isActive
+                        ? 'bg-primary text-primary-foreground shadow-sm'
+                        : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground',
                     )}
                   >
                     {item.label}
@@ -93,9 +94,9 @@ export function MobileMenu({ menu }: Props) {
               )
             })}
           </ul>
-          
+
           {/* Contact Button */}
-          <div className="mt-8 pt-6 border-t border-border/50">
+          <div className="border-border/50 mt-8 border-t pt-6">
             <Button asChild className="w-full" variant="outline">
               <Link href="/contact">Contact Us</Link>
             </Button>
@@ -103,29 +104,29 @@ export function MobileMenu({ menu }: Props) {
         </div>
 
         {user ? (
-          <div className="mt-8 pt-6 border-t border-border/50">
-            <h2 className="text-lg font-semibold mb-4 text-foreground">My Account</h2>
+          <div className="border-border/50 mt-8 border-t pt-6">
+            <h2 className="text-foreground mb-4 text-lg font-semibold">My Account</h2>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link 
-                  href="/orders" 
-                  className="block py-2 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                <Link
+                  href="/orders"
+                  className="text-muted-foreground hover:text-foreground hover:bg-muted/50 block rounded-lg px-4 py-2 transition-colors"
                 >
                   Orders
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/account/addresses" 
-                  className="block py-2 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                <Link
+                  href="/account/addresses"
+                  className="text-muted-foreground hover:text-foreground hover:bg-muted/50 block rounded-lg px-4 py-2 transition-colors"
                 >
                   Addresses
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/account" 
-                  className="block py-2 px-4 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+                <Link
+                  href="/account"
+                  className="text-muted-foreground hover:text-foreground hover:bg-muted/50 block rounded-lg px-4 py-2 transition-colors"
                 >
                   Manage Account
                 </Link>
@@ -138,8 +139,8 @@ export function MobileMenu({ menu }: Props) {
             </ul>
           </div>
         ) : (
-          <div className="mt-8 pt-6 border-t border-border/50">
-            <h2 className="text-lg font-semibold mb-4 text-foreground">My Account</h2>
+          <div className="border-border/50 mt-8 border-t pt-6">
+            <h2 className="text-foreground mb-4 text-lg font-semibold">My Account</h2>
             <div className="space-y-3">
               <Button asChild variant="outline" className="w-full">
                 <Link href="/login">Log in</Link>

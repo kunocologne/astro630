@@ -33,14 +33,14 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
  * SmoothScrollTo Component
  * Smooth scroll to specific elements
  */
-export function SmoothScrollTo({ 
-  target, 
-  children, 
-  className = '' 
-}: { 
+export function SmoothScrollTo({
+  target,
+  children,
+  className = '',
+}: {
   target: string
   children: ReactNode
-  className?: string 
+  className?: string
 }) {
   const handleClick = () => {
     const lenis = (window as any).lenis
@@ -56,8 +56,8 @@ export function SmoothScrollTo({
   }
 
   return (
-    <div 
-      onClick={handleClick} 
+    <div
+      onClick={handleClick}
       onKeyDown={handleClick}
       role="button"
       tabIndex={0}

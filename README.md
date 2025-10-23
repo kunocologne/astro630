@@ -2,10 +2,10 @@
 
 **Deliver award-winning websites in minutes, not months.**
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge\&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge\&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge\&logo=tailwind-css)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge\&logo=vercel\&logoColor=white)](https://vercel.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
 ---
 
@@ -17,12 +17,12 @@
 
 ## ✨ **Core Highlights**
 
-* ⚡ **Speed & Precision** — Generate a production-ready website in under 5 minutes.
-* 🏆 **Award-Level Design** — Templates inspired by Awwwards and FWA quality standards.
-* 📱 **Fully Responsive** — Flawless performance across all screen sizes.
-* ♿ **Accessibility First** — WCAG 2.1 AA compliance out of the box.
-* 🚀 **One-Command Deployment** — Ship directly to Vercel in seconds.
-* 💰 **High ROI** — Designed for client projects priced between €3,000–€8,000.
+- ⚡ **Speed & Precision** — Generate a production-ready website in under 5 minutes.
+- 🏆 **Award-Level Design** — Templates inspired by Awwwards and FWA quality standards.
+- 📱 **Fully Responsive** — Flawless performance across all screen sizes.
+- ♿ **Accessibility First** — WCAG 2.1 AA compliance out of the box.
+- 🚀 **One-Command Deployment** — Ship directly to Vercel in seconds.
+- 💰 **High ROI** — Designed for client projects priced between €3,000–€8,000.
 
 ---
 
@@ -114,10 +114,10 @@ Every JUNO site is engineered for measurable excellence.
 
 ### **Operational Metrics**
 
-* **Average Delivery:** 4–6 hours
-* **Client Satisfaction:** 9/10+
-* **Referral Rate:** 60%+
-* **Profit Margin:** 85%+
+- **Average Delivery:** 4–6 hours
+- **Client Satisfaction:** 9/10+
+- **Referral Rate:** 60%+
+- **Profit Margin:** 85%+
 
 ---
 
@@ -125,18 +125,18 @@ Every JUNO site is engineered for measurable excellence.
 
 ### **Core Technologies**
 
-* **Next.js 15** — Server Components, App Router
-* **TypeScript** — End-to-end type safety
-* **Tailwind CSS** — Scalable utility-first styling
-* **Payload CMS** — Headless content management
-* **Bun** — High-speed dependency manager
-* **Vercel** — Seamless hosting and CI/CD
+- **Next.js 15** — Server Components, App Router
+- **TypeScript** — End-to-end type safety
+- **Tailwind CSS** — Scalable utility-first styling
+- **Payload CMS** — Headless content management
+- **Bun** — High-speed dependency manager
+- **Vercel** — Seamless hosting and CI/CD
 
 ### **Quality & Testing**
 
-* **ESLint + Prettier** — Code quality and consistency
-* **Playwright + Vitest** — E2E and unit testing
-* **Sentry** — Error tracking and performance monitoring
+- **ESLint + Prettier** — Code quality and consistency
+- **Playwright + Vitest** — E2E and unit testing
+- **Sentry** — Error tracking and performance monitoring
 
 ---
 
@@ -155,11 +155,11 @@ All documentation follows **agency-grade clarity** for efficient onboarding and 
 
 ## 🧪 **Testing & Validation**
 
-* **Unit Tests:** Components, utilities, and logic
-* **Integration Tests:** APIs, forms, and content flows
-* **E2E Tests:** Complete user journey validation
-* **Accessibility Tests:** WCAG 2.1 AA verification
-* **Performance Tests:** Lighthouse 90+ requirement
+- **Unit Tests:** Components, utilities, and logic
+- **Integration Tests:** APIs, forms, and content flows
+- **E2E Tests:** Complete user journey validation
+- **Accessibility Tests:** WCAG 2.1 AA verification
+- **Performance Tests:** Lighthouse 90+ requirement
 
 ```bash
 bun test                # Run unit tests
@@ -223,13 +223,12 @@ cd cli && node create-site.js
 
 ## 📞 **Support**
 
-* **Docs:** [./docs/](./docs/) — Comprehensive guides
-* **Issues:** [GitHub Issues](https://github.com/yourusername/juno/issues)
-* **Discussions:** [GitHub Discussions](https://github.com/yourusername/juno/discussions)
+- **Docs:** [./docs/](./docs/) — Comprehensive guides
+- **Issues:** [GitHub Issues](https://github.com/yourusername/juno/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/yourusername/juno/discussions)
 
 ---
 
 **Built with precision and intent — for creators who demand excellence.**
 
-*JUNO — where creative excellence meets engineering performance.*
-
+_JUNO — where creative excellence meets engineering performance._

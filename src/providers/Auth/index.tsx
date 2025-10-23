@@ -5,18 +5,17 @@ import type { User } from '@/payload-types'
 import { getClientSideURL } from '@/utilities/getURL'
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
- 
 type ResetPassword = (args: {
   password: string
   passwordConfirm: string
   token: string
 }) => Promise<void>
 
-type ForgotPassword = (args: { email: string }) => Promise<void>  
+type ForgotPassword = (args: { email: string }) => Promise<void>
 
-type Create = (args: { email: string; password: string; passwordConfirm: string }) => Promise<void>  
+type Create = (args: { email: string; password: string; passwordConfirm: string }) => Promise<void>
 
-type Login = (args: { email: string; password: string }) => Promise<User>  
+type Login = (args: { email: string; password: string }) => Promise<User>
 
 type Logout = () => Promise<void>
 
@@ -26,7 +25,7 @@ type AuthContext = {
   login: Login
   logout: Logout
   resetPassword: ResetPassword
-  setUser: (user: User | null) => void  
+  setUser: (user: User | null) => void
   status: 'loggedIn' | 'loggedOut' | undefined
   user?: User | null
 }
@@ -218,6 +217,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   )
 }
 
-type UseAuth<T = User> = () => AuthContext  
+type UseAuth<T = User> = () => AuthContext
 
 export const useAuth: UseAuth = () => useContext(Context)

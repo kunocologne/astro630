@@ -21,6 +21,7 @@ node create-site.js
 ```
 
 **Answer the prompts:**
+
 - Project name: `my-client-site`
 - Template: Choose one of 3 (Portfolio, SaaS, or Agency)
 - Company name: `Your Client Name`
@@ -41,16 +42,19 @@ Open http://localhost:3000
 ## 🎨 Available Templates
 
 ### Portfolio - Bold
+
 - **Best for:** Designers, photographers, creatives
 - **Style:** Pink/purple gradients, bold, creative
 - **Sections:** Hero, About, Gallery, Testimonials, Contact
 
 ### SaaS - Futuristic
+
 - **Best for:** Tech startups, software companies
 - **Style:** Blue/cyan, professional, modern
 - **Sections:** Hero, Features, Pricing, Logos, CTA
 
 ### Agency - Corporate
+
 - **Best for:** Agencies, consultancies, services
 - **Style:** Navy/gray, clean, corporate
 - **Sections:** Hero, Services, Process, Work, Testimonials
@@ -60,6 +64,7 @@ Open http://localhost:3000
 ## 🗄️ Database Setup
 
 ### Local Development (Default)
+
 Uses **SQLite** - works automatically, zero configuration.
 
 ```bash
@@ -68,6 +73,7 @@ DATABASE_URI=file:./database.sqlite
 ```
 
 ### Production (Vercel)
+
 Requires **Postgres** - SQLite won't work on serverless.
 
 **See:** [Deployment Guide](./deployment.md) for complete setup.
@@ -77,12 +83,14 @@ Requires **Postgres** - SQLite won't work on serverless.
 ## 📝 Customization Workflow
 
 ### Quick (1 hour)
+
 1. Open `src/app/(app)/page.tsx`
 2. Find `TODO:` comments
 3. Replace text content
 4. Done!
 
 ### Full (2-3 hours)
+
 1. **Images** (30 min): Replace in `public/media/`
 2. **Text** (1 hour): Update all content
 3. **Colors** (30 min): Modify in `globals.css`
@@ -117,30 +125,37 @@ vercel
 ## 🐛 Troubleshooting
 
 ### "Site won't load" / ERR_EMPTY_RESPONSE
+
 **Cause:** Missing `.env.local`
 
 **Fix:**
+
 ```bash
 cp env.example .env.local
 ```
 
 ### "Database connection failed"
+
 **Cause:** Incorrect DATABASE_URI
 
 **Fix:** Check `.env.local` has: `DATABASE_URI=file:./database.sqlite`
 
 ### "Module not found"
+
 **Cause:** Dependencies not installed
 
 **Fix:**
+
 ```bash
 bun install
 ```
 
 ### "Template not found"
+
 **Cause:** Running CLI from wrong directory
 
 **Fix:**
+
 ```bash
 cd ~/Desktop/juno/cli
 node create-site.js
@@ -199,4 +214,3 @@ juno/
 ---
 
 **Questions?** Check the other guides in `/docs` or the `.cursorrules` file.
-

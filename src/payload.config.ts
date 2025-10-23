@@ -3,10 +3,11 @@
 import { getCMSConfig } from './lib/cms-toggle'
 
 const config = getCMSConfig()
-export default config || {
-  admin: { user: 'users' },
-  collections: [],
-  globals: [],
-  secret: 'disabled',
-  db: null,
-} as any
+export default config ||
+  ({
+    admin: { user: 'users' },
+    collections: [],
+    globals: [],
+    secret: 'disabled',
+    db: null,
+  } as any)

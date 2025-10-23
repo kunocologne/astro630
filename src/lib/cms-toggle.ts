@@ -11,7 +11,7 @@ export const getCMSConfig = () => {
   if (!isCMSEnabled()) {
     return null
   }
-  
+
   return {
     admin: {
       user: 'users',

@@ -9,11 +9,13 @@
 ### ⚠️ Important: SQLite Won't Work on Vercel
 
 **Why:**
+
 - Vercel is serverless (filesystem is temporary)
 - SQLite is file-based (data gets wiped)
 - You need a hosted Postgres database
 
 **The system automatically switches:**
+
 - Local: `file:./database.sqlite` → Uses SQLite
 - Production: `postgresql://...` → Uses Postgres
 
@@ -26,12 +28,14 @@
 **Best for:** Simplicity, one dashboard, native integration
 
 **Setup:**
+
 1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
 2. Click "Storage" → "Create Database" → "Postgres"
 3. Select region (closest to users)
 4. Copy connection string from ".env.local" tab
 
 **Cost:**
+
 - Free: 256MB
 - Paid: $20/month
 
@@ -40,12 +44,14 @@
 **Best for:** Generous free tier, extra features
 
 **Setup:**
+
 1. Go to [Supabase](https://supabase.com)
 2. Create new project
 3. Settings → Database → Connection String (Transaction mode)
 4. Copy the connection string
 
 **Cost:**
+
 - Free: 500MB
 - Paid: $25/month
 
@@ -54,11 +60,13 @@
 **Best for:** Serverless-optimized performance
 
 **Setup:**
+
 1. Go to [Neon](https://neon.tech)
 2. Create project
 3. Copy connection string from dashboard
 
 **Cost:**
+
 - Free: 512MB
 - Paid: $19/month
 
@@ -69,6 +77,7 @@
 ### Method 1: Vercel Dashboard (Easiest)
 
 **1. Push to GitHub:**
+
 ```bash
 cd ~/Desktop/your-project
 git init
@@ -79,6 +88,7 @@ git push -u origin main
 ```
 
 **2. Import to Vercel:**
+
 - Go to [vercel.com/new](https://vercel.com/new)
 - Click "Import Git Repository"
 - Select your repository
@@ -89,6 +99,7 @@ git push -u origin main
 In Vercel → Project Settings → Environment Variables, add:
 
 **Required:**
+
 ```bash
 DATABASE_URI=postgresql://your-connection-string
 PAYLOAD_SECRET=your-random-32-char-secret
@@ -97,6 +108,7 @@ NEXT_PUBLIC_SERVER_URL=https://your-site.vercel.app
 ```
 
 **Optional but recommended:**
+
 ```bash
 STRIPE_SECRET_KEY=sk_live_...
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
@@ -105,6 +117,7 @@ NEXT_PUBLIC_SENTRY_DSN=https://...@sentry.io/...
 ```
 
 **4. Deploy:**
+
 - Click "Deploy"
 - Wait 2-3 minutes
 - Your site is live! 🎉
@@ -211,6 +224,7 @@ Vercel auto-redeploys when env vars change.
 ### "Database connection failed"
 
 **Solutions:**
+
 1. Verify connection string format
 2. Check no trailing spaces
 3. Ensure database is running
@@ -220,6 +234,7 @@ Vercel auto-redeploys when env vars change.
 ### "PAYLOAD_SECRET must be at least 32 characters"
 
 **Solution:**
+
 ```bash
 # Generate new secret
 openssl rand -base64 32
@@ -253,6 +268,7 @@ Add `vercel.json` to project root:
 ### Images not loading in production
 
 **Solutions:**
+
 1. Check media uploads go to database
 2. Verify Payload media collection works
 3. Consider cloud storage (S3, Cloudinary) for production
@@ -262,18 +278,21 @@ Add `vercel.json` to project root:
 ## 💰 Cost Breakdown
 
 ### Minimum (Free Tier):
+
 - **Vercel Hosting:** Free
 - **Database:** Neon free tier
 - **Total:** €0/month
 - **Good for:** Testing, personal projects
 
 ### Recommended (Starting):
+
 - **Vercel Hosting:** Free
 - **Database:** Vercel Postgres ($20) or Supabase free
 - **Total:** €0-20/month
 - **Good for:** First client sites
 
 ### Production (Client Sites):
+
 - **Vercel Pro:** $20/month
 - **Database:** Vercel Postgres $20 or Supabase Pro $25
 - **Sentry:** $29/month (optional)
@@ -287,12 +306,14 @@ Add `vercel.json` to project root:
 After deployment, verify with Lighthouse:
 
 ### Target Scores:
+
 - **Performance:** 90+
 - **Accessibility:** 95+
 - **Best Practices:** 90+
 - **SEO:** 100
 
 ### Quick Wins:
+
 1. **Images:** Use Next.js Image component (auto-optimized)
 2. **Fonts:** Using `next/font` (already configured)
 3. **Caching:** Edge caching enabled by default
@@ -326,12 +347,14 @@ git push
 ### Best Practice:
 
 **Each client gets:**
+
 - Separate Git repository
 - Separate Vercel project
 - Separate database
 - Separate domain
 
 **Why:**
+
 - Data isolation
 - Individual scaling
 - Easier management
@@ -375,16 +398,19 @@ vercel --prod
 ## 📈 Monitoring & Maintenance
 
 ### Vercel Analytics (Built-in):
+
 - Real-time traffic
 - Performance metrics
 - Core Web Vitals
 
 ### Optional Tools:
+
 - **Sentry:** Error tracking (recommended)
 - **LogRocket:** Session replay
 - **Plausible/Fathom:** Privacy-friendly analytics
 
 ### Database Backups:
+
 - **Vercel Postgres:** Automatic daily backups
 - **Supabase:** Daily backups included
 - **Neon:** Configure backup schedule
@@ -419,6 +445,7 @@ Configure in Vercel project settings.
 ## ✅ Deployment Checklist
 
 **Before First Deploy:**
+
 - [ ] Code works locally
 - [ ] Database set up (Postgres)
 - [ ] Environment variables ready
@@ -427,12 +454,14 @@ Configure in Vercel project settings.
 - [ ] Pushed to GitHub
 
 **During Deploy:**
+
 - [ ] Import to Vercel
 - [ ] Add environment variables
 - [ ] Trigger deployment
 - [ ] Watch build logs
 
 **After Deploy:**
+
 - [ ] Test live site
 - [ ] Create admin account
 - [ ] Test all features
@@ -445,6 +474,7 @@ Configure in Vercel project settings.
 ## 🚀 You're Live!
 
 Your JUNO site is now:
+
 - ✅ Deployed globally (Vercel Edge)
 - ✅ Using production database (Postgres)
 - ✅ Auto-deploying on push

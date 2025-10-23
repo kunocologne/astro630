@@ -2,12 +2,12 @@
   "name": "JUNO Design Tokens",
   "version": "2.0.0",
   "description": "Design tokens for JUNO template system",
-  
+
   "colors": {
     "semantic": {
       "primary": {
         "portfolio": "#6366f1",
-        "saas": "#2563eb", 
+        "saas": "#2563eb",
         "agency": "#1f2937"
       },
       "secondary": {
@@ -39,7 +39,7 @@
       "900": "#111827"
     }
   },
-  
+
   "typography": {
     "font_families": {
       "heading": "Inter, system-ui, sans-serif",
@@ -48,7 +48,7 @@
     },
     "font_sizes": {
       "xs": "0.75rem",
-      "sm": "0.875rem", 
+      "sm": "0.875rem",
       "base": "1rem",
       "lg": "1.125rem",
       "xl": "1.25rem",
@@ -74,7 +74,7 @@
       "loose": "2"
     }
   },
-  
+
   "spacing": {
     "scale": "1.5",
     "base": "1rem",
@@ -88,7 +88,7 @@
     "4xl": "6rem",
     "5xl": "8rem"
   },
-  
+
   "breakpoints": {
     "mobile": "320px",
     "sm": "640px",
@@ -97,7 +97,7 @@
     "xl": "1280px",
     "2xl": "1536px"
   },
-  
+
   "shadows": {
     "sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
     "base": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
@@ -105,7 +105,7 @@
     "lg": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
     "xl": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
   },
-  
+
   "border_radius": {
     "none": "0",
     "sm": "0.125rem",
@@ -116,7 +116,7 @@
     "2xl": "1rem",
     "full": "9999px"
   },
-  
+
   "animations": {
     "durations": {
       "fast": "0.15s",
@@ -138,7 +138,7 @@
       "all": "all 0.3s ease"
     }
   },
-  
+
   "z_index": {
     "hide": "-1",
     "auto": "auto",

@@ -13,7 +13,7 @@ export const componentDatabase = {
         props: {
           title: 'string',
           subtitle: 'string',
-          cta: 'string'
+          cta: 'string',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
@@ -21,19 +21,19 @@ export const componentDatabase = {
             'Proper heading hierarchy (h1)',
             'Color contrast 4.5:1',
             'Keyboard navigation',
-            'Screen reader compatibility'
-          ]
+            'Screen reader compatibility',
+          ],
         },
         responsive: {
           mobile: '320px - 768px',
           tablet: '768px - 1024px',
-          desktop: '1024px+'
+          desktop: '1024px+',
         },
         animations: {
           type: 'fade-in',
           duration: '0.6s',
-          easing: 'ease-out'
-        }
+          easing: 'ease-out',
+        },
       },
       'animated-hero': {
         component: 'AnimatedHero',
@@ -42,7 +42,7 @@ export const componentDatabase = {
           title: 'string',
           subtitle: 'string',
           background: 'string',
-          particles: 'boolean'
+          particles: 'boolean',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
@@ -50,23 +50,23 @@ export const componentDatabase = {
             'Reduced motion support',
             'Proper heading hierarchy',
             'Focus management',
-            'Screen reader compatibility'
-          ]
+            'Screen reader compatibility',
+          ],
         },
         responsive: {
           mobile: '320px - 768px',
           tablet: '768px - 1024px',
-          desktop: '1024px+'
+          desktop: '1024px+',
         },
         animations: {
           type: 'parallax',
           duration: '1.2s',
           easing: 'ease-out',
-          reducedMotion: true
-        }
-      }
+          reducedMotion: true,
+        },
+      },
     },
-    
+
     gallery: {
       'grid-gallery': {
         component: 'GridGallery',
@@ -74,7 +74,7 @@ export const componentDatabase = {
         props: {
           images: 'array',
           columns: 'number',
-          gap: 'string'
+          gap: 'string',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
@@ -82,27 +82,27 @@ export const componentDatabase = {
             'Alt text for images',
             'Keyboard navigation',
             'Focus management',
-            'Screen reader compatibility'
-          ]
+            'Screen reader compatibility',
+          ],
         },
         responsive: {
           mobile: '1 column',
           tablet: '2 columns',
-          desktop: '3+ columns'
+          desktop: '3+ columns',
         },
         animations: {
           type: 'stagger-fade',
           duration: '0.8s',
-          easing: 'ease-out'
-        }
+          easing: 'ease-out',
+        },
       },
-      
+
       'masonry-gallery': {
         component: 'MasonryGallery',
         source: '@/components/ui/masonry-gallery',
         props: {
           images: 'array',
-          columns: 'number'
+          columns: 'number',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
@@ -110,23 +110,23 @@ export const componentDatabase = {
             'Alt text for images',
             'Keyboard navigation',
             'Focus management',
-            'Screen reader compatibility'
-          ]
+            'Screen reader compatibility',
+          ],
         },
         responsive: {
           mobile: '1 column',
           tablet: '2 columns',
-          desktop: '3+ columns'
+          desktop: '3+ columns',
         },
         animations: {
           type: 'masonry-layout',
           duration: '1.0s',
-          easing: 'ease-out'
-        }
-      }
-    }
+          easing: 'ease-out',
+        },
+      },
+    },
   },
-  
+
   // Aceternity UI Components
   aceternity: {
     animations: {
@@ -135,59 +135,59 @@ export const componentDatabase = {
         source: '@/components/ui/aceternity/background-beams',
         props: {
           className: 'string',
-          children: 'ReactNode'
+          children: 'ReactNode',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
           requirements: [
             'Reduced motion support',
             'No motion for users who prefer it',
-            'Performance optimization'
-          ]
+            'Performance optimization',
+          ],
         },
         responsive: {
           mobile: 'Simplified animation',
           tablet: 'Medium animation',
-          desktop: 'Full animation'
+          desktop: 'Full animation',
         },
         animations: {
           type: 'beam-effect',
           duration: '2.0s',
           easing: 'ease-in-out',
-          reducedMotion: true
-        }
+          reducedMotion: true,
+        },
       },
-      
-      'spotlight': {
+
+      spotlight: {
         component: 'Spotlight',
         source: '@/components/ui/aceternity/spotlight',
         props: {
           className: 'string',
-          fill: 'string'
+          fill: 'string',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
           requirements: [
             'Reduced motion support',
             'No motion for users who prefer it',
-            'Performance optimization'
-          ]
+            'Performance optimization',
+          ],
         },
         responsive: {
           mobile: 'Simplified animation',
           tablet: 'Medium animation',
-          desktop: 'Full animation'
+          desktop: 'Full animation',
         },
         animations: {
           type: 'spotlight-effect',
           duration: '1.5s',
           easing: 'ease-in-out',
-          reducedMotion: true
-        }
-      }
-    }
+          reducedMotion: true,
+        },
+      },
+    },
   },
-  
+
   // React Bits Components
   'react-bits': {
     interactions: {
@@ -196,7 +196,7 @@ export const componentDatabase = {
         source: '@/components/ui/magnetic-button',
         props: {
           children: 'ReactNode',
-          magnetic: 'boolean'
+          magnetic: 'boolean',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
@@ -204,51 +204,51 @@ export const componentDatabase = {
             'Keyboard navigation',
             'Focus management',
             'Screen reader compatibility',
-            'Reduced motion support'
-          ]
+            'Reduced motion support',
+          ],
         },
         responsive: {
           mobile: 'Touch-friendly sizing',
           tablet: 'Medium sizing',
-          desktop: 'Full magnetic effect'
+          desktop: 'Full magnetic effect',
         },
         animations: {
           type: 'magnetic-effect',
           duration: '0.3s',
           easing: 'ease-out',
-          reducedMotion: true
-        }
+          reducedMotion: true,
+        },
       },
-      
+
       'floating-elements': {
         component: 'FloatingElements',
         source: '@/components/ui/floating-elements',
         props: {
           elements: 'array',
-          speed: 'number'
+          speed: 'number',
         },
         accessibility: {
           standards: 'WCAG 2.1 AA',
           requirements: [
             'Reduced motion support',
             'No motion for users who prefer it',
-            'Performance optimization'
-          ]
+            'Performance optimization',
+          ],
         },
         responsive: {
           mobile: 'Simplified animation',
           tablet: 'Medium animation',
-          desktop: 'Full animation'
+          desktop: 'Full animation',
         },
         animations: {
           type: 'floating-motion',
           duration: '3.0s',
           easing: 'ease-in-out',
-          reducedMotion: true
-        }
-      }
-    }
-  }
+          reducedMotion: true,
+        },
+      },
+    },
+  },
 }
 
 // Quality automation functions
@@ -260,10 +260,10 @@ export const qualityAutomation = {
         colorContrast: true,
         keyboardNavigation: true,
         screenReader: true,
-        focusManagement: true
+        focusManagement: true,
       }
     },
-    
+
     generateTests: (component) => {
       return `
         test('${component} accessibility', async ({ page }) => {
@@ -282,18 +282,18 @@ export const qualityAutomation = {
           expect(focusedElement).toBeVisible()
         })
       `
-    }
+    },
   },
-  
+
   responsive: {
     generateBreakpoints: (component) => {
       return {
         mobile: '320px - 768px',
         tablet: '768px - 1024px',
-        desktop: '1024px+'
+        desktop: '1024px+',
       }
     },
-    
+
     generateTests: (component) => {
       return `
         test('${component} responsive design', async ({ page }) => {
@@ -313,27 +313,27 @@ export const qualityAutomation = {
           await expect(page.locator('body')).toBeVisible()
         })
       `
-    }
+    },
   },
-  
+
   performance: {
     checkLighthouse: (component) => {
       return {
         performance: 90,
         accessibility: 95,
         bestPractices: 90,
-        seo: 90
+        seo: 90,
       }
     },
-    
+
     optimizeAnimations: (component) => {
       return {
         willChange: 'transform',
         transform: 'translateZ(0)',
-        backfaceVisibility: 'hidden'
+        backfaceVisibility: 'hidden',
       }
-    }
-  }
+    },
+  },
 }
 
 // Error handling
@@ -341,24 +341,24 @@ export const errorHandling = {
   componentErrors: {
     fallback: 'Simple fallback component',
     graceful: 'Graceful degradation',
-    userFriendly: 'User-friendly error messages'
+    userFriendly: 'User-friendly error messages',
   },
-  
+
   accessibilityErrors: {
     autoFix: 'Automatic accessibility fixes',
     warnings: 'Accessibility warnings',
-    suggestions: 'Improvement suggestions'
+    suggestions: 'Improvement suggestions',
   },
-  
+
   responsiveErrors: {
     mobileFirst: 'Mobile-first fallbacks',
     breakpoint: 'Breakpoint-specific fixes',
-    fluid: 'Fluid design adjustments'
-  }
+    fluid: 'Fluid design adjustments',
+  },
 }
 
 export default {
   componentDatabase,
   qualityAutomation,
-  errorHandling
+  errorHandling,
 }

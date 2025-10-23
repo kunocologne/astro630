@@ -34,12 +34,12 @@ export function VariantSelector({ product }: { product: Product }) {
     return (
       <div key={type.id} className="space-y-4">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground" htmlFor={`variant-${type.name}`}>
+          <label className="text-foreground text-sm font-medium" htmlFor={`variant-${type.name}`}>
             {type.label}
           </label>
-          <div 
+          <div
             id={`variant-${type.name}`}
-            role="radiogroup" 
+            role="radiogroup"
             aria-label={`Select ${type.label}`}
             className="flex flex-wrap gap-2"
           >
@@ -110,15 +110,18 @@ export function VariantSelector({ product }: { product: Product }) {
                   aria-disabled={!isAvailableForSale}
                   aria-label={`${option.label} ${!isAvailableForSale ? '(Out of Stock)' : ''}`}
                   className={clsx(
-                    'relative h-12 px-4 py-2 rounded-lg border-2 transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-primary/50',
+                    'focus:ring-primary/50 relative h-12 rounded-lg border-2 px-4 py-2 transition-all duration-200 focus:ring-2 focus:ring-offset-2',
                     {
                       // Active state - selected option
-                      'border-primary bg-primary/5 text-primary shadow-sm': isActive && isAvailableForSale,
+                      'border-primary bg-primary/5 text-primary shadow-sm':
+                        isActive && isAvailableForSale,
                       // Available but not selected
-                      'border-border hover:border-primary/50 hover:bg-primary/2 text-foreground': !isActive && isAvailableForSale,
+                      'border-border hover:border-primary/50 hover:bg-primary/2 text-foreground':
+                        !isActive && isAvailableForSale,
                       // Out of stock
-                      'border-muted bg-muted/50 text-muted-foreground cursor-not-allowed opacity-60': !isAvailableForSale,
-                    }
+                      'border-muted bg-muted/50 text-muted-foreground cursor-not-allowed opacity-60':
+                        !isAvailableForSale,
+                    },
                   )}
                   disabled={!isAvailableForSale}
                   onClick={() => {
@@ -141,7 +144,7 @@ export function VariantSelector({ product }: { product: Product }) {
                 >
                   <span className="font-medium">{option.label}</span>
                   {isActive && isAvailableForSale && (
-                    <CheckCircle2 className="absolute top-1 right-1 w-4 h-4 text-primary" />
+                    <CheckCircle2 className="text-primary absolute top-1 right-1 h-4 w-4" />
                   )}
                 </Button>
               )

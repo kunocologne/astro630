@@ -17,7 +17,7 @@ export function DeleteItemButton({ item }: { item: CartItem }) {
         aria-disabled={!itemId}
         aria-label="Remove cart item"
         className={clsx(
-          'ease hover:cursor-pointer flex h-[17px] w-[17px] items-center justify-center rounded-full bg-red-500 hover:bg-red-600 transition-all duration-200 focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:outline-none',
+          'ease flex h-[17px] w-[17px] items-center justify-center rounded-full bg-red-500 transition-all duration-200 hover:cursor-pointer hover:bg-red-600 focus:ring-2 focus:ring-red-500/50 focus:ring-offset-2 focus:outline-none',
           {
             'cursor-not-allowed px-0 opacity-50': !itemId,
           },

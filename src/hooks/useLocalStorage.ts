@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from 'react'
  */
 export const useLocalStorage = <T>(
   key: string,
-  initialValue: T
+  initialValue: T,
 ): [T, (value: T | ((val: T) => T)) => void, () => void] => {
   // Get from local storage then parse stored json or return initialValue
   const [storedValue, setStoredValue] = useState<T>(() => {
@@ -29,10 +29,10 @@ export const useLocalStorage = <T>(
       try {
         // Allow value to be a function so we have the same API as useState
         const valueToStore = value instanceof Function ? value(storedValue) : value
-        
+
         // Save state
         setStoredValue(valueToStore)
-        
+
         // Save to local storage
         if (typeof window !== 'undefined') {
           window.localStorage.setItem(key, JSON.stringify(valueToStore))
@@ -41,7 +41,7 @@ export const useLocalStorage = <T>(
         console.warn(`Error setting localStorage key "${key}":`, error)
       }
     },
-    [key, storedValue]
+    [key, storedValue],
   )
 
   // Remove from localStorage

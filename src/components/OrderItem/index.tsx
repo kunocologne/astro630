@@ -13,11 +13,11 @@ export const OrderItem: React.FC<Props> = ({ order }) => {
   const itemsLabel = order.items?.length === 1 ? 'Item' : 'Items'
 
   return (
-    <div className="bg-card border rounded-lg px-4 py-2 md:px-6 md:py-4 flex flex-col sm:flex-row gap-12 sm:items-center sm:justify-between">
+    <div className="bg-card flex flex-col gap-12 rounded-lg border px-4 py-2 sm:flex-row sm:items-center sm:justify-between md:px-6 md:py-4">
       <div className="flex flex-col gap-4">
-        <h3 className="text-sm uppercase font-mono tracking-[0.1em] text-primary/50 truncate max-w-[8rem] sm:max-w-none">{`#${order.id}`}</h3>
+        <h3 className="text-primary/50 max-w-[8rem] truncate font-mono text-sm tracking-[0.1em] uppercase sm:max-w-none">{`#${order.id}`}</h3>
 
-        <div className="flex flex-col-reverse sm:flex-row sm:items-center gap-6">
+        <div className="flex flex-col-reverse gap-6 sm:flex-row sm:items-center">
           <p className="text-xl">
             <time dateTime={order.createdAt}>
               {formatDateTime({ date: order.createdAt, format: 'MMMM dd, yyyy' })}
@@ -27,7 +27,7 @@ export const OrderItem: React.FC<Props> = ({ order }) => {
           {order.status && <OrderStatus status={order.status} />}
         </div>
 
-        <p className="flex gap-2 text-xs text-primary/80">
+        <p className="text-primary/80 flex gap-2 text-xs">
           <span>
             {order.items?.length} {itemsLabel}
           </span>

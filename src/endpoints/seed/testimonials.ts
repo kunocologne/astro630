@@ -92,7 +92,7 @@ export const testimonialsData = [
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Finally, a template that doesn\'t compromise on design. Every detail is thoughtfully crafted.',
+                text: "Finally, a template that doesn't compromise on design. Every detail is thoughtfully crafted.",
                 version: 1,
               },
             ],

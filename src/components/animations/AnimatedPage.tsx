@@ -37,10 +37,7 @@ interface AnimatedPageProps {
  * Enterprise-grade page transition component
  * Provides smooth, performant page transitions with optimized animations
  */
-export const AnimatedPage: React.FC<AnimatedPageProps> = ({ 
-  children, 
-  className = '' 
-}) => {
+export const AnimatedPage: React.FC<AnimatedPageProps> = ({ children, className = '' }) => {
   return (
     <motion.div
       initial="initial"

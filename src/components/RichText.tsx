@@ -10,7 +10,13 @@ interface RichTextProps {
   enableProse?: boolean
 }
 
-export const RichText: React.FC<RichTextProps> = ({ content, data, className = '', enableGutter, enableProse }) => {
+export const RichText: React.FC<RichTextProps> = ({
+  content,
+  data,
+  className = '',
+  enableGutter,
+  enableProse,
+}) => {
   if (!content) {
     return null
   }
@@ -25,9 +31,7 @@ export const RichText: React.FC<RichTextProps> = ({ content, data, className = '
       return (
         <div className="space-y-4">
           {content.map((item, index) => (
-            <div key={index}>
-              {renderContent(item)}
-            </div>
+            <div key={index}>{renderContent(item)}</div>
           ))}
         </div>
       )
@@ -38,9 +42,7 @@ export const RichText: React.FC<RichTextProps> = ({ content, data, className = '
       if (content.type === 'paragraph') {
         return (
           <p className="text-foreground leading-relaxed">
-            {content.children?.map((child: any, index: number) => 
-              child.text || ''
-            ).join('')}
+            {content.children?.map((child: any, index: number) => child.text || '').join('')}
           </p>
         )
       }
@@ -50,17 +52,15 @@ export const RichText: React.FC<RichTextProps> = ({ content, data, className = '
         const HeadingTag = `h${level}` as keyof React.JSX.IntrinsicElements
         return React.createElement(
           HeadingTag,
-          { className: "text-foreground font-semibold" },
-          content.children?.map((child: any, index: number) => 
-            child.text || ''
-          ).join('')
+          { className: 'text-foreground font-semibold' },
+          content.children?.map((child: any, index: number) => child.text || '').join(''),
         )
       }
 
       if (content.type === 'list') {
         const ListTag = content.listType === 'ordered' ? 'ol' : 'ul'
         return (
-          <ListTag className="list-disc list-inside space-y-2">
+          <ListTag className="list-inside list-disc space-y-2">
             {content.children?.map((item: any, index: number) => (
               <li key={index} className="text-foreground">
                 {renderContent(item)}
@@ -74,9 +74,7 @@ export const RichText: React.FC<RichTextProps> = ({ content, data, className = '
         return (
           <div>
             {content.children.map((child: any, index: number) => (
-              <div key={index}>
-                {renderContent(child)}
-              </div>
+              <div key={index}>{renderContent(child)}</div>
             ))}
           </div>
         )
@@ -86,9 +84,5 @@ export const RichText: React.FC<RichTextProps> = ({ content, data, className = '
     return null
   }
 
-  return (
-    <div className={`rich-text ${className}`}>
-      {renderContent(content)}
-    </div>
-  )
+  return <div className={`rich-text ${className}`}>{renderContent(content)}</div>
 }

@@ -4,11 +4,11 @@ import { adminOnly } from '@/access/adminOnly'
 import { adminOrPublishedStatus } from '@/access/adminOrPublishedStatus'
 import { slugField } from '@/fields/slug'
 import {
-    MetaDescriptionField,
-    MetaImageField,
-    MetaTitleField,
-    OverviewField,
-    PreviewField,
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+  OverviewField,
+  PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 
 export const BlogPosts: CollectionConfig = {

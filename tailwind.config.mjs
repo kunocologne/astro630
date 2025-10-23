@@ -106,11 +106,11 @@ export default {
         sans: ['var(--font-geist-sans)'],
       },
       scale: {
-        '102': '1.02',
-        '103': '1.03',
+        102: '1.02',
+        103: '1.03',
       },
       rotate: {
-        '3': '3deg',
+        3: '3deg',
       },
       backdropBlur: {
         xs: '2px',

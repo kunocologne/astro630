@@ -52,7 +52,7 @@ interface ProductFilters {
 // API Functions
 const fetchProducts = async (filters: ProductFilters = {}): Promise<ProductsResponse> => {
   const params = new URLSearchParams()
-  
+
   if (filters.page) params.append('page', filters.page.toString())
   if (filters.limit) params.append('limit', filters.limit.toString())
   if (filters.category) params.append('category', filters.category)
@@ -61,21 +61,21 @@ const fetchProducts = async (filters: ProductFilters = {}): Promise<ProductsResp
   if (filters.inStock !== undefined) params.append('inStock', filters.inStock.toString())
 
   const response = await fetch(`/api/products?${params.toString()}`)
-  
+
   if (!response.ok) {
     throw new Error(`Failed to fetch products: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
 const fetchProduct = async (slug: string): Promise<Product> => {
   const response = await fetch(`/api/products/${slug}`)
-  
+
   if (!response.ok) {
     throw new Error(`Failed to fetch product: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -87,15 +87,18 @@ const createProduct = async (productData: Partial<Product>): Promise<Product> =>
     },
     body: JSON.stringify(productData),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to create product: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
-const updateProduct = async ({ id, ...productData }: Partial<Product> & { id: string }): Promise<Product> => {
+const updateProduct = async ({
+  id,
+  ...productData
+}: Partial<Product> & { id: string }): Promise<Product> => {
   const response = await fetch(`/api/products/${id}`, {
     method: 'PATCH',
     headers: {
@@ -103,11 +106,11 @@ const updateProduct = async ({ id, ...productData }: Partial<Product> & { id: st
     },
     body: JSON.stringify(productData),
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to update product: ${response.statusText}`)
   }
-  
+
   return response.json()
 }
 
@@ -115,7 +118,7 @@ const deleteProduct = async (id: string): Promise<void> => {
   const response = await fetch(`/api/products/${id}`, {
     method: 'DELETE',
   })
-  
+
   if (!response.ok) {
     throw new Error(`Failed to delete product: ${response.statusText}`)
   }
@@ -155,16 +158,16 @@ export const useProduct = (slug: string) => {
 
 export const useCreateProduct = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: createProduct,
     onSuccess: (newProduct) => {
       // Invalidate and refetch products list
       queryClient.invalidateQueries({ queryKey: productKeys.lists() })
-      
+
       // Add the new product to the cache
       queryClient.setQueryData(productKeys.detail(newProduct.slug), newProduct)
-      
+
       toast.success('Product created successfully!')
     },
     onError: (error) => {
@@ -175,16 +178,16 @@ export const useCreateProduct = () => {
 
 export const useUpdateProduct = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: updateProduct,
     onSuccess: (updatedProduct) => {
       // Update the product in cache
       queryClient.setQueryData(productKeys.detail(updatedProduct.slug), updatedProduct)
-      
+
       // Invalidate products list to refetch
       queryClient.invalidateQueries({ queryKey: productKeys.lists() })
-      
+
       toast.success('Product updated successfully!')
     },
     onError: (error) => {
@@ -195,16 +198,16 @@ export const useUpdateProduct = () => {
 
 export const useDeleteProduct = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: deleteProduct,
     onSuccess: (_, deletedId) => {
       // Remove product from cache
       queryClient.removeQueries({ queryKey: productKeys.detail(deletedId) })
-      
+
       // Invalidate products list to refetch
       queryClient.invalidateQueries({ queryKey: productKeys.lists() })
-      
+
       toast.success('Product deleted successfully!')
     },
     onError: (error) => {
@@ -216,7 +219,7 @@ export const useDeleteProduct = () => {
 // Prefetching utilities
 export const usePrefetchProduct = () => {
   const queryClient = useQueryClient()
-  
+
   return (slug: string) => {
     queryClient.prefetchQuery({
       queryKey: productKeys.detail(slug),
@@ -229,7 +232,7 @@ export const usePrefetchProduct = () => {
 // Optimistic updates
 export const useOptimisticProductUpdate = () => {
   const queryClient = useQueryClient()
-  
+
   return (slug: string, updates: Partial<Product>) => {
     queryClient.setQueryData(productKeys.detail(slug), (oldData: Product | undefined) => {
       if (!oldData) return oldData

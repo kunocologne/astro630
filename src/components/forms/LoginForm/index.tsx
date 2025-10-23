@@ -68,7 +68,7 @@ export const LoginForm: React.FC = () => {
           {errors.password && <FormError message={errors.password.message} />}
         </FormItem>
 
-        <div className="text-primary/70 mb-6 prose prose-a:hover:text-primary dark:prose-invert">
+        <div className="text-primary/70 prose prose-a:hover:text-primary dark:prose-invert mb-6">
           <p>
             Forgot your password?{' '}
             <Link href={`/recover-password${allParams}`}>Click here to reset it</Link>
@@ -76,9 +76,9 @@ export const LoginForm: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex gap-4 justify-between">
+      <div className="flex justify-between gap-4">
         <Button asChild variant="outline" size="lg">
-          <Link href={`/create-account${allParams}`} className="grow max-w-[50%]">
+          <Link href={`/create-account${allParams}`} className="max-w-[50%] grow">
             Create an account
           </Link>
         </Button>

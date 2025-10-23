@@ -1,6 +1,6 @@
 /**
  * Dynamic Template Loader
- * 
+ *
  * This module handles dynamic imports of template-specific components
  * to prevent unnecessary loading and improve performance.
  */
@@ -13,14 +13,14 @@ import { getActiveTemplateConfig } from '@/config/active-template'
  */
 const TEMPLATE_COMPONENT_MAP = {
   'portfolio-bold': {
-    page: () => import('@/templates/portfolio-bold/page')
+    page: () => import('@/templates/portfolio-bold/page'),
   },
   'saas-futuristic': {
-    page: () => import('@/templates/saas-futuristic/page')
+    page: () => import('@/templates/saas-futuristic/page'),
   },
   'agency-corporate': {
-    page: () => import('@/templates/agency-corporate/page')
-  }
+    page: () => import('@/templates/agency-corporate/page'),
+  },
 } as const
 
 /**
@@ -30,18 +30,18 @@ export async function loadTemplatePage(template: string) {
   try {
     const templateConfig = getActiveTemplateConfig()
     const templateKey = template || templateConfig.template
-    
+
     if (templateKey === 'none' || !(templateKey in TEMPLATE_COMPONENT_MAP)) {
       // Return a default template selection page
       return await import('@/app/templates/page')
     }
-    
+
     const templateMap = TEMPLATE_COMPONENT_MAP[templateKey as keyof typeof TEMPLATE_COMPONENT_MAP]
-    
+
     if (!templateMap?.page) {
       throw new Error(`Template page not found for: ${templateKey}`)
     }
-    
+
     return await templateMap.page()
   } catch (error) {
     console.error('Failed to load template page:', error)
@@ -57,11 +57,11 @@ export async function loadTemplateComponent(template: string, componentName: str
   try {
     const templateConfig = getActiveTemplateConfig()
     const templateKey = template || templateConfig.template
-    
+
     if (templateKey === 'none' || !(templateKey in TEMPLATE_COMPONENT_MAP)) {
       throw new Error(`Template not found: ${templateKey}`)
     }
-    
+
     // For now, we only have page-level templates
     // Individual components will be loaded within the template pages
     throw new Error(`Component loading not yet implemented for template: ${templateKey}`)
@@ -78,19 +78,19 @@ export async function preloadTemplateComponents(template: string) {
   try {
     const templateConfig = getActiveTemplateConfig()
     const templateKey = template || templateConfig.template
-    
+
     if (templateKey === 'none' || !(templateKey in TEMPLATE_COMPONENT_MAP)) {
       return
     }
-    
+
     const templateMap = TEMPLATE_COMPONENT_MAP[templateKey as keyof typeof TEMPLATE_COMPONENT_MAP]
-    
+
     if (!templateMap?.page) {
       return
     }
-    
+
     // Preload the template page
-    await templateMap.page().catch(error => {
+    await templateMap.page().catch((error) => {
       console.warn(`Failed to preload template page:`, error)
       return null
     })
@@ -105,14 +105,14 @@ export async function preloadTemplateComponents(template: string) {
 export function getTemplateMetadata(template: string) {
   const templateConfig = getActiveTemplateConfig()
   const templateKey = template || templateConfig.template
-  
+
   return {
     template: templateKey,
     variation: templateConfig.variation,
     companyName: templateConfig.companyName,
     tagline: templateConfig.tagline,
     features: templateConfig.features,
-    metadata: templateConfig.metadata
+    metadata: templateConfig.metadata,
   }
 }
 
@@ -130,10 +130,10 @@ export function hasTemplateFeature(template: string, feature: string): boolean {
 export function getTemplateDependencies(template: string): string[] {
   const templateConfig = getActiveTemplateConfig()
   const templateKey = template || templateConfig.template
-  
+
   // This would typically come from the template registry
   // For now, return common dependencies
   const commonDependencies = ['framer-motion', 'lucide-react', '@radix-ui/react-*']
-  
+
   return commonDependencies
 }

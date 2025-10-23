@@ -13,11 +13,11 @@ interface MagneticButtonProps {
  * MagneticButton Component
  * Creates magnetic hover effects that follow the cursor
  */
-export function MagneticButton({ 
-  children, 
-  intensity = 0.3, 
+export function MagneticButton({
+  children,
+  intensity = 0.3,
   className = '',
-  onClick 
+  onClick,
 }: MagneticButtonProps) {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isHovered, setIsHovered] = useState(false)
@@ -26,7 +26,7 @@ export function MagneticButton({
     const rect = e.currentTarget.getBoundingClientRect()
     const x = (e.clientX - rect.left - rect.width / 2) * intensity
     const y = (e.clientY - rect.top - rect.height / 2) * intensity
-    
+
     setPosition({ x, y })
   }
 
@@ -39,13 +39,17 @@ export function MagneticButton({
     <div
       className={`transition-transform duration-300 ease-out ${className}`}
       style={{
-        transform: `translate(${position.x}px, ${position.y}px) scale(${isHovered ? 1.05 : 1})`
+        transform: `translate(${position.x}px, ${position.y}px) scale(${isHovered ? 1.05 : 1})`,
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      onKeyDown={handleMouseMove}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onClick?.()
+        }
+      }}
       role="button"
       tabIndex={0}
     >
@@ -65,11 +69,11 @@ interface GlowEffectProps {
  * GlowEffect Component
  * Adds beautiful glow effects on hover
  */
-export function GlowEffect({ 
-  children, 
-  color = '#6366f1', 
+export function GlowEffect({
+  children,
+  color = '#6366f1',
   intensity = 0.5,
-  className = '' 
+  className = '',
 }: GlowEffectProps) {
   const [isHovered, setIsHovered] = useState(false)
 
@@ -77,9 +81,11 @@ export function GlowEffect({
     <div
       className={`transition-all duration-300 ${className}`}
       style={{
-        boxShadow: isHovered 
-          ? `0 0 ${20 * intensity}px ${color}${Math.floor(255 * intensity).toString(16).padStart(2, '0')}` 
-          : 'none'
+        boxShadow: isHovered
+          ? `0 0 ${20 * intensity}px ${color}${Math.floor(255 * intensity)
+              .toString(16)
+              .padStart(2, '0')}`
+          : 'none',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -101,7 +107,7 @@ interface ShimmerEffectProps {
 export function ShimmerEffect({ children, className = '' }: ShimmerEffectProps) {
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+      <div className="animate-shimmer absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       {children}
     </div>
   )
@@ -117,21 +123,17 @@ interface TiltCardProps {
  * TiltCard Component
  * Creates 3D tilt effects on hover
  */
-export function TiltCard({ 
-  children, 
-  intensity = 0.1, 
-  className = '' 
-}: TiltCardProps) {
+export function TiltCard({ children, intensity = 0.1, className = '' }: TiltCardProps) {
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
-    
+
     const rotateX = (e.clientY - centerY) * intensity
     const rotateY = (centerX - e.clientX) * intensity
-    
+
     setRotation({ x: rotateX, y: rotateY })
   }
 
@@ -143,7 +145,7 @@ export function TiltCard({
     <div
       className={`transition-transform duration-300 ease-out ${className}`}
       style={{
-        transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
+        transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -164,18 +166,18 @@ interface FloatingElementProps {
  * FloatingElement Component
  * Creates floating animation for elements
  */
-export function FloatingElement({ 
-  children, 
-  delay = 0, 
+export function FloatingElement({
+  children,
+  delay = 0,
   duration = 3,
-  className = '' 
+  className = '',
 }: FloatingElementProps) {
   return (
     <div
       className={`animate-float ${className}`}
       style={{
         animationDelay: `${delay}s`,
-        animationDuration: `${duration}s`
+        animationDuration: `${duration}s`,
       }}
     >
       {children}
@@ -193,16 +195,12 @@ interface TextRevealProps {
  * TextReveal Component
  * Creates text reveal animations
  */
-export function TextReveal({ 
-  children, 
-  delay = 0, 
-  className = '' 
-}: TextRevealProps) {
+export function TextReveal({ children, delay = 0, className = '' }: TextRevealProps) {
   return (
     <div
       className={`animate-text-reveal ${className}`}
       style={{
-        animationDelay: `${delay}s`
+        animationDelay: `${delay}s`,
       }}
     >
       {children}

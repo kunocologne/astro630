@@ -54,8 +54,8 @@ export function getCMSInstructions(cmsEnabled: boolean, cmsType?: string) {
         'Content is managed through code files',
         'No admin panel available',
         'Faster performance, simpler deployment',
-        'To enable CMS later, set CMS_ENABLED=true in .env.local'
-      ]
+        'To enable CMS later, set CMS_ENABLED=true in .env.local',
+      ],
     }
   }
 
@@ -63,18 +63,18 @@ export function getCMSInstructions(cmsEnabled: boolean, cmsType?: string) {
     basic: {
       features: ['Pages', 'Blog Posts', 'Contact Forms'],
       admin: '/admin',
-      description: 'Essential content management'
+      description: 'Essential content management',
     },
     ecommerce: {
       features: ['Products', 'Orders', 'Customers', 'Inventory'],
       admin: '/admin',
-      description: 'Full e-commerce functionality'
+      description: 'Full e-commerce functionality',
     },
     enterprise: {
       features: ['Multi-site', 'Advanced Permissions', 'API Access'],
       admin: '/admin',
-      description: 'Enterprise-grade content management'
-    }
+      description: 'Enterprise-grade content management',
+    },
   }
 
   const config = cmsTypes[cmsType as keyof typeof cmsTypes] || cmsTypes.basic
@@ -88,7 +88,7 @@ export function getCMSInstructions(cmsEnabled: boolean, cmsType?: string) {
       'Access admin panel at /admin',
       'Manage content through the CMS interface',
       'Content changes are reflected immediately',
-      'To disable CMS, set CMS_ENABLED=false in .env.local'
-    ]
+      'To disable CMS, set CMS_ENABLED=false in .env.local',
+    ],
   }
 }

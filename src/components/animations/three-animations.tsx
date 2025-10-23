@@ -50,7 +50,7 @@ function FloatingParticles3D({ count = 100 }: { count?: number }) {
         x: (Math.random() - 0.5) * 10,
         y: (Math.random() - 0.5) * 10,
         z: (Math.random() - 0.5) * 10,
-        scale: Math.random() * 0.5 + 0.5
+        scale: Math.random() * 0.5 + 0.5,
       })
     }
 
@@ -82,15 +82,15 @@ function FloatingParticles3D({ count = 100 }: { count?: number }) {
  * ThreeScene Component
  * 3D scene with animated elements
  */
-export function ThreeScene({ 
-  children, 
-  className = '' 
-}: { 
+export function ThreeScene({
+  children,
+  className = '',
+}: {
   children?: ReactNode
-  className?: string 
+  className?: string
 }) {
   return (
-    <div className={`w-full h-full ${className}`}>
+    <div className={`h-full w-full ${className}`}>
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
