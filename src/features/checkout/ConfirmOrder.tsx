@@ -30,11 +30,16 @@ export const ConfirmOrder: React.FC = () => {
           additionalData: {
             paymentIntentID,
           },
-        }).then((result) => {
-          if (result && typeof result === 'object' && 'orderID' in result && result.orderID) {
-            router.push(`/shop/order/${result.orderID}?email=${email}`)
-          }
         })
+          .then((result) => {
+            if (result && typeof result === 'object' && 'orderID' in result && result.orderID) {
+              router.push(`/orders/${result.orderID}${email ? `?email=${email}` : ''}`)
+            }
+          })
+          .catch((error) => {
+            console.error('Error confirming order:', error)
+            router.push('/?error=order_confirmation_failed')
+          })
       }
     } else {
       // If no payment intent ID is found, redirect to the home

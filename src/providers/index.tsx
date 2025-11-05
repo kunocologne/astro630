@@ -65,6 +65,10 @@ export const Providers: React.FC<{
         <SonnerProvider />
         <EcommerceProvider
           enableVariants={true}
+          serverURL={
+            process.env.NEXT_PUBLIC_SERVER_URL ||
+            (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000')
+          }
           api={{
             cartsFetchQuery: {
               depth: 2,

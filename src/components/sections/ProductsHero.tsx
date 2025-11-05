@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { Product } from '@/types/payload-types'
 import { GradientOverlay } from '@/components/effects/GradientOverlay'
+import { AddToCart } from '@/features/cart/AddToCart'
 
 interface ProductsHeroProps {
   products: Product[]
@@ -114,12 +115,15 @@ export function ProductsHero({ products }: ProductsHeroProps) {
                           {formatPrice(product.price)}
                         </span>
                       </div>
-                      <Link
-                        href={`/products/${product.slug || product.id}`}
-                        className="mt-4 rounded-lg bg-white px-6 py-3 text-center text-base font-black text-black transition-colors hover:bg-gray-200"
-                      >
-                        View Product
-                      </Link>
+                      <div className="mt-4 flex flex-col gap-2">
+                        <Link
+                          href={`/products/${product.slug || product.id}`}
+                          className="rounded-lg bg-white px-6 py-3 text-center text-base font-black text-black transition-colors hover:bg-gray-200"
+                        >
+                          View Product
+                        </Link>
+                        <AddToCart product={product} />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -285,10 +289,7 @@ export function ProductsHero({ products }: ProductsHeroProps) {
                         >
                           View Details
                         </Link>
-                        <button className="group/btn relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-white via-gray-50 to-white px-6 py-3 text-base font-black text-black shadow-lg transition-all duration-300 hover:scale-110 hover:from-gray-100 hover:via-white hover:to-gray-100 hover:shadow-2xl">
-                          <span className="relative z-10">Add to Cart</span>
-                          <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover/btn:translate-x-[100%]" />
-                        </button>
+                        <AddToCart product={product} />
                       </div>
                     </div>
                   </div>

@@ -107,8 +107,14 @@ export default function CartPage() {
                               </p>
                             </div>
                             <div className="mt-4 flex items-center justify-between">
-                              <EditItemQuantityButton item={item} />
-                              <DeleteItemButton itemId={item.id} />
+                              <div className="flex items-center gap-2">
+                                <EditItemQuantityButton item={item} type="minus" />
+                                <span className="w-8 text-center text-sm font-medium">
+                                  {item.quantity}
+                                </span>
+                                <EditItemQuantityButton item={item} type="plus" />
+                              </div>
+                              <DeleteItemButton item={item} />
                             </div>
                           </div>
                         </li>
