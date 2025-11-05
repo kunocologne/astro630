@@ -83,9 +83,16 @@ const addToCart = async (data: AddToCartData): Promise<Cart> => {
   })
 
   if (!response.ok) {
-    const errorText = await response.text()
+    let errorText: string
+    try {
+      const errorJson = await response.json()
+      errorText = errorJson.errors?.[0]?.message || JSON.stringify(errorJson)
+    } catch {
+      errorText = await response.text()
+    }
+
     console.error('Add to cart error:', response.status, errorText)
-    throw new Error(`Failed to add to cart: ${response.statusText}`)
+    throw new Error(`Failed to add to cart: ${errorText}`)
   }
 
   return response.json()
