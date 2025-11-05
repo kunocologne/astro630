@@ -1,13 +1,13 @@
-import type { Order } from '@/payload-types'
+import type { Order } from '@/types/payload-types'
 import type { Metadata } from 'next'
 
-import { OrderStatus } from '@/components/OrderStatus'
-import { Price } from '@/components/Price'
-import { ProductItem } from '@/components/ProductItem'
-import { AddressItem } from '@/components/addresses/AddressItem'
+import { OrderStatus } from '@/features/OrderStatus'
+import { Price } from '@/components/common/Price'
+import { ProductItem } from '@/features/products/ProductItem'
+import { AddressItem } from '@/features/addresses/AddressItem'
 import { Button } from '@/components/ui/button'
-import { formatDateTime } from '@/utilities/formatDateTime'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { formatDateTime } from '@/lib/utils/formatDateTime'
+import { mergeOpenGraph } from '@/lib/utils/mergeOpenGraph'
 import configPromise from '@payload-config'
 import { ChevronLeftIcon } from 'lucide-react'
 import { headers as getHeaders } from 'next/headers.js'
@@ -90,8 +90,8 @@ export default async function Order({ params, searchParams }: PageProps) {
       user &&
       orderResult &&
       orderResult.customer &&
-      (typeof orderResult.customer === 'object'
-        ? orderResult.customer.id
+      (typeof orderResult.customer === 'object' && orderResult.customer !== null
+        ? (orderResult.customer as { id?: string }).id
         : orderResult.customer) === user.id
 
     if (orderResult && (canAccessAsGuest || canAccessAsUser)) {
@@ -121,15 +121,15 @@ export default async function Order({ params, searchParams }: PageProps) {
           <div></div>
         )}
 
-        <h1 className="bg-primary/10 rounded px-2 font-mono text-sm tracking-[0.07em] uppercase">
+        <h1 className="rounded bg-primary/10 px-2 font-mono text-sm uppercase tracking-[0.07em]">
           <span className="">{`Order #${order.id}`}</span>
         </h1>
       </div>
 
-      <div className="bg-card flex flex-col gap-12 rounded-lg border px-6 py-4">
+      <div className="flex flex-col gap-12 rounded-lg border bg-card px-6 py-4">
         <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
           <div className="">
-            <p className="text-primary/50 mb-1 font-mono text-sm uppercase">Order Date</p>
+            <p className="mb-1 font-mono text-sm uppercase text-primary/50">Order Date</p>
             <p className="text-lg">
               <time dateTime={order.createdAt}>
                 {formatDateTime({ date: order.createdAt, format: 'MMMM dd, yyyy' })}
@@ -138,13 +138,13 @@ export default async function Order({ params, searchParams }: PageProps) {
           </div>
 
           <div className="">
-            <p className="text-primary/50 mb-1 font-mono text-sm uppercase">Total</p>
+            <p className="mb-1 font-mono text-sm uppercase text-primary/50">Total</p>
             {order.amount && <Price className="text-lg" amount={order.amount} />}
           </div>
 
           {order.status && (
             <div className="max-w-1/3 grow">
-              <p className="text-primary/50 mb-1 font-mono text-sm uppercase">Status</p>
+              <p className="mb-1 font-mono text-sm uppercase text-primary/50">Status</p>
               <OrderStatus className="text-sm" status={order.status} />
             </div>
           )}
@@ -152,7 +152,7 @@ export default async function Order({ params, searchParams }: PageProps) {
 
         {order.items && (
           <div>
-            <h2 className="text-primary/50 mb-4 font-mono text-sm uppercase">Items</h2>
+            <h2 className="mb-4 font-mono text-sm uppercase text-primary/50">Items</h2>
             <ul className="flex flex-col gap-6">
               {order.items?.map((item, index) => {
                 if (typeof item.product === 'string') {
@@ -182,7 +182,7 @@ export default async function Order({ params, searchParams }: PageProps) {
 
         {order.shippingAddress && (
           <div>
-            <h2 className="text-primary/50 mb-4 font-mono text-sm uppercase">Shipping Address</h2>
+            <h2 className="mb-4 font-mono text-sm uppercase text-primary/50">Shipping Address</h2>
 
             <AddressItem
               address={{

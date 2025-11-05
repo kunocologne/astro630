@@ -29,41 +29,7 @@ export function GlowCard({
       />
 
       {/* Card content */}
-      <div className="bg-background/80 border-border/50 relative rounded-lg border p-6 backdrop-blur-sm">
-        {children}
-      </div>
-    </motion.div>
-  )
-}
-
-// Shimmer Effect Card
-export function ShimmerCard({
-  children,
-  className = '',
-}: {
-  children: ReactNode
-  className?: string
-}) {
-  return (
-    <motion.div
-      className={`relative overflow-hidden ${className}`}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
-    >
-      {/* Shimmer effect */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-        animate={{
-          x: ['-100%', '100%'],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatDelay: 3,
-        }}
-      />
-
-      <div className="bg-background/80 border-border/50 relative rounded-lg border p-6 backdrop-blur-sm">
+      <div className="relative rounded-lg border border-border/50 bg-background/80 p-6 backdrop-blur-sm">
         {children}
       </div>
     </motion.div>

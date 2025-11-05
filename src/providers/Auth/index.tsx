@@ -1,8 +1,8 @@
 'use client'
 
-import type { User } from '@/payload-types'
+import type { User } from '@/types/payload-types'
 
-import { getClientSideURL } from '@/utilities/getURL'
+import { getClientSideURL } from '@/lib/utils/getURL'
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
 type ResetPassword = (args: {
@@ -61,7 +61,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else {
         throw new Error('Invalid login')
       }
-    } catch (e) {
+    } catch (_e) {
       throw new Error('An error occurred while attempting to login.')
     }
   }, [])
@@ -89,7 +89,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       throw new Error('Invalid login')
-    } catch (e) {
+    } catch (_e) {
       throw new Error('An error occurred while attempting to login.')
     }
   }, [])
@@ -110,7 +110,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else {
         throw new Error('An error occurred while attempting to logout.')
       }
-    } catch (e) {
+    } catch (_e) {
       throw new Error('An error occurred while attempting to logout.')
     }
   }, [])
@@ -135,11 +135,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setUser(null)
           setStatus('loggedOut')
         }
-      } catch (e) {
+      } catch (_e) {
         // Network error or server unavailable - fail silently
         setUser(null)
         setStatus('loggedOut')
-        console.error('Failed to fetch user session:', e)
+        console.error('Failed to fetch user session:', _e)
       }
     }
 
@@ -166,7 +166,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else {
         throw new Error('Invalid login')
       }
-    } catch (e) {
+    } catch (_e) {
       throw new Error('An error occurred while attempting to login.')
     }
   }, [])
@@ -194,7 +194,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       } else {
         throw new Error('Invalid login')
       }
-    } catch (e) {
+    } catch (_e) {
       throw new Error('An error occurred while attempting to login.')
     }
   }, [])
@@ -217,6 +217,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   )
 }
 
-type UseAuth<T = User> = () => AuthContext
+type UseAuth<_T = User> = () => AuthContext
 
 export const useAuth: UseAuth = () => useContext(Context)

@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/utilities/cn'
+import { cn } from '@/lib/utils/cn'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
@@ -29,7 +29,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PC9zdmc+',
   priority = false,
   sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
-  quality = 75,
+  quality: _quality = 75,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(priority)
@@ -81,6 +81,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           transition={{ duration: 0.3 }}
           className="absolute inset-0 flex items-center justify-center bg-gray-100"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={placeholder} alt="" className="h-full w-full object-cover" aria-hidden="true" />
         </motion.div>
       )}

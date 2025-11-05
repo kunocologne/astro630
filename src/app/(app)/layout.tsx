@@ -1,55 +1,37 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
-
-import { AdminBar } from '@/components/AdminBar'
-import { AnimatedPage } from '@/components/animations'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { Inter } from 'next/font/google'
 import { Providers } from '@/providers'
-import { InitTheme } from '@/providers/Theme/InitTheme'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
-import '../globals.css'
+import './globals.css'
 
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : 'http://localhost:3000'
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  title: '6:30SHOP - Curated Merch & Culture',
+  description:
+    'Curated merch that embodies our creative vision and artistic energy. Wear the movement, share the culture, express your style.',
+  icons: {
+    icon: '/Logos/logo_icon_black.svg',
+    shortcut: '/Logos/logo_icon_black.svg',
+    apple: '/Logos/logo_icon_black.svg',
+  },
   robots: {
     follow: true,
     index: true,
   },
-  title: {
-    default: 'JUNO Store',
-    template: `%s | JUNO Store`,
-  },
 }
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      className={[GeistSans.variable, GeistMono.variable].filter(Boolean).join(' ')}
-      lang="en"
-      suppressHydrationWarning
-    >
+    <html lang="en" className={inter.className}>
       <head>
-        <InitTheme />
+        <link href="/Logos/logo_icon_black.svg" rel="icon" type="image/svg+xml" />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
         <Providers>
-          <AdminBar />
-          <LivePreviewListener />
-
-          <Header />
           <main id="main-content" role="main">
-            <AnimatedPage>{children}</AnimatedPage>
+            {children}
           </main>
-          <Footer />
         </Providers>
       </body>
     </html>

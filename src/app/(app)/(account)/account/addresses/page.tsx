@@ -1,20 +1,18 @@
 import type { Metadata } from 'next'
 
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/lib/utils/mergeOpenGraph'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'
-import { Order } from '@/payload-types'
+// import { Order } from '@/types/payload-types'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
-import { AddressListing } from '@/components/addresses/AddressListing'
-import { CreateAddressModal } from '@/components/addresses/CreateAddressModal'
+import { AddressListing } from '@/features/addresses/AddressListing'
+import { CreateAddressModal } from '@/features/addresses/CreateAddressModal'
 
 export default async function AddressesPage() {
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
   const { user } = await payload.auth({ headers })
-
-  let orders: Order[] | null = null
 
   if (!user) {
     redirect(
@@ -23,7 +21,7 @@ export default async function AddressesPage() {
   }
 
   try {
-    const ordersResult = await payload.find({
+    await payload.find({
       collection: 'orders',
       limit: 5,
       user,
@@ -35,18 +33,16 @@ export default async function AddressesPage() {
         },
       },
     })
-
-    orders = ordersResult?.docs || []
-  } catch (error) {
+  } catch (_error) {
     // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
     // so swallow the error here and simply render the page with fallback data where necessary
     // in production you may want to redirect to a 404  page or at least log the error somewhere
-    // console.error(error)
+    // console.error(_error)
   }
 
   return (
     <>
-      <div className="bg-primary-foreground rounded-lg border p-8">
+      <div className="rounded-lg border bg-primary-foreground p-8">
         <h1 className="mb-8 text-3xl font-medium">Addresses</h1>
 
         <div className="mb-8">

@@ -31,6 +31,9 @@ New to JUNO? Start here:
 ### **Deployment & Operations**
 
 - **[Deployment Guide](./DEPLOYMENT.md)** - Vercel deployment with CI/CD optimization
+- **[Database Migrations](./migrations.md)** - Schema synchronization workflow
+- **[Migration vs. Seeding](./MIGRATION_VS_SEEDING.md)** - Understanding the difference
+- **[Payload Workflow](./PAYLOAD_WORKFLOW.md)** - Complete admin workflow guide
 - **[Troubleshooting](./troubleshooting.md)** - Common issues and solutions
 
 ### **Content & Assets**
@@ -98,6 +101,7 @@ New to JUNO? Start here:
 | --------------------- | ---------------------------------------------------------- |
 | Install and setup     | [Getting Started](./getting-started.md)                    |
 | Deploy to production  | [Deployment](./DEPLOYMENT.md)                              |
+| Sync database schema  | [Migrations](./migrations.md)                              |
 | Create a new template | [Template Development](./template-development.md)          |
 | Build a component     | [Component Guidelines](./component-guidelines.md)          |
 | Run tests locally     | [Testing Standards](./testing-standards.md#quick-commands) |

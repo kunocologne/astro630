@@ -1,6 +1,5 @@
 'use client'
 
-import { AuthProvider } from '@/providers/Auth'
 import { EcommerceProvider } from '@payloadcms/plugin-ecommerce/client/react'
 import { stripeAdapterClient } from '@payloadcms/plugin-ecommerce/payments/stripe'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -8,7 +7,6 @@ import React from 'react'
 
 import { SonnerProvider } from '@/providers/Sonner'
 import { HeaderThemeProvider } from './HeaderTheme'
-import { ThemeProvider } from './Theme'
 
 // Enterprise-grade QueryClient factory
 function makeQueryClient() {
@@ -63,40 +61,36 @@ export const Providers: React.FC<{
   const queryClient = getQueryClient()
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <AuthProvider>
-          <HeaderThemeProvider>
-            <SonnerProvider />
-            <EcommerceProvider
-              enableVariants={true}
-              api={{
-                cartsFetchQuery: {
-                  depth: 2,
-                  populate: {
-                    products: {
-                      slug: true,
-                      title: true,
-                      gallery: true,
-                      inventory: true,
-                    },
-                    variants: {
-                      title: true,
-                      inventory: true,
-                    },
-                  },
+      <HeaderThemeProvider>
+        <SonnerProvider />
+        <EcommerceProvider
+          enableVariants={true}
+          api={{
+            cartsFetchQuery: {
+              depth: 2,
+              populate: {
+                products: {
+                  slug: true,
+                  title: true,
+                  gallery: true,
+                  inventory: true,
                 },
-              }}
-              paymentMethods={[
-                stripeAdapterClient({
-                  publishableKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '',
-                }),
-              ]}
-            >
-              {children}
-            </EcommerceProvider>
-          </HeaderThemeProvider>
-        </AuthProvider>
-      </ThemeProvider>
+                variants: {
+                  title: true,
+                  inventory: true,
+                },
+              },
+            },
+          }}
+          paymentMethods={[
+            stripeAdapterClient({
+              publishableKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '',
+            }),
+          ]}
+        >
+          {children}
+        </EcommerceProvider>
+      </HeaderThemeProvider>
     </QueryClientProvider>
   )
 }

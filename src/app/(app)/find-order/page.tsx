@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/lib/utils/mergeOpenGraph'
 import React from 'react'
-import { FindOrderForm } from '@/components/forms/FindOrderForm'
+import { FindOrderForm } from '@/features/auth/FindOrderForm'
 import { getPayload } from 'payload'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'

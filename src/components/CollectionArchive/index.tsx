@@ -1,7 +1,7 @@
-import { cn } from '@/utilities/cn'
+import { cn } from '@/lib/utils/cn'
 import React from 'react'
 
-import type { Product } from '@/payload-types'
+import type { Product } from '@/types/payload-types'
 
 /* import { Card } from '../Card' */
 

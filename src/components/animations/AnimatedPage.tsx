@@ -1,14 +1,14 @@
 'use client'
 
 import { motion, type Variants } from 'framer-motion'
-import { type ReactNode } from 'react'
+import { type ReactNode, useEffect } from 'react'
 
 // Enterprise-grade page transition variants
 const pageVariants: Variants = {
   initial: {
-    opacity: 0,
-    y: 20,
-    scale: 0.98,
+    opacity: 0.3,
+    y: 10,
+    scale: 0.99,
   },
   in: {
     opacity: 1,
@@ -38,6 +38,19 @@ interface AnimatedPageProps {
  * Provides smooth, performant page transitions with optimized animations
  */
 export const AnimatedPage: React.FC<AnimatedPageProps> = ({ children, className = '' }) => {
+  // Fallback to ensure content is visible
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const element = document.getElementById('main-content')
+      if (element) {
+        element.style.opacity = '1'
+        element.style.transform = 'translateY(0) scale(1)'
+      }
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <motion.div
       initial="initial"

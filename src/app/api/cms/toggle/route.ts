@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       enabled,
       message: `CMS ${enabled ? 'enabled' : 'disabled'} successfully`,
     })
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ success: false, error: 'Failed to toggle CMS' }, { status: 500 })
   }
 }

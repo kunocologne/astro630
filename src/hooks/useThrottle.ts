@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
  * Enterprise-grade throttle hook
  * Limits the rate of function execution
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useThrottle = <T extends (...args: any[]) => any>(callback: T, delay: number): T => {
   const lastRun = useRef(Date.now())
 

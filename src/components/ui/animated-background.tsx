@@ -29,7 +29,7 @@ export function AnimatedBackground({
     <div className={`absolute inset-0 overflow-hidden ${className}`}>
       {/* Animated gradient orbs */}
       <motion.div
-        className="bg-primary/20 absolute -top-40 -right-40 h-80 w-80 rounded-full blur-3xl"
+        className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-primary/20 blur-3xl"
         animate={{
           x: mousePosition.x * intensity,
           y: mousePosition.y * intensity,
@@ -37,7 +37,7 @@ export function AnimatedBackground({
         transition={{ duration: 0.3 }}
       />
       <motion.div
-        className="bg-secondary/20 absolute -bottom-40 -left-40 h-80 w-80 rounded-full blur-3xl"
+        className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-secondary/20 blur-3xl"
         animate={{
           x: -mousePosition.x * intensity,
           y: -mousePosition.y * intensity,
@@ -49,7 +49,7 @@ export function AnimatedBackground({
       {Array.from({ length: 6 }).map((_, i) => (
         <motion.div
           key={i}
-          className="bg-primary/30 absolute h-2 w-2 rounded-full"
+          className="absolute h-2 w-2 rounded-full bg-primary/30"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -65,24 +65,6 @@ export function AnimatedBackground({
           }}
         />
       ))}
-    </div>
-  )
-}
-
-// Grid Pattern Background
-export function GridPattern({ className = '' }: { className?: string }) {
-  return (
-    <div className={`absolute inset-0 ${className}`}>
-      <div className="bg-grid-pattern absolute inset-0 opacity-5" />
-    </div>
-  )
-}
-
-// Dot Pattern Background
-export function DotPattern({ className = '' }: { className?: string }) {
-  return (
-    <div className={`absolute inset-0 ${className}`}>
-      <div className="bg-dot-pattern absolute inset-0 opacity-10" />
     </div>
   )
 }

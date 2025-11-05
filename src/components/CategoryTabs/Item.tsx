@@ -12,16 +12,16 @@ export function Item({ href, title }: Props) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const active = pathname === href
-  const q = searchParams.get('q')
+  const _q = searchParams.get('q')
   const DynamicTag = active ? 'p' : Link
 
   return (
     <li className="mt-2 flex text-sm text-black dark:text-white">
       <DynamicTag
         className={clsx(
-          'text-primary/50 hover:text-primary/100 w-full rounded-md px-2 py-1 font-mono text-sm uppercase hover:bg-white/5',
+          'w-full rounded-md px-2 py-1 font-mono text-sm uppercase text-primary/50 hover:bg-white/5 hover:text-primary/100',
           {
-            'text-primary/100 bg-white/5': active,
+            'bg-white/5 text-primary/100': active,
           },
         )}
         href={href}

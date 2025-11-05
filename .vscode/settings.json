@@ -1,14 +1,24 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit",
-    "source.sortMembers": "explicit"
-  },
-  "css.validate": false,
-  "css.customData": [".vscode/tailwind.json"],
-  "files.associations": {
-    "*.css": "tailwindcss"
+  "promptEnhancer.enabled": true,
+  "promptEnhancer.autoEnhance": true,
+  "promptEnhancer.enhancementMap": {
+    "make it look more pretty": "Enhance the visual design with improved styling, colors, typography, spacing, and modern UI elements",
+    "make it prettier": "Improve the visual aesthetics with better design system, color palette, typography, and component styling",
+    "make it look better": "Enhance the visual design system with improved colors, typography, spacing, and modern UI components",
+    "make it more beautiful": "Upgrade the design system with premium styling, better color schemes, typography, and visual hierarchy",
+    "make it look good": "Implement a cohesive design system with proper styling, colors, typography, and visual consistency",
+    "make it work better": "Optimize the functionality, performance, and user experience with improved code structure and features",
+    "fix the bugs": "Identify and resolve technical issues, errors, and bugs in the codebase",
+    "make it faster": "Optimize performance with code splitting, lazy loading, caching, and efficient algorithms",
+    "make it responsive": "Implement responsive design with mobile-first approach and proper breakpoints",
+    "add more content": "Expand the content with additional sections, information, and engaging copy",
+    "make it more interesting": "Enhance the content with interactive elements, animations, and engaging user experience",
+    "add images": "Integrate high-quality images, graphics, and visual content throughout the site",
+    "make it more professional": "Implement enterprise-grade code structure, error handling, and professional development practices",
+    "make it more modern": "Update to latest technologies, modern design patterns, and current best practices",
+    "make it more secure": "Implement security best practices, authentication, and data protection measures",
+    "make it easier to use": "Improve user experience with intuitive navigation, clear information architecture, and user-friendly interface",
+    "make it more interactive": "Add interactive elements, animations, and engaging user interactions",
+    "make it more accessible": "Implement accessibility features with proper ARIA labels, keyboard navigation, and screen reader support"
   }
 }

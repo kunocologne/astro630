@@ -1,31 +1,41 @@
 # Dependencies
 node_modules/
-bun.lockb
-.pnpm-debug.log*
-.yarn-integrity
+bun.lock
+
+# Build outputs
+.next/
+dist/
+out/
 
 # Environment variables
-.env*
-!env.example
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Deprecated configs (replaced with unified versions)
-*.deprecated
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
-# Database
-database.sqlite
-database.sqlite-journal
-*.db
-*.sqlite3
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Next.js
-.next/
-out/
-build/
-dist/
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
 
-# Production builds
-*.tgz
-*.tar.gz
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+jspm_packages/
 
 # TypeScript cache
 *.tsbuildinfo
@@ -45,12 +55,25 @@ dist/
 # Optional REPL history
 .node_repl_history
 
-# parcel-bundler cache
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.test
+
+# parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
 
+# Next.js build output
+.next
+
 # Nuxt.js build / generate output
 .nuxt
+dist
 
 # Gatsby files
 .cache/
@@ -64,13 +87,12 @@ public
 tmp/
 temp/
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # OS generated files
 .DS_Store
@@ -81,19 +103,8 @@ lerna-debug.log*
 ehthumbs.db
 Thumbs.db
 
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Testing
-coverage/
-.nyc_output/
-test-results/
-playwright-report/
-playwright/.cache/
+# Payload
+payload-types.ts
 
 # Vercel
 .vercel
@@ -101,28 +112,10 @@ playwright/.cache/
 # Sentry
 .sentryclirc
 
-# Generated sites (don't commit client work)
-~/Desktop/*-site/
-~/Desktop/*-website/
-~/Desktop/*-project/
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
 
-# Backup files
-*.bak
-*.backup
-*.old
-
-# Archive files
-*.zip
-*.tar.gz
-*.rar
-
-# Cache files
-.temp/
-
-# Runtime
-*.pid
-*.seed
-*.pid.lock
-
-# Generated content
-generated/
+# Vitest
+coverage/

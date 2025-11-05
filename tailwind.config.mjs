@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin')
+import plugin from 'tailwindcss/plugin'
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -26,12 +26,12 @@ export default {
     container: {
       center: true,
       padding: {
-        '2xl': '2rem',
-        DEFAULT: '1rem',
-        lg: '2rem',
-        md: '2rem',
-        sm: '1rem',
-        xl: '2rem',
+        '2xl': '3rem',
+        'DEFAULT': '1.5rem',
+        'lg': '3rem',
+        'md': '2rem',
+        'sm': '1rem',
+        'xl': '2.5rem',
       },
       screens: {
         '2xl': '86rem',

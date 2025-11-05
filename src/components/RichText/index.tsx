@@ -1,4 +1,4 @@
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { MediaBlock } from '@/cms/blocks/MediaBlock/Component'
 import { DefaultNodeTypes, SerializedBlockNode } from '@payloadcms/richtext-lexical'
 import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import {
@@ -6,16 +6,16 @@ import {
   RichText as RichTextWithoutBlocks,
 } from '@payloadcms/richtext-lexical/react'
 
-import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
+import { CodeBlock, CodeBlockProps } from '@/cms/blocks/Code/Component'
 
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
-} from '@/payload-types'
-import { BannerBlock } from '@/blocks/Banner/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
-import { cn } from '@/utilities/cn'
+} from '@/types/payload-types'
+import { BannerBlock } from '@/cms/blocks/Banner/Component'
+import { CallToActionBlock } from '@/cms/blocks/CallToAction/Component'
+import { cn } from '@/lib/utils/cn'
 
 type NodeTypes =
   | DefaultNodeTypes
@@ -55,7 +55,7 @@ export const RichText: React.FC<Props> = (props) => {
         {
           container: enableGutter,
           'max-w-none': !enableGutter,
-          'prose md:prose-md dark:prose-invert mx-auto': enableProse,
+          'md:prose-md prose mx-auto dark:prose-invert': enableProse,
         },
         className,
       )}

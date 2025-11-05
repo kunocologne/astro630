@@ -1,9 +1,5 @@
-import { Providers } from '@/providers'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import './globals.css'
 
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
@@ -23,23 +19,7 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html
-      className={[GeistSans.variable, GeistMono.variable].filter(Boolean).join(' ')}
-      lang="en"
-      suppressHydrationWarning
-    >
-      <head>
-        <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-      </head>
-      <body>
-        <Providers>
-          <main id="main-content" role="main">
-            {children}
-          </main>
-        </Providers>
-      </body>
-    </html>
-  )
+  // This root layout must not render html/body tags
+  // Each route group (app) and (payload) handles its own HTML structure
+  return children
 }

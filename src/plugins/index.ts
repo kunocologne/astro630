@@ -7,15 +7,15 @@ import { Plugin } from 'payload'
 
 import { stripeAdapter } from '@payloadcms/plugin-ecommerce/payments/stripe'
 
-import { adminOnly } from '@/access/adminOnly'
-import { adminOnlyFieldAccess } from '@/access/adminOnlyFieldAccess'
-import { adminOrCustomerOwner } from '@/access/adminOrCustomerOwner'
-import { adminOrPublishedStatus } from '@/access/adminOrPublishedStatus'
-import { customerOnlyFieldAccess } from '@/access/customerOnlyFieldAccess'
-import { publicAccess } from '@/access/publicAccess'
-import { ProductsCollection } from '@/collections/Products'
-import { Page, Product } from '@/payload-types'
-import { getServerSideURL } from '@/utilities/getURL'
+import { adminOnly } from '@/cms/access/adminOnly'
+import { adminOnlyFieldAccess } from '@/cms/access/adminOnlyFieldAccess'
+import { adminOrCustomerOwner } from '@/cms/access/adminOrCustomerOwner'
+import { adminOrPublishedStatus } from '@/cms/access/adminOrPublishedStatus'
+import { customerOnlyFieldAccess } from '@/cms/access/customerOnlyFieldAccess'
+import { publicAccess } from '@/cms/access/publicAccess'
+import { ProductsCollection } from '@/cms/collections/Products'
+import { Page, Product } from '@/types/payload-types'
+import { getServerSideURL } from '@/lib/utils/getURL'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Ecommerce Template` : 'Payload Ecommerce Template'
@@ -79,16 +79,19 @@ export const plugins: Plugin[] = [
       slug: 'users',
     },
     payments: {
-      paymentMethods: [
-        stripeAdapter({
-          secretKey: process.env.STRIPE_SECRET_KEY!,
-          publishableKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
-          webhookSecret: process.env.STRIPE_WEBHOOKS_SIGNING_SECRET!,
-        }),
-      ],
+      paymentMethods:
+        process.env.STRIPE_SECRET_KEY && process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+          ? [
+              stripeAdapter({
+                secretKey: process.env.STRIPE_SECRET_KEY,
+                publishableKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+                webhookSecret: process.env.STRIPE_WEBHOOKS_SIGNING_SECRET || '',
+              }),
+            ]
+          : [],
     },
     products: {
-      productsCollectionOverride: ProductsCollection,
+      productsCollectionOverride: () => ProductsCollection,
     },
   }),
 ]

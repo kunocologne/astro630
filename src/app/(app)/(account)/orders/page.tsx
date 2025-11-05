@@ -1,9 +1,9 @@
-import type { Order } from '@/payload-types'
+import type { Order } from '@/types/payload-types'
 import type { Metadata } from 'next'
 
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/lib/utils/mergeOpenGraph'
 
-import { OrderItem } from '@/components/OrderItem'
+import { OrderItem } from '@/features/OrderItem'
 import { headers as getHeaders } from 'next/headers'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -35,11 +35,11 @@ export default async function Orders() {
     })
 
     orders = ordersResult?.docs || []
-  } catch (error) {}
+  } catch (_error) {}
 
   return (
     <>
-      <div className="bg-primary-foreground w-full rounded-lg border p-8">
+      <div className="w-full rounded-lg border bg-primary-foreground p-8">
         <h1 className="mb-8 text-3xl font-medium">Orders</h1>
         {(!orders || !Array.isArray(orders) || orders?.length === 0) && (
           <p className="">You have no orders.</p>
@@ -47,7 +47,7 @@ export default async function Orders() {
 
         {orders && orders.length > 0 && (
           <ul className="flex flex-col gap-6">
-            {orders?.map((order, index) => (
+            {orders?.map((order, _index) => (
               <li key={order.id}>
                 <OrderItem order={order} />
               </li>

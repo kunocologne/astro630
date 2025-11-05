@@ -2,13 +2,13 @@
 
 import type { StaticImageData } from 'next/image'
 
-import { cn } from '@/utilities/cn'
+import { cn } from '@/lib/utils/cn'
 import NextImage from 'next/image'
 import React from 'react'
 
 import type { Props as MediaProps } from '../types'
 
-import { cssVariables } from '@/cssVariables'
+import { cssVariables } from '@/lib/css-variables'
 
 const { breakpoints } = cssVariables
 
@@ -37,7 +37,7 @@ export const Image: React.FC<MediaProps> = (props) => {
   if (!src && resource && typeof resource === 'object') {
     const {
       alt: altFromResource,
-      filename: fullFilename,
+      filename: _fullFilename,
       height: fullHeight,
       url,
       width: fullWidth,

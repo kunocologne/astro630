@@ -1,98 +1,69 @@
-import type { Metadata } from 'next'
-
-import { RenderBlocks } from '@/blocks/RenderBlocks'
-import { homeStaticData } from '@/endpoints/seed/home-static'
-import { RenderHero } from '@/heros/RenderHero'
-import { generateMeta } from '@/utilities/generateMeta'
 import configPromise from '@payload-config'
+import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { getPayload } from 'payload'
-
-import type { Page } from '@/payload-types'
 import { notFound } from 'next/navigation'
-
-export async function generateStaticParams() {
-  // Return empty array to prevent build failures
-  // Pages will be generated on-demand at runtime
-  return []
-}
+import { getPayload } from 'payload'
 
 type Args = {
   params: Promise<{
-    slug?: string
+    slug: string
   }>
 }
 
-export default async function Page({ params }: Args) {
-  const { slug = 'home' } = await params
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { slug } = await params
+  const page = await queryPageBySlug({ slug })
 
-  let page = await queryPageBySlug({
-    slug,
-  })
-
-  // Remove this code once your website is seeded
-  if (!page && slug === 'home') {
-    page = homeStaticData() as Page
+  return {
+    title: page?.title || 'Page',
+    description: page?.content ? String(page.content).slice(0, 160) : '',
   }
+}
+
+export default async function Page({ params }: Args) {
+  const { slug } = await params
+  const page = await queryPageBySlug({ slug })
 
   if (!page) {
     return notFound()
   }
 
-  const { hero, layout } = page
-
   return (
-    <article className="pt-16 pb-24">
-      <RenderHero {...hero} />
-      <RenderBlocks blocks={layout} />
-    </article>
+    <div className="min-h-screen py-24">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h1 className="mb-6 text-4xl font-bold text-gray-900 dark:text-white">{page.title}</h1>
+        {page.content && (
+          <div className="prose prose-lg max-w-none dark:prose-invert">
+            {/* Render rich text content here - you can add Payload's RichText component if needed */}
+            <div className="text-gray-700 dark:text-gray-300">
+              {typeof page.content === 'string'
+                ? page.content
+                : 'Content stored in CMS. Install @payloadcms/richtext-lexical to render rich text.'}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
 
-export async function generateMetadata({ params }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await params
+const queryPageBySlug = async ({ slug }: { slug: string }) => {
+  const { isEnabled: draft } = await draftMode()
 
-  const page = await queryPageBySlug({
-    slug,
+  const payload = await getPayload({ config: configPromise })
+
+  const result = await payload.find({
+    collection: 'pages',
+    depth: 1,
+    draft,
+    limit: 1,
+    overrideAccess: draft,
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
   })
 
-  if (!page) {
-    return {
-      title: 'Page Not Found',
-      description: 'The requested page could not be found.',
-    }
-  }
-
-  return generateMeta({ doc: page })
-}
-
-const queryPageBySlug = async ({ slug }: { slug: string }) => {
-  try {
-    const { isEnabled: draft } = await draftMode()
-
-    const payload = await getPayload({ config: configPromise })
-
-    const result = await payload.find({
-      collection: 'pages',
-      draft,
-      limit: 1,
-      overrideAccess: draft,
-      pagination: false,
-      where: {
-        and: [
-          {
-            slug: {
-              equals: slug,
-            },
-          },
-          ...(draft ? [] : [{ _status: { equals: 'published' } }]),
-        ],
-      },
-    })
-
-    return result.docs?.[0] || null
-  } catch (error) {
-    console.warn('Failed to query page:', error)
-    return null
-  }
+  return result.docs?.[0] || null
 }

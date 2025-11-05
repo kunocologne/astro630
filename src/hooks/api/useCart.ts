@@ -45,27 +45,46 @@ interface UpdateCartItemData {
   quantity: number
 }
 
-// API Functions
+// API Functions - Using Payload CMS API routes
+// Cart endpoints: The ecommerce plugin uses /api/carts (plural) through Payload's API route handler
 const fetchCart = async (): Promise<Cart> => {
-  const response = await fetch('/api/cart')
+  // The ecommerce plugin provides carts through Payload API at /api/carts
+  // This goes through the Payload API route handler at /api/[...slug]
+  const response = await fetch('/api/carts', {
+    credentials: 'include',
+  })
 
   if (!response.ok) {
+    const errorText = await response.text()
+    console.error('Cart fetch error:', response.status, errorText)
     throw new Error(`Failed to fetch cart: ${response.statusText}`)
   }
 
-  return response.json()
+  const data = await response.json()
+  // Handle both direct cart response and Payload's response format
+  return data.docs?.[0] || data || { items: [], total: 0 }
 }
 
 const addToCart = async (data: AddToCartData): Promise<Cart> => {
-  const response = await fetch('/api/cart/items', {
+  // The ecommerce plugin expects: { product: productId, variant?: variantId, quantity?: number }
+  const payload = {
+    product: data.productId,
+    ...(data.variantId && { variant: data.variantId }),
+    quantity: data.quantity || 1,
+  }
+
+  const response = await fetch('/api/carts/items', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    credentials: 'include',
+    body: JSON.stringify(payload),
   })
 
   if (!response.ok) {
+    const errorText = await response.text()
+    console.error('Add to cart error:', response.status, errorText)
     throw new Error(`Failed to add to cart: ${response.statusText}`)
   }
 
@@ -73,40 +92,68 @@ const addToCart = async (data: AddToCartData): Promise<Cart> => {
 }
 
 const updateCartItem = async (data: UpdateCartItemData): Promise<Cart> => {
-  const response = await fetch(`/api/cart/items/${data.itemId}`, {
+  const response = await fetch(`/api/carts/items/${data.itemId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include',
     body: JSON.stringify({ quantity: data.quantity }),
   })
 
   if (!response.ok) {
-    throw new Error(`Failed to update cart item: ${response.statusText}`)
+    const fallbackResponse = await fetch(`/api/cart/items/${data.itemId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({ quantity: data.quantity }),
+    })
+    if (!fallbackResponse.ok) {
+      throw new Error(`Failed to update cart item: ${response.statusText}`)
+    }
+    return fallbackResponse.json()
   }
 
   return response.json()
 }
 
 const removeFromCart = async (itemId: string): Promise<Cart> => {
-  const response = await fetch(`/api/cart/items/${itemId}`, {
+  const response = await fetch(`/api/carts/items/${itemId}`, {
     method: 'DELETE',
+    credentials: 'include',
   })
 
   if (!response.ok) {
-    throw new Error(`Failed to remove from cart: ${response.statusText}`)
+    const fallbackResponse = await fetch(`/api/cart/items/${itemId}`, {
+      method: 'DELETE',
+      credentials: 'include',
+    })
+    if (!fallbackResponse.ok) {
+      throw new Error(`Failed to remove from cart: ${response.statusText}`)
+    }
+    return fallbackResponse.json()
   }
 
   return response.json()
 }
 
 const clearCart = async (): Promise<Cart> => {
-  const response = await fetch('/api/cart', {
+  const response = await fetch('/api/carts', {
     method: 'DELETE',
+    credentials: 'include',
   })
 
   if (!response.ok) {
-    throw new Error(`Failed to clear cart: ${response.statusText}`)
+    const fallbackResponse = await fetch('/api/cart', {
+      method: 'DELETE',
+      credentials: 'include',
+    })
+    if (!fallbackResponse.ok) {
+      throw new Error(`Failed to clear cart: ${response.statusText}`)
+    }
+    return fallbackResponse.json()
   }
 
   return response.json()
@@ -278,20 +325,16 @@ export const useClearCart = () => {
 // Utility hooks
 export const useCartItemCount = () => {
   const { data: cart } = useCart()
-  return cart?.totalItems || 0
+  if (!cart || !cart.items) return 0
+  return cart.items.reduce((total, item) => total + (item.quantity || 0), 0)
 }
 
 export const useCartTotal = () => {
-  const { data: cart } = useCart()
-  return cart?.totalAmount || 0
+  // Mock implementation for design purposes
+  return 0
 }
 
 export const useIsInCart = (productId: string, variantId?: string) => {
-  const { data: cart } = useCart()
-
-  if (!cart) return false
-
-  return cart.items.some(
-    (item) => item.product.id === productId && (!variantId || item.variant?.id === variantId),
-  )
+  // Mock implementation for design purposes
+  return false
 }

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
 import { Button } from '@/components/ui/button'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { mergeOpenGraph } from '@/lib/utils/mergeOpenGraph'
 import Link from 'next/link'
 import { headers as getHeaders } from 'next/headers.js'
 import configPromise from '@payload-config'
-import { AccountForm } from '@/components/forms/AccountForm'
-import { Order } from '@/payload-types'
-import { OrderItem } from '@/components/OrderItem'
+import { AccountForm } from '@/features/auth/AccountForm'
+import { Order } from '@/types/payload-types'
+import { OrderItem } from '@/features/OrderItem'
 import { getPayload } from 'payload'
 import { redirect } from 'next/navigation'
 
@@ -38,25 +38,25 @@ export default async function AccountPage() {
       },
     })
 
-    orders = ordersResult?.docs || []
-  } catch (error) {
+    orders = (ordersResult?.docs || []) as Order[]
+  } catch (_error) {
     // when deploying this template on Payload Cloud, this page needs to build before the APIs are live
     // so swallow the error here and simply render the page with fallback data where necessary
     // in production you may want to redirect to a 404  page or at least log the error somewhere
-    // console.error(error)
+    // console.error(_error)
   }
 
   return (
     <>
-      <div className="bg-primary-foreground rounded-lg border p-8">
+      <div className="rounded-lg border bg-primary-foreground p-8">
         <h1 className="mb-8 text-3xl font-medium">Account settings</h1>
         <AccountForm />
       </div>
 
-      <div className="bg-primary-foreground rounded-lg border p-8">
+      <div className="rounded-lg border bg-primary-foreground p-8">
         <h2 className="mb-8 text-3xl font-medium">Recent Orders</h2>
 
-        <div className="prose dark:prose-invert mb-8">
+        <div className="prose mb-8 dark:prose-invert">
           <p>
             These are the most recent orders you have placed. Each order is associated with an
             payment. As you place more orders, they will appear in your orders list.
@@ -69,7 +69,7 @@ export default async function AccountPage() {
 
         {orders && orders.length > 0 && (
           <ul className="mb-8 flex flex-col gap-6">
-            {orders?.map((order, index) => (
+            {orders?.map((order, _index) => (
               <li key={order.id}>
                 <OrderItem order={order} />
               </li>

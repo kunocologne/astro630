@@ -6,6 +6,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    "types": [],
     "strict": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
@@ -23,9 +24,16 @@
       }
     ],
     "paths": {
-      "@payload-config": ["./src/payload.config.ts"],
+      "@payload-config": ["./src/cms/config.ts"],
       "@/*": ["./src/*"],
-      "@/payload-types": ["./src/payload-types.ts"]
+      "@/components/*": ["./src/components/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/cms/*": ["./src/cms/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/payload-types": ["./src/types/payload-types.ts"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "redirects.js", "next.config.js"],

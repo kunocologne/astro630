@@ -1,4 +1,4 @@
-import { isCMSEnabled } from '@/lib/cms-toggle'
+import { isCMSEnabled } from '@/lib/config/cms-toggle'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
@@ -19,7 +19,7 @@ export async function GET() {
       collections: 3, // users, pages, blog-posts
       globals: 2, // header, footer
     })
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({
       enabled: false,
       collections: 0,
