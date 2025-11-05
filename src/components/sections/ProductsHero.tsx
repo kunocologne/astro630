@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Product } from '@/types/payload-types'
-import { GradientOverlay } from '@/components/common/GradientOverlay'
+import { GradientOverlay } from '@/components/effects/GradientOverlay'
 
 interface ProductsHeroProps {
   products: Product[]

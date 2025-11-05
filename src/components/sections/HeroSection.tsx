@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { GradientOverlay } from '@/components/common/GradientOverlay'
+import { GradientOverlay } from '@/components/effects/GradientOverlay'
 
 gsap.registerPlugin(ScrollTrigger)
 

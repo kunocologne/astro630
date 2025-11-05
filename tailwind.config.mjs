@@ -27,11 +27,11 @@ export default {
       center: true,
       padding: {
         '2xl': '3rem',
-        'DEFAULT': '1.5rem',
-        'lg': '3rem',
-        'md': '2rem',
-        'sm': '1rem',
-        'xl': '2.5rem',
+        DEFAULT: '1.5rem',
+        lg: '3rem',
+        md: '2rem',
+        sm: '1rem',
+        xl: '2.5rem',
       },
       screens: {
         '2xl': '86rem',

@@ -8,19 +8,19 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col antialiased">
+    <div className="flex min-h-screen flex-col bg-background text-foreground antialiased">
       {/* HERO */}
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/3 left-1/3 h-[500px] w-[500px] rounded-full bg-cyan-600/[0.12] blur-[120px]" />
-          <div className="absolute right-1/3 bottom-1/3 h-[500px] w-[500px] rounded-full bg-teal-600/[0.12] blur-[120px]" />
+          <div className="absolute left-1/3 top-1/3 h-[500px] w-[500px] rounded-full bg-cyan-600/[0.12] blur-[120px]" />
+          <div className="absolute bottom-1/3 right-1/3 h-[500px] w-[500px] rounded-full bg-teal-600/[0.12] blur-[120px]" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-5xl space-y-8 text-center">
-          <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] leading-[1.1] font-semibold tracking-[-0.02em] [text-wrap:balance]">
+          <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] [text-wrap:balance]">
             Get in touch
           </h1>
-          <p className="text-muted-foreground mx-auto max-w-2xl text-[clamp(0.9rem,1.3vw,1.1rem)] leading-relaxed font-light">
+          <p className="mx-auto max-w-2xl text-[clamp(0.9rem,1.3vw,1.1rem)] font-light leading-relaxed text-muted-foreground">
             Have a question? We&apos;d love to hear from you.
           </p>
         </div>
@@ -35,7 +35,7 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <div>
                   <h2 className="mb-2 text-lg font-semibold">Send us a message</h2>
-                  <p className="text-muted-foreground font-light">
+                  <p className="font-light text-muted-foreground">
                     We&apos;ll get back to you within 24 hours
                   </p>
                 </div>
@@ -186,7 +186,7 @@ export default function ContactPage() {
                   <div className="flex-shrink-0 text-3xl">{faq.emoji}</div>
                   <div className="space-y-2">
                     <h4 className="text-base font-semibold">{faq.q}</h4>
-                    <p className="text-sm leading-relaxed font-light text-gray-400">{faq.a}</p>
+                    <p className="text-sm font-light leading-relaxed text-gray-400">{faq.a}</p>
                   </div>
                 </div>
               </div>

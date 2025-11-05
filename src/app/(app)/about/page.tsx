@@ -27,14 +27,14 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col antialiased">
+    <div className="flex min-h-screen flex-col bg-background text-foreground antialiased">
       {/* HERO - Interactive Animated Layout */}
       <section className="relative flex min-h-[90vh] items-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 overflow-hidden">
           <div className="from-foreground/3 to-foreground/3 absolute inset-0 bg-gradient-to-r via-transparent" />
-          <div className="absolute top-0 left-0 h-full w-full bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-violet-500/[0.15] via-transparent to-transparent" />
-          <div className="absolute right-0 bottom-0 h-full w-full bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-blue-500/[0.15] via-transparent to-transparent" />
-          <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 transform animate-pulse bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-purple-500/[0.05] via-transparent to-transparent" />
+          <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-violet-500/[0.15] via-transparent to-transparent" />
+          <div className="absolute bottom-0 right-0 h-full w-full bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-blue-500/[0.15] via-transparent to-transparent" />
+          <div className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 transform animate-pulse bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-purple-500/[0.05] via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
@@ -42,10 +42,10 @@ export default function AboutPage() {
             {/* Left side - Content with floating elements */}
             <div className="relative space-y-10">
               {/* Floating icons around content */}
-              <div className="absolute -top-8 -right-8 flex h-16 w-16 animate-bounce items-center justify-center rounded-full border border-violet-500/30 bg-gradient-to-r from-violet-500/20 to-purple-500/20">
+              <div className="absolute -right-8 -top-8 flex h-16 w-16 animate-bounce items-center justify-center rounded-full border border-violet-500/30 bg-gradient-to-r from-violet-500/20 to-purple-500/20">
                 <Star className="h-8 w-8 text-violet-400" />
               </div>
-              <div className="absolute top-1/2 -left-12 flex h-12 w-12 animate-pulse items-center justify-center rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
+              <div className="absolute -left-12 top-1/2 flex h-12 w-12 animate-pulse items-center justify-center rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
                 <Heart className="h-6 w-6 text-blue-400" />
               </div>
 
@@ -54,13 +54,13 @@ export default function AboutPage() {
                   <Sparkles className="h-4 w-4" />
                   <span>About JUNO</span>
                 </div>
-                <h1 className="text-[clamp(1.5rem,4.5vw,3.5rem)] leading-[1.1] font-bold tracking-[-0.02em]">
+                <h1 className="text-[clamp(1.5rem,4.5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.02em]">
                   Built for{' '}
                   <span className="animate-pulse bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
                     everything
                   </span>
                 </h1>
-                <p className="text-muted-foreground text-[clamp(0.9rem,1.3vw,1.1rem)] leading-relaxed font-light">
+                <p className="text-[clamp(0.9rem,1.3vw,1.1rem)] font-light leading-relaxed text-muted-foreground">
                   A modern e-commerce template that combines premium design with powerful
                   functionality. Build anything you can imagine.
                 </p>
@@ -82,7 +82,7 @@ export default function AboutPage() {
                       <stat.icon className={`h-5 w-5 ${stat.color}`} />
                       <div className={`text-xl font-bold ${stat.color}`}>{stat.value}</div>
                     </div>
-                    <div className="text-muted-foreground text-sm">{stat.label}</div>
+                    <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -95,28 +95,28 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/[0.08] via-transparent to-transparent" />
 
                 {/* Floating corner elements */}
-                <div className="group absolute top-6 left-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/20 transition-transform hover:scale-110">
+                <div className="group absolute left-6 top-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/20 transition-transform hover:scale-110">
                   <Code className="h-8 w-8 text-violet-400" />
                 </div>
-                <div className="group absolute top-6 right-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-500/30 bg-blue-500/20 transition-transform hover:scale-110">
+                <div className="group absolute right-6 top-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-500/30 bg-blue-500/20 transition-transform hover:scale-110">
                   <Layers className="h-8 w-8 text-blue-400" />
                 </div>
                 <div className="group absolute bottom-6 left-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-purple-500/30 bg-purple-500/20 transition-transform hover:scale-110">
                   <Palette className="h-8 w-8 text-purple-400" />
                 </div>
-                <div className="group absolute right-6 bottom-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/20 transition-transform hover:scale-110">
+                <div className="group absolute bottom-6 right-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/20 transition-transform hover:scale-110">
                   <Rocket className="h-8 w-8 text-amber-400" />
                 </div>
 
                 {/* Center element */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
                   <div className="group flex h-32 w-32 items-center justify-center rounded-3xl border border-white/[0.2] bg-gradient-to-br from-violet-500/20 to-blue-500/20 backdrop-blur-sm transition-transform hover:scale-110">
                     <Sparkles className="h-16 w-16 text-white" />
                   </div>
                 </div>
 
                 {/* Floating accent elements */}
-                <div className="absolute top-20 left-1/2 h-8 w-8 -translate-x-1/2 transform animate-bounce rounded-full bg-gradient-to-r from-pink-500/30 to-red-500/30">
+                <div className="absolute left-1/2 top-20 h-8 w-8 -translate-x-1/2 transform animate-bounce rounded-full bg-gradient-to-r from-pink-500/30 to-red-500/30">
                   <Heart className="mx-auto mt-2 h-4 w-4 text-pink-400" />
                 </div>
                 <div className="absolute bottom-20 left-1/2 h-8 w-8 -translate-x-1/2 transform animate-pulse rounded-full bg-gradient-to-r from-green-500/30 to-emerald-500/30">
@@ -125,7 +125,7 @@ export default function AboutPage() {
               </div>
 
               {/* Floating elements outside the main container */}
-              <div className="absolute -top-4 -right-4 flex h-12 w-12 animate-bounce items-center justify-center rounded-full border border-cyan-500/30 bg-gradient-to-r from-cyan-500/20 to-blue-500/20">
+              <div className="absolute -right-4 -top-4 flex h-12 w-12 animate-bounce items-center justify-center rounded-full border border-cyan-500/30 bg-gradient-to-r from-cyan-500/20 to-blue-500/20">
                 <Globe className="h-6 w-6 text-cyan-400" />
               </div>
               <div className="absolute -bottom-4 -left-4 flex h-12 w-12 animate-pulse items-center justify-center rounded-full border border-emerald-500/30 bg-gradient-to-r from-emerald-500/20 to-green-500/20">
@@ -230,7 +230,7 @@ export default function AboutPage() {
             ].map((feature, i) => (
               <div
                 key={i}
-                className={`group relative ${feature.rotation} animate-fade-in-up transition-all duration-500 hover:scale-105 hover:rotate-0`}
+                className={`group relative ${feature.rotation} animate-fade-in-up transition-all duration-500 hover:rotate-0 hover:scale-105`}
                 style={{ animationDelay: `${feature.delay}ms` }}
               >
                 <div
@@ -246,7 +246,7 @@ export default function AboutPage() {
 
                     <div className="space-y-3">
                       <h3 className="text-lg font-semibold tracking-tight">{feature.title}</h3>
-                      <p className="text-sm leading-relaxed font-light text-gray-400">
+                      <p className="text-sm font-light leading-relaxed text-gray-400">
                         {feature.description}
                       </p>
                     </div>
@@ -268,7 +268,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Floating accent element */}
-                <div className="absolute -top-2 -right-2 h-6 w-6 animate-pulse rounded-full border border-white/[0.3] bg-gradient-to-r from-white/[0.2] to-transparent" />
+                <div className="absolute -right-2 -top-2 h-6 w-6 animate-pulse rounded-full border border-white/[0.3] bg-gradient-to-r from-white/[0.2] to-transparent" />
               </div>
             ))}
           </div>
@@ -321,7 +321,7 @@ export default function AboutPage() {
                 <div className="space-y-6">
                   <div className="text-4xl">{item.icon}</div>
                   <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="text-sm leading-relaxed font-light text-gray-400">
+                  <p className="text-sm font-light leading-relaxed text-gray-400">
                     {item.description}
                   </p>
                 </div>
@@ -469,11 +469,11 @@ export default function AboutPage() {
                             <item.icon className={`h-8 w-8 ${item.iconColor}`} />
                           </div>
                           <div className="space-y-3">
-                            <div className="text-sm font-medium tracking-wider text-gray-300 uppercase">
+                            <div className="text-sm font-medium uppercase tracking-wider text-gray-300">
                               {item.phase}
                             </div>
                             <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
-                            <p className="text-sm leading-relaxed font-light text-gray-400">
+                            <p className="text-sm font-light leading-relaxed text-gray-400">
                               {item.description}
                             </p>
                           </div>
@@ -482,7 +482,7 @@ export default function AboutPage() {
 
                       {/* Floating accent */}
                       <div
-                        className={`absolute ${item.side === 'left' ? '-top-2 -left-2' : '-top-2 -right-2'} h-6 w-6 animate-pulse rounded-full border border-white/[0.3] bg-gradient-to-r from-white/[0.2] to-transparent`}
+                        className={`absolute ${item.side === 'left' ? '-left-2 -top-2' : '-right-2 -top-2'} h-6 w-6 animate-pulse rounded-full border border-white/[0.3] bg-gradient-to-r from-white/[0.2] to-transparent`}
                       />
                     </div>
                   </div>
@@ -501,10 +501,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-5xl space-y-10 text-center">
           <div className="relative">
             {/* Floating background elements */}
-            <div className="absolute -top-8 -left-8 flex h-16 w-16 animate-bounce items-center justify-center rounded-full border border-violet-500/30 bg-gradient-to-r from-violet-500/20 to-purple-500/20">
+            <div className="absolute -left-8 -top-8 flex h-16 w-16 animate-bounce items-center justify-center rounded-full border border-violet-500/30 bg-gradient-to-r from-violet-500/20 to-purple-500/20">
               <Star className="h-8 w-8 text-violet-400" />
             </div>
-            <div className="absolute -top-8 -right-8 flex h-16 w-16 animate-pulse items-center justify-center rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
+            <div className="absolute -right-8 -top-8 flex h-16 w-16 animate-pulse items-center justify-center rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/20 to-cyan-500/20">
               <Rocket className="h-8 w-8 text-blue-400" />
             </div>
 
@@ -520,7 +520,7 @@ export default function AboutPage() {
                 </span>{' '}
                 today
               </h2>
-              <p className="mx-auto max-w-2xl text-base leading-relaxed font-light text-gray-400">
+              <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-gray-400">
                 Everything you need to launch your next project with confidence and style
               </p>
             </div>

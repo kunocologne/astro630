@@ -3,7 +3,7 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
-import { GradientOverlay } from '@/components/common/GradientOverlay'
+import { GradientOverlay } from '@/components/effects/GradientOverlay'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {

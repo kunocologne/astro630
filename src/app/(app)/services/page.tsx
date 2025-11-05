@@ -20,12 +20,12 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col antialiased">
+    <div className="flex min-h-screen flex-col bg-background text-foreground antialiased">
       {/* HERO - Diagonal Layout */}
       <section className="relative flex min-h-[85vh] items-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 overflow-hidden">
           <div className="from-foreground/4 to-foreground/4 absolute inset-0 bg-gradient-to-br via-transparent" />
-          <div className="absolute top-0 right-0 h-full w-2/3 bg-[linear-gradient(135deg,_var(--tw-gradient-stops))] from-blue-500/[0.08] via-transparent to-purple-500/[0.08]" />
+          <div className="absolute right-0 top-0 h-full w-2/3 bg-[linear-gradient(135deg,_var(--tw-gradient-stops))] from-blue-500/[0.08] via-transparent to-purple-500/[0.08]" />
           <div className="absolute bottom-0 left-0 h-2/3 w-1/3 bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-amber-500/[0.06] via-transparent to-transparent" />
         </div>
 
@@ -38,13 +38,13 @@ export default function ServicesPage() {
                   <Target className="h-4 w-4" />
                   <span>Our Services</span>
                 </div>
-                <h1 className="text-[clamp(2rem,6vw,4.5rem)] leading-[1.1] font-bold tracking-[-0.02em]">
+                <h1 className="text-[clamp(2rem,6vw,4.5rem)] font-bold leading-[1.1] tracking-[-0.02em]">
                   Services we{' '}
                   <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-amber-400 bg-clip-text text-transparent">
                     offer
                   </span>
                 </h1>
-                <p className="text-muted-foreground max-w-2xl text-[clamp(1rem,1.5vw,1.25rem)] leading-relaxed font-light">
+                <p className="max-w-2xl text-[clamp(1rem,1.5vw,1.25rem)] font-light leading-relaxed text-muted-foreground">
                   From coaching to complete product development. Everything you need to succeed in
                   today&apos;s digital landscape.
                 </p>
@@ -56,21 +56,21 @@ export default function ServicesPage() {
                     <Users className="h-6 w-6 text-blue-400" />
                   </div>
                   <div className="text-base font-semibold">Coaching</div>
-                  <div className="text-muted-foreground text-xs">1-on-1 sessions</div>
+                  <div className="text-xs text-muted-foreground">1-on-1 sessions</div>
                 </div>
                 <div className="space-y-2 text-center">
                   <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-purple-500/20 bg-purple-500/10">
                     <Code className="h-6 w-6 text-purple-400" />
                   </div>
                   <div className="text-base font-semibold">Development</div>
-                  <div className="text-muted-foreground text-xs">Full-stack solutions</div>
+                  <div className="text-xs text-muted-foreground">Full-stack solutions</div>
                 </div>
                 <div className="space-y-2 text-center">
                   <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-500/20 bg-amber-500/10">
                     <Rocket className="h-6 w-6 text-amber-400" />
                   </div>
                   <div className="text-base font-semibold">Launch</div>
-                  <div className="text-muted-foreground text-xs">Go-to-market</div>
+                  <div className="text-xs text-muted-foreground">Go-to-market</div>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function ServicesPage() {
                       </div>
                       <div className="text-sm font-semibold">Analytics</div>
                     </div>
-                    <p className="text-muted-foreground text-xs">
+                    <p className="text-xs text-muted-foreground">
                       Track performance with detailed insights
                     </p>
                   </div>
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                       </div>
                       <div className="text-sm font-semibold">SEO</div>
                     </div>
-                    <p className="text-muted-foreground text-xs">Optimize for search engines</p>
+                    <p className="text-xs text-muted-foreground">Optimize for search engines</p>
                   </div>
                 </div>
 
@@ -115,7 +115,7 @@ export default function ServicesPage() {
                       </div>
                       <div className="text-sm font-semibold">Support</div>
                     </div>
-                    <p className="text-muted-foreground text-xs">24/7 customer assistance</p>
+                    <p className="text-xs text-muted-foreground">24/7 customer assistance</p>
                   </div>
                 </div>
               </div>
@@ -134,7 +134,7 @@ export default function ServicesPage() {
                 <div className="space-y-6">
                   <Users className="h-16 w-16 text-blue-400" />
                   <h3 className="text-xl font-semibold">Business Coaching</h3>
-                  <p className="text-sm leading-relaxed font-light text-gray-400">
+                  <p className="text-sm font-light leading-relaxed text-gray-400">
                     One-on-one coaching to help you reach your business goals with personalized
                     strategies and actionable insights.
                   </p>
@@ -161,7 +161,7 @@ export default function ServicesPage() {
               <div className="space-y-4">
                 <Layout className="h-12 w-12 text-purple-400" />
                 <h4 className="text-xl font-semibold">UI Design</h4>
-                <p className="leading-relaxed font-light text-gray-400">
+                <p className="font-light leading-relaxed text-gray-400">
                   Beautiful, intuitive interfaces that users love. From wireframes to high-fidelity
                   mockups.
                 </p>
@@ -172,7 +172,7 @@ export default function ServicesPage() {
               <div className="space-y-4">
                 <Palette className="h-12 w-12 text-pink-400" />
                 <h4 className="text-xl font-semibold">UX Design</h4>
-                <p className="leading-relaxed font-light text-gray-400">
+                <p className="font-light leading-relaxed text-gray-400">
                   Research-backed user experiences that drive engagement and conversions.
                 </p>
               </div>
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                 <div className="space-y-4">
                   <Target className="h-12 w-12 text-green-400" />
                   <h4 className="text-xl font-semibold">Marketing</h4>
-                  <p className="max-w-2xl leading-relaxed font-light text-gray-400">
+                  <p className="max-w-2xl font-light leading-relaxed text-gray-400">
                     Data-driven marketing strategies that grow your business and reach the right
                     audience.
                   </p>
@@ -255,7 +255,7 @@ export default function ServicesPage() {
                 <div className="space-y-4">
                   <service.icon className={`h-10 w-10 ${service.color}`} />
                   <h4 className="text-xl font-semibold">{service.title}</h4>
-                  <p className="text-sm leading-relaxed font-light text-gray-400">{service.desc}</p>
+                  <p className="text-sm font-light leading-relaxed text-gray-400">{service.desc}</p>
                 </div>
               </div>
             ))}
